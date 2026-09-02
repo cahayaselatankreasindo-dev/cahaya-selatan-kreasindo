@@ -10,6 +10,7 @@ const heroImgs = [
   ['jnt-cargo-neon-box', 'Neon box J&T Cargo'],
   ['booth-barn-mall', 'Booth aktivasi bertema barn di atrium mall'],
 ];
+import WaIcon from '../components/WaIcon.astro';
 ---
 <Base
   title="Jasa Booth Pameran & Rak Display"
@@ -28,8 +29,8 @@ const heroImgs = [
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href={waLink()} target="_blank" rel="noopener"
-             class="rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-            Konsultasi Gratis
+             class="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+            <WaIcon />Konsultasi Gratis
           </a>
           <a href="/portofolio"
              class="rounded-full border border-brand-200 px-6 py-3 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-50">
@@ -130,8 +131,8 @@ const heroImgs = [
       Kirim ukuran, foto lokasi, atau referensi desain — kami bantu hitung estimasinya.
     </p>
     <a href={waLink()} target="_blank" rel="noopener"
-       class="mt-8 inline-block rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-      Chat WhatsApp {site.waDisplay}
+       class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+      <WaIcon />Chat WhatsApp {site.waDisplay}
     </a>
   </Section>
 </Base>

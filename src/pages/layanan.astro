@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { services, products, waLink } from '../site.js';
+import WaIcon from '../components/WaIcon.astro';
 ---
 <Base
   title="Rak Display Custom, Neon Box & Booth Pameran"
@@ -52,8 +53,8 @@ import { services, products, waLink } from '../site.js';
     <p class="mx-auto mt-4 max-w-xl text-slate-600">Kirim detail kebutuhan Anda, kami balas dengan rincian biaya.</p>
     <a href={waLink('Halo, saya ingin minta estimasi harga untuk kebutuhan berikut:')}
        target="_blank" rel="noopener"
-       class="mt-8 inline-block rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white hover:bg-brand-600">
-      Minta Penawaran
+       class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white hover:bg-brand-600">
+      <WaIcon />Minta Penawaran
     </a>
   </Section>
 </Base>

@@ -5,6 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { site, areas, waLink } from '../site.js';
 
 const mapQ = encodeURIComponent(site.address);
+import WaIcon from '../components/WaIcon.astro';
 ---
 <Base
   title="Area Layanan di Jabodetabek"
@@ -45,8 +46,8 @@ const mapQ = encodeURIComponent(site.address);
         event Anda lewat WhatsApp.
       </p>
       <a href={waLink('Halo, saya ingin tanya jangkauan layanan untuk lokasi:')} target="_blank" rel="noopener"
-         class="mt-6 inline-block rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-        Tanya Jangkauan Layanan
+         class="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+        <WaIcon />Tanya Jangkauan Layanan
       </a>
     </div>
 

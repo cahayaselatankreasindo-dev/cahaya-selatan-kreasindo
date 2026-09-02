@@ -12,6 +12,7 @@ const catLink = {
   'Neon Box & Signage': '/layanan',
   'Proses Produksi': '/tentang',
 };
+import WaIcon from '../components/WaIcon.astro';
 ---
 <Base
   title="Portofolio Booth Pameran & Rak Display"
@@ -73,8 +74,8 @@ const catLink = {
     </p>
     <a href={waLink('Halo, saya lihat portofolio di website. Saya ingin konsultasi untuk kebutuhan berikut:')}
        target="_blank" rel="noopener"
-       class="mt-8 inline-block rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-      Konsultasi Sekarang
+       class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+      <WaIcon />Konsultasi Sekarang
     </a>
   </Section>
 </Base>

@@ -1,0 +1,127 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site, waLink } from '../site.js';
+
+const crumbs = [{ href: '/kebijakan-privasi', label: 'Kebijakan Privasi' }];
+const updated = '2 September 2026';
+---
+<Base
+  title="Kebijakan Privasi"
+  description={`Kebijakan privasi ${site.name}: data apa saja yang kami terima lewat WhatsApp dan email, untuk apa dipakai, berapa lama disimpan, dan hak Anda atas data tersebut.`}
+  breadcrumbs={crumbs}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <Section as="h1" eyebrow="Legal" title="Kebijakan Privasi"
+           lead={`Halaman ini menjelaskan bagaimana ${site.name} memperlakukan data pribadi yang Anda kirimkan saat menghubungi kami. Terakhir diperbarui ${updated}.`}>
+    <div class="mt-10 max-w-3xl space-y-8 leading-relaxed text-slate-600">
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">1. Situs ini tidak mengumpulkan data sendiri</h2>
+        <p class="mt-2">
+          Website kami adalah halaman statis. Tidak ada formulir pendaftaran, tidak ada akun
+          pengguna, dan kami tidak memasang cookie pelacak maupun pixel iklan. Anda bisa
+          membaca seluruh isi situs tanpa memberikan data apa pun.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">2. Data yang kami terima</h2>
+        <p class="mt-2">
+          Data pribadi baru kami terima ketika Anda menghubungi kami lebih dulu, yaitu melalui:
+        </p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong>WhatsApp</strong> — nomor telepon, nama profil, serta isi pesan, foto lokasi, ukuran, atau file desain yang Anda kirim.</li>
+          <li><strong>Email</strong> — alamat email, nama, dan isi surat beserta lampirannya.</li>
+          <li><strong>Proses pekerjaan</strong> — nama perusahaan, alamat pengiriman atau lokasi pemasangan, nama dan kontak PIC, serta data penagihan seperti NPWP jika diperlukan untuk faktur.</li>
+        </ul>
+        <p class="mt-3">
+          Kami tidak meminta data yang tidak diperlukan untuk mengerjakan pesanan Anda.
+          Mohon jangan mengirimkan data pribadi yang bersifat sensitif melalui WhatsApp atau email.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">3. Tujuan penggunaan</h2>
+        <p class="mt-2">Data tersebut hanya kami gunakan untuk:</p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li>menjawab pertanyaan dan menyusun penawaran harga;</li>
+          <li>membuat desain, memproduksi, mengirim, dan memasang pesanan Anda;</li>
+          <li>menerbitkan penawaran, invoice, faktur, dan dokumen serah terima;</li>
+          <li>menindaklanjuti garansi, perbaikan, atau keluhan;</li>
+          <li>memenuhi kewajiban hukum, misalnya pencatatan pembukuan dan perpajakan.</li>
+        </ul>
+        <p class="mt-3">
+          Kami tidak menjual, menyewakan, atau menukarkan data Anda kepada pihak mana pun,
+          dan tidak mengirimkan promosi massal ke kontak yang tidak memintanya.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">4. Pihak ketiga</h2>
+        <p class="mt-2">
+          Sebagian data mau tidak mau melewati layanan pihak ketiga yang kami pakai untuk
+          beroperasi, dan tunduk pada kebijakan privasi masing-masing:
+        </p>
+        <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong>WhatsApp (Meta)</strong> — sebagai saluran percakapan.</li>
+          <li><strong>Google (Gmail)</strong> — sebagai penyedia email kami.</li>
+          <li><strong>Cloudflare</strong> — sebagai penyedia hosting situs ini, yang mencatat log teknis seperti alamat IP untuk keamanan dan pencegahan penyalahgunaan.</li>
+          <li><strong>Mitra pengiriman dan instalasi</strong> — hanya menerima nama, alamat, dan kontak penerima ketika barang perlu dikirim.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">5. Dokumentasi hasil pekerjaan</h2>
+        <p class="mt-2">
+          Kami mendokumentasikan hasil produksi untuk portofolio. Foto yang menampilkan merek,
+          logo, atau lokasi usaha Anda hanya kami tayangkan atas persetujuan Anda. Jika ada foto
+          di situs ini yang ingin Anda turunkan, sampaikan kepada kami dan akan kami hapus.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">6. Penyimpanan dan keamanan</h2>
+        <p class="mt-2">
+          Percakapan dan dokumen proyek kami simpan selama hubungan kerja berlangsung dan
+          sesudahnya untuk keperluan garansi, pemesanan ulang, serta kewajiban pembukuan dan
+          perpajakan. Akses dibatasi pada personel yang menangani pekerjaan Anda. Perlu Anda
+          ketahui bahwa tidak ada metode pengiriman data yang sepenuhnya bebas risiko.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">7. Hak Anda</h2>
+        <p class="mt-2">
+          Sesuai Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi, Anda berhak
+          meminta akses atas data Anda yang kami simpan, meminta perbaikan data yang keliru,
+          meminta penghapusan, serta menarik persetujuan penggunaan foto pekerjaan Anda.
+          Ajukan permintaan tersebut lewat kontak di bawah — kami akan memprosesnya dalam waktu
+          wajar, kecuali data itu masih wajib kami simpan menurut peraturan yang berlaku.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">8. Perubahan kebijakan</h2>
+        <p class="mt-2">
+          Kebijakan ini dapat kami perbarui bila cara kerja atau layanan yang kami pakai berubah.
+          Versi terbaru selalu tersedia di halaman ini beserta tanggal pembaruannya.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">9. Hubungi kami</h2>
+        <p class="mt-2">
+          Pertanyaan soal kebijakan ini bisa disampaikan ke{' '}
+          <a class="font-medium text-brand-700 hover:text-brand-800" href={`mailto:${site.email}`}>{site.email}</a>{' '}
+          atau{' '}
+          <a class="font-medium text-brand-700 hover:text-brand-800" href={waLink('Halo, saya ingin bertanya soal kebijakan privasi.')} target="_blank" rel="noopener">WhatsApp {site.waDisplay}</a>.
+        </p>
+        <address class="mt-3 not-italic">
+          {site.name}<br />{site.street}<br />{site.city}, {site.region} {site.postalCode}
+        </address>
+      </div>
+    </div>
+  </Section>
+</Base>

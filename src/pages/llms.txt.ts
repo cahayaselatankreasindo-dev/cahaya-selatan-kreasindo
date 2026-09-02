@@ -8,6 +8,8 @@ const pages = [
   ['/portofolio/', 'Portofolio', 'Dokumentasi pekerjaan booth pameran, rak display ritel, neon box, dan signage.'],
   ['/area-layanan/', 'Area Layanan', 'Cakupan Tangerang Selatan, Tangerang, Jakarta, Depok, Bogor, Bekasi.'],
   ['/kontak/', 'Kontak', `WhatsApp ${site.waDisplay}, email ${site.email}, alamat workshop, dan jam operasional.`],
+  ['/kebijakan-privasi/', 'Kebijakan Privasi', 'Data yang kami terima lewat WhatsApp dan email, tujuan penggunaan, penyimpanan, dan hak Anda.'],
+  ['/syarat-ketentuan/', 'Syarat & Ketentuan', 'Penawaran, pembayaran, revisi desain, jadwal, pengiriman, instalasi, garansi, dan pembatalan.'],
 ];
 
 export const GET: APIRoute = ({ site: base }) => {

@@ -48,7 +48,7 @@ const business = {
   sameAs: [`https://wa.me/${site.wa}`, `https://www.instagram.com/${site.ig}`, `https://www.threads.com/@${site.ig}`],
 };
 
-const crumbList = breadcrumbs.length && {
+const crumbList = breadcrumbs.length ? {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [{ href: '/', label: 'Beranda' }, ...breadcrumbs].map((c, i) => ({
@@ -57,7 +57,7 @@ const crumbList = breadcrumbs.length && {
     name: c.label,
     item: new URL(c.href, Astro.site).href,
   })),
-};
+} : null;
 ---
 <!doctype html>
 <html lang="id">

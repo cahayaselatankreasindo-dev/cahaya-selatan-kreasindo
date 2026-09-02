@@ -1,0 +1,97 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../site.js';
+
+const {
+  title,
+  description = 'Jasa pembuatan booth pameran, rak display custom, neon box, dan signage di Tangerang Selatan. Dikerjakan dari desain sampai pemasangan.',
+  image = '/og-image.jpg',
+  breadcrumbs = [],
+} = Astro.props;
+
+const full = title ? `${title} — ${site.name}` : site.name;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': new URL('/#business', Astro.site).href,
+  name: site.name,
+  description: site.tagline,
+  url: Astro.site?.href,
+  image: ogImage.href,
+  logo: new URL('/img/logo.webp', Astro.site).href,
+  telephone: `+${site.wa}`,
+  email: site.email,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.street,
+    addressLocality: site.city,
+    addressRegion: site.region,
+    postalCode: site.postalCode,
+    addressCountry: site.country,
+  },
+  areaServed: ['Tangerang Selatan', 'Tangerang', 'Jakarta', 'Depok', 'Bogor', 'Bekasi'].map((n) => ({
+    '@type': 'City',
+    name: n,
+  })),
+  openingHoursSpecification: site.hours.map((h) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: h.schema,
+    opens: h.open,
+    closes: h.close,
+  })),
+  sameAs: [`https://wa.me/${site.wa}`],
+};
+
+const crumbList = breadcrumbs.length && {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ href: '/', label: 'Beranda' }, ...breadcrumbs].map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: new URL(c.href, Astro.site).href,
+  })),
+};
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{full}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/webp" href="/img/logo.webp" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={full} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={full} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    {crumbList && <script type="application/ld+json" set:html={JSON.stringify(crumbList)} />}
+  </head>
+  <body class="bg-white text-ink antialiased">
+    <Header />
+    <main><slot /></main>
+    <Footer />
+  </body>
+</html>

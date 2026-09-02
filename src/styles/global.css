@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@theme {
+  --color-brand-50:  #f0f8ff;
+  --color-brand-100: #dbeefe;
+  --color-brand-200: #bfe2fd;
+  --color-brand-300: #8fcdfa;
+  --color-brand-400: #58b0f4;
+  --color-brand-500: #3494e6;
+  --color-brand-600: #2176c4;
+  --color-brand-700: #1c5d9e;
+  --color-brand-800: #1c4e82;
+  --color-brand-900: #1c426c;
+  --color-ink: #0f1720;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }

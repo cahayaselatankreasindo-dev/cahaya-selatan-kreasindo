@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cahayaselatankreasindo.pages.dev/sitemap-index.xml

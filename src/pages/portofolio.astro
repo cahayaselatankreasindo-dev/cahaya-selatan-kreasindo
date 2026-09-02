@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Picture from '../components/Picture.astro';
+import { portfolio, portfolioCats, waLink } from '../site.js';
+
+const slug = (c) => c.replace(/[^a-zA-Z]+/g, '-').toLowerCase();
+const catLink = {
+  'Booth & Pameran': '/layanan',
+  'Rak Display': '/layanan',
+  'Neon Box & Signage': '/layanan',
+  'Proses Produksi': '/tentang',
+};
+---
+<Base
+  title="Portofolio Booth Pameran & Rak Display"
+  description="Dokumentasi pekerjaan Cahaya Selatan Kreasindo: booth pameran, gondola supermarket, rak display ritel, neon box, dan signage toko di Jabodetabek."
+  image="/og-image.jpg"
+  breadcrumbs={[{ href: '/portofolio', label: 'Portofolio' }]}
+>
+  <Breadcrumbs items={[{ href: '/portofolio', label: 'Portofolio' }]} />
+
+  <Section
+    as="h1"
+    eyebrow="Portofolio"
+    title="Pekerjaan yang sudah kami kerjakan"
+    lead="Booth pameran, rak display ritel, neon box, sampai signage toko — dikerjakan sendiri oleh tim kami dari desain hingga pemasangan."
+  >
+    <div class="mt-8 flex flex-wrap gap-2">
+      {portfolioCats.map((c) => (
+        <a href={`#${slug(c)}`}
+           class="rounded-full border border-brand-200 px-4 py-1.5 text-sm text-brand-700 transition-colors hover:bg-brand-50">
+          {c}
+        </a>
+      ))}
+    </div>
+  </Section>
+
+  {portfolioCats.map((cat) => (
+    <section id={slug(cat)} class="mx-auto max-w-6xl scroll-mt-24 px-5 pb-16">
+      <div class="flex flex-wrap items-baseline justify-between gap-3">
+        <h2 class="text-2xl font-semibold tracking-tight">{cat}</h2>
+        <a href={catLink[cat]} class="text-sm font-medium text-brand-700 hover:text-brand-800">
+          {cat === 'Proses Produksi' ? 'Cara kerja kami →' : `Layanan ${cat.toLowerCase()} →`}
+        </a>
+      </div>
+      <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {portfolio.filter((p) => p.cat === cat).map((p) => (
+          <figure class="group overflow-hidden rounded-2xl border border-brand-100 bg-white">
+            <div class="aspect-4/3 overflow-hidden bg-brand-50">
+              <Picture
+                name={p.img}
+                alt={p.title}
+                sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <figcaption class="px-5 py-4">
+              <p class="text-sm font-medium">{p.title}</p>
+              <p class="mt-0.5 text-xs text-slate-500">{p.cat}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <Section class="text-center">
+    <h2 class="text-3xl font-semibold tracking-tight">Mau hasil serupa untuk brand Anda?</h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-600">
+      Kirim referensi atau foto lokasi, kami bantu susun konsep dan estimasi biayanya.
+    </p>
+    <a href={waLink('Halo, saya lihat portofolio di website. Saya ingin konsultasi untuk kebutuhan berikut:')}
+       target="_blank" rel="noopener"
+       class="mt-8 inline-block rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+      Konsultasi Sekarang
+    </a>
+  </Section>
+</Base>

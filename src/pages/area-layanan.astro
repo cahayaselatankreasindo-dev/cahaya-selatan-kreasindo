@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site, areas, waLink } from '../site.js';
+
+const mapQ = encodeURIComponent(site.address);
+---
+<Base
+  title="Area Layanan di Jabodetabek"
+  description="Cahaya Selatan Kreasindo melayani pembuatan booth pameran, rak display, dan neon box untuk Tangerang Selatan, Tangerang, Jakarta, Depok, Bogor, dan Bekasi."
+  breadcrumbs={[{ href: '/area-layanan', label: 'Area Layanan' }]}
+>
+  <Breadcrumbs items={[{ href: '/area-layanan', label: 'Area Layanan' }]} />
+
+  <Section as="h1" eyebrow="Area Layanan" title="Kami melayani Jabodetabek dari workshop di Serpong"
+           lead={`Workshop kami di ${site.street}. Produksi, pengiriman, dan pemasangan dikerjakan tim sendiri — bukan disubkontrakkan.`}>
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {areas.map((a) => (
+        <article class="rounded-2xl border border-brand-100 p-7">
+          <h2 class="text-lg font-semibold">{a.name}</h2>
+          <p class="mt-2 leading-relaxed text-slate-600">{a.detail}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-10 overflow-hidden rounded-2xl border border-brand-100">
+      <iframe
+        title="Lokasi workshop Cahaya Selatan Kreasindo di Serpong, Tangerang Selatan"
+        class="h-96 w-full"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src={`https://maps.google.com/maps?q=${mapQ}&output=embed`}
+      ></iframe>
+      <p class="border-t border-brand-100 bg-brand-50/50 px-5 py-3 text-sm text-slate-600">
+        Workshop: {site.street}, {site.city}
+      </p>
+    </div>
+
+    <div class="mt-10 rounded-2xl border border-brand-100 bg-brand-50/50 p-7">
+      <h2 class="text-lg font-semibold">Di luar Jabodetabek?</h2>
+      <p class="mt-2 max-w-2xl leading-relaxed text-slate-600">
+        Untuk booth pameran dan rak display, pengerjaan tetap bisa dilakukan — unit diproduksi di workshop lalu
+        dikirim dan dipasang di kota tujuan. Biaya mobilisasi dihitung per proyek. Ceritakan lokasi dan jadwal
+        event Anda lewat WhatsApp.
+      </p>
+      <a href={waLink('Halo, saya ingin tanya jangkauan layanan untuk lokasi:')} target="_blank" rel="noopener"
+         class="mt-6 inline-block rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+        Tanya Jangkauan Layanan
+      </a>
+    </div>
+
+    <p class="mt-8 text-sm text-slate-600">
+      Lihat <a class="font-medium text-brand-700 hover:text-brand-800" href="/layanan">daftar layanan</a> atau
+      <a class="font-medium text-brand-700 hover:text-brand-800" href="/portofolio">portofolio</a> sebelum menghubungi kami.
+    </p>
+  </Section>
+</Base>

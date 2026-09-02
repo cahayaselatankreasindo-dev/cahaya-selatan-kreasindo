@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../site.js';
+---
+<Base
+  title="Tentang Kami"
+  description="Profil Cahaya Selatan Kreasindo, workshop booth pameran, rak display, dan signage di Serpong, Tangerang Selatan. Satu tim dari desain sampai instalasi."
+  breadcrumbs={[{ href: '/tentang', label: 'Tentang Kami' }]}
+>
+  <Breadcrumbs items={[{ href: '/tentang', label: 'Tentang Kami' }]} />
+  <Section as="h1" eyebrow="Tentang Kami" title="Tim yang mengerjakan display dari konsep sampai terpasang"
+           lead={`${site.name} adalah ${site.tagline.toLowerCase()}. Kami melayani pelaku usaha ritel, brand FMCG, dan penyelenggara event di Jabodetabek.`}>
+    <div class="mt-12 grid gap-10 md:grid-cols-2">
+      <div class="space-y-4 leading-relaxed text-slate-600">
+        <p>
+          Kami mulai dari hal sederhana: display yang bagus bikin produk lebih menjual.
+          Karena itu setiap pesanan dikerjakan custom — mengikuti ukuran lokasi,
+          karakter produk, dan identitas brand Anda.
+        </p>
+        <p>
+          Pengerjaan dilakukan sendiri oleh tim kami, mulai dari desain, produksi di workshop,
+          pengiriman, hingga instalasi di lokasi. Satu pintu, satu penanggung jawab.
+        </p>
+      </div>
+      <dl class="grid grid-cols-2 gap-5">
+        {[
+          ['Custom', 'Semua ukuran menyesuaikan lokasi'],
+          ['Satu Tim', 'Desain sampai instalasi'],
+          ['Jabodetabek', 'Area layanan utama'],
+          ['On Time', 'Kejar deadline event'],
+        ].map(([t, d]) => (
+          <div class="rounded-2xl border border-brand-100 bg-brand-50/50 p-6">
+            <dt class="text-lg font-semibold text-brand-700">{t}</dt>
+            <dd class="mt-1 text-sm text-slate-600">{d}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </Section>
+
+  <Section eyebrow="Cara Kerja" title="Empat langkah, tanpa ribet">
+    <ol class="mt-10 grid gap-5 md:grid-cols-4">
+      {[
+        ['Konsultasi', 'Ceritakan kebutuhan, kirim foto atau ukuran lokasi.'],
+        ['Desain & Estimasi', 'Kami buatkan konsep dan rincian biaya.'],
+        ['Produksi', 'Dikerjakan di workshop dengan material pilihan.'],
+        ['Instalasi', 'Kirim dan pasang di lokasi Anda.'],
+      ].map(([t, d], i) => (
+        <li class="rounded-2xl border border-brand-100 p-6">
+          <span class="text-sm font-semibold text-brand-500">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="mt-2 font-semibold">{t}</h3>
+          <p class="mt-1 text-sm leading-relaxed text-slate-600">{d}</p>
+        </li>
+      ))}
+    </ol>
+    <p class="mt-8 text-sm text-slate-600">
+      Lihat <a class="font-medium text-brand-700 hover:text-brand-800" href="/layanan">rincian layanan</a> atau
+      <a class="font-medium text-brand-700 hover:text-brand-800" href="/portofolio">portofolio pekerjaan</a> kami.
+    </p>
+  </Section>
+</Base>

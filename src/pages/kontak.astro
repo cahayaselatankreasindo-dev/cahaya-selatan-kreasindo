@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site, areas, waLink } from '../site.js';
+const mapQ = encodeURIComponent(site.address);
+---
+<Base
+  title="Kontak & Alamat Workshop"
+  description={`Hubungi Cahaya Selatan Kreasindo di ${site.waDisplay} atau ${site.email}. Workshop di Serpong, Tangerang Selatan. Buka Senin–Jumat 08.00–17.00 WIB.`}
+  breadcrumbs={[{ href: '/kontak', label: 'Kontak' }]}
+>
+  <Breadcrumbs items={[{ href: '/kontak', label: 'Kontak' }]} />
+
+  <Section as="h1" eyebrow="Kontak" title="Hubungi kami"
+           lead="Balasan tercepat lewat WhatsApp pada jam kerja. Kirim foto lokasi, ukuran, atau referensi desain supaya estimasi bisa langsung kami hitung.">
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <a href={waLink()} target="_blank" rel="noopener"
+         class="rounded-2xl border border-brand-100 p-7 transition-colors hover:bg-brand-50">
+        <h2 class="text-sm font-medium text-brand-600">WhatsApp</h2>
+        <p class="mt-2 text-lg font-semibold">{site.waDisplay}</p>
+        <p class="mt-2 text-sm text-slate-600">Chat langsung untuk konsultasi &amp; penawaran.</p>
+      </a>
+      <a href={`mailto:${site.email}`}
+         class="rounded-2xl border border-brand-100 p-7 transition-colors hover:bg-brand-50">
+        <h2 class="text-sm font-medium text-brand-600">Email</h2>
+        <p class="mt-2 break-all text-lg font-semibold">{site.email}</p>
+        <p class="mt-2 text-sm text-slate-600">Untuk kebutuhan dokumen &amp; penawaran resmi.</p>
+      </a>
+      <div class="rounded-2xl border border-brand-100 p-7">
+        <h2 class="text-sm font-medium text-brand-600">Jam operasional</h2>
+        <dl class="mt-2 space-y-1 text-sm">
+          {site.hours.map((h) => (
+            <div class="flex justify-between gap-3">
+              <dt class="text-slate-600">{h.days}</dt>
+              <dd class="font-medium">{h.time}</dd>
+            </div>
+          ))}
+          <div class="flex justify-between gap-3">
+            <dt class="text-slate-600">Minggu &amp; libur nasional</dt>
+            <dd class="font-medium">Tutup</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-[1fr_1.2fr]">
+      <div class="rounded-2xl border border-brand-100 p-7">
+        <h2 class="text-sm font-medium text-brand-600">Workshop</h2>
+        <address class="mt-2 not-italic leading-relaxed text-slate-700">
+          <strong class="font-semibold text-ink">{site.name}</strong><br />
+          {site.street}<br />
+          {site.city}, {site.region} {site.postalCode}<br />
+          Indonesia
+        </address>
+        <p class="mt-4 text-sm text-slate-600">
+          Kunjungan workshop sebaiknya dijadwalkan dulu lewat WhatsApp agar tim yang menangani proyek Anda ada di tempat.
+        </p>
+        <h3 class="mt-6 text-sm font-medium text-brand-600">Area yang kami layani</h3>
+        <ul class="mt-2 flex flex-wrap gap-2">
+          {areas.map((a) => (
+            <li class="rounded-full border border-brand-200 px-3 py-1 text-xs text-brand-700">{a.name}</li>
+          ))}
+        </ul>
+        <a href="/area-layanan" class="mt-4 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
+          Detail area layanan →
+        </a>
+      </div>
+
+      <div class="overflow-hidden rounded-2xl border border-brand-100">
+        <iframe
+          title="Lokasi workshop Cahaya Selatan Kreasindo di Serpong"
+          class="h-full min-h-80 w-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src={`https://maps.google.com/maps?q=${mapQ}&output=embed`}
+        ></iframe>
+      </div>
+    </div>
+  </Section>
+</Base>

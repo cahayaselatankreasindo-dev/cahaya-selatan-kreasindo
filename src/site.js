@@ -78,31 +78,31 @@ export const products = [
 ];
 
 export const portfolio = [
-  { img: 'jasa-tirta-booth-pameran', title: 'Booth Pameran Jasa Tirta II', cat: 'Booth & Pameran' },
-  { img: 'jasa-tirta-booth-detail', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
-  { img: 'booth-barn-mall', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
-  { img: 'booth-rayakan-setiap-momen', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
-  { img: 'beco-mini-counter', title: 'Mini Counter Beco', cat: 'Booth & Pameran' },
-  { img: 'line-friends-akrilik', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
+  { img: 'booth-pameran-jasa-tirta-ii', title: 'Booth Pameran Jasa Tirta II', cat: 'Booth & Pameran' },
+  { img: 'booth-pameran-jasa-tirta-ii-detail', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
+  { img: 'booth-pameran-mall-tema-barn', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
+  { img: 'booth-aktivasi-brand-mall', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
+  { img: 'mini-counter-booth-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran' },
+  { img: 'display-akrilik-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
 
-  { img: 'potens-gondola-supermarket', title: 'Gondola Supermarket Potens', cat: 'Rak Display' },
-  { img: 'potens-rak-display', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display' },
-  { img: 'nutricell-rak-display', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
-  { img: 'bioxsine-rak-display', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
-  { img: 'evo-floor-display', title: 'Floor Display Evo Pet Food', cat: 'Rak Display' },
-  { img: 'halowell-rak-display', title: 'Rak Display Halowell', cat: 'Rak Display' },
-  { img: 'nky-display-counter', title: 'Counter Display NKY', cat: 'Rak Display' },
-  { img: 'hanasui-display-produk', title: 'Display Produk Hanasui', cat: 'Rak Display' },
+  { img: 'gondola-supermarket-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display' },
+  { img: 'rak-display-toko-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display' },
+  { img: 'rak-display-nutricell-pet-care', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
+  { img: 'rak-display-bioxsine', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
+  { img: 'floor-display-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display' },
+  { img: 'rak-display-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
+  { img: 'counter-display-nky', title: 'Counter Display NKY', cat: 'Rak Display' },
+  { img: 'rak-display-produk-hanasui', title: 'Display Produk Hanasui', cat: 'Rak Display' },
 
-  { img: 'jnt-cargo-neon-box', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
-  { img: 'gorisa-huruf-timbul', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage' },
-  { img: 'sarwaga-papan-nama', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
-  { img: 'zakku-signage-toko', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage' },
+  { img: 'neon-box-jnt-cargo', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
+  { img: 'huruf-timbul-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage' },
+  { img: 'papan-nama-sarwaga-yoga', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
+  { img: 'signage-toko-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage' },
 
-  { img: 'produksi-rak-karton', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi' },
-  { img: 'rak-display-produksi', title: 'Finishing Rak Display', cat: 'Proses Produksi' },
-  { img: 'workshop-perakitan', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi' },
-  { img: 'potens-standee-produksi', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi' },
+  { img: 'workshop-produksi-rak-display', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi' },
+  { img: 'finishing-rak-display-workshop', title: 'Finishing Rak Display', cat: 'Proses Produksi' },
+  { img: 'quality-check-rak-display', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi' },
+  { img: 'standee-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi' },
 ];
 
 export const portfolioCats = [...new Set(portfolio.map((p) => p.cat))];

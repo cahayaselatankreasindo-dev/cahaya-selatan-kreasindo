@@ -72,7 +72,9 @@ const icon = 'h-4 w-4 shrink-0 text-brand-500';
           <circle cx="12" cy="12" r="9" />
           <path d="M12 7v5l3 2" />
         </svg>
-        <span>Senin–Jumat 08.00–17.00 · Sabtu 08.00–15.00 WIB</span>
+        <span>
+          {site.hours.map((h) => <span class="block">{h.days} {h.time}</span>)}
+        </span>
       </p>
       <a href="/area-layanan" class="mt-2 inline-block text-brand-700 hover:text-brand-800">Area layanan →</a>
     </div>

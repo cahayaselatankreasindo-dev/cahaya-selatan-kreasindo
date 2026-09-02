@@ -4,6 +4,7 @@ export const site = {
   wa: '628888533488',
   waDisplay: '0888-8533-488',
   email: 'cahayaselatankreasindo@gmail.com',
+  ig: 'cahayaselatankreasindo',
   address:
     'Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong, Tangerang Selatan, Banten, Indonesia',
   street: 'Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong',

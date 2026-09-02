@@ -17,7 +17,7 @@ export const GET: APIRoute = ({ site: base }) => {
 
 > ${site.tagline}. Workshop di ${site.city}, ${site.region}, melayani Jabodetabek. Mengerjakan sendiri dari desain, produksi, sampai pemasangan di lokasi.
 
-Kontak: WhatsApp ${site.waDisplay} | ${site.email}
+Kontak: WhatsApp ${site.waDisplay} | ${site.email} | Instagram & Threads @${site.ig}
 Alamat: ${site.address}
 Jam operasional: ${site.hours.map((h) => `${h.days} ${h.time}`).join(' | ')}
 

@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://cahayaselatankreasindo.pages.dev',
+  site: 'https://cahayaselatankreasindo.my.id',
   integrations: [sitemap({ serialize: (item) => ({ ...item, lastmod: new Date().toISOString() }) })],
   vite: { plugins: [tailwindcss()] },
 });

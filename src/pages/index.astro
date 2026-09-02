@@ -11,6 +11,7 @@ const heroImgs = [
   ['booth-barn-mall', 'Booth aktivasi bertema barn di atrium mall'],
 ];
 import WaIcon from '../components/WaIcon.astro';
+import Lightbox from '../components/Lightbox.astro';
 ---
 <Base
   title="Jasa Booth Pameran & Rak Display"
@@ -90,12 +91,12 @@ import WaIcon from '../components/WaIcon.astro';
 
   <Section eyebrow="Portofolio" title="Sebagian pekerjaan kami"
            lead="Booth pameran, rak display ritel, neon box, dan signage untuk berbagai brand.">
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
       {portfolio.slice(0, 6).map((p) => (
         <figure class="group overflow-hidden rounded-2xl border border-brand-100">
           <div class="aspect-4/3 overflow-hidden bg-brand-50">
             <Picture name={p.img} alt={p.title} sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
-                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                     class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
           </div>
           <figcaption class="px-5 py-4 text-sm font-medium">{p.title}</figcaption>
         </figure>
@@ -135,4 +136,5 @@ import WaIcon from '../components/WaIcon.astro';
       <WaIcon />Chat WhatsApp {site.waDisplay}
     </a>
   </Section>
+  <Lightbox />
 </Base>

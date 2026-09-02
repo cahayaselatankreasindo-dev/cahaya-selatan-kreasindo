@@ -2,33 +2,31 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { services, products, waLink } from '../site.js';
+import { serviceDetails, products, waLink } from '../site.js';
 import WaIcon from '../components/WaIcon.astro';
 import ServiceIcon from '../components/ServiceIcon.astro';
 ---
 <Base
-  title="Rak Display Custom, Neon Box & Booth Pameran"
-  description="Layanan Cahaya Selatan Kreasindo: rak display custom, gondola supermarket, neon box, huruf timbul, papan nama, booth pameran, dan sewa peralatan event di Jabodetabek."
+  title="Layanan POSM, Rak Display, Booth Pameran & Signage"
+  description="Layanan Cahaya Selatan Kreasindo: produksi POSM, rak display custom dan gondola, booth pameran, neon box dan signage, visual merchandising, serta sewa peralatan event di Jabodetabek."
   breadcrumbs={[{ href: '/layanan', label: 'Layanan' }]}
 >
   <Breadcrumbs items={[{ href: '/layanan', label: 'Layanan' }]} />
   <Section as="h1" eyebrow="Layanan" title="Solusi display yang tepat untuk bisnis Anda"
-           lead="Semua dikerjakan custom mengikuti ukuran lokasi, karakter produk, dan identitas brand Anda.">
-    <div class="mt-10 space-y-4">
-      {services.map((s) => (
-        <article class="grid gap-4 rounded-2xl border border-brand-100 p-7 md:grid-cols-[auto_1fr] md:gap-8">
-          <span class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
-          <ServiceIcon name={s.icon} class="h-7 w-7" />
-        </span>
-          <div>
-            <h3 class="text-xl font-semibold">{s.title}</h3>
-            <p class="mt-2 font-medium text-brand-700">{s.lead}</p>
-            <p class="mt-2 max-w-2xl leading-relaxed text-slate-600">{s.body}</p>
-            <a href="/portofolio" class="mt-3 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
-              Lihat contoh pengerjaan →
-            </a>
-          </div>
-        </article>
+           lead="Enam lini pekerjaan, semuanya custom mengikuti ukuran lokasi, karakter produk, dan identitas brand Anda. Pilih yang paling dekat dengan kebutuhan Anda.">
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {serviceDetails.map((s) => (
+        <a href={`/layanan/${s.slug}`}
+           class="group rounded-2xl border border-brand-100 p-7 transition-shadow hover:shadow-md">
+          <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+            <ServiceIcon name={s.icon} />
+          </span>
+          <h2 class="mt-4 text-lg font-semibold">{s.title}</h2>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.lead}</p>
+          <span class="mt-3 inline-block text-sm font-medium text-brand-700 group-hover:text-brand-800">
+            Selengkapnya &rarr;
+          </span>
+        </a>
       ))}
     </div>
   </Section>

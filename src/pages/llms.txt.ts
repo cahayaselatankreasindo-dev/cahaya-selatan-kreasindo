@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { site, areas, services, products, portfolio } from '../site.js';
+import { site, areas, products, portfolio, serviceDetails } from '../site.js';
 
 const pages = [
   ['/', 'Beranda', 'Ringkasan layanan booth pameran, rak display custom, neon box, dan signage.'],
@@ -8,6 +8,7 @@ const pages = [
   ['/portofolio/', 'Portofolio', 'Dokumentasi pekerjaan booth pameran, rak display ritel, neon box, dan signage.'],
   ['/area-layanan/', 'Area Layanan', 'Cakupan Tangerang Selatan, Tangerang, Jakarta, Depok, Bogor, Bekasi.'],
   ['/kontak/', 'Kontak', `WhatsApp ${site.waDisplay}, email ${site.email}, alamat workshop, dan jam operasional.`],
+  ['/apa-itu-posm/', 'Apa itu POSM', 'Panduan: pengertian POSM, bedanya dengan POP dan visual merchandising, jenis, dan pilihan material.'],
   ['/kebijakan-privasi/', 'Kebijakan Privasi', 'Data yang kami terima lewat WhatsApp dan email, tujuan penggunaan, penyimpanan, dan hak Anda.'],
   ['/syarat-ketentuan/', 'Syarat & Ketentuan', 'Penawaran, pembayaran, revisi desain, jadwal, pengiriman, instalasi, garansi, dan pembatalan.'],
 ];
@@ -29,7 +30,7 @@ ${pages.map(([path, title, desc]) => `- [${title}](${url(path)}): ${desc}`).join
 
 ## Layanan
 
-${services.map((s) => `- ${s.title}: ${s.body}`).join('\n')}
+${serviceDetails.map((s) => `- [${s.title}](${url(`/layanan/${s.slug}/`)}): ${s.description}`).join('\n')}
 
 ## Produk
 

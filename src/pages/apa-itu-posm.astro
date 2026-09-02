@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import WaIcon from '../components/WaIcon.astro';
+import { waLink, site } from '../site.js';
+
+const crumbs = [{ href: '/apa-itu-posm', label: 'Apa itu POSM' }];
+
+const jenis = [
+  ['Floor display', 'Display berdiri di lantai, biasa diletakkan di ujung lorong atau area promo. Menampung banyak produk sekaligus dan terlihat dari jauh.'],
+  ['Counter display', 'Display kecil di meja kasir untuk produk berukuran ringkas — permen, sachet, aksesori. Menyasar pembelian mendadak saat mengantre.'],
+  ['Endcap', 'Display di ujung rak gondola. Posisi paling mahal di toko modern karena dilewati hampir semua pengunjung.'],
+  ['Standee', 'Papan berdiri bergambar produk atau maskot brand. Murah, cepat dipasang, mudah dipindah.'],
+  ['Wobbler', 'Papan kecil bertangkai lentur yang bergoyang di tepi rak. Fungsinya menarik mata pada satu produk tertentu.'],
+  ['Shelf talker', 'Strip memanjang yang menempel di bibir rak, biasa memuat harga promo atau klaim produk.'],
+  ['Hanging mobile', 'Materi promosi yang digantung di langit-langit untuk menandai zona produk dari kejauhan.'],
+  ['Tent card', 'Kartu lipat berdiri di meja. Umum dipakai di kafe, restoran, dan area tunggu.'],
+];
+const faq = [
+  { q: 'Apa kepanjangan POSM?', a: 'POSM adalah singkatan dari Point of Sale Material, yaitu materi promosi yang ditempatkan di titik penjualan — di dalam toko, di rak, atau di area kasir.' },
+  { q: 'Apa bedanya POSM dan POP?', a: 'POP adalah singkatan dari Point of Purchase. Keduanya menunjuk hal yang sama dari sudut berbeda: POP menekankan titik pembelian, POSM menekankan materialnya. Di lapangan, kedua istilah dipakai bergantian.' },
+  { q: 'Apa bedanya POSM dengan visual merchandising?', a: 'POSM adalah bendanya, visual merchandising adalah cara menatanya. Visual merchandising mengatur alur pengunjung, tata letak rak, dan penempatan produk; POSM adalah salah satu alat yang dipakai di dalam penataan tersebut.' },
+  { q: 'Berapa lama POSM biasanya dipakai?', a: 'Bergantung materialnya. POSM karton untuk kampanye musiman umumnya dirancang bertahan beberapa minggu sampai beberapa bulan. POSM akrilik, besi, atau kayu dibuat untuk pemakaian bertahun-tahun.' },
+  { q: 'Material apa yang paling awet untuk POSM?', a: 'Akrilik dan besi paling tahan lama dan cocok untuk display permanen. Karton corrugated jauh lebih murah dan cepat diproduksi, sehingga tepat untuk kampanye jangka pendek atau roll-out ke banyak cabang sekaligus.' },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base
+  title="Apa Itu POSM? Pengertian, Jenis, dan Contohnya"
+  description="Penjelasan lengkap POSM (Point of Sale Material): pengertian, bedanya dengan POP dan visual merchandising, jenis-jenisnya dari floor display sampai wobbler, serta cara memilih material yang tepat."
+  breadcrumbs={crumbs}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <Section as="h1" eyebrow="Panduan" title="Apa itu POSM?"
+           lead="POSM (Point of Sale Material) adalah materi promosi yang ditempatkan di titik penjualan — di dalam toko, di rak, atau di dekat kasir — untuk menarik perhatian pembeli tepat saat keputusan belanja diambil.">
+    <div class="mt-10 max-w-3xl space-y-4 leading-relaxed text-slate-600">
+      <p>
+        Sebagian besar keputusan membeli barang kebutuhan sehari-hari terjadi di dalam toko, bukan
+        sebelum berangkat. Iklan membangun ketertarikan di rumah, tetapi yang menentukan produk mana
+        yang akhirnya masuk keranjang adalah apa yang terlihat di rak. Di situlah POSM bekerja.
+      </p>
+      <p>
+        Fungsinya ada tiga: membuat produk lebih menonjol dibanding kompetitor di rak yang sama,
+        menyampaikan informasi singkat seperti promo atau keunggulan produk, dan memancing pembelian
+        spontan. Karena itu POSM dinilai bukan dari kecantikan desainnya, melainkan dari seberapa
+        besar pengaruhnya pada penjualan di toko tempat ia dipasang.
+      </p>
+    </div>
+  </Section>
+
+  <section class="border-y border-brand-100 bg-brand-50/40">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Jenis-jenis POSM</h2>
+      <p class="mt-3 max-w-2xl text-slate-600">
+        Istilah di lapangan cukup banyak. Ini yang paling sering dipesan.
+      </p>
+      <dl class="mt-8 grid gap-5 md:grid-cols-2">
+        {jenis.map(([nama, ket]) => (
+          <div class="rounded-2xl border border-brand-100 bg-white p-6">
+            <dt class="font-semibold text-slate-900">{nama}</dt>
+            <dd class="mt-2 text-sm leading-relaxed text-slate-600">{ket}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <Section>
+    <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Memilih material</h2>
+    <div class="mt-8 max-w-3xl space-y-4 leading-relaxed text-slate-600">
+      <p>
+        Pilihan material menentukan hampir seluruh biaya. Patokan sederhananya: semakin lama POSM
+        akan dipakai, semakin masuk akal memakai material keras.
+      </p>
+      <ul class="space-y-2">
+        <li class="flex gap-2"><span class="text-brand-400">—</span><span><strong class="text-slate-900">Karton corrugated &amp; duplex</strong> — paling murah, cepat diproduksi massal, ringan dikirim. Untuk kampanye hitungan minggu.</span></li>
+        <li class="flex gap-2"><span class="text-brand-400">—</span><span><strong class="text-slate-900">PVC board</strong> — lebih kaku dari karton, tahan lembap, cocok untuk pemakaian menengah.</span></li>
+        <li class="flex gap-2"><span class="text-brand-400">—</span><span><strong class="text-slate-900">Akrilik</strong> — bening, rapi, terkesan premium. Untuk counter display dan display produk bernilai tinggi.</span></li>
+        <li class="flex gap-2"><span class="text-brand-400">—</span><span><strong class="text-slate-900">Besi &amp; multipleks</strong> — untuk display berat dan permanen seperti gondola branding dan floor display besar.</span></li>
+      </ul>
+      <p>
+        Satu hal yang sering terlewat: hitung juga biaya kirim dan pemasangan. Display akrilik besar
+        yang dikirim ke lima puluh cabang bisa jadi lebih mahal di ongkos daripada di produksinya.
+      </p>
+    </div>
+  </Section>
+
+  <section class="border-y border-brand-100 bg-brand-50/40">
+    <div class="mx-auto max-w-3xl px-5 py-16">
+      <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Pertanyaan umum</h2>
+      <dl class="mt-8 space-y-6">
+        {faq.map((f) => (
+          <div class="rounded-2xl border border-brand-100 bg-white p-6">
+            <dt class="font-semibold text-slate-900">{f.q}</dt>
+            <dd class="mt-2 leading-relaxed text-slate-600">{f.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <Section class="text-center">
+    <h2 class="text-3xl font-semibold tracking-tight">Butuh POSM untuk brand Anda?</h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-600">
+      {site.name} memproduksi sendiri di workshop Serpong — dari satu unit sampai roll-out banyak cabang.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={waLink('Halo, saya ingin minta penawaran produksi POSM untuk brand berikut:')}
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
+        <WaIcon />Minta Penawaran
+      </a>
+      <a href="/layanan/posm-display"
+         class="rounded-full border border-brand-200 px-7 py-3 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-50">
+        Lihat layanan POSM
+      </a>
+    </div>
+  </Section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>

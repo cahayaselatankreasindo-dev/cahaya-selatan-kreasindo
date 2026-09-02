@@ -4,6 +4,7 @@ import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { services, products, waLink } from '../site.js';
 import WaIcon from '../components/WaIcon.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
 ---
 <Base
   title="Rak Display Custom, Neon Box & Booth Pameran"
@@ -14,9 +15,11 @@ import WaIcon from '../components/WaIcon.astro';
   <Section as="h1" eyebrow="Layanan" title="Solusi display yang tepat untuk bisnis Anda"
            lead="Semua dikerjakan custom mengikuti ukuran lokasi, karakter produk, dan identitas brand Anda.">
     <div class="mt-10 space-y-4">
-      {services.map((s, i) => (
+      {services.map((s) => (
         <article class="grid gap-4 rounded-2xl border border-brand-100 p-7 md:grid-cols-[auto_1fr] md:gap-8">
-          <span class="text-3xl font-semibold text-brand-200">{String(i + 1).padStart(2, '0')}</span>
+          <span class="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-600">
+          <ServiceIcon name={s.icon} class="h-7 w-7" />
+        </span>
           <div>
             <h3 class="text-xl font-semibold">{s.title}</h3>
             <p class="mt-2 font-medium text-brand-700">{s.lead}</p>

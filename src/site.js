@@ -47,21 +47,25 @@ export const waLink = (msg = 'Halo, saya ingin konsultasi kebutuhan display & bo
 export const services = [
   {
     title: 'Rak Display Custom',
+    icon: 'rak',
     lead: 'Butuh rak yang modelnya pas untuk produk Anda?',
     body: 'Dari rak toko kecil sampai gondola supermarket. Hasil akhir presisi, kokoh tahan lama, finishing rapi — bikin produk Anda lebih menjual.',
   },
   {
     title: 'Neon Box & Signage Premium',
+    icon: 'neon',
     lead: 'Toko gelap = toko sepi.',
     body: 'Neon box terang dan menarik bikin logo bisnis Anda terlihat jelas dari kejauhan, siang maupun malam. Bahan baku tahan lama dan anti luntur.',
   },
   {
     title: 'Signage & Papan Nama',
+    icon: 'papan',
     lead: 'First impression itu penting.',
     body: 'Papan nama yang rapi dan berkarakter bikin pelanggan langsung tertarik masuk ke toko Anda.',
   },
   {
     title: 'Konsultasi & Instalasi',
+    icon: 'konsultasi',
     lead: 'Bingung mau desain seperti apa?',
     body: 'Tim kami siap bantu dari konsep, desain, produksi, sampai pemasangan di lokasi. Semua dikerjakan profesional.',
   },

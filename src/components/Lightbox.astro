@@ -1,14 +1,22 @@
 ---
-// Native <dialog> lightbox. Any figure inside a [data-lightbox] container
-// opens on click; Escape and backdrop click close it.
+// Native <dialog> gallery for figures inside a [data-lightbox] container.
 ---
-<dialog id="lightbox" class="m-auto max-h-[92vh] max-w-[92vw] rounded-2xl bg-transparent p-0 backdrop:bg-ink/80">
-  <figure class="relative m-0">
-    <img id="lightbox-img" src="" alt="" class="mx-auto block max-h-[80vh] max-w-[92vw] rounded-2xl object-contain" />
-    <figcaption id="lightbox-cap" class="mt-3 text-center text-sm text-white"></figcaption>
-    <button type="button" aria-label="Tutup"
-            class="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1.5 text-sm font-medium text-ink hover:bg-white">
-      ✕
+<dialog id="lightbox" aria-label="Galeri gambar" class="m-auto max-h-[92vh] max-w-[96vw] rounded-2xl bg-transparent p-0 backdrop:bg-ink/80">
+  <figure class="relative m-0 grid justify-items-center">
+    <img id="lightbox-img" src="" alt="" class="block max-h-[78vh] max-w-[92vw] rounded-xl object-contain" />
+    <figcaption id="lightbox-cap" class="mt-3 max-w-[80vw] text-center text-sm text-white"></figcaption>
+    <p id="lightbox-position" class="mt-1 text-xs text-white/80" aria-live="polite"></p>
+    <button id="lightbox-prev" type="button" aria-label="Foto sebelumnya"
+            class="absolute left-3 top-1/2 inline-flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 px-3 text-xl font-medium text-ink hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+      <span aria-hidden="true">&#8592;</span>
+    </button>
+    <button id="lightbox-next" type="button" aria-label="Foto berikutnya"
+            class="absolute right-3 top-1/2 inline-flex min-h-11 min-w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 px-3 text-xl font-medium text-ink hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+      <span aria-hidden="true">&#8594;</span>
+    </button>
+    <button id="lightbox-close" type="button" aria-label="Tutup galeri"
+            class="absolute right-3 top-3 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-white/90 text-lg font-medium text-ink hover:bg-white">
+      <span aria-hidden="true">&#215;</span>
     </button>
   </figure>
 </dialog>
@@ -17,21 +25,90 @@
   const dlg = document.getElementById('lightbox') as HTMLDialogElement | null;
   const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
   const cap = document.getElementById('lightbox-cap');
-  if (dlg && img && cap) {
+  const position = document.getElementById('lightbox-position');
+  const previous = document.getElementById('lightbox-prev') as HTMLButtonElement | null;
+  const next = document.getElementById('lightbox-next') as HTMLButtonElement | null;
+  const close = document.getElementById('lightbox-close');
+  let sources: HTMLImageElement[] = [];
+  let activeIndex = 0;
+  let touchStartX = 0;
+
+  const setScrollLock = (locked: boolean) => {
+    document.body.style.overflow = locked ? 'hidden' : '';
+  };
+
+  const render = () => {
+    const source = sources[activeIndex];
+    if (!source || !img || !cap || !position || !previous || !next) return;
+    img.src = source.currentSrc || source.src;
+    img.srcset = source.srcset;
+    img.sizes = '92vw';
+    img.alt = source.alt;
+    cap.textContent = source.closest('figure')?.querySelector('figcaption')?.textContent?.trim() ?? '';
+    position.textContent = `${activeIndex + 1} / ${sources.length}`;
+    previous.disabled = activeIndex === 0;
+    next.disabled = activeIndex === sources.length - 1;
+  };
+
+  const openAt = (index: number) => {
+    if (!dlg || !sources.length) return;
+    activeIndex = index;
+    render();
+    dlg.showModal();
+    setScrollLock(true);
+  };
+
+  const closeDialog = () => {
+    if (!dlg) return;
+    dlg.close();
+    setScrollLock(false);
+  };
+
+  if (dlg && img && cap && position && previous && next && close) {
     document.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       const source = target.closest('[data-lightbox] figure img') as HTMLImageElement | null;
       if (source) {
-        img.src = source.currentSrc || source.src;
-        img.srcset = source.srcset;
-        img.sizes = '92vw';
-        img.alt = source.alt;
-        cap.textContent = source.closest('figure')?.querySelector('figcaption')?.textContent?.trim() ?? '';
-        dlg.showModal();
+        sources = Array.from(document.querySelectorAll('[data-lightbox] figure img'));
+        openAt(sources.indexOf(source));
         return;
       }
-      // backdrop or close button
-      if (dlg.open && (target === dlg || target.closest('#lightbox button'))) dlg.close();
+      if (dlg.open && target === dlg) closeDialog();
     });
+
+    previous.addEventListener('click', () => {
+      if (activeIndex > 0) {
+        activeIndex -= 1;
+        render();
+      }
+    });
+    next.addEventListener('click', () => {
+      if (activeIndex < sources.length - 1) {
+        activeIndex += 1;
+        render();
+      }
+    });
+    close.addEventListener('click', closeDialog);
+    dlg.addEventListener('close', () => setScrollLock(false));
+    dlg.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft' && activeIndex > 0) {
+        activeIndex -= 1;
+        render();
+      }
+      if (e.key === 'ArrowRight' && activeIndex < sources.length - 1) {
+        activeIndex += 1;
+        render();
+      }
+    });
+    img.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0]?.clientX ?? 0;
+    }, { passive: true });
+    img.addEventListener('touchend', (e) => {
+      const distance = (e.changedTouches[0]?.clientX ?? 0) - touchStartX;
+      if (Math.abs(distance) < 50) return;
+      if (distance < 0 && activeIndex < sources.length - 1) activeIndex += 1;
+      if (distance > 0 && activeIndex > 0) activeIndex -= 1;
+      render();
+    }, { passive: true });
   }
 </script>

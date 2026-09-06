@@ -5,19 +5,20 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Picture from '../../components/Picture.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import WaIcon from '../../components/WaIcon.astro';
-import ServiceIcon from '../../components/ServiceIcon.astro';
 import { serviceDetails, portfolio, waLink, site } from '../../site.js';
 
 export function getStaticPaths() {
   return serviceDetails.map((s) => ({ params: { slug: s.slug }, props: { s } }));
 }
 
-const { s } = Astro.props;
+const { s }: { s: (typeof serviceDetails)[number] } = Astro.props;
 const crumbs = [
   { href: '/layanan', label: 'Layanan' },
   { href: `/layanan/${s.slug}`, label: s.nav },
 ];
-const samples = portfolio.filter((p) => p.cat === s.cat).slice(0, 3);
+const samples = (s.images ?? [])
+  .map((img) => portfolio.find((p) => p.img === img))
+  .filter((p): p is (typeof portfolio)[number] => Boolean(p));
 const others = serviceDetails.filter((o) => o.slug !== s.slug);
 
 const faqSchema = {
@@ -43,15 +44,12 @@ const faqSchema = {
         </a>
       </div>
       <div class="rounded-2xl border border-brand-100 bg-brand-50/50 p-7">
-        <span class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white text-brand-600">
-          <ServiceIcon name={s.icon} />
-        </span>
-        <p class="mt-4 text-sm font-semibold text-slate-900">Kenapa lewat kami</p>
+        <p class="text-sm font-semibold text-slate-900">Ruang lingkup pengerjaan</p>
         <ul class="mt-3 space-y-2 text-sm text-slate-600">
-          <li class="flex gap-2"><span class="text-brand-400">—</span>Workshop sendiri di Serpong, bukan calo produksi</li>
-          <li class="flex gap-2"><span class="text-brand-400">—</span>Desain, produksi, kirim, pasang oleh satu tim</li>
-          <li class="flex gap-2"><span class="text-brand-400">—</span>Semua ukuran custom mengikuti lokasi</li>
-          <li class="flex gap-2"><span class="text-brand-400">—</span>Melayani {site.city} &amp; Jabodetabek</li>
+          <li class="flex gap-2"><span class="text-brand-400">-</span>Survei dan pembahasan kebutuhan</li>
+          <li class="flex gap-2"><span class="text-brand-400">-</span>Gambar kerja sebelum produksi</li>
+          <li class="flex gap-2"><span class="text-brand-400">-</span>Produksi di workshop Serpong</li>
+          <li class="flex gap-2"><span class="text-brand-400">-</span>Pengiriman dan pemasangan sesuai lokasi</li>
         </ul>
       </div>
     </div>
@@ -78,13 +76,13 @@ const faqSchema = {
   {samples.length > 0 && (
     <Section>
       <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Contoh pengerjaan</h2>
-      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox aria-label={`Galeri ${s.nav}`}>
         {samples.map((p) => (
           <figure class="group overflow-hidden rounded-2xl border border-brand-100">
             <div class="aspect-4/3 overflow-hidden bg-brand-50">
               <Picture name={p.img} alt={p.title}
                        sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 90vw"
-                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                       class="h-full w-full cursor-zoom-in object-contain transition-transform duration-500 group-hover:scale-105" />
             </div>
             <figcaption class="px-5 py-4 text-sm font-medium">{p.title}</figcaption>
           </figure>

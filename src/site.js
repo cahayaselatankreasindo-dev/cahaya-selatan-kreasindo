@@ -112,10 +112,10 @@ export const serviceDetails = [
     description:
       'Vendor produksi POSM di Tangerang Selatan: floor display, counter display, standee, wobbler, shelf talker, dan acrylic stand. Dikerjakan di workshop sendiri, dikirim dan dipasang untuk area Jabodetabek.',
     lead:
-      'POSM (Point of Sale Material) adalah semua materi promosi yang bekerja di dalam toko — memancing perhatian pembeli tepat di depan rak, saat keputusan belanja diambil. Kami memproduksinya sendiri, bukan menyalurkan ke pihak lain.',
+      'POSM (Point of Sale Material) adalah materi promosi untuk area rak, kasir, dan titik penjualan. Kami membuatnya sesuai ukuran produk, kebutuhan kampanye, dan jumlah outlet.',
     intro: [
-      'Kami rutin mengerjakan POSM untuk brand FMCG, produk perawatan diri, pet care, sampai retail modern. Pengerjaannya sama seperti pesanan display lain: gambar kerja disetujui dulu, produksi di workshop Serpong, lalu dikirim atau dipasang langsung di outlet.',
-      'Untuk kampanye yang menyebar ke banyak cabang, kami kerjakan dalam batch supaya bentuk, warna, dan kualitas finishing tetap seragam antar toko.',
+      'Kami memproduksi POSM untuk produk FMCG, perawatan diri, pet care, dan retail modern. Alurnya dimulai dari gambar kerja, dilanjutkan produksi di workshop Serpong, lalu pengiriman atau pemasangan di outlet.',
+      'Untuk kebutuhan banyak cabang, produksi dapat dilakukan dalam batch dengan acuan ukuran dan finishing yang sama.',
     ],
     items: {
       title: 'Jenis POSM yang kami produksi',
@@ -133,6 +133,7 @@ export const serviceDetails = [
     ],
     cat: 'Rak Display',
     waMsg: 'Halo, saya ingin minta penawaran produksi POSM untuk brand berikut:',
+    images: ['display-akrilik-line-friends'],
   },
   {
     slug: 'rak-display-gondola',
@@ -143,10 +144,10 @@ export const serviceDetails = [
     description:
       'Jasa pembuatan rak display custom, gondola supermarket, dan gondola branding di Tangerang Selatan. Ukuran menyesuaikan lokasi, finishing rapi, dikirim dan dirakit oleh tim sendiri.',
     lead:
-      'Rak yang dibuat mengikuti ukuran lokasi dan karakter produk selalu menjual lebih baik daripada rak jadi yang dipaksakan muat. Kami membuatnya dari nol, bukan menjual rak standar.',
+      'Kami membuat rak display dan gondola berdasarkan ukuran ruang, jenis produk, serta kebutuhan branding toko atau supermarket.',
     intro: [
-      'Kami mengerjakan rak untuk dua kebutuhan berbeda. Pertama, rak toko dan gondola untuk pemilik usaha yang menata seluruh ruang jualannya. Kedua, gondola branding dan rak khusus produk untuk brand yang ingin tampil beda di dalam toko modern.',
-      'Semua rak dirakit dan dicek di workshop sebelum dikirim, supaya di lokasi tinggal dipasang tanpa kejutan ukuran.',
+      'Pengerjaan mencakup rak toko, gondola supermarket, gondola branding, dan rak khusus produk untuk area retail.',
+      'Rak dirakit dan diperiksa di workshop sebelum dikirim. Tim kami dapat mengerjakan pengiriman dan perakitan di lokasi.',
     ],
     items: {
       title: 'Yang biasa dipesan',
@@ -164,6 +165,7 @@ export const serviceDetails = [
     ],
     cat: 'Rak Display',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
+    images: ['gondola-supermarket-potens', 'rak-display-toko-potens', 'rak-display-nutricell-pet-care'],
   },
   {
     slug: 'booth-pameran',
@@ -174,10 +176,10 @@ export const serviceDetails = [
     description:
       'Kontraktor booth pameran custom untuk JCC, JIExpo, ICE BSD, dan aktivasi mall. Desain, produksi, pemasangan, sampai bongkar setelah acara. Berbasis di Tangerang Selatan.',
     lead:
-      'Booth yang baik menahan langkah orang selama tiga detik pertama. Kami mengerjakannya dari desain sampai bongkar setelah acara selesai, termasuk jam kerja malam yang lazim di gedung pameran dan mall.',
+      'Kami mengerjakan booth pameran dan stand event custom, dari gambar kerja dan produksi sampai pemasangan serta pembongkaran setelah acara.',
     intro: [
-      'Kami biasa mengerjakan booth pameran industri, aktivasi brand di atrium mall, dan mini counter untuk kegiatan penjualan langsung. Pengalaman di JCC, JIExpo Kemayoran, dan ICE BSD membuat kami paham aturan gedung soal ketinggian, beban, dan jadwal loading.',
-      'Karena jadwal event tidak bisa mundur, kami minta tanggal pasti sejak awal agar produksi dijadwalkan mundur dari hari H, bukan dari hari pemesanan.',
+      'Jenis pekerjaan meliputi booth pameran industri, aktivasi brand di atrium mall, dan mini counter untuk kegiatan penjualan langsung.',
+      'Kami menyesuaikan gambar kerja dan jadwal produksi dengan ketentuan venue, jadwal loading, serta tanggal acara yang disepakati.',
     ],
     items: {
       title: 'Lingkup pengerjaan',
@@ -195,6 +197,7 @@ export const serviceDetails = [
     ],
     cat: 'Booth & Pameran',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
+    images: ['booth-pameran-jasa-tirta-ii', 'booth-pameran-mall-tema-barn', 'booth-aktivasi-brand-mall'],
   },
   {
     slug: 'neon-box-signage',
@@ -205,10 +208,10 @@ export const serviceDetails = [
     description:
       'Jasa pembuatan neon box, huruf timbul, papan nama toko, dan signage arah di Tangerang Selatan dan Jabodetabek. Material tahan cuaca, dipasang oleh tim sendiri.',
     lead:
-      'Toko yang tidak terlihat dari jalan akan terus dilewati. Neon box dan huruf timbul membuat nama usaha Anda terbaca dari jauh, siang maupun malam.',
+      'Kami membuat neon box, huruf timbul, papan nama, dan signage arah untuk toko, kantor, klinik, gudang, serta area dalam gedung.',
     intro: [
-      'Kami mengerjakan signage untuk toko, kantor, klinik, gudang, sampai penanda arah di dalam gedung. Pengukuran dilakukan langsung di lokasi supaya ukuran huruf sebanding dengan jarak baca dan lebar bidang pasang.',
-      'Untuk pemasangan di ketinggian atau bidang yang sulit, kami survei dulu — menentukan jenis rangka dan angkur yang aman jauh lebih murah daripada memperbaiki papan yang lepas.',
+      'Kami mengukur bidang dan kondisi lokasi sebelum menentukan ukuran, material, rangka, serta sistem pencahayaan yang diperlukan.',
+      'Produksi dilakukan di workshop, kemudian dikirim dan dipasang oleh tim sesuai akses lokasi dan jadwal pekerjaan.',
     ],
     items: {
       title: 'Jenis signage',
@@ -226,6 +229,7 @@ export const serviceDetails = [
     ],
     cat: 'Neon Box & Signage',
     waMsg: 'Halo, saya ingin minta penawaran neon box / signage untuk lokasi berikut:',
+    images: ['neon-box-jnt-cargo', 'huruf-timbul-gorisa', 'papan-nama-sarwaga-yoga'],
   },
   {
     slug: 'visual-merchandising',
@@ -236,10 +240,10 @@ export const serviceDetails = [
     description:
       'Jasa visual merchandising dan in-store branding: penataan display, window display, store build-up, dan branding outlet untuk toko ritel di Jabodetabek.',
     lead:
-      'Visual merchandising adalah cara menata toko supaya produk mudah ditemukan, enak dilihat, dan mendorong pembelian. Kami mengerjakannya sampai jadi bentuk fisik, bukan berhenti di presentasi konsep.',
+      'Kami menata dan memproduksi elemen visual untuk area retail, termasuk display produk, window display, store build-up, dan branding outlet.',
     intro: [
-      'Banyak penyedia jasa berhenti pada rekomendasi tata letak. Kekuatan kami ada di sesudahnya: rak, panel, dan properti hasil rancangan itu kami produksi sendiri di workshop, lalu dipasang oleh tim yang sama.',
-      'Cocok untuk pembukaan outlet baru, penyegaran toko lama, penyeragaman tampilan antar cabang, atau kampanye musiman seperti Ramadan dan akhir tahun.',
+      'Lingkupnya dapat mencakup survei, konsep, gambar kerja, produksi rak atau panel di workshop, dan instalasi di lokasi.',
+      'Pekerjaan ini sesuai untuk pembukaan outlet, penyegaran area toko, penyeragaman tampilan cabang, dan kampanye musiman.',
     ],
     items: {
       title: 'Lingkup pekerjaan',
@@ -257,6 +261,7 @@ export const serviceDetails = [
     ],
     cat: 'Proses Produksi',
     waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
+    images: ['rak-display-produk-hanasui', 'floor-display-evo-pet-food', 'display-akrilik-line-friends'],
   },
   {
     slug: 'sewa-peralatan-event',
@@ -267,10 +272,10 @@ export const serviceDetails = [
     description:
       'Sewa stand booth, tenda, meja, dan kursi untuk bazar, pameran, dan kegiatan perusahaan di Tangerang Selatan dan sekitarnya. Diantar dan dipasang oleh tim sendiri.',
     lead:
-      'Untuk acara sekali jalan, menyewa jauh lebih masuk akal daripada membeli. Peralatan kami antar, pasang, lalu bongkar setelah acara selesai.',
+      'Kami menyewakan stand booth, tenda, meja, dan kursi untuk bazar, pameran, acara perusahaan, serta kegiatan komunitas.',
     intro: [
-      'Layanan ini melengkapi pekerjaan produksi kami. Sering kali satu acara memerlukan booth custom untuk brand utama sekaligus meja, kursi, dan tenda untuk kebutuhan pendukung — semuanya bisa berasal dari satu penyedia.',
-      'Ketersediaan bergantung tanggal, terutama pada musim ramai bazar dan akhir tahun. Semakin awal jadwal Anda dikunci, semakin aman.',
+      'Peralatan dapat dipakai untuk kebutuhan pendukung acara, termasuk stand booth untuk area brand dan perlengkapan untuk area pengunjung atau panitia.',
+      'Pengantaran, pemasangan, pembongkaran, dan pengambilan kembali disesuaikan dengan lokasi serta jadwal acara.',
     ],
     items: {
       title: 'Yang tersedia',
@@ -288,5 +293,6 @@ export const serviceDetails = [
     ],
     cat: 'Booth & Pameran',
     waMsg: 'Halo, saya ingin menyewa peralatan event untuk acara berikut:',
+    images: ['mini-counter-booth-beco'],
   },
 ];

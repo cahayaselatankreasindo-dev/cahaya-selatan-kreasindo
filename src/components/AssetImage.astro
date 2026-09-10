@@ -2,7 +2,7 @@
 const { src, alt = '', class: klass = '', loading = 'lazy' } = Astro.props;
 ---
 <img
-  src={encodeURI(src)}
+  src={src}
   alt={alt}
   loading={loading}
   decoding="async"

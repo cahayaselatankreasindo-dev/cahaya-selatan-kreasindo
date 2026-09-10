@@ -67,7 +67,7 @@ const crumbList = breadcrumbs.length ? {
     <title>{full}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/webp" href="/img/logo.webp" />
+    <link rel="icon" href="/img/logo.webp" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -89,7 +89,7 @@ const crumbList = breadcrumbs.length ? {
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
     {crumbList && <script type="application/ld+json" set:html={JSON.stringify(crumbList)} />}
   </head>
-  <body class="bg-white text-ink antialiased">
+  <body class="bg-csk-white text-ink antialiased">
     <Header />
     <main><slot /></main>
     <Footer />

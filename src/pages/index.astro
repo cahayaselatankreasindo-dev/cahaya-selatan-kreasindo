@@ -8,35 +8,69 @@ import AssetImage from '../components/AssetImage.astro';
 import { serviceDetails, waLink, areas } from '../site.js';
 
 const featuredPortfolio = [
+  // RETAIL & MERCHANDISING
   {
-    src: '/assets/Booth Exhibition/27528bda-fd77-4755-b817-f40d8eab7595.jpg',
-    title: 'Booth Pameran Custom',
-    cat: 'Booth & Pameran',
+    src: '/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.jpg',
+    title: 'Rak Display Akrilik Kosmetik',
+    cat: 'Retail & Merchandising',
   },
   {
-    src: '/assets/Booth Exhibition/860D62FD-8DAB-4AF8-86D2-0136FB71A980.jpg',
-    title: 'Booth Aktivasi Brand',
-    cat: 'Booth & Pameran',
+    src: '/assets/Display Akrilik Custom/Gondola Supermarket Neon sign led.jpg',
+    title: 'Gondola Supermarket dengan LED Header',
+    cat: 'Retail & Merchandising',
   },
   {
-    src: '/assets/Rak Display bioxine/ACC5159E-1571-42EA-9D56-9BD9D7AF0239.jpg',
-    title: 'Rak Display Bioxsine',
-    cat: 'Rak Display',
+    src: '/assets/Branding Store/20BD3285-1272-4623-B861-3504FACE4DCD.jpg',
+    title: 'In-Store Branding Hanasui di Guardian',
+    cat: 'Retail & Merchandising',
+  },
+  // SIGNAGE & BRANDING
+  {
+    src: '/assets/Neon Box/Neon Box SAKALA.jpg',
+    title: 'Neon Box SAKALA',
+    cat: 'Signage & Branding',
   },
   {
-    src: '/assets/Rak Display bioxine/588D149F-B44C-47CD-B288-F68CED3C6C2C.jpg',
-    title: 'Rak Display Bioxsine',
-    cat: 'Rak Display',
+    src: '/assets/Neon Box/Huruf timbul Neon Box KAVO.jpg',
+    title: 'Huruf Timbul Neon Box KAVO',
+    cat: 'Signage & Branding',
   },
   {
-    src: '/assets/Rak Display PVC/Floor display akrilik pop up Boga.jpg',
-    title: 'Floor Display Akrilik Pop Up Boga',
-    cat: 'Rak Display',
+    src: '/assets/Standing Banner/5cabd3fd-b34d-462d-8b33-d86d5b65e478.jpg',
+    title: 'Standing Banner Event',
+    cat: 'Signage & Branding',
+  },
+  // BOOTH & CUSTOM BUILD
+  {
+    src: '/assets/Booth Exhibition/IMG_3031.jpg',
+    title: 'Booth Expo SOSRAIT',
+    cat: 'Booth & Custom Build',
+  },
+  {
+    src: '/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.jpg',
+    title: 'Aktivasi Mall Perfetto',
+    cat: 'Booth & Custom Build',
+  },
+  {
+    src: '/assets/Backwall and backdrop/ecea96ed-d244-4291-9cef-05562ac4a592.jpg',
+    title: 'Backwall & Photo Booth',
+    cat: 'Booth & Custom Build',
+  },
+  // PROSES PRODUKSI
+  {
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/PHOTO-2025-12-17-05-39-34.jpg',
+    title: 'Dokumentasi Proses Produksi',
+    cat: 'Proses Produksi',
+  },
+  {
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/C672BE21-FDC8-41C4-9F22-E193E0881DEE.jpg',
+    title: 'Perakitan Rak Display',
+    cat: 'Proses Produksi',
   },
   {
     src: '/assets/Proses produksi rak display dan exhibiton booth event/Rak kayu Olike.jpg',
-    title: 'Rak Kayu Olike',
-    cat: 'Rak Display',
+    title: 'Finishing Rak Kayu Olike',
+    cat: 'Proses Produksi',
   },
 ];
 ---
@@ -44,130 +78,268 @@ const featuredPortfolio = [
       title="Jasa Booth Pameran & Rak Display"
       description="Cahaya Selatan Kreasindo, jasa pembuatan booth pameran, rak display custom, neon box, dan signage di Tangerang Selatan. Dikerjakan sendiri dari desain sampai pemasangan."
 >
-      <section class="border-b border-slate-200 bg-white">
-            <div class="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:py-20 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-16 md:py-24">
-                  <div>
-                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-brand-600">Cahaya Selatan Kreasindo</p>
-                        <h1 class="mt-4 max-w-xl text-4xl font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl md:text-6xl">
-                              Kontraktor Booth Pameran &amp; Display Custom
-                        </h1>
-                        <p class="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
-                              Produksi booth pameran, rak display, dan fabrikasi custom dari desain sampai pemasangan di lokasi.
-                        </p>
-                        <div class="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
-                              <a href="/portofolio"
-                                     class="inline-flex justify-center rounded-full bg-brand-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-                                    Lihat Portofolio
-                              </a>
-                              <a href={waLink()} target="_blank" rel="noopener"
-                                     class="inline-flex items-center justify-center gap-2 rounded-full border border-brand-200 px-6 py-3 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-50">
-                                    <WaIcon />Konsultasi Proyek
-                              </a>
-                        </div>
-                  </div>
-
-                  <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-                        <div class="aspect-square overflow-hidden">
-                              <AssetImage
-                                    src="/assets/Booth Exhibition/2e405837-24da-4f2c-bfb1-d7263f1f4980.jpg"
-                                    alt="Booth pameran Cahaya Selatan Kreasindo"
-                                    loading="eager"
-                                    class="h-full w-full object-cover object-bottom"
-                              />
-                        </div>
-                  </figure>
-            </div>
+      <section>
+        <div class="mx-auto max-w-6xl px-5 py-12 md:py-16">
+          <h1 class="text-3xl font-bold leading-tight text-csk-black sm:text-4xl md:text-5xl">
+            Production Partner untuk Brand dan Bisnis.
+          </h1>
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-csk-gray sm:text-lg">
+            Kami menangani kebutuhan produksi dan implementasi untuk brand dan bisnis.
+          </p>
+        </div>
+        <div class="border-t border-csk-gray/10">
+          <div class="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0 md:divide-csk-gray/10">
+            <a href="/layanan/visual-merchandising"
+               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
+              <AssetImage
+                src="/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.jpg"
+                alt="Retail dan visual merchandising — rak display akrilik untuk produk kecantikan di toko ritel"
+                loading="eager"
+                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-black/50"></div>
+              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">01</span>
+                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
+                  Retail &amp;<br/>Merchandising
+                </h2>
+              </div>
+            </a>
+            <a href="/layanan/neon-box-signage"
+               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
+              <AssetImage
+                src="/assets/Neon Box/Neon Box SAKALA.jpg"
+                alt="Signage dan branding — neon box SAKALA bercahaya untuk identity brand"
+                loading="eager"
+                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-black/50"></div>
+              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">02</span>
+                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
+                  Signage &amp;<br/>Branding
+                </h2>
+              </div>
+            </a>
+            <a href="/layanan/booth-pameran"
+               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
+              <AssetImage
+                src="/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.jpg"
+                alt="Booth pameran dan custom build — aktivasi brand Perfetto di atrium mall"
+                loading="eager"
+                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-black/50"></div>
+              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">03</span>
+                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
+                  Booth &amp;<br/>Custom Build
+                </h2>
+              </div>
+            </a>
+          </div>
+        </div>
       </section>
 
-<Section eyebrow="Layanan" title="Solusi display yang tepat untuk bisnis Anda"
-         lead="Enam lini pekerjaan, dari POSM dan rak display sampai booth pameran dan signage toko.">
-  <div class="mt-10 grid gap-5 md:grid-cols-2">
-    {serviceDetails.map((s) => (
-      <a href={`/layanan/${s.slug}`}
-         class="group overflow-hidden rounded-2xl border border-brand-100 bg-white transition-shadow hover:shadow-md">
-        <div class="aspect-4/3 overflow-hidden bg-brand-50">
-          <AssetImage
-            src={s.assetImage}
-            alt={s.title}
-            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+      <Section eyebrow="Layanan" title="Apa yang Kami Kerjakan"
+                 lead="Detail kebutuhan produksi dan implementasi untuk brand, retail, dan project commercial.">
+        <div class="mt-12 grid gap-x-px bg-csk-gray/15 md:grid-cols-2">
+          {serviceDetails.map((s) => (
+            <a href={`/layanan/${s.slug}`}
+               class="group block bg-white border-b border-csk-gray/15">
+              <div class="aspect-4/3 overflow-hidden">
+                <AssetImage
+                  src={s.assetImage}
+                  alt={s.title}
+                  loading="lazy"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div class="px-6 py-5">
+                <p class="text-xs font-semibold uppercase tracking-[0.15em] text-csk-amber">{s.cat}</p>
+                <h3 class="mt-2 text-base font-bold uppercase leading-tight text-csk-black group-hover:text-csk-amber">
+                  {s.nav}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-csk-gray line-clamp-2">{s.lead}</p>
+                <span class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-csk-black group-hover:text-csk-amber">
+                  Selengkapnya <span aria-hidden="true">&rarr;</span>
+                </span>
+              </div>
+            </a>
+          ))}
         </div>
-        <div class="p-7">
-          <h3 class="text-lg font-semibold">{s.title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.lead}</p>
-          <span class="mt-3 inline-block text-sm font-medium text-brand-700 group-hover:text-brand-800">
-            Selengkapnya &rarr;
-          </span>
+      </Section>
+
+
+      <Section eyebrow="Portofolio" title="Project yang Kami Tangani"
+                 lead="Pilihan pekerjaan nyata CSK, dari retail display dan signage hingga booth dan proses produksi.">
+        <div class="mt-10 space-y-16">
+          <div>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber">Retail &amp; Merchandising</p>
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredPortfolio.filter((p) => p.cat === 'Retail & Merchandising').map((p) => (
+                <figure class="group bg-white">
+                  <div class="aspect-4/3 overflow-hidden">
+                    <AssetImage src={p.src} alt={p.title}
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber">Signage &amp; Branding</p>
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredPortfolio.filter((p) => p.cat === 'Signage & Branding').map((p) => (
+                <figure class="group bg-white">
+                  <div class="aspect-4/3 overflow-hidden">
+                    <AssetImage src={p.src} alt={p.title}
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber">Booth &amp; Custom Build</p>
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredPortfolio.filter((p) => p.cat === 'Booth & Custom Build').map((p) => (
+                <figure class="group bg-white">
+                  <div class="aspect-4/3 overflow-hidden">
+                    <AssetImage src={p.src} alt={p.title}
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber">Proses Produksi</p>
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+              {featuredPortfolio.filter((p) => p.cat === 'Proses Produksi').map((p) => (
+                <figure class="group bg-white">
+                  <div class="aspect-4/3 overflow-hidden">
+                    <AssetImage src={p.src} alt={p.title}
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </div>
-      </a>
-    ))}
-  </div>
-  <a href="/layanan" class="mt-8 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
-    Detail layanan &amp; daftar produk &rarr;
-  </a>
-</Section>
+        <a href="/portofolio" class="mt-12 inline-block text-sm font-medium text-csk-black hover:text-csk-amber">
+          Lihat semua portofolio &rarr;
+        </a>
+      </Section>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <section class="border-y border-brand-100 bg-brand-50/40">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="mx-auto grid max-w-6xl gap-8 px-5 py-16 md:grid-cols-3">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {[
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ['Presisi & Kokoh', 'Pengerjaan rapi, material tahan lama, finishing bersih.'],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ['Satu Pintu', 'Desain, produksi, kirim, sampai instalasi ditangani satu tim.'],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ['Tepat Waktu', 'Jadwal event tidak menunggu — kami kerja sesuai deadline.'],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ].map(([t, d]) => (
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <h2 class="text-base font-semibold">{t}</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="mt-2 text-sm leading-relaxed text-slate-600">{d}</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ))}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </section>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <Section eyebrow="Portofolio" title="Sebagian pekerjaan kami"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 lead="Booth pameran, rak display ritel, neon box, dan signage untuk berbagai brand.">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           {featuredPortfolio.map((p) => (
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <figure class="group overflow-hidden rounded-2xl border border-brand-100">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <div class="aspect-4/3 overflow-hidden bg-brand-50">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <AssetImage src={p.src} alt={p.title}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <figcaption class="px-5 py-4 text-sm font-medium">{p.title}</figcaption>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </figure>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ))}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/portofolio" class="mt-8 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Lihat semua portofolio →
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </Section>
+      <section class="mx-auto max-w-6xl px-5 py-16 md:py-20">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-csk-gray">FAQ</p>
+        <h2 class="mt-3 text-3xl font-bold uppercase leading-none text-csk-black md:text-4xl">Pertanyaan Umum</h2>
+        <div class="mt-10 space-y-px bg-csk-gray/15">
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Apakah project bisa dibuat custom?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Ya. Sebagian besar project kami dibuat sesuai kebutuhan,<br/>
+                mulai dari ukuran, material, desain, hingga kebutuhan pemasangan.
+              </p>
+            </div>
+          </details>
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Apakah CSK membantu dari tahap desain?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Bisa. Anda dapat memulai dari ide atau referensi awal,<br/>
+                atau langsung masuk ke tahap produksi jika desain dan<br/>
+                spesifikasi project sudah tersedia.
+              </p>
+            </div>
+          </details>
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Apakah CSK menangani produksi dan pemasangan?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Ya. CSK menangani kebutuhan produksi hingga pemasangan<br/>
+                sesuai kebutuhan project dan lokasi pekerjaan.
+              </p>
+            </div>
+          </details>
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Berapa lama proses pengerjaan?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Bergantung pada jenis project, jumlah, material,<br/>
+                tingkat kompleksitas, dan lokasi pemasangan.<br/><br/>
+                Setelah kebutuhan project kami terima, CSK dapat<br/>
+                memberikan estimasi waktu pengerjaan yang lebih jelas.
+              </p>
+              <a href="https://wa.me/628888533488?text=Halo%20CSK%2C%20saya%20ingin%20konsultasi%20dan%20menanyakan%20estimasi%20waktu%20pengerjaan%20project." target="_blank" rel="noopener"
+                 class="mt-5 inline-flex items-center gap-2 rounded bg-csk-black px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.19 4.23-9.41 9.43-9.41 2.52 0 4.88.98 6.66 2.76a9.34 9.34 0 0 1 2.76 6.66c0 5.19-4.23 9.42-9.42 9.42zM20.5 3.49A11.75 11.75 0 0 0 12.04 0C5.55 0 .27 5.28.26 11.76c0 2.07.54 4.1 1.57 5.88L.16 24l6.5-1.7a11.74 11.74 0 0 0 5.38 1.37h.01c6.49 0 11.77-5.28 11.77-11.76 0-3.14-1.22-6.1-3.44-8.32z"/>
+                </svg>
+                Konsultasi via WhatsApp
+              </a>
+            </div>
+          </details>
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Apakah CSK menerima project dalam jumlah banyak?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Ya. CSK dapat menangani kebutuhan produksi dalam jumlah<br/>
+                kecil hingga project dengan kebutuhan produksi dan<br/>
+                implementasi yang lebih besar.
+              </p>
+            </div>
+          </details>
+          <details class="group bg-white">
+            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+              <span>Bagaimana cara memulai project?</span>
+              <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <div class="px-6 pb-6 pt-2">
+              <p class="text-sm leading-relaxed text-csk-gray">
+                Kirimkan kebutuhan project, ukuran, foto lokasi,<br/>
+                atau referensi yang Anda miliki. Tim CSK akan membantu<br/>
+                membahas kebutuhan dan langkah pengerjaan selanjutnya.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <section class="border-y border-brand-100 bg-brand-50/40">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <div class="mx-auto max-w-6xl px-5 py-16">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Area layanan</h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <p class="mt-3 max-w-2xl text-slate-600">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Berbasis di Serpong, melayani Jabodetabek. Survei lokasi dan pemasangan dilakukan tim sendiri.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <ul class="mt-6 flex flex-wrap gap-2">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  {areas.map((a) => (
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <li class="rounded-full border border-brand-200 bg-white px-4 py-1.5 text-sm text-brand-700">{a.name}</li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ))}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </ul>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <a href="/area-layanan" class="mt-6 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Detail area layanan →
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </section>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <Section class="text-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          <h2 class="mx-auto max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Punya rencana event atau mau renovasi display toko?
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="mx-auto mt-4 max-w-xl text-slate-600">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Kirim ukuran, foto lokasi, atau referensi desain — kami bantu hitung estimasinya.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <a href={waLink()} target="_blank" rel="noopener"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-600">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <WaIcon />Chat WhatsApp
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </Section>
+      <Section class="text-center">
+        <h2 class="mx-auto max-w-2xl text-3xl font-bold uppercase leading-none tracking-tight text-csk-black md:text-4xl">
+          Punya Project yang Ingin Dikerjakan?
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-csk-gray">
+          Kirim kebutuhan, ukuran, foto lokasi, atau referensi project Anda.<br/>
+          Mari diskusikan kebutuhan produksi dan implementasinya bersama CSK.
+        </p>
+        <a href={waLink()} target="_blank" rel="noopener"
+           class="mt-8 inline-flex items-center gap-2 rounded bg-csk-black px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80">
+          <WaIcon />Chat WhatsApp
+        </a>
+      </Section>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <Lightbox />
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </Base>

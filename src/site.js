@@ -134,6 +134,7 @@ export const serviceDetails = [
     cat: 'Rak Display',
     waMsg: 'Halo, saya ingin minta penawaran produksi POSM untuk brand berikut:',
     images: ['display-akrilik-line-friends'],
+    assetImage: '/assets/Display Akrilik Custom/Akrilik kosmetik produk kecantikan Golden.jpg',
   },
   {
     slug: 'rak-display-gondola',
@@ -166,6 +167,7 @@ export const serviceDetails = [
     cat: 'Rak Display',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
     images: ['gondola-supermarket-potens', 'rak-display-toko-potens', 'rak-display-nutricell-pet-care'],
+    assetImage: '/assets/Display Akrilik Custom/Gondola Supermarket Neon sign led.jpg',
   },
   {
     slug: 'booth-pameran',
@@ -198,6 +200,7 @@ export const serviceDetails = [
     cat: 'Booth & Pameran',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
     images: ['booth-pameran-jasa-tirta-ii', 'booth-pameran-mall-tema-barn', 'booth-aktivasi-brand-mall'],
+    assetImage: '/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.jpg',
   },
   {
     slug: 'neon-box-signage',
@@ -230,6 +233,7 @@ export const serviceDetails = [
     cat: 'Neon Box & Signage',
     waMsg: 'Halo, saya ingin minta penawaran neon box / signage untuk lokasi berikut:',
     images: ['neon-box-jnt-cargo', 'huruf-timbul-gorisa', 'papan-nama-sarwaga-yoga'],
+    assetImage: '/assets/Neon Box/Neon Box Custom Relis Studio.jpg',
   },
   {
     slug: 'visual-merchandising',
@@ -262,6 +266,7 @@ export const serviceDetails = [
     cat: 'Proses Produksi',
     waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
     images: ['rak-display-produk-hanasui', 'floor-display-evo-pet-food', 'display-akrilik-line-friends'],
+    assetImage: '/assets/Branding Store/20BD3285-1272-4623-B861-3504FACE4DCD.jpg',
   },
   {
     slug: 'sewa-peralatan-event',
@@ -294,5 +299,6 @@ export const serviceDetails = [
     cat: 'Booth & Pameran',
     waMsg: 'Halo, saya ingin menyewa peralatan event untuk acara berikut:',
     images: ['mini-counter-booth-beco'],
+    assetImage: '/assets/Tenda Event/A46AB99C-E267-48F4-BE63-D2AFA860AB72.jpg',
   },
 ];

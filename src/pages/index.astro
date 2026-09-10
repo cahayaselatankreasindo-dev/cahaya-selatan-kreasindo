@@ -2,12 +2,47 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import Picture from '../components/Picture.astro';
-import { site, serviceDetails, waLink, portfolio, areas } from '../site.js';
-
-const heroProject = portfolio.find((p) => p.img === 'booth-aktivasi-brand-mall');
 import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
 import ServiceIcon from '../components/ServiceIcon.astro';
+import AssetImage from '../components/AssetImage.astro';
+
+import { site, serviceDetails, waLink, portfolio, areas } from '../site.js';
+import { assetCategories } from '../data/assets.js';
+import { getCategoryAssets } from '../data/getAssets.js';
+
+const featuredPortfolio = [
+  {
+    src: '/assets/Booth Exhibition/27528bda-fd77-4755-b817-f40d8eab7595.jpg',
+    title: 'Booth Pameran Custom',
+    cat: 'Booth & Pameran',
+  },
+  {
+    src: '/assets/Booth Exhibition/860D62FD-8DAB-4AF8-86D2-0136FB71A980.jpg',
+    title: 'Booth Aktivasi Brand',
+    cat: 'Booth & Pameran',
+  },
+  {
+    src: '/assets/Rak Display bioxine/ACC5159E-1571-42EA-9D56-9BD9D7AF0239.jpg',
+    title: 'Rak Display Bioxsine',
+    cat: 'Rak Display',
+  },
+  {
+    src: '/assets/Rak Display bioxine/588D149F-B44C-47CD-B288-F68CED3C6C2C.jpg',
+    title: 'Rak Display Bioxsine',
+    cat: 'Rak Display',
+  },
+  {
+    src: '/assets/Rak Display PVC/Floor display akrilik pop up Boga.jpg',
+    title: 'Floor Display Akrilik Pop Up Boga',
+    cat: 'Rak Display',
+  },
+  {
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/Rak kayu Olike.jpg',
+    title: 'Rak Kayu Olike',
+    cat: 'Rak Display',
+  },
+];
 ---
 <Base
       title="Jasa Booth Pameran & Rak Display"
@@ -35,23 +70,16 @@ import ServiceIcon from '../components/ServiceIcon.astro';
                         </div>
                   </div>
 
-                  {heroProject && (
-                        <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100" data-lightbox>
-                              <div class="aspect-3/4 overflow-hidden">
-                                    <Picture
-                                          name={heroProject.img}
-                                          alt={heroProject.title}
-                                          sizes="(min-width: 768px) 55vw, 90vw"
-                                          loading="eager"
-                                          class="h-full w-full cursor-zoom-in object-cover"
-                                    />
-                              </div>
-                              <figcaption class="border-t border-slate-200 bg-white px-5 py-4">
-                                    <p class="text-sm font-semibold text-ink">{heroProject.title}</p>
-                                    <p class="mt-1 text-xs text-slate-500">{heroProject.cat}</p>
-                              </figcaption>
-                        </figure>
-                  )}
+                  <figure class="overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
+                        <div class="aspect-3/4 overflow-hidden">
+                              <AssetImage
+                                    src="/assets/Booth Exhibition/2e405837-24da-4f2c-bfb1-d7263f1f4980.jpg"
+                                    alt="Booth pameran Cahaya Selatan Kreasindo"
+                                    loading="eager"
+                                    class="h-full w-full object-cover object-bottom"
+                              />
+                        </div>
+                  </figure>
             </div>
       </section>
 

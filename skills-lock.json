@@ -1,6 +1,18 @@
 {
   "version": 1,
   "skills": {
+    "antislop-code": {
+      "source": "miqdadbadjuber/anti-slop",
+      "sourceType": "github",
+      "skillPath": "skills/antislop-code/SKILL.md",
+      "computedHash": "ee1e9c9a970b47eee5f046313e55ccc8eb64d947e7ffd3064374632abf5fb5d5"
+    },
+    "antislop-ui": {
+      "source": "miqdadbadjuber/anti-slop",
+      "sourceType": "github",
+      "skillPath": "skills/antislop-ui/SKILL.md",
+      "computedHash": "8e98d3c2e3666d4940dc8f815d6c3fdafa986b8394349cfe2a05f3745b5f7ec5"
+    },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",

@@ -64,3 +64,13 @@ URLs, the sitemap, OG tags, and the LocalBusiness schema `@id`. Still a placehol
 
 After changing schema or meta tags, validate with Google Rich Results Test — curl/grep
 confirms the JSON-LD is present but not that Google accepts it.
+
+<!-- antislop:start -->
+## antislop
+For UI, copy, people, mobile layout, or code comments work, load the antislop skill for the task:
+- Core filter, always on: `antislop`
+- Copy & text: `antislop-copywriting`
+- People: `antislop-human`
+- Mobile / responsive: `antislop-layoutmobile`
+Before starting, ask the user when antislop applies: during the work, or after it is done.
+<!-- antislop:end -->

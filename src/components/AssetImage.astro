@@ -1,0 +1,10 @@
+---
+const { src, alt = '', class: klass = '', loading = 'lazy' } = Astro.props;
+---
+<img
+  src={encodeURI(src)}
+  alt={alt}
+  loading={loading}
+  decoding="async"
+  class={klass}
+/>

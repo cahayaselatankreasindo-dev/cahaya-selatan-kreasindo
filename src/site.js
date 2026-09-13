@@ -106,7 +106,7 @@ export const serviceDetails = [
   {
     slug: 'posm-display',
     icon: 'rak',
-    nav: 'POSM &amp; Display Promosi',
+    nav: 'POSM & Display Promosi',
     title: 'Jasa Pembuatan POSM & Display Promosi',
     metaTitle: 'Jasa Pembuatan POSM (Point of Sale Material)',
     description:
@@ -205,7 +205,7 @@ export const serviceDetails = [
   {
     slug: 'neon-box-signage',
     icon: 'neon',
-    nav: 'Neon Box &amp; Signage',
+    nav: 'Neon Box & Signage',
     title: 'Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama',
     metaTitle: 'Jasa Pembuatan Neon Box & Huruf Timbul',
     description:

@@ -120,7 +120,7 @@ export const serviceDetails = [
     items: {
       title: 'Jenis POSM yang kami produksi',
       groups: [
-        { name: 'Display lantai & rak', list: ['Floor display', 'Endcap display', 'Counter display', 'Mini counter', 'Standee & standing character', 'Tier display bertingkat'] },
+        { name: 'Floor Display & Rak', list: ['Floor display', 'Endcap display', 'Counter display', 'Mini counter', 'Standee & standing character', 'Tier display bertingkat'] },
         { name: 'Materi rak', list: ['Wobbler', 'Shelf talker', 'Hanging mobile', 'Tent card', 'Header banner rak', 'Divider & pusher rak'] },
         { name: 'Material yang dipakai', list: ['Akrilik bening & warna', 'Karton duplex & corrugated', 'PVC board', 'Multipleks finishing HPL / duco', 'Besi & hollow', 'Stiker cetak & laminasi'] },
       ],

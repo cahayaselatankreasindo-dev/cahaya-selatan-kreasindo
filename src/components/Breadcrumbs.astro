@@ -8,7 +8,7 @@ const trail = [{ href: '/', label: 'Beranda' }, ...items];
       <li class="flex items-center gap-1.5">
         {i > 0 && <span aria-hidden="true">/</span>}
         {i < trail.length - 1
-          ? <a href={it.href} class="hover:text-brand-700">{it.label}</a>
+          ? <a href={it.href} class="hover:text-csk-amber">{it.label}</a>
           : <span class="text-slate-700" aria-current="page">{it.label}</span>}
       </li>
     ))}

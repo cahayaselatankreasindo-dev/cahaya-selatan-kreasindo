@@ -31,8 +31,8 @@ import { site } from '../site.js';
           ['Jabodetabek', 'Area layanan utama'],
           ['On Time', 'Kejar deadline event'],
         ].map(([t, d]) => (
-          <div class="rounded-2xl border border-brand-100 bg-brand-50/50 p-6">
-            <dt class="text-lg font-semibold text-brand-700">{t}</dt>
+          <div class="rounded-2xl border border-csk-gray/20 bg-csk-gray/10 p-6">
+            <dt class="text-lg font-semibold text-csk-amber">{t}</dt>
             <dd class="mt-1 text-sm text-slate-600">{d}</dd>
           </div>
         ))}
@@ -48,16 +48,16 @@ import { site } from '../site.js';
         ['Produksi', 'Dikerjakan di workshop dengan material pilihan.'],
         ['Instalasi', 'Kirim dan pasang di lokasi Anda.'],
       ].map(([t, d], i) => (
-        <li class="rounded-2xl border border-brand-100 p-6">
-          <span class="text-sm font-semibold text-brand-500">{String(i + 1).padStart(2, '0')}</span>
+        <li class="rounded-2xl border border-csk-gray/20 p-6">
+          <span class="text-sm font-semibold text-csk-amber">{String(i + 1).padStart(2, '0')}</span>
           <h3 class="mt-2 font-semibold">{t}</h3>
           <p class="mt-1 text-sm leading-relaxed text-slate-600">{d}</p>
         </li>
       ))}
     </ol>
     <p class="mt-8 text-sm text-slate-600">
-      Lihat <a class="font-medium text-brand-700 hover:text-brand-800" href="/layanan">rincian layanan</a> atau
-      <a class="font-medium text-brand-700 hover:text-brand-800" href="/portofolio">portofolio pekerjaan</a> kami.
+      Lihat <a class="font-medium text-csk-amber hover:text-csk-amber/80" href="/layanan">rincian layanan</a> atau
+      <a class="font-medium text-csk-amber hover:text-csk-amber/80" href="/portofolio">portofolio pekerjaan</a> kami.
     </p>
   </Section>
 </Base>

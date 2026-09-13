@@ -16,19 +16,19 @@ const mapQ = encodeURIComponent(site.address);
            lead="Balasan tercepat lewat WhatsApp pada jam kerja. Kirim foto lokasi, ukuran, atau referensi desain supaya estimasi bisa langsung kami hitung.">
     <div class="mt-10 grid gap-6 md:grid-cols-3">
       <a href={waLink()} target="_blank" rel="noopener"
-         class="rounded-2xl border border-brand-100 p-7 transition-colors hover:bg-brand-50">
-        <h2 class="text-sm font-medium text-brand-600">WhatsApp</h2>
+         class="rounded-2xl border border-csk-gray/20 p-7 transition-colors hover:bg-csk-gray/10">
+        <h2 class="text-sm font-medium text-csk-amber">WhatsApp</h2>
         <p class="mt-2 text-lg font-semibold">{site.waDisplay}</p>
         <p class="mt-2 text-sm text-slate-600">Chat langsung untuk konsultasi &amp; penawaran.</p>
       </a>
       <a href={`mailto:${site.email}`}
-         class="rounded-2xl border border-brand-100 p-7 transition-colors hover:bg-brand-50">
-        <h2 class="text-sm font-medium text-brand-600">Email</h2>
+         class="rounded-2xl border border-csk-gray/20 p-7 transition-colors hover:bg-csk-gray/10">
+        <h2 class="text-sm font-medium text-csk-amber">Email</h2>
         <p class="mt-2 break-all text-lg font-semibold">{site.email}</p>
         <p class="mt-2 text-sm text-slate-600">Untuk kebutuhan dokumen &amp; penawaran resmi.</p>
       </a>
-      <div class="rounded-2xl border border-brand-100 p-7">
-        <h2 class="text-sm font-medium text-brand-600">Jam operasional</h2>
+      <div class="rounded-2xl border border-csk-gray/20 p-7">
+        <h2 class="text-sm font-medium text-csk-amber">Jam operasional</h2>
         <dl class="mt-2 space-y-1 text-sm">
           {site.hours.map((h) => (
             <div class="flex justify-between gap-3">
@@ -45,8 +45,8 @@ const mapQ = encodeURIComponent(site.address);
     </div>
 
     <div class="mt-10 grid gap-6 md:grid-cols-[1fr_1.2fr]">
-      <div class="rounded-2xl border border-brand-100 p-7">
-        <h2 class="text-sm font-medium text-brand-600">Workshop</h2>
+      <div class="rounded-2xl border border-csk-gray/20 p-7">
+        <h2 class="text-sm font-medium text-csk-amber">Workshop</h2>
         <address class="mt-2 not-italic leading-relaxed text-slate-700">
           <strong class="font-semibold text-ink">{site.name}</strong><br />
           {site.street}<br />
@@ -56,18 +56,18 @@ const mapQ = encodeURIComponent(site.address);
         <p class="mt-4 text-sm text-slate-600">
           Kunjungan workshop sebaiknya dijadwalkan dulu lewat WhatsApp agar tim yang menangani proyek Anda ada di tempat.
         </p>
-        <h3 class="mt-6 text-sm font-medium text-brand-600">Area yang kami layani</h3>
+        <h3 class="mt-6 text-sm font-medium text-csk-amber">Area yang kami layani</h3>
         <ul class="mt-2 flex flex-wrap gap-2">
           {areas.map((a) => (
-            <li class="rounded-full border border-brand-200 px-3 py-1 text-xs text-brand-700">{a.name}</li>
+            <li class="rounded-full border border-csk-gray/30 px-3 py-1 text-xs text-csk-amber">{a.name}</li>
           ))}
         </ul>
-        <a href="/area-layanan" class="mt-4 inline-block text-sm font-medium text-brand-700 hover:text-brand-800">
+        <a href="/area-layanan" class="mt-4 inline-block text-sm font-medium text-csk-amber hover:text-csk-amber/80">
           Detail area layanan →
         </a>
       </div>
 
-      <div class="overflow-hidden rounded-2xl border border-brand-100">
+      <div class="overflow-hidden rounded-2xl border border-csk-gray/20">
         <iframe
           title="Lokasi workshop Cahaya Selatan Kreasindo di Serpong"
           class="h-full min-h-80 w-full"

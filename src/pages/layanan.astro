@@ -17,11 +17,11 @@ import WaIcon from '../components/WaIcon.astro';
     <div class="mt-10 grid gap-5 md:grid-cols-2">
       {serviceDetails.map((s) => (
         <a href={`/layanan/${s.slug}`}
-           class="group rounded-2xl border border-brand-100 p-5 transition-shadow hover:shadow-md sm:p-6">
+           class="group rounded-2xl border border-csk-gray/20 p-5 transition-shadow hover:shadow-md sm:p-6">
           {s.images?.[0] && (() => {
             const image = portfolio.find((p) => p.img === s.images[0]);
             return image ? (
-              <div class="aspect-4/3 overflow-hidden rounded-xl bg-brand-50">
+              <div class="aspect-4/3 overflow-hidden rounded-xl bg-csk-gray/10">
                 <Picture
                   name={image.img}
                   alt={image.title}
@@ -33,7 +33,7 @@ import WaIcon from '../components/WaIcon.astro';
           })()}
           <h2 class="mt-5 text-lg font-semibold">{s.title}</h2>
           <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.lead}</p>
-          <span class="mt-4 inline-block text-sm font-medium text-brand-700 group-hover:text-brand-800">
+          <span class="mt-4 inline-block text-sm font-medium text-csk-amber group-hover:text-csk-amber/80">
             Selengkapnya &rarr;
           </span>
         </a>
@@ -41,16 +41,16 @@ import WaIcon from '../components/WaIcon.astro';
     </div>
   </Section>
 
-  <section class="border-y border-brand-100 bg-brand-50/40">
+  <section class="border-y border-csk-gray/20 bg-csk-gray/10">
     <div class="mx-auto max-w-6xl px-5 py-16">
       <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Produk &amp; peralatan</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         {products.map((p) => (
-          <div class="rounded-2xl border border-brand-100 bg-white p-6">
-            <h3 class="text-sm font-semibold uppercase tracking-wider text-brand-600">{p.group}</h3>
+          <div class="rounded-2xl border border-csk-gray/20 bg-white p-6">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-csk-amber">{p.group}</h3>
             <ul class="mt-4 space-y-2 text-sm text-slate-600">
               {p.items.map((it) => (
-                <li class="flex gap-2"><span class="text-brand-400">—</span>{it}</li>
+                <li class="flex gap-2"><span class="text-csk-amber">—</span>{it}</li>
               ))}
             </ul>
           </div>
@@ -64,7 +64,7 @@ import WaIcon from '../components/WaIcon.astro';
     <p class="mx-auto mt-4 max-w-xl text-slate-600">Kirim detail kebutuhan Anda, kami balas dengan rincian biaya.</p>
     <a href={waLink('Halo, saya ingin minta estimasi harga untuk kebutuhan berikut:')}
        target="_blank" rel="noopener"
-       class="mt-8 inline-flex items-center gap-2 rounded-full bg-brand-500 px-7 py-3 text-sm font-medium text-white hover:bg-brand-600">
+       class="mt-8 inline-flex items-center gap-2 rounded-full bg-csk-amber px-7 py-3 text-sm font-medium text-csk-black hover:bg-csk-amber/90">
       <WaIcon />Minta Penawaran
     </a>
   </Section>

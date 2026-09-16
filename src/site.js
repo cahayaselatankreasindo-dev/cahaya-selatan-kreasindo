@@ -197,6 +197,22 @@ export const serviceDetails = [
       { q: 'Bisakah booth dipakai lagi di pameran berikutnya?', a: 'Bisa, kalau sejak awal dirancang modular. Sampaikan rencana ini di depan — konstruksi knock down memang sedikit lebih mahal, tapi jauh lebih murah daripada membangun ulang tiap acara.' },
       { q: 'Apakah melayani bongkar pasang di luar jam operasional?', a: 'Ya. Mall dan gedung pameran umumnya hanya mengizinkan loading di luar jam kunjung, dan tim kami sudah terbiasa bekerja pada jadwal tersebut.' },
     ],
+    scope: [
+      'Survei lokasi dan diskusi kebutuhan booth bersama tim Anda.',
+      'Desain 3D dan gambar kerja lengkap sebelum produksi dimulai.',
+      'Produksi di workshop Serpong dengan quality check sebelum kirim.',
+      'Loading, instalasi, dan standby teknisi selama acara berlangsung.',
+      'Bongkar setelah acara dan opsi penyimpanan untuk pemakaian berikutnya.',
+    ],
+    areas: [
+      { name: 'Jakarta', detail: 'JCC, JIExpo Kemayoran, ICE BSD, dan aktivasi mall di Jakarta Selatan & Pusat. Loading di luar jam operasional mall bisa kami atur.' },
+      { name: 'Tangerang Selatan', detail: 'Workshop kami di Serpong. Survei lokasi dan pemasangan bisa dijadwalkan di hari yang sama.' },
+      { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, dan Tangerang. Biaya kirim dihitung per proyek sesuai lokasi dan akses.' },
+    ],
+    proof: {
+      stat: '6+ tahun',
+      text: 'Mengerjakan booth pameran untuk Jasa Tirta II, aktivasi mall, dan kampanye brand di atrium mall Jabodetabek.',
+    },
     cat: 'Booth & Custom Build',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
     images: ['booth-pameran-jasa-tirta-ii', 'booth-pameran-mall-tema-barn', 'booth-aktivasi-brand-mall'],

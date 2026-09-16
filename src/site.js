@@ -164,6 +164,22 @@ export const serviceDetails = [
       { q: 'Bisa mencontoh rak yang sudah ada?', a: 'Bisa. Kirim fotonya beserta ukuran kasar, kami buatkan gambar kerjanya. Untuk desain milik pihak lain, penyesuaian bentuk kami sarankan agar tidak menyalin persis.' },
       { q: 'Sudah termasuk pemasangan?', a: 'Untuk Jabodetabek, pengiriman dan perakitan bisa kami kerjakan sekaligus. Biayanya dihitung per proyek sesuai lokasi dan tingkat kesulitan akses.' },
     ],
+    scope: [
+      'Konsultasi kebutuhan display dan ukuran produk yang akan dipajang.',
+      'Desain custom atau penyesuaian dari desain brand guideline Anda.',
+      'Produksi rangka besi, akrilik, dan finishing di workshop Serpong.',
+      'Quality check sebelum kirim — pastikan kokoh dan rapi.',
+      'Pengiriman dan instalasi di toko, supermarket, atau gudang Anda.',
+    ],
+    areas: [
+      { name: 'Jakarta', detail: 'Pengiriman dan instalasi ke supermarket, minimarket, dan toko retail di seluruh Jakarta.' },
+      { name: 'Tangerang Selatan', detail: 'Workshop kami di Serpong. Pengiriman cepat dan instalasi bisa dijadwalkan fleksibel.' },
+      { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, dan Tangerang. Biaya kirim dihitung per proyek sesuai lokasi dan volume.' },
+    ],
+    proof: {
+      stat: '6+ tahun',
+      text: 'Produksi rak display custom untuk Potens, Nutricell Pet Care, Bioxsine, Halowell, dan brand FMCG lainnya di Indonesia.',
+    },
     cat: 'Retail & Merchandising',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
     images: ['gondola-supermarket-potens', 'rak-display-toko-potens', 'rak-display-nutricell-pet-care'],

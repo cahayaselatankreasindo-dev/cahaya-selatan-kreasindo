@@ -86,7 +86,6 @@ export const portfolio = [
   { img: 'floor-display-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display' },
   { img: 'rak-display-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
   { img: 'counter-display-nky', title: 'Counter Display NKY', cat: 'Rak Display' },
-  { img: 'rak-display-produk-hanasui', title: 'Display Produk Hanasui', cat: 'Rak Display' },
 
   { img: 'neon-box-jnt-cargo', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
   { img: 'huruf-timbul-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage' },
@@ -345,7 +344,7 @@ export const serviceDetails = [
     },
     cat: 'Visual Merchandising',
     waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
-    images: ['rak-display-produk-hanasui', 'floor-display-evo-pet-food', 'display-akrilik-line-friends'],
+    images: ['floor-display-evo-pet-food', 'display-akrilik-line-friends'],
     assetImage: '/assets/Branding Store/20BD3285-1272-4623-B861-3504FACE4DCD.jpg',
   },
   {

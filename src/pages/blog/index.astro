@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import Section from '../../components/Section.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('blog', ({ data }) => !data.draft);
+const crumbs = [{ href: '/blog', label: 'Blog' }];
+
+articles.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<Base
+  title="Blog & Tips Rak Display"
+  description="Panduan praktis soal rak display, booth pameran, POSM, dan signage untuk brand FMCG dan UMKM di Indonesia. Tips dari workshop Serpong."
+  breadcrumbs={crumbs}
+>
+  <Breadcrumbs items={crumbs} />
+
+  <Section
+    as="h1"
+    eyebrow="Blog"
+    title="Tips dari Workshop"
+    lead="Panduan praktis soal rak display, booth, signage, dan in-store branding. Dari pengalaman produksi nyata di Serpong, Tangerang Selatan."
+  />
+
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+      {articles.map((entry) => (
+        <a href={`/blog/${entry.id}`}
+           class="group block bg-white border-b border-csk-gray/15">
+          <div class="aspect-4/3 overflow-hidden">
+            {entry.data.image && (
+              <img
+                src={entry.data.image}
+                alt={entry.data.title}
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            )}
+          </div>
+          <div class="px-5 py-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-csk-amber-text">Blog</p>
+            <h2 class="mt-2 text-base font-bold leading-tight text-csk-black group-hover:text-csk-amber">
+              {entry.data.title}
+            </h2>
+            <p class="mt-2 text-sm leading-relaxed text-csk-gray line-clamp-2">
+              {entry.data.description}
+            </p>
+            <span class="mt-3 inline-block text-xs font-medium text-csk-gray">
+              {entry.data.pubDate.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <Section class="text-center">
+    <h2 class="text-3xl font-bold tracking-tight text-csk-black">
+      Punya pertanyaan soal rak displaymu?
+    </h2>
+    <p class="mx-auto mt-4 max-w-xl text-slate-600">
+      Konsultasi gratis. Kirim ukuran area dan foto lokasi, kami hitung estimasi biayanya.
+    </p>
+    <a href="/kontak" class="mt-8 inline-block rounded-full bg-csk-black px-7 py-3 text-sm font-medium text-white transition-colors hover:bg-csk-black/80">
+      Hubungi Kami
+    </a>
+  </Section>
+</Base>

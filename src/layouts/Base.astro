@@ -7,7 +7,7 @@ import { site } from '../site.js';
 const {
   title,
   description = 'Jasa pembuatan booth pameran, rak display custom, neon box, dan signage di Tangerang Selatan. Dikerjakan dari desain sampai pemasangan.',
-  image = '/og-image.jpg',
+  image = '/og-image.webp',
   breadcrumbs = [],
 } = Astro.props;
 
@@ -85,6 +85,8 @@ const crumbList = breadcrumbs.length ? {
 
     <link rel="preload" href="/fonts/montserrat-400-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/montserrat-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <link rel="preload" as="image" href="/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.webp" type="image/webp" fetchpriority="high">
 
     <script type="application/ld+json" set:html={JSON.stringify(business)} />
     {crumbList && <script type="application/ld+json" set:html={JSON.stringify(crumbList)} />}

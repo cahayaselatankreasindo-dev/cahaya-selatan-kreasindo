@@ -1,10 +1,14 @@
 ---
-const { src, alt = '', class: klass = '', loading = 'lazy' } = Astro.props;
+const { src, alt = '', class: klass = '', loading = 'lazy', fetchpriority, width, height, ...rest } = Astro.props;
 ---
 <img
   src={src}
   alt={alt}
   loading={loading}
+  {...fetchpriority && { fetchpriority }}
+  {...width && { width }}
+  {...height && { height }}
   decoding="async"
   class={klass}
+  {...rest}
 />

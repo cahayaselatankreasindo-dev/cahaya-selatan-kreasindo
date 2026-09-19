@@ -10,65 +10,65 @@ import { serviceDetails, waLink, areas } from '../site.js';
 const featuredPortfolio = [
   // RETAIL & MERCHANDISING
   {
-    src: '/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.jpg',
+    src: '/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.webp',
     title: 'Rak Display Akrilik Kosmetik',
     cat: 'Retail & Merchandising',
   },
   {
-    src: '/assets/Display Akrilik Custom/Gondola Supermarket Neon sign led.jpg',
+    src: '/assets/Display Akrilik Custom/Gondola Supermarket Neon sign led.webp',
     title: 'Gondola Supermarket dengan LED Header',
     cat: 'Retail & Merchandising',
   },
   {
-    src: '/assets/Branding Store/20BD3285-1272-4623-B861-3504FACE4DCD.jpg',
+    src: '/assets/Branding Store/20BD3285-1272-4623-B861-3504FACE4DCD.webp',
     title: 'In-Store Branding Hanasui di Guardian',
     cat: 'Retail & Merchandising',
   },
   // SIGNAGE & BRANDING
   {
-    src: '/assets/Neon Box/Neon Box SAKALA.jpg',
+    src: '/assets/Neon Box/Neon Box SAKALA.webp',
     title: 'Neon Box SAKALA',
     cat: 'Signage & Branding',
   },
   {
-    src: '/assets/Neon Box/Huruf timbul Neon Box KAVO.jpg',
+    src: '/assets/Neon Box/Huruf timbul Neon Box KAVO.webp',
     title: 'Huruf Timbul Neon Box KAVO',
     cat: 'Signage & Branding',
   },
   {
-    src: '/assets/Standing Banner/5cabd3fd-b34d-462d-8b33-d86d5b65e478.jpg',
+    src: '/assets/Standing Banner/5cabd3fd-b34d-462d-8b33-d86d5b65e478.webp',
     title: 'Standing Banner Event',
     cat: 'Signage & Branding',
   },
   // BOOTH & CUSTOM BUILD
   {
-    src: '/assets/Booth Exhibition/IMG_3031.jpg',
+    src: '/assets/Booth Exhibition/IMG_3031.webp',
     title: 'Booth Expo SOSRAIT',
     cat: 'Booth & Custom Build',
   },
   {
-    src: '/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.jpg',
+    src: '/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.webp',
     title: 'Aktivasi Mall Perfetto',
     cat: 'Booth & Custom Build',
   },
   {
-    src: '/assets/Backwall and backdrop/ecea96ed-d244-4291-9cef-05562ac4a592.jpg',
+    src: '/assets/Backwall and backdrop/ecea96ed-d244-4291-9cef-05562ac4a592.webp',
     title: 'Backwall & Photo Booth',
     cat: 'Booth & Custom Build',
   },
   // PROSES PRODUKSI
   {
-    src: '/assets/Proses produksi rak display dan exhibiton booth event/PHOTO-2025-12-17-05-39-34.jpg',
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/PHOTO-2025-12-17-05-39-34.webp',
     title: 'Dokumentasi Proses Produksi',
     cat: 'Proses Produksi',
   },
   {
-    src: '/assets/Proses produksi rak display dan exhibiton booth event/C672BE21-FDC8-41C4-9F22-E193E0881DEE.jpg',
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/C672BE21-FDC8-41C4-9F22-E193E0881DEE.webp',
     title: 'Perakitan Rak Display',
     cat: 'Proses Produksi',
   },
   {
-    src: '/assets/Proses produksi rak display dan exhibiton booth event/Rak kayu Olike.jpg',
+    src: '/assets/Proses produksi rak display dan exhibiton booth event/Rak kayu Olike.webp',
     title: 'Finishing Rak Kayu Olike',
     cat: 'Proses Produksi',
   },
@@ -91,12 +91,15 @@ const featuredPortfolio = [
           <div class="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0 md:divide-csk-gray/10">
             <a href="/layanan/visual-merchandising"
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-              <AssetImage
-                src="/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.jpg"
-                alt="Retail dan visual merchandising — rak display akrilik untuk produk kecantikan di toko ritel"
-                loading="eager"
-                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-              />
+               <AssetImage
+                 src="/assets/Rak Display bioxine/1EBE3B6D-1102-440D-80E9-8AF4D444D7F2.webp"
+                 alt="Retail dan visual merchandising — rak display akrilik untuk produk kecantikan di toko ritel"
+                 loading="eager"
+                 fetchpriority="high"
+                 width="2160"
+                 height="3840"
+                 class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+               />
               <div class="absolute inset-0 bg-black/50"></div>
               <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">01</span>
@@ -107,12 +110,15 @@ const featuredPortfolio = [
             </a>
             <a href="/layanan/neon-box-signage"
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-              <AssetImage
-                src="/assets/Neon Box/Neon Box SAKALA.jpg"
-                alt="Signage dan branding — neon box SAKALA bercahaya untuk identity brand"
-                loading="eager"
-                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-              />
+               <AssetImage
+                 src="/assets/Neon Box/Neon Box SAKALA.webp"
+                 alt="Signage dan branding — neon box SAKALA bercahaya untuk identity brand"
+                 loading="eager"
+                 fetchpriority="high"
+                 width="810"
+                 height="1080"
+                 class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+               />
               <div class="absolute inset-0 bg-black/50"></div>
               <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">02</span>
@@ -123,12 +129,15 @@ const featuredPortfolio = [
             </a>
             <a href="/layanan/booth-pameran"
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-              <AssetImage
-                src="/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.jpg"
-                alt="Booth pameran dan custom build — aktivasi brand Perfetto di atrium mall"
-                loading="eager"
-                class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-              />
+               <AssetImage
+                 src="/assets/Booth Exhibition/0452BBB6-C756-4E37-9C10-91A6274065B0.webp"
+                 alt="Booth pameran dan custom build — aktivasi brand Perfetto di atrium mall"
+                 loading="eager"
+                 fetchpriority="high"
+                 width="1200"
+                 height="1600"
+                 class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+               />
               <div class="absolute inset-0 bg-black/50"></div>
               <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
                 <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white/60">03</span>
@@ -147,14 +156,15 @@ const featuredPortfolio = [
           {serviceDetails.map((s) => (
             <a href={`/layanan/${s.slug}`}
                class="group block bg-white border-b border-csk-gray/15">
-              <div class="aspect-4/3 overflow-hidden">
-                <AssetImage
-                  src={s.assetImage}
-                  alt={s.title}
-                  loading="lazy"
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+               <div class="aspect-4/3 overflow-hidden">
+                 <AssetImage
+                   src={s.assetImage}
+                   alt={s.title}
+                   loading="lazy"
+                   {...s.assetImage.includes('A46AB99C') && { width: 1600, height: 1200 }}
+                   class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                 />
+               </div>
               <div class="px-6 py-5">
                 <p class="text-xs font-semibold uppercase tracking-[0.15em] text-csk-amber">{s.cat}</p>
                 <h3 class="mt-2 text-base font-bold uppercase leading-tight text-csk-black group-hover:text-csk-amber">
@@ -181,6 +191,7 @@ const featuredPortfolio = [
                 <figure class="group bg-white">
                   <div class="aspect-4/3 overflow-hidden">
                     <AssetImage src={p.src} alt={p.title}
+                       {...p.src.includes('20BD3285') && { width: 2160, height: 3840 }}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>

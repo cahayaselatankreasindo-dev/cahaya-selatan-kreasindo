@@ -32,7 +32,7 @@ import Lightbox from '../components/Lightbox.astro';
     <div class="mt-8 flex flex-wrap gap-2">
       {portfolioCats.map((c) => (
         <a href={`#${slug(c)}`}
-           class="rounded-full border border-csk-gray/30 px-4 py-1.5 text-sm text-csk-amber transition-colors hover:bg-csk-gray/10">
+            class="rounded-full border border-csk-gray/30 px-4 py-1.5 text-sm text-csk-amber-text transition-colors hover:bg-csk-gray/10">
           {c}
         </a>
       ))}
@@ -43,7 +43,7 @@ import Lightbox from '../components/Lightbox.astro';
     <section id={slug(cat)} class="mx-auto max-w-6xl scroll-mt-24 px-5 pb-16">
       <div class="flex flex-wrap items-baseline justify-between gap-3">
         <h2 class="text-2xl font-semibold tracking-tight">{cat}</h2>
-        <a href={catLink[cat]} class="text-sm font-medium text-csk-amber hover:text-csk-amber/80">
+        <a href={catLink[cat]} class="text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
           {cat === 'Proses Produksi' ? 'Cara kerja kami →' : `Layanan ${cat.toLowerCase()} →`}
         </a>
       </div>
@@ -60,7 +60,7 @@ import Lightbox from '../components/Lightbox.astro';
             </div>
             <figcaption class="px-5 py-4">
               <p class="text-sm font-medium">{p.title}</p>
-              <p class="mt-0.5 text-xs text-slate-500">{p.cat}</p>
+              <p class="mt-0.5 text-xs text-slate-600">{p.cat}</p>
             </figcaption>
           </figure>
         ))}

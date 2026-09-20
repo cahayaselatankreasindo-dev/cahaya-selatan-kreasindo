@@ -109,7 +109,7 @@ export const serviceDetails = [
     title: 'Jasa Pembuatan POSM & Display Promosi',
     metaTitle: 'Jasa Pembuatan POSM (Point of Sale Material)',
     description:
-      'Vendor produksi POSM di Tangerang Selatan: floor display, counter display, standee, wobbler, shelf talker, dan acrylic stand. Dikerjakan di workshop sendiri, dikirim dan dipasang untuk area Jabodetabek.',
+      'Posm manufacturer di Tangerang Selatan: floor display, counter display, standee, wobbler, shelf talker, dan acrylic stand sebagai display manufacturer Jakarta. Dikerjakan di workshop sendiri, dikirim dan dipasang untuk area Jabodetabek.',
     lead:
       'POSM (Point of Sale Material) adalah materi promosi untuk area rak, kasir, dan titik penjualan. Kami membuatnya sesuai ukuran produk, kebutuhan kampanye, dan jumlah outlet.',
     intro: [
@@ -158,7 +158,7 @@ export const serviceDetails = [
     title: 'Rak Display Custom & Gondola Supermarket',
     metaTitle: 'Jasa Pembuatan Rak Display Custom & Gondola',
     description:
-      'Jasa pembuatan rak display custom, gondola supermarket, dan gondola branding di Tangerang Selatan. Ukuran menyesuaikan lokasi, finishing rapi, dikirim dan dirakit oleh tim sendiri.',
+      'Display manufacturer Jakarta untuk rak display custom dan gondola supermarket di Tangerang Selatan. Ukuran menyesuaikan lokasi, finishing rapi, dikirim dan dirakit oleh tim sendiri.',
     lead:
       'Kami membuat rak display dan gondola berdasarkan ukuran ruang, jenis produk, serta kebutuhan branding toko atau supermarket.',
     intro: [
@@ -207,7 +207,7 @@ export const serviceDetails = [
     title: 'Jasa Pembuatan Booth Pameran & Stand Event',
     metaTitle: 'Jasa Pembuatan Booth Pameran & Stand Event',
     description:
-      'Kontraktor booth pameran custom untuk JCC, JIExpo, ICE BSD, dan aktivasi mall. Desain, produksi, pemasangan, sampai bongkar setelah acara. Berbasis di Tangerang Selatan.',
+      'Vendor fabrikasi booth Jakarta untuk JCC, JIExpo, ICE BSD, dan aktivasi mall. Desain, produksi, pemasangan, sampai bongkar setelah acara. Berbasis di Tangerang Selatan.',
     lead:
       'Kami mengerjakan booth pameran dan stand event custom, dari gambar kerja dan produksi sampai pemasangan serta pembongkaran setelah acara.',
     intro: [
@@ -256,7 +256,7 @@ export const serviceDetails = [
     title: 'Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama',
     metaTitle: 'Jasa Pembuatan Neon Box & Huruf Timbul',
     description:
-      'Jasa pembuatan neon box, huruf timbul, papan nama toko, dan signage arah di Tangerang Selatan dan Jabodetabek. Material tahan cuaca, dipasang oleh tim sendiri.',
+      'Signage & neon box Jakarta: neon box, huruf timbul, papan nama toko, dan signage arah di Tangerang Selatan dan Jabodetabek. Material tahan cuaca, dipasang oleh tim sendiri.',
     lead:
       'Kami membuat neon box, huruf timbul, papan nama, dan signage arah untuk toko, kantor, klinik, gudang, serta area dalam gedung.',
     intro: [
@@ -305,7 +305,7 @@ export const serviceDetails = [
     title: 'Visual Merchandising & In-Store Branding',
     metaTitle: 'Jasa Visual Merchandising & In-Store Branding',
     description:
-      'Jasa visual merchandising dan in-store branding: penataan display, window display, store build-up, dan branding outlet untuk toko ritel di Jabodetabek.',
+      'Fit out contractor Jakarta untuk visual merchandising dan in-store branding: penataan display, window display, store build-up, dan branding outlet retail di Jabodetabek.',
     lead:
       'Kami menata dan memproduksi elemen visual untuk area retail, termasuk display produk, window display, store build-up, dan branding outlet.',
     intro: [

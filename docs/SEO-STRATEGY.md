@@ -67,6 +67,24 @@ Hub `/layanan` ? 6 child ? silang antar-child ("Layanan lainnya"); kategori port
 ? halaman layanan; area ? kontak; CTA final ? WhatsApp berkonteks. Pola ini sudah
 jalan - jangan putus saat edit.
 
+## Keyword Cluster: Partner / Vendor (RESEARCH NOTE)
+
+Cluster baru menargetkan **EO, agensi, dan arsitek** yang mencari vendor produksi
+(fabrikasi) di Jakarta — bukan end client. Kata kunci dipetakan ke 6 halaman layanan
+yang sudah ada (section "Spesifikasi & Material" + meta description), tanpa halaman baru.
+
+| Slug | Keyword utama | Keyword pendukung |
+|---|---|---|
+| `booth-pameran` | vendor fabrikasi booth jakarta | vendor produksi event jakarta |
+| `posm-display` | posm manufacturer indonesia | display manufacturer jakarta |
+| `rak-display-gondola` | display manufacturer jakarta | rak display custom manufacturer |
+| `neon-box-signage` | signage & neon box jakarta | neon box manufacturer jakarta |
+| `visual-merchandising` | fit out contractor jakarta | in-store branding contractor |
+| `sewa-peralatan-event` | vendor produksi event jakarta | sewa booth event jakarta |
+
+Catatan: cluster ini sengaja tidak mengejar volume besar di head term; ia mengisi intent
+"vendor produksi" di ekor. Pertahankan 1-2 kata kunci teknis per halaman, jangan stuffing.
+
 ## Future Keyword Research Tasks (RESEARCH REQUIRED)
 
 1. Kumpulkan seed keyword per 6 slug + `/apa-itu-posm`.

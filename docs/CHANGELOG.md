@@ -2,6 +2,25 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Enrichment konten halaman layanan (kapabilitas & material)
+
+Files modified:
+
+- `src/pages/layanan/[slug].astro` — section baru "Spesifikasi & Material" di bawah grid
+  item, muncul di semua 6 halaman layanan. 3 kartu: Material tersedia (akrilik, plat besi
+  & metal cutting, ACP, MDF/HMR, plywood, LED & kelistrikan, large format printing),
+  Metode fabrikasi (pemotongan presisi laser/CNC, pengelasan rangka, finishing cat &
+  stiker, instalasi LED, sistem knock-down event), Kapasitas & lead time (workshop Serpong,
+  Jabodetabek, lead time 7–14 hari kerja, kapasitas 50+ unit/bulan).
+- `src/site.js` — meta description 5 layanan diperkaya kata kunci teknis: booth → "vendor
+  fabrikasi booth Jakarta"; posm & rak-display → "posm manufacturer"/"display manufacturer
+  Jakarta"; signage → "Signage & neon box Jakarta"; visual-merchandising → "fit out
+  contractor Jakarta".
+- `docs/SEO-STRATEGY.md` — cluster baru "Partner/Vendor" (target EO/agensi/arsitek, bukan
+  end client) + tabel mapping 6 slug ke kata kunci vendor.
+
+Verification: `npm run build` sukses, 18 pages, 0 error.
+
 ## 2026-09-13 - Documentation system created
 
 Files created:

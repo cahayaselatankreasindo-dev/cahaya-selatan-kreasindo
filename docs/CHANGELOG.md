@@ -2,6 +2,58 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Tahap 3.2: Optimasi aset public/assets/ (video orphans + kompresi gambar)
+
+Perubahan struktur:
+
+- `public/assets/video-produksi/` (18 file, ~74.9 MB) dipindah ke `_raw-videos/` di root
+  proyek. Folder ini berisi video MP4 yang TIDAK dirujuk di `src/` sama sekali — orphans
+  staging yang ikut ke deploy. Folder tidak dihapus, hanya dipindah keluar dari `public/`.
+- `_raw-videos/` + `_raw-assets-original/` ditambahkan ke `.gitignore` agar tidak ikut
+  commit/deploy.
+
+Kompresi:
+
+- 76 file gambar (webp/png/jfif) > 100 KB di `public/assets/` dikompres ulang via
+  `sharp` quality 80, output WebP, menimpa file yang sama (nama tidak berubah).
+- 8 aset LCP homepage dikecualikan (sudah WebP kecil, optimal): rak-display-bioxine/1ebe3b6d,
+  neon-box/neon-box-sakala, booth-exhibition/0452bbb6, display-akrilik-custom/
+  {gondola-supermarket-neon-sign-led, akrilik-kosmetik-produk-kecantikan-golden},
+  neon-box/neon-box-custom-relis-studio, branding-store/20bd3285, tenda-event/a46ab99c.
+- Backup asli (sebelum kompres) disimpan di `_raw-assets-original/` (root, gitignored).
+- Target: 76 file (before 24.7 MB → after 22.2 MB, hemat ~2.5 MB pada subset gambar).
+- Hasil: `public/assets/` turun dari 104.9 MB → ~30 MB (gambar tersisa + LCP; video pindah).
+
+Verification: `npm run build` sukses, 18 pages, 0 error. `public/assets/video-produksi/`
+hilang dari disk; `_raw-videos/` berisi 18 file video.
+
+## 2026-09-21 - Tahap 2: Perbaikan menengah (font Inter, kode mati, 404, token)
+
+Files deleted:
+
+- `public/fonts/inter-400/500/600/700-latin(-ext).woff2` — 8 file Inter. Inter hanya
+  muncul di fallback stack font (tidak dipakai langsung oleh UI), jadi aman dihapus.
+- `src/data/getAssets.js` — helper fs, 0 pemakai di seluruh `src/`.
+- `src/data/assets.js` — katalog `assetCategories`, 0 pemakai (sumber terkenalnya
+  `test-assets.astro` sudah dihapus di Tahap 1). Folder `src/data/` ikut dihapus
+  karena sudah kosong.
+- `src/components/ServiceIcon.astro` — 0 pemakai di seluruh `src/`.
+
+Files created:
+
+- `src/pages/404.astro` — halaman 404 custom dengan layout Base. Heading "404"
+  (text-csk-amber, 7xl), teks "Halaman tidak ditemukan" (text-csk-gray), tombol
+  "Kembali ke Beranda" (bg-csk-amber / text-csk-black). Konsisten dengan palet CSK.
+
+Files modified:
+
+- `src/styles/fonts.css` — 8 blok `@font-face` Inter dihapus; sekarang hanya
+  Montserrat 400/500/600/700 (latin + latin-ext, 8 file).
+- `src/styles/global.css` — fallback `"Inter"` dihapus dari `--font-sans`,
+  `--font-heading`, `--font-body` (Montserrat-first, sekarang tanpa Inter).
+
+Verification: `npm run build` sukses, 18 pages (+404), 0 error.
+
 ## 2026-09-21 - Tahap 1: Quick wins (test page, satukan portfolio, tagline, logo, OG)
 
 Files deleted:

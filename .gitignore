@@ -2,3 +2,5 @@ node_modules
 dist
 .astro
 .wrangler
+_raw-videos/
+_raw-assets-original/

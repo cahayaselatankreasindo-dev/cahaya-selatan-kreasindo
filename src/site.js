@@ -1,6 +1,6 @@
 export const site = {
   name: 'Cahaya Selatan Kreasindo',
-  tagline: 'Jasa Pembuatan Stand Event & Booth Pameran Premium',
+  tagline: 'Production Partner untuk Brand dan Bisnis',
   wa: '628888533488',
   waDisplay: '0888-8533-488',
   email: 'cahayaselatankreasindo@gmail.com',
@@ -76,26 +76,26 @@ export const portfolio = [
   { img: 'booth-pameran-jasa-tirta-ii-detail', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
   { img: 'booth-pameran-mall-tema-barn', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
   { img: 'booth-aktivasi-brand-mall', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
-  { img: 'mini-counter-booth-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran' },
+  { img: 'mini-counter-booth-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran', featured: true },
   { img: 'display-akrilik-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
 
-  { img: 'gondola-supermarket-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display' },
-  { img: 'rak-display-toko-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display' },
+  { img: 'gondola-supermarket-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display', featured: true },
+  { img: 'rak-display-toko-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display', featured: true },
   { img: 'rak-display-nutricell-pet-care', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
   { img: 'rak-display-bioxsine', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
-  { img: 'floor-display-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display' },
+  { img: 'floor-display-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display', featured: true },
   { img: 'rak-display-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
-  { img: 'counter-display-nky', title: 'Counter Display NKY', cat: 'Rak Display' },
+  { img: 'counter-display-nky', title: 'Counter Display NKY', cat: 'Rak Display', featured: true },
 
   { img: 'neon-box-jnt-cargo', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
-  { img: 'huruf-timbul-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage' },
+  { img: 'huruf-timbul-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage', featured: true },
   { img: 'papan-nama-sarwaga-yoga', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
-  { img: 'signage-toko-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage' },
+  { img: 'signage-toko-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage', featured: true },
 
-  { img: 'workshop-produksi-rak-display', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi' },
-  { img: 'finishing-rak-display-workshop', title: 'Finishing Rak Display', cat: 'Proses Produksi' },
-  { img: 'quality-check-rak-display', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi' },
-  { img: 'standee-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi' },
+  { img: 'workshop-produksi-rak-display', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi', featured: true },
+  { img: 'finishing-rak-display-workshop', title: 'Finishing Rak Display', cat: 'Proses Produksi', featured: true },
+  { img: 'quality-check-rak-display', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi', featured: true },
+  { img: 'standee-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi', featured: true },
 ];
 
 export const portfolioCats = [...new Set(portfolio.map((p) => p.cat))];

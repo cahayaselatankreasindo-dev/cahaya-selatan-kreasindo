@@ -2,6 +2,36 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Tahap 1: Quick wins (test page, satukan portfolio, tagline, logo, OG)
+
+Files deleted:
+
+- `src/pages/test-assets.astro` — halaman uji mentah yang ikut ke-build; tidak ada link
+  dari navigasi/footer/sitemap, jadi aman dihapus.
+
+Files modified:
+
+- `src/site.js` — `tagline` diupdate ke "Production Partner untuk Brand dan Bisnis"
+  (field description tidak disentuh). Flag `featured: true` ditambahkan ke 11 item
+  `portfolio`: 4 Rak Display (gondola-potens, rak-toko-potens, floor-evo, counter-nky),
+  2 Neon Box & Signage (huruf-timbul-gorisa, signage-zakku), 1 Booth & Pameran
+  (mini-counter-beco), 4 Proses Produksi (workshop, finishing, quality-check, standee-potens).
+- `src/pages/index.astro` — `featuredPortfolio` lokal 12 item dihapus; sekarang
+  `portfolio.filter(p => p.featured)` (11 item). Kategori homepage diubah dari
+  "Retail & Merchandising / Signage & Branding / Booth & Custom Build" menjadi
+  kategori `site.js` yang sudah ada: Rak Display, Neon Box & Signage, Booth & Pameran,
+  Proses Produksi. Gambar portfolio pakai komponen `Picture` (astro:assets, dioptimasi
+  build-time) menggantikan `AssetImage` mentah.
+- `src/components/Footer.astro` — copyright lama "Event Booth & Exhibition Specialist"
+  diganti ke `site.tagline` dinamis (muncul di semua footer via Base.astro).
+- `public/img/logo.webp` — di-regenerate dari `public/img/logo-horizontal.svg`
+  (SVG asli) dengan sharp: 76 KB JFIF → 7 KB WebP valid (magic `RIFF`+`WEBP`).
+- `scripts/og-image.mjs` — generator diupdate ke palet CSK: background `#0B0B0B`,
+  strip bawah `#FF8A3D`, teks `#F8F7F4`/`#FF8A3D`, pakai `site.tagline` dinamis,
+  logo dari SVG. Output WebP menggantikan JPEG (1200×630, 27 KB).
+
+Verification: `npm run build` sukses, 17 pages (test-assets dihapus), 0 error.
+
 ## 2026-09-21 - Enrichment konten halaman layanan (kapabilitas & material)
 
 Files modified:

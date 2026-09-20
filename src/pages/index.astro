@@ -4,75 +4,11 @@ import Section from '../components/Section.astro';
 import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
 import AssetImage from '../components/AssetImage.astro';
+import Picture from '../components/Picture.astro';
 
-import { serviceDetails, waLink, areas } from '../site.js';
+import { serviceDetails, waLink, areas, portfolio } from '../site.js';
 
-const featuredPortfolio = [
-  // RETAIL & MERCHANDISING
-  {
-    src: '/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp',
-    title: 'Rak Display Akrilik Kosmetik',
-    cat: 'Retail & Merchandising',
-  },
-  {
-    src: '/assets/display-akrilik-custom/gondola-supermarket-neon-sign-led.webp',
-    title: 'Gondola Supermarket dengan LED Header',
-    cat: 'Retail & Merchandising',
-  },
-  {
-    src: '/assets/branding-store/20bd3285-1272-4623-b861-3504face4dcd.webp',
-    title: 'In-Store Branding Hanasui di Guardian',
-    cat: 'Retail & Merchandising',
-  },
-  // SIGNAGE & BRANDING
-  {
-    src: '/assets/neon-box/neon-box-sakala.webp',
-    title: 'Neon Box SAKALA',
-    cat: 'Signage & Branding',
-  },
-  {
-    src: '/assets/neon-box/huruf-timbul-neon-box-kavo.webp',
-    title: 'Huruf Timbul Neon Box KAVO',
-    cat: 'Signage & Branding',
-  },
-  {
-    src: '/assets/standing-banner/5cabd3fd-b34d-462d-8b33-d86d5b65e478.webp',
-    title: 'Standing Banner Event',
-    cat: 'Signage & Branding',
-  },
-  // BOOTH & CUSTOM BUILD
-  {
-    src: '/assets/booth-exhibition/img_3031.webp',
-    title: 'Booth Expo SOSRAIT',
-    cat: 'Booth & Custom Build',
-  },
-  {
-    src: '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',
-    title: 'Aktivasi Mall Perfetto',
-    cat: 'Booth & Custom Build',
-  },
-  {
-    src: '/assets/backwall-and-backdrop/ecea96ed-d244-4291-9cef-05562ac4a592.webp',
-    title: 'Backwall & Photo Booth',
-    cat: 'Booth & Custom Build',
-  },
-  // PROSES PRODUKSI
-  {
-    src: '/assets/proses-produksi-rak-display-dan-exhibiton-booth-event/photo-2025-12-17-05-39-34.webp',
-    title: 'Dokumentasi Proses Produksi',
-    cat: 'Proses Produksi',
-  },
-  {
-    src: '/assets/proses-produksi-rak-display-dan-exhibiton-booth-event/c672be21-fdc8-41c4-9f22-e193e0881dee.webp',
-    title: 'Perakitan Rak Display',
-    cat: 'Proses Produksi',
-  },
-  {
-    src: '/assets/proses-produksi-rak-display-dan-exhibiton-booth-event/rak-kayu-olike.webp',
-    title: 'Finishing Rak Kayu Olike',
-    cat: 'Proses Produksi',
-  },
-];
+const featuredPortfolio = portfolio.filter((p) => p.featured);
 ---
 <Base
       title="Jasa Booth Pameran & Rak Display"
@@ -186,13 +122,12 @@ const featuredPortfolio = [
                  lead="Pilihan pekerjaan nyata CSK, dari retail display dan signage hingga booth dan proses produksi.">
         <div class="mt-10 space-y-16">
           <div>
-            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Retail &amp; Merchandising</p>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Rak Display</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredPortfolio.filter((p) => p.cat === 'Retail & Merchandising').map((p) => (
-                <figure class="group bg-white">
+              {featuredPortfolio.filter((p) => p.cat === 'Rak Display').map((p) => (
+                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
-                    <AssetImage src={p.src} alt={p.title}
-                       {...p.src.includes('20BD3285') && { width: 2160, height: 3840 }}
+                    <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
@@ -201,12 +136,12 @@ const featuredPortfolio = [
             </div>
           </div>
           <div>
-            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Signage &amp; Branding</p>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Neon Box &amp; Signage</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredPortfolio.filter((p) => p.cat === 'Signage & Branding').map((p) => (
-                <figure class="group bg-white">
+              {featuredPortfolio.filter((p) => p.cat === 'Neon Box & Signage').map((p) => (
+                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
-                    <AssetImage src={p.src} alt={p.title}
+                    <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
@@ -215,12 +150,12 @@ const featuredPortfolio = [
             </div>
           </div>
           <div>
-            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Booth &amp; Custom Build</p>
+            <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Booth &amp; Pameran</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
-              {featuredPortfolio.filter((p) => p.cat === 'Booth & Custom Build').map((p) => (
-                <figure class="group bg-white">
+              {featuredPortfolio.filter((p) => p.cat === 'Booth & Pameran').map((p) => (
+                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
-                    <AssetImage src={p.src} alt={p.title}
+                    <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
@@ -232,9 +167,9 @@ const featuredPortfolio = [
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Proses Produksi</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPortfolio.filter((p) => p.cat === 'Proses Produksi').map((p) => (
-                <figure class="group bg-white">
+                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
-                    <AssetImage src={p.src} alt={p.title}
+                    <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>

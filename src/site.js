@@ -3,7 +3,7 @@ export const site = {
   tagline: 'Production Partner untuk Brand dan Bisnis',
   wa: '628888533488',
   waDisplay: '0888-8533-488',
-  email: 'cahayaselatankreasindo@gmail.com',
+  email: 'halo@cahayaselatankreasindo.my.id',
   ig: 'cahayaselatankreasindo',
   address:
     'Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong, Tangerang Selatan, Banten, Indonesia',

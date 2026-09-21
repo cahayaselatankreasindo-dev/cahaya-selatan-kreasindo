@@ -2,6 +2,21 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Ganti email kontak ke domain CSK
+
+Files modified:
+
+- `src/site.js` — field `site.email` diubah dari
+  `cahayaselatankreasindo@gmail.com` → `halo@cahayaselatankreasindo.my.id`.
+  Satu-satunya sumber email; semua pemakaian lain (Footer, Base JSON-LD,
+  halaman kontak / syarat-ketentuan / kebijakan-privasi, endpoint
+  llms.txt) membaca `site.email` sehingga ikut ter-update otomatis tanpa
+  menyentuh file lain.
+
+Verification: `npm run build` 18 pages, 0 error; `dist/index.html` +
+`dist/kontak/index.html` memuat `halo@cahayaselatankreasindo.my.id`,
+string Gmail tidak muncul lagi.
+
 ## 2026-09-21 - Rapikan klaim "6+ tahun" jadi kalimat formal
 
 Files modified:

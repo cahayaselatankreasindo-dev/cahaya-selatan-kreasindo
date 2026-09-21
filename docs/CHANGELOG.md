@@ -2,6 +2,19 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Google Analytics 4 dipasang di Base.astro
+
+Files modified:
+
+- `src/layouts/Base.astro` — tambahan `const GA_ID = 'G-YH56PC1XQZ'` di frontmatter
+  + script GA4 sebelum `</head>`: 1 tag external `googletagmanager.com/gtag/js` +
+  1 inline (via `set:html`) `gtag('js')` & `gtag('config')`. Dibungkus
+  `import.meta.env.PROD && (...)` sehingga script hanya muncul di build produksi
+  (deploy Cloudflare), tidak di dev server.
+
+Verification: `npm run build` 18 pages, 0 error; `dist/index.html` berisi
+`googletagmanager.com` + `G-YH56PC1XQZ`.
+
 ## 2026-09-21 - Tahap 3.2: Optimasi aset public/assets/ (video orphans + kompresi gambar)
 
 Perubahan struktur:

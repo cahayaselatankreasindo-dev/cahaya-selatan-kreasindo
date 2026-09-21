@@ -30,6 +30,31 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.a },
   })),
 };
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.title,
+  description: s.description,
+  provider: { '@type': 'LocalBusiness', '@id': new URL('/#business', Astro.site).href },
+  areaServed: s.areas.map((a) => a.name),
+  url: new URL(`/layanan/${s.slug}/`, Astro.site).href,
+  image: new URL(s.assetImage, Astro.site).href,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: s.items.title,
+    itemListElement: s.items.groups.flatMap((g) =>
+      g.list.map((x) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: x,
+          serviceType: g.name,
+        },
+      })),
+    ),
+  },
+};
 ---
 <Base title={s.metaTitle} description={s.description} breadcrumbs={crumbs}>
   <Breadcrumbs items={crumbs} />
@@ -188,5 +213,6 @@ const faqSchema = {
   </Section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <Lightbox />
 </Base>

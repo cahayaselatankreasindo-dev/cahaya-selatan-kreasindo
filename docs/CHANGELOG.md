@@ -2,6 +2,24 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Tambah schema Service (JSON-LD) di halaman layanan [slug]
+
+Files modified:
+
+- `src/pages/layanan/[slug].astro` — tambah `serviceSchema` di frontmatter
+  (sebelah `faqSchema`), tipe `Service`: `name` (s.title), `description`
+  (s.description), `provider` referensi ke `LocalBusiness @id`, `areaServed`
+  (s.areas), `url` (permalink layanan), `image` (s.assetImage absolut), dan
+  `hasOfferCatalog` yang diflat dari `s.items.groups` — tiap item jadi
+  `Offer` dengan `itemOffered: Service { name: item, serviceType: group.name }`.
+  Schema di-render sebagai `<script application/ld+json>` kedua, setelah
+  FAQPage, sebelum `<Lightbox />`. FAQPage tidak disentuh. Tanpa
+  `priceRange`/`aggregateRating` (data tidak tersedia di site.js).
+
+Verification: `npm run build` 18 pages, 0 error; `dist/layanan/posm-display/`
+memuat 2× `"OfferCatalog"`; tidak ada `priceRange`/`aggregateRating` di
+service schema.
+
 ## 2026-09-21 - Google Analytics 4 dipasang di Base.astro
 
 Files modified:

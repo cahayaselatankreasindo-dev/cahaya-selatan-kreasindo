@@ -2,6 +2,19 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-09-21 - Rapikan klaim "6+ tahun" jadi kalimat formal
+
+Files modified:
+
+- `src/site.js` — field `proof.stat` di 6 layanan (`posm-display`,
+  `rak-display-gondola`, `booth-pameran`, `neon-box-signage`,
+  `visual-merchandising`, `sewa-peralatan-event`) diubah dari
+  `'6+ tahun'` → `'Lebih dari 6 tahun'`. Field `proof.text` tidak
+  merujuk "6+ tahun" di semua layanan sehingga tidak perlu disentuh.
+
+Verification: `npm run build` 18 pages, 0 error; `dist/layanan/*/index.html`
+memuat "Lebih dari 6 tahun" (tidak ada lagi "6+ tahun").
+
 ## 2026-09-21 - Tambah schema Service (JSON-LD) di halaman layanan [slug]
 
 Files modified:

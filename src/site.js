@@ -143,7 +143,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, Tangerang. Biaya kirim per proyek.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Produksi POSM custom untuk brand FMCG, kosmetik, dan retail di Indonesia. Klien kami termasuk Nutricell, Hanasui, dan lainnya.',
     },
     cat: 'POSM',
@@ -192,7 +192,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, dan Tangerang. Biaya kirim dihitung per proyek sesuai lokasi dan volume.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Produksi rak display custom untuk Potens, Nutricell Pet Care, Bioxsine, Halowell, dan brand FMCG lainnya di Indonesia.',
     },
     cat: 'Retail & Merchandising',
@@ -241,7 +241,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, dan Tangerang. Biaya kirim dihitung per proyek sesuai lokasi dan akses.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Mengerjakan booth pameran untuk Jasa Tirta II, aktivasi mall, dan kampanye brand di atrium mall Jabodetabek.',
     },
     cat: 'Booth & Custom Build',
@@ -290,7 +290,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, Tangerang. Biaya kirim dan instalasi dihitung per proyek.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Produksi neon box dan signage untuk J&T Cargo, Gorisa, Zakku, Sarwaga Yoga, dan bisnis lainnya di Jabodetabek.',
     },
     cat: 'Signage & Branding',
@@ -339,7 +339,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, Tangerang. Biaya kirim dan instalasi per proyek.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Visual merchandising untuk brand FMCG, kosmetik, dan retail di Jabodetabek. Klien kami termasuk Nutricell, Beco, dan lainnya.',
     },
     cat: 'Visual Merchandising',
@@ -388,7 +388,7 @@ export const serviceDetails = [
       { name: 'Jabodetabek', detail: 'Bogor, Depok, Bekasi, Tangerang. Biaya sewa + kirim dihitung per event.' },
     ],
     proof: {
-      stat: '6+ tahun',
+      stat: 'Lebih dari 6 tahun',
       text: 'Sewa peralatan untuk event organizer, perusahaan, dan komunitas di Jabodetabek. Termasuk booth portable, backdrop, standee, dan display.',
     },
     cat: 'Event & Support',

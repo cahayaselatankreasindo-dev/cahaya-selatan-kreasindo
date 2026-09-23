@@ -74,8 +74,6 @@ export const products = [
 export const portfolio = [
   { img: 'booth-pameran-custom-jakarta-jasa-tirta', title: 'Booth Pameran Jasa Tirta II', cat: 'Booth & Pameran' },
   { img: 'detail-booth-pameran-jasa-tirta', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
-  { img: 'booth-aktivasi-mall-tema-barn-jakarta', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
-  { img: 'booth-aktivasi-brand-atrium-mall', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
   { img: 'mini-counter-booth-custom-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran', featured: true },
   { img: 'display-akrilik-custom-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
 
@@ -278,7 +276,7 @@ export const serviceDetails = [
     },
     cat: 'Booth & Custom Build',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
-    images: ['booth-pameran-custom-jakarta-jasa-tirta', 'booth-aktivasi-mall-tema-barn-jakarta', 'booth-aktivasi-brand-atrium-mall',
+    images: ['booth-pameran-custom-jakarta-jasa-tirta',
       'booth-pameran-custom-perfetto-jakarta', 'booth-pameran-custom-sosrait',
       'booth-aktivasi-mall-tema-golden-farm-jakarta', 'gate-entrance-custom-le-minerale'],
     assetImage: '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',

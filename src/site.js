@@ -78,19 +78,16 @@ export const portfolio = [
   { img: 'display-akrilik-custom-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
 
   { img: 'gondola-supermarket-custom-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display', featured: true },
-  { img: 'rak-display-toko-custom-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display', featured: true },
   { img: 'rak-display-custom-nutricell-pet-care', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
   { img: 'rak-display-custom-bioxsine', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
   { img: 'floor-display-custom-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display', featured: true },
   { img: 'rak-display-custom-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
-  { img: 'counter-display-custom-nky', title: 'Counter Display NKY', cat: 'Rak Display', featured: true },
 
   { img: 'neon-box-custom-jnt-cargo-tangerang', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
   { img: 'huruf-timbul-akrilik-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage', featured: true },
   { img: 'papan-nama-custom-sarwaga-yoga', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
   { img: 'signage-toko-custom-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage', featured: true },
 
-  { img: 'workshop-produksi-rak-display-serpong', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi', featured: true },
   { img: 'finishing-rak-display-workshop-serpong', title: 'Finishing Rak Display', cat: 'Proses Produksi', featured: true },
   { img: 'quality-check-rak-display-custom', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi', featured: true },
   { img: 'standee-custom-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi', featured: true },
@@ -222,7 +219,7 @@ export const serviceDetails = [
     },
     cat: 'Retail & Merchandising',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
-    images: ['gondola-supermarket-custom-potens', 'rak-display-toko-custom-potens', 'rak-display-custom-nutricell-pet-care',
+    images: ['gondola-supermarket-custom-potens', 'rak-display-custom-nutricell-pet-care',
       'dress-up-gondola-supermarket-gentle-gen', 'floor-display-custom-kilau-nipis',
       'promotional-display-custom-bioxine', 'promotional-display-custom-bioxine-before', 'promotional-display-custom-bioxine-detail', 'mockup-dummy-custom-bioxine',
       'rak-display-custom-chistotel', 'rak-display-custom-chistotel-detail', 'rak-display-custom-grivy',

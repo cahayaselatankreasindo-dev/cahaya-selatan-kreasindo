@@ -72,30 +72,30 @@ export const products = [
 ];
 
 export const portfolio = [
-  { img: 'booth-pameran-jasa-tirta-ii', title: 'Booth Pameran Jasa Tirta II', cat: 'Booth & Pameran' },
-  { img: 'booth-pameran-jasa-tirta-ii-detail', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
-  { img: 'booth-pameran-mall-tema-barn', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
-  { img: 'booth-aktivasi-brand-mall', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
-  { img: 'mini-counter-booth-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran', featured: true },
-  { img: 'display-akrilik-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
+  { img: 'booth-pameran-custom-jakarta-jasa-tirta', title: 'Booth Pameran Jasa Tirta II', cat: 'Booth & Pameran' },
+  { img: 'detail-booth-pameran-jasa-tirta', title: 'Detail Booth Jasa Tirta II', cat: 'Booth & Pameran' },
+  { img: 'booth-aktivasi-mall-tema-barn-jakarta', title: 'Booth Aktivasi Tema Barn — Atrium Mall', cat: 'Booth & Pameran' },
+  { img: 'booth-aktivasi-brand-atrium-mall', title: 'Booth Kampanye "Rayakan Setiap Momen"', cat: 'Booth & Pameran' },
+  { img: 'mini-counter-booth-custom-beco', title: 'Mini Counter Beco', cat: 'Booth & Pameran', featured: true },
+  { img: 'display-akrilik-custom-line-friends', title: 'Display Akrilik Koleksi Line Friends', cat: 'Booth & Pameran' },
 
-  { img: 'gondola-supermarket-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display', featured: true },
-  { img: 'rak-display-toko-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display', featured: true },
-  { img: 'rak-display-nutricell-pet-care', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
-  { img: 'rak-display-bioxsine', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
-  { img: 'floor-display-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display', featured: true },
-  { img: 'rak-display-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
-  { img: 'counter-display-nky', title: 'Counter Display NKY', cat: 'Rak Display', featured: true },
+  { img: 'gondola-supermarket-custom-potens', title: 'Gondola Supermarket Potens', cat: 'Rak Display', featured: true },
+  { img: 'rak-display-toko-custom-potens', title: 'Rangkaian Rak Display Potens', cat: 'Rak Display', featured: true },
+  { img: 'rak-display-custom-nutricell-pet-care', title: 'Rak Display Nutricell Pet Care', cat: 'Rak Display' },
+  { img: 'rak-display-custom-bioxsine', title: 'Rak Display Bioxsine', cat: 'Rak Display' },
+  { img: 'floor-display-custom-evo-pet-food', title: 'Floor Display Evo Pet Food', cat: 'Rak Display', featured: true },
+  { img: 'rak-display-custom-halowell', title: 'Rak Display Halowell', cat: 'Rak Display' },
+  { img: 'counter-display-custom-nky', title: 'Counter Display NKY', cat: 'Rak Display', featured: true },
 
-  { img: 'neon-box-jnt-cargo', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
-  { img: 'huruf-timbul-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage', featured: true },
-  { img: 'papan-nama-sarwaga-yoga', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
-  { img: 'signage-toko-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage', featured: true },
+  { img: 'neon-box-custom-jnt-cargo-tangerang', title: 'Neon Box J&T Cargo', cat: 'Neon Box & Signage' },
+  { img: 'huruf-timbul-akrilik-gorisa', title: 'Huruf Timbul & Signage Gorisa', cat: 'Neon Box & Signage', featured: true },
+  { img: 'papan-nama-custom-sarwaga-yoga', title: 'Papan Nama Sarwaga Yoga', cat: 'Neon Box & Signage' },
+  { img: 'signage-toko-custom-zakku', title: 'Signage Area Toko Zakku', cat: 'Neon Box & Signage', featured: true },
 
-  { img: 'workshop-produksi-rak-display', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi', featured: true },
-  { img: 'finishing-rak-display-workshop', title: 'Finishing Rak Display', cat: 'Proses Produksi', featured: true },
-  { img: 'quality-check-rak-display', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi', featured: true },
-  { img: 'standee-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi', featured: true },
+  { img: 'workshop-produksi-rak-display-serpong', title: 'Perakitan Rak Display di Workshop', cat: 'Proses Produksi', featured: true },
+  { img: 'finishing-rak-display-workshop-serpong', title: 'Finishing Rak Display', cat: 'Proses Produksi', featured: true },
+  { img: 'quality-check-rak-display-custom', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi', featured: true },
+  { img: 'standee-custom-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi', featured: true },
 ];
 
 export const portfolioCats = [...new Set(portfolio.map((p) => p.cat))];
@@ -148,7 +148,7 @@ export const serviceDetails = [
     },
     cat: 'POSM',
     waMsg: 'Halo, saya ingin minta penawaran produksi POSM untuk brand berikut:',
-    images: ['display-akrilik-line-friends'],
+    images: ['display-akrilik-custom-line-friends'],
     assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
   },
   {
@@ -197,7 +197,7 @@ export const serviceDetails = [
     },
     cat: 'Retail & Merchandising',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
-    images: ['gondola-supermarket-potens', 'rak-display-toko-potens', 'rak-display-nutricell-pet-care'],
+    images: ['gondola-supermarket-custom-potens', 'rak-display-toko-custom-potens', 'rak-display-custom-nutricell-pet-care'],
     assetImage: '/assets/display-akrilik-custom/gondola-supermarket-neon-sign-led.webp',
   },
   {
@@ -246,7 +246,7 @@ export const serviceDetails = [
     },
     cat: 'Booth & Custom Build',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
-    images: ['booth-pameran-jasa-tirta-ii', 'booth-pameran-mall-tema-barn', 'booth-aktivasi-brand-mall'],
+    images: ['booth-pameran-custom-jakarta-jasa-tirta', 'booth-aktivasi-mall-tema-barn-jakarta', 'booth-aktivasi-brand-atrium-mall'],
     assetImage: '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',
   },
   {
@@ -295,7 +295,7 @@ export const serviceDetails = [
     },
     cat: 'Signage & Branding',
     waMsg: 'Halo, saya ingin minta penawaran neon box / signage untuk lokasi berikut:',
-    images: ['neon-box-jnt-cargo', 'huruf-timbul-gorisa', 'papan-nama-sarwaga-yoga'],
+    images: ['neon-box-custom-jnt-cargo-tangerang', 'huruf-timbul-akrilik-gorisa', 'papan-nama-custom-sarwaga-yoga'],
     assetImage: '/assets/neon-box/neon-box-custom-relis-studio.webp',
   },
   {
@@ -344,7 +344,7 @@ export const serviceDetails = [
     },
     cat: 'Visual Merchandising',
     waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
-    images: ['floor-display-evo-pet-food', 'display-akrilik-line-friends'],
+    images: ['floor-display-custom-evo-pet-food', 'display-akrilik-custom-line-friends'],
     assetImage: '/assets/branding-store/20bd3285-1272-4623-b861-3504face4dcd.webp',
   },
   {
@@ -393,7 +393,7 @@ export const serviceDetails = [
     },
     cat: 'Event & Support',
     waMsg: 'Halo, saya ingin menyewa peralatan event untuk acara berikut:',
-    images: ['mini-counter-booth-beco'],
+    images: ['mini-counter-booth-custom-beco'],
     assetImage: '/assets/tenda-event/a46ab99c-e267-48f4-be63-d2afa860ab72.webp',
   },
 ];

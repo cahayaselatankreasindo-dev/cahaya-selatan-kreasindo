@@ -96,6 +96,33 @@ export const portfolio = [
   { img: 'finishing-rak-display-workshop-serpong', title: 'Finishing Rak Display', cat: 'Proses Produksi', featured: true },
   { img: 'quality-check-rak-display-custom', title: 'Quality Check Sebelum Kirim', cat: 'Proses Produksi', featured: true },
   { img: 'standee-custom-potens-siap-kirim', title: 'Standee Potens Siap Kirim', cat: 'Proses Produksi', featured: true },
+
+  { img: 'booth-pameran-custom-perfetto-jakarta', title: 'Booth Pameran Custom Perfetto Jakarta', cat: 'Booth & Pameran' },
+  { img: 'booth-pameran-custom-sosrait', title: 'Booth Pameran Custom Sosrait', cat: 'Booth & Pameran' },
+  { img: 'booth-aktivasi-mall-tema-golden-farm-jakarta', title: 'Booth Aktivasi Mall Golden Farm Jakarta', cat: 'Booth & Pameran' },
+  { img: 'gate-entrance-custom-le-minerale', title: 'Gate Entrance Custom Le Minerale', cat: 'Booth & Pameran' },
+
+  { img: 'nomor-meja-akrilik-custom-teh-pucuk', title: 'Nomor Meja Akrilik Custom Teh Pucuk', cat: 'POSM' },
+  { img: 'display-light-box-custom-kredivo', title: 'Display Light Box Custom Kredivo', cat: 'POSM' },
+
+  { img: 'dress-up-gondola-supermarket-gentle-gen', title: 'Dress-up Gondola Supermarket Gentle Gen', cat: 'Rak Display' },
+  { img: 'floor-display-custom-kilau-nipis', title: 'Floor Display Custom Kilau Nipis', cat: 'Rak Display' },
+  { img: 'promotional-display-custom-bioxine', title: 'Promotional Display Custom Bioxsine', cat: 'Rak Display' },
+  { img: 'promotional-display-custom-bioxine-before', title: 'Promotional Display Bioxsine — Sebelum', cat: 'Rak Display' },
+  { img: 'promotional-display-custom-bioxine-detail', title: 'Promotional Display Bioxsine — Detail', cat: 'Rak Display' },
+  { img: 'mockup-dummy-custom-bioxine', title: 'Mockup Dummy Custom Bioxsine', cat: 'Rak Display' },
+  { img: 'rak-display-custom-chistotel', title: 'Rak Display Custom Chistotel', cat: 'Rak Display' },
+  { img: 'rak-display-custom-chistotel-detail', title: 'Rak Display Chistotel — Detail', cat: 'Rak Display' },
+  { img: 'rak-display-custom-grivy', title: 'Rak Display Custom Grivy', cat: 'Rak Display' },
+  { img: 'rak-asongan-custom-garuda', title: 'Rak Asongan Custom Garuda', cat: 'Rak Display' },
+  { img: 'rak-mini-display-meja-custom-happy-cat', title: 'Rak Mini Display Meja Happy Cat', cat: 'Rak Display' },
+  { img: 'rak-mini-display-custom-well-better-sleep', title: 'Rak Mini Display Well Better Sleep', cat: 'Rak Display' },
+  { img: 'rak-display-activation-custom-healthcare', title: 'Rak Display Activation Healthcare', cat: 'Rak Display' },
+
+  { img: 'neon-box-bulat-custom-jnt-sarwaga-yoga', title: 'Neon Box Bulat Custom JNT Sarwaga Yoga', cat: 'Neon Box & Signage' },
+  { img: 'neon-box-custom-relis', title: 'Neon Box Custom Relis', cat: 'Neon Box & Signage' },
+  { img: 'huruf-timbul-custom-kavo-house-instalasi', title: 'Huruf Timbul Kavo House — Instalasi', cat: 'Neon Box & Signage' },
+  { img: 'huruf-timbul-custom-kavo-house-terpasang', title: 'Huruf Timbul Kavo House — Terpasang', cat: 'Neon Box & Signage' },
 ];
 
 export const portfolioCats = [...new Set(portfolio.map((p) => p.cat))];
@@ -148,7 +175,7 @@ export const serviceDetails = [
     },
     cat: 'POSM',
     waMsg: 'Halo, saya ingin minta penawaran produksi POSM untuk brand berikut:',
-    images: ['display-akrilik-custom-line-friends'],
+    images: ['display-akrilik-custom-line-friends', 'nomor-meja-akrilik-custom-teh-pucuk', 'display-light-box-custom-kredivo'],
     assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
   },
   {
@@ -197,7 +224,12 @@ export const serviceDetails = [
     },
     cat: 'Retail & Merchandising',
     waMsg: 'Halo, saya ingin minta penawaran rak display / gondola untuk kebutuhan berikut:',
-    images: ['gondola-supermarket-custom-potens', 'rak-display-toko-custom-potens', 'rak-display-custom-nutricell-pet-care'],
+    images: ['gondola-supermarket-custom-potens', 'rak-display-toko-custom-potens', 'rak-display-custom-nutricell-pet-care',
+      'dress-up-gondola-supermarket-gentle-gen', 'floor-display-custom-kilau-nipis',
+      'promotional-display-custom-bioxine', 'promotional-display-custom-bioxine-before', 'promotional-display-custom-bioxine-detail', 'mockup-dummy-custom-bioxine',
+      'rak-display-custom-chistotel', 'rak-display-custom-chistotel-detail', 'rak-display-custom-grivy',
+      'rak-asongan-custom-garuda', 'rak-mini-display-meja-custom-happy-cat', 'rak-mini-display-custom-well-better-sleep',
+      'rak-display-activation-custom-healthcare'],
     assetImage: '/assets/display-akrilik-custom/gondola-supermarket-neon-sign-led.webp',
   },
   {
@@ -246,7 +278,9 @@ export const serviceDetails = [
     },
     cat: 'Booth & Custom Build',
     waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
-    images: ['booth-pameran-custom-jakarta-jasa-tirta', 'booth-aktivasi-mall-tema-barn-jakarta', 'booth-aktivasi-brand-atrium-mall'],
+    images: ['booth-pameran-custom-jakarta-jasa-tirta', 'booth-aktivasi-mall-tema-barn-jakarta', 'booth-aktivasi-brand-atrium-mall',
+      'booth-pameran-custom-perfetto-jakarta', 'booth-pameran-custom-sosrait',
+      'booth-aktivasi-mall-tema-golden-farm-jakarta', 'gate-entrance-custom-le-minerale'],
     assetImage: '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',
   },
   {
@@ -295,7 +329,9 @@ export const serviceDetails = [
     },
     cat: 'Signage & Branding',
     waMsg: 'Halo, saya ingin minta penawaran neon box / signage untuk lokasi berikut:',
-    images: ['neon-box-custom-jnt-cargo-tangerang', 'huruf-timbul-akrilik-gorisa', 'papan-nama-custom-sarwaga-yoga'],
+    images: ['neon-box-custom-jnt-cargo-tangerang', 'huruf-timbul-akrilik-gorisa', 'papan-nama-custom-sarwaga-yoga',
+      'neon-box-bulat-custom-jnt-sarwaga-yoga', 'neon-box-custom-relis',
+      'huruf-timbul-custom-kavo-house-instalasi', 'huruf-timbul-custom-kavo-house-terpasang'],
     assetImage: '/assets/neon-box/neon-box-custom-relis-studio.webp',
   },
   {

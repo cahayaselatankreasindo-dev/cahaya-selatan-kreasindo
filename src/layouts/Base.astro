@@ -111,6 +111,37 @@ const GA_ID = 'G-YH56PC1XQZ';
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_ID}');
+
+            // Track WhatsApp links consistently across the whole site.
+            document.addEventListener('click', function (event) {
+              const target = event.target;
+              if (!(target instanceof Element)) return;
+
+              const link = target.closest('a[href]');
+              if (!link) return;
+
+              let destination;
+              try {
+                destination = new URL(link.href, window.location.href);
+              } catch {
+                return;
+              }
+
+              const whatsappHosts = ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'];
+              if (!whatsappHosts.includes(destination.hostname.toLowerCase())) return;
+
+              const linkText = (
+                link.getAttribute('aria-label') ||
+                link.textContent ||
+                'WhatsApp'
+              ).trim().slice(0, 100);
+
+              gtag('event', 'klik_whatsapp', {
+                link_url: destination.href,
+                link_text: linkText,
+                page_path: window.location.pathname
+              });
+            }, true);
           `}
         />
       </>

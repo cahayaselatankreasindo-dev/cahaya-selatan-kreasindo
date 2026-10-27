@@ -46,16 +46,24 @@ const mapQ = encodeURIComponent(site.address);
 
     <div class="mt-10 grid gap-6 md:grid-cols-[1fr_1.2fr]">
       <div class="rounded-2xl border border-csk-gray/20 p-7">
-        <h2 class="text-sm font-medium text-csk-amber-text">Workshop</h2>
+        <h2 class="text-sm font-medium text-csk-amber-text">Workshop & Kontak</h2>
         <address class="mt-2 not-italic leading-relaxed text-slate-700">
-          <strong class="font-semibold text-csk-black">{site.name}</strong><br />
-          {site.street}<br />
-          {site.city}, {site.region} {site.postalCode}<br />
+          <strong class="font-semibold text-csk-black">Cahaya Selatan Kreasindo</strong><br />
+          Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong<br />
+          Tangerang Selatan, Banten 15310<br />
           Indonesia
         </address>
         <p class="mt-4 text-sm text-slate-600">
           Kunjungan workshop sebaiknya dijadwalkan dulu lewat WhatsApp agar tim yang menangani proyek Anda ada di tempat.
         </p>
+        <div class="mt-6 space-y-2">
+          <p class="text-sm">
+            <strong class="text-csk-black">WhatsApp:</strong> 0888-8533-488
+          </p>
+          <p class="text-sm">
+            <strong class="text-csk-black">Email:</strong> <a href={`mailto:${site.email}`} class="text-csk-amber-text hover:underline">{site.email}</a>
+          </p>
+        </div>
         <h3 class="mt-6 text-sm font-medium text-csk-amber-text">Area yang kami layani</h3>
         <ul class="mt-2 flex flex-wrap gap-2">
           {areas.map((a) => (

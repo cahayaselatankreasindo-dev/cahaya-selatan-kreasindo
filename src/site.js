@@ -375,7 +375,7 @@ export const serviceDetails = [
     },
     cat: 'Visual Merchandising',
     waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
-    images: ['floor-display-custom-evo-pet-food', 'display-akrilik-custom-line-friends'],
+    images: ['dress-up-gondola-supermarket-gentle-gen', 'floor-display-custom-kilau-nipis'],
     assetImage: '/assets/branding-store/20bd3285-1272-4623-b861-3504face4dcd.webp',
   },
   {

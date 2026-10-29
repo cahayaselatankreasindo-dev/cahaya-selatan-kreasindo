@@ -272,7 +272,7 @@ export const serviceDetails = [
       text: 'Mengerjakan booth pameran untuk Jasa Tirta II, aktivasi mall, dan kampanye brand di atrium mall Jabodetabek.',
     },
     cat: 'Booth & Custom Build',
-    waMsg: 'Halo, saya ingin minta penawaran booth pameran untuk acara berikut:',
+    waMsg: 'Halo CSK, saya ingin minta penawaran booth pameran.\n\nJenis booth/kebutuhan: \nUkuran (jika sudah ada): \nLokasi/venue: \nTanggal acara: \n\nSaya ingin konsultasi dan mendapatkan estimasi.',
     images: ['booth-pameran-custom-jakarta-jasa-tirta',
       'booth-pameran-custom-perfetto-jakarta', 'booth-pameran-custom-sosrait',
       'booth-aktivasi-mall-tema-golden-farm-jakarta', 'gate-entrance-custom-le-minerale'],

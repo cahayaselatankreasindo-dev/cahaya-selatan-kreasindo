@@ -60,38 +60,50 @@ const serviceSchema = {
   <Breadcrumbs items={crumbs} />
 
   <Section as="h1" eyebrow="Layanan" title={s.title} lead={s.lead}>
-    <div class="mt-10 grid gap-10 md:grid-cols-[1.15fr_.85fr]">
-      <div class="space-y-4 leading-relaxed text-slate-600">
-        {s.intro.map((p) => <p>{p}</p>)}
+    {s.slug === 'visual-merchandising' ? (
+      <div class="mt-7">
         <a href={waLink(s.waMsg)} target="_blank" rel="noopener"
-           class="mt-2 inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
+           class="inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
           <WaIcon />Minta Penawaran
         </a>
-      </div>
-      {s.slug === 'visual-merchandising' ? (
-        <figure class="overflow-hidden rounded-2xl border border-csk-gray/20 bg-csk-gray/10">
-          <div class="flex h-[390px] items-center justify-center overflow-hidden sm:h-[470px]">
-            <Picture name="dress-up-gondola-supermarket-gentle-gen"
-                     alt="Branding gondola Gentle Gen yang terpasang di toko, lengkap dengan produk dan area rak retail di sekitarnya"
-                     sizes="(min-width: 768px) 440px, 90vw"
-                     loading="eager"
-                     class="h-full w-full object-contain" />
+        <div class="mt-7 grid gap-7 md:grid-cols-[1.15fr_.85fr] md:items-start">
+          <figure class="overflow-hidden rounded-2xl border border-csk-gray/20 bg-csk-gray/10 md:order-2">
+            <div class="flex h-[380px] items-center justify-center overflow-hidden sm:h-[440px]">
+              <Picture name="dress-up-gondola-supermarket-gentle-gen"
+                       alt="Branding gondola Gentle Gen yang terpasang di toko dengan produk dan rak retail di sekitarnya"
+                       sizes="(min-width: 768px) 440px, 90vw"
+                       loading="eager"
+                       class="h-full w-full object-contain" />
+            </div>
+            <figcaption class="bg-white px-5 py-4 text-sm text-csk-gray">Branding gondola Gentle Gen di area penjualan retail</figcaption>
+          </figure>
+          <div class="space-y-4 leading-relaxed text-slate-600 md:order-1">
+            {s.intro.map((p) => <p>{p}</p>)}
           </div>
-          <figcaption class="bg-white px-5 py-4 text-sm text-csk-gray">Branding gondola Gentle Gen di area penjualan retail</figcaption>
-        </figure>
-      ) : s.scope?.length > 0 && (
-      <div class="rounded-2xl border border-csk-gray/20 bg-csk-gray/10 p-7">
-        <p class="text-sm font-semibold text-slate-900">Ruang lingkup pengerjaan</p>
-        <ul class="mt-3 space-y-2 text-sm text-slate-600">
-          {s.scope.map((item) => (
-          <li class="flex gap-2"><span class="text-csk-amber">-</span>{item}</li>
-          ))}
-        </ul>
+        </div>
       </div>
-      )}
-    </div>
+    ) : (
+      <div class="mt-10 grid gap-10 md:grid-cols-[1.15fr_.85fr]">
+        <div class="space-y-4 leading-relaxed text-slate-600">
+          {s.intro.map((p) => <p>{p}</p>)}
+          <a href={waLink(s.waMsg)} target="_blank" rel="noopener"
+             class="mt-2 inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
+            <WaIcon />Minta Penawaran
+          </a>
+        </div>
+        {s.scope?.length > 0 && (
+          <div class="rounded-2xl border border-csk-gray/20 bg-csk-gray/10 p-7">
+            <p class="text-sm font-semibold text-slate-900">Ruang lingkup pengerjaan</p>
+            <ul class="mt-3 space-y-2 text-sm text-slate-600">
+              {s.scope.map((item) => (
+                <li class="flex gap-2"><span class="text-csk-amber">-</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
   </Section>
-
 
   <!-- Show genuine installed retail displays before specifications; avoid workshop and close-up-only shots. -->
   {s.slug === 'visual-merchandising' && (

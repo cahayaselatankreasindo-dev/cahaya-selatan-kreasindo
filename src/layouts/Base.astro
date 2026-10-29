@@ -130,6 +130,11 @@ const GA_ID = 'G-YH56PC1XQZ';
               const whatsappHosts = ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'];
               if (!whatsappHosts.includes(destination.hostname.toLowerCase())) return;
 
+              // The floating WhatsApp button is already measured by the GA4
+              // click event + the existing GA4 rule for link_classes "floating-wa".
+              // Skip the manual event here to prevent counting the same click twice.
+              if (link.classList.contains('csk-floating-wa')) return;
+
               const linkText = (
                 link.getAttribute('aria-label') ||
                 link.textContent ||

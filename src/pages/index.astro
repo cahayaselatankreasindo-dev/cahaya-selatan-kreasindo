@@ -89,6 +89,7 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
         <div class="mt-12 grid gap-x-px bg-csk-gray/15 md:grid-cols-2">
           {serviceDetails.map((s) => (
             <a href={`/layanan/${s.slug}`}
+               data-home-reveal
                class="group block bg-white border-b border-csk-gray/15"
                aria-label={`Lihat detail layanan ${s.title}`}>
               <div class="aspect-4/3 overflow-hidden">
@@ -97,7 +98,7 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
                   alt={s.title}
                   loading="lazy"
                   {...s.assetImage.includes('A46AB99C') && { width: 1600, height: 1200 }}
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  class="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
                 />
                 </div>
                 <div class="px-6 py-5">
@@ -123,10 +124,10 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Rak Display</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPortfolio.filter((p) => p.cat === 'Rak Display').map((p) => (
-                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
-                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
                 </figure>
@@ -137,10 +138,10 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Neon Box &amp; Signage</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPortfolio.filter((p) => p.cat === 'Neon Box & Signage').map((p) => (
-                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
-                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
                 </figure>
@@ -151,10 +152,10 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Booth &amp; Pameran</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPortfolio.filter((p) => p.cat === 'Booth & Pameran').map((p) => (
-                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
-                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
                 </figure>
@@ -165,10 +166,10 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Proses Produksi</p>
             <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
               {featuredPortfolio.filter((p) => p.cat === 'Proses Produksi').map((p) => (
-                <figure class="group bg-white" data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
-                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" />
+                       class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
                   </div>
                   <figcaption class="px-5 py-4 text-sm font-medium text-csk-black">{p.title}</figcaption>
                 </figure>
@@ -326,4 +327,67 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
         </a>
       </Section>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <Lightbox />
+      <style>
+        [data-home-reveal] {
+          transition:
+            opacity 520ms ease,
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 240ms ease;
+        }
+
+        [data-home-reveal][data-reveal-pending] {
+          opacity: 0;
+          transform: translate3d(0, 18px, 0);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+          [data-home-reveal]:hover {
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 16px 32px -24px rgba(11, 11, 11, 0.28);
+          }
+        }
+
+        @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+          [data-home-reveal]:not([data-reveal-pending]):hover {
+            transform: translate3d(0, -3px, 0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          [data-home-reveal] {
+            transition: none;
+            transform: none;
+          }
+        }
+      </style>
+
+      <script>
+        const homeCards = Array.from(document.querySelectorAll<HTMLElement>('[data-home-reveal]'));
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        // Hero and immediately visible cards remain untouched for first paint.
+        if ('IntersectionObserver' in window && !reducedMotion.matches) {
+          const observer = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              entry.target.removeAttribute('data-reveal-pending');
+              observer.unobserve(entry.target);
+            }
+          }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+
+          for (const card of homeCards) {
+            if (card.getBoundingClientRect().top > window.innerHeight) {
+              card.setAttribute('data-reveal-pending', '');
+              observer.observe(card);
+            }
+          }
+
+          reducedMotion.addEventListener('change', () => {
+            if (!reducedMotion.matches) return;
+            observer.disconnect();
+            for (const card of homeCards) card.removeAttribute('data-reveal-pending');
+          });
+        }
+      </script>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </Base>

@@ -9,11 +9,12 @@ import { serviceDetails } from '../src/site.js';
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 const outputDir = join(projectRoot, 'public', '_responsive');
 const manifestPath = join(projectRoot, 'src', 'generated', 'homepage-responsive.json');
+const heroPrimary = '/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp';
 const heroSecondary = [
   '/assets/neon-box/neon-box-sakala.webp',
   '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',
 ];
-const sourcePaths = [...new Set([...serviceDetails.map((s) => s.assetImage), ...heroSecondary])];
+const sourcePaths = [...new Set([heroPrimary, ...serviceDetails.map((s) => s.assetImage), ...heroSecondary])];
 const manifest = {};
 
 await mkdir(outputDir, { recursive: true });

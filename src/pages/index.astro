@@ -5,10 +5,12 @@ import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
 import AssetImage from '../components/AssetImage.astro';
 import Picture from '../components/Picture.astro';
+import responsiveImages from '../generated/homepage-responsive.json';
 
 import { serviceDetails, waLink, areas, portfolio } from '../site.js';
 
 const featuredPortfolio = portfolio.filter((p) => p.featured);
+const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
 ---
 <Base
       title="Jasa Booth Pameran & Rak Display"
@@ -48,6 +50,8 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
                 <AssetImage
                   src="/assets/neon-box/neon-box-sakala.webp"
+                  srcset={responsiveSrcset('/assets/neon-box/neon-box-sakala.webp')}
+                  sizes="(min-width: 768px) 33vw, 100vw"
                   alt="Signage dan branding — neon box SAKALA bercahaya untuk identity brand"
                   loading="lazy"
                   width="810"
@@ -66,6 +70,8 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
                 <AssetImage
                   src="/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp"
+                  srcset={responsiveSrcset('/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp')}
+                  sizes="(min-width: 768px) 33vw, 100vw"
                   alt="Booth pameran dan custom build — aktivasi brand Perfetto di atrium mall"
                   loading="lazy"
                   width="1200"
@@ -95,6 +101,8 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
               <div class="aspect-4/3 overflow-hidden">
                 <AssetImage
                   src={s.assetImage}
+                  srcset={responsiveSrcset(s.assetImage)}
+                  sizes="(min-width: 1152px) 576px, (min-width: 768px) 50vw, calc(100vw - 40px)"
                   alt={s.title}
                   loading="lazy"
                   {...s.assetImage.includes('A46AB99C') && { width: 1600, height: 1200 }}

@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 
 const images = import.meta.glob('/src/img/*.webp', { eager: true });
-const { name, alt, sizes, class: klass = '', loading = 'lazy' } = Astro.props;
+const { name, alt, sizes, class: klass = '', loading = 'lazy', fetchpriority } = Astro.props;
 const mod = images[`/src/img/${name}.webp`];
 if (!mod) throw new Error(`Gambar tidak ditemukan: src/img/${name}.webp`);
 ---
@@ -12,6 +12,7 @@ if (!mod) throw new Error(`Gambar tidak ditemukan: src/img/${name}.webp`);
   widths={[400, 800, 1200]}
   sizes={sizes}
   loading={loading}
+  {...fetchpriority && { fetchpriority }}
   decoding="async"
   class={klass}
 />

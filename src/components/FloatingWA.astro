@@ -1,10 +1,11 @@
 ---
 import { site } from '../site.js';
-const waMsg = `Halo, saya ingin konsultasi kebutuhan display & booth.`;
-const waHref = `https://wa.me/${site.wa}?text=${encodeURIComponent(waMsg)}`;
+const { message = 'Halo, saya ingin konsultasi kebutuhan display & booth.' } = Astro.props;
+const waHref = `https://wa.me/${site.wa}?text=${encodeURIComponent(message)}`;
 ---
 <a
   href={waHref}
+  data-cta-location="floating"
   target="_blank"
   rel="noopener"
   aria-label="Chat via WhatsApp"

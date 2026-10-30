@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://cahayaselatankreasindo.my.id',
-  integrations: [sitemap({ serialize: (item) => ({ ...item, lastmod: new Date().toISOString() }) })],
+  integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },
 });

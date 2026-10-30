@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FloatingWA from '../components/FloatingWA.astro';
 import { site } from '../site.js';
+import responsiveImages from '../generated/homepage-responsive.json';
 
 const {
   title,
@@ -103,7 +104,7 @@ const GA_ID = 'G-YH56PC1XQZ';
     <link rel="preload" href="/fonts/montserrat-600-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     {Astro.url.pathname === '/' && (
-      <link rel="preload" as="image" href="/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp" type="image/webp" fetchpriority="high" />
+      <link rel="preload" as="image" href="/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp" imagesrcset={responsiveImages['/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp']?.srcset} imagesizes="(min-width: 768px) 33vw, 100vw" type="image/webp" fetchpriority="high" />
     )}
 
     <script type="application/ld+json" set:html={JSON.stringify(business)} />

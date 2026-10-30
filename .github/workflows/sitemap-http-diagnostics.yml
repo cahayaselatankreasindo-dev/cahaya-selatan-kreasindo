@@ -1,0 +1,38 @@
+name: Temporary sitemap HTTP diagnostics
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/sitemap-http-diagnostics.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Compare actual public HTTP responses
+        shell: bash
+        run: |
+          set -u
+          for base in "https://cahayaselatankreasindo.my.id" "https://cahaya-selatan-kreasindo.pages.dev"; do
+            for path in /sitemap-index.xml /sitemap-0.xml /robots.txt; do
+              for agent in default googlebot; do
+                url="${base}${path}"
+                if [ "$agent" = googlebot ]; then
+                  ua="Googlebot/2.1 (+http://www.google.com/bot.html)"
+                else
+                  ua="Mozilla/5.0 (compatible; CSK-sitemap-diagnostic/1.0)"
+                fi
+                printf '\n==== %s | %s ====\n' "$url" "$agent"
+                code=$(curl --silent --show-error --location --max-time 20 -A "$ua" -D /tmp/headers -o /tmp/body -w '%{http_code}' "$url") || code="CURL_ERROR"
+                echo "HTTP status: $code; bytes: $(wc -c </tmp/body 2>/dev/null || echo 0)"
+                grep -iE '^(HTTP/|content-type:|content-length:|location:|cf-ray:|server:|x-robots-tag:|cf-mitigated:)' /tmp/headers | head -25 || true
+                if [ "${path%.xml}" != "$path" ] && [ "$code" = "200" ]; then
+                  python3 -c 'import sys,xml.etree.ElementTree as E; p=sys.argv[1]; data=open(p,"rb").read(); print("XML first 220 bytes:",repr(data[:220])); root=E.fromstring(data); ns="{http://www.sitemaps.org/schemas/sitemap/0.9}"; print("XML_OK root:",root.tag,"child-sitemaps:",len(root.findall(ns+"sitemap")),"page-urls:",len(root.findall(ns+"url")))' /tmp/body || echo "XML_PARSE_FAILED"
+                fi
+              done
+            done
+          done

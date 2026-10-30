@@ -374,7 +374,7 @@ export const serviceDetails = [
       text: 'Visual merchandising untuk brand FMCG, kosmetik, dan retail di Jabodetabek. Klien kami termasuk Nutricell, Beco, dan lainnya.',
     },
     cat: 'Visual Merchandising',
-    waMsg: 'Halo, saya ingin konsultasi visual merchandising untuk toko berikut:',
+    waMsg: 'Halo CSK, saya ingin konsultasi visual merchandising dan branding toko.\n\nBrand/toko: \nJenis kebutuhan: \nLokasi outlet: \nTarget pemasangan: ',
     images: ['dress-up-gondola-supermarket-gentle-gen', 'floor-display-custom-kilau-nipis'],
     assetImage: '/assets/branding-store/20bd3285-1272-4623-b861-3504face4dcd.webp',
   },

@@ -13,6 +13,7 @@ const {
   ogType = 'website',
   publishedTime,
   modifiedTime,
+  waMessage,
 } = Astro.props;
 
 const full = title ? `${title} — ${site.name}` : site.name;
@@ -134,6 +135,16 @@ const GA_ID = 'G-YH56PC1XQZ';
                 return;
               }
 
+              if (destination.origin === window.location.origin &&
+                  destination.pathname.startsWith('/layanan/') &&
+                  window.location.pathname.startsWith('/blog/')) {
+                gtag('event', 'klik_layanan', {
+                  page_path: window.location.pathname,
+                  service_path: destination.pathname,
+                  cta_location: link.dataset.ctaLocation || 'article_body'
+                });
+              }
+
               const whatsappHosts = ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'];
               if (!whatsappHosts.includes(destination.hostname.toLowerCase())) return;
 
@@ -151,7 +162,8 @@ const GA_ID = 'G-YH56PC1XQZ';
               gtag('event', 'klik_whatsapp', {
                 link_url: destination.href,
                 link_text: linkText,
-                page_path: window.location.pathname
+                page_path: window.location.pathname,
+                cta_location: link.dataset.ctaLocation || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : 'content')
               });
             }, true);
           `}
@@ -163,6 +175,6 @@ const GA_ID = 'G-YH56PC1XQZ';
     <Header />
     <main><slot /></main>
     <Footer />
-    <FloatingWA />
+    <FloatingWA message={waMessage} />
   </body>
 </html>

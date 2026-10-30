@@ -10,6 +10,7 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const fm = entry.data;
 const slug = entry.id;
+const waMessage = `Halo CSK, saya membaca panduan "${fm.title}" dan ingin konsultasi proyek:\n\nJenis kebutuhan: \nUkuran: \nJumlah unit/outlet: \nLokasi: \nTarget waktu: `;
 
 const crumbs = [
   { href: '/blog', label: 'Panduan' },
@@ -94,6 +95,7 @@ const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long'
 ---
 
 <Base
+  waMessage={waMessage}
   title={fm.title}
   description={fm.description}
   image={fm.image}
@@ -186,12 +188,12 @@ const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long'
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
         {fm.relatedService && (
-          <a href={fm.relatedService}
+          <a href={fm.relatedService} data-cta-location="article_end"
              class="inline-flex items-center rounded-full bg-csk-amber px-5 py-3 text-sm font-semibold text-csk-black hover:bg-csk-amber/90">
             Lihat layanan terkait &rarr;
           </a>
         )}
-        <a href={waLink(`Halo CSK, saya membaca panduan "${fm.title}" dan ingin konsultasi proyek:\n\nJenis kebutuhan: \nLokasi: \nTarget waktu: `)}
+        <a href={waLink(waMessage)} data-cta-location="article_end"
            target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-medium text-white hover:bg-white/10">
           <WaIcon /> Konsultasi WhatsApp

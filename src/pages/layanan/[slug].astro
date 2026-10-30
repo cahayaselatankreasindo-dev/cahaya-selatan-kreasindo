@@ -61,13 +61,13 @@ const serviceSchema = {
   },
 };
 ---
-<Base title={s.metaTitle} description={s.description} breadcrumbs={crumbs}>
+<Base waMessage={s.waMsg} title={s.metaTitle} description={s.description} breadcrumbs={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <Section as="h1" eyebrow="Layanan" title={s.title} lead={s.lead}>
     {s.slug === 'visual-merchandising' ? (
       <div class="mt-7">
-        <a href={waLink(s.waMsg)} target="_blank" rel="noopener"
+        <a href={waLink(s.waMsg)} data-cta-location="service_top" target="_blank" rel="noopener"
            class="inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
           <WaIcon />Minta Penawaran
         </a>
@@ -92,7 +92,7 @@ const serviceSchema = {
       <div class="mt-10 grid gap-10 md:grid-cols-[1.15fr_.85fr]">
         <div class="space-y-4 leading-relaxed text-slate-600">
           {s.intro.map((p) => <p>{p}</p>)}
-          <a href={waLink(s.waMsg)} target="_blank" rel="noopener"
+          <a href={waLink(s.waMsg)} data-cta-location="service_top" target="_blank" rel="noopener"
              class="mt-2 inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
             <WaIcon />Minta Penawaran
           </a>
@@ -310,6 +310,15 @@ const serviceSchema = {
         </a>
       ))}
     </div>
+  </Section>
+
+  <Section class="border-t border-csk-gray/15">
+    <h2 class="text-2xl font-semibold tracking-tight">Minta penawaran {s.nav}</h2>
+    <p class="mt-3 text-csk-gray">Kirim kebutuhan, ukuran, jumlah unit, lokasi, dan target waktu untuk membahas estimasi produksi.</p>
+    <a href={waLink(s.waMsg)} data-cta-location="service_end" target="_blank" rel="noopener"
+       class="mt-6 inline-flex items-center gap-2 rounded-full bg-csk-amber px-6 py-3 text-sm font-medium text-csk-black hover:bg-csk-amber/90">
+      <WaIcon />Minta Penawaran
+    </a>
   </Section>
 
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

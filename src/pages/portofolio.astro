@@ -64,7 +64,7 @@ import Lightbox from '../components/Lightbox.astro';
       </div>
       <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
         {portfolio.filter((p) => p.cat === cat).map((p) => (
-          <figure id={`proyek-${p.img}`} class="group scroll-mt-28 overflow-hidden rounded-2xl border border-csk-gray/20 bg-white">
+          <figure id={`proyek-${p.img}`} data-portfolio-reveal class="group scroll-mt-28 overflow-hidden rounded-2xl border border-csk-gray/20 bg-white">
             <div class="aspect-4/3 overflow-hidden bg-csk-gray/10">
               <Picture
                 name={p.img}
@@ -95,4 +95,51 @@ import Lightbox from '../components/Lightbox.astro';
     </a>
   </Section>
   <Lightbox />
+  <style>
+    [data-portfolio-reveal] {
+      transition: opacity 550ms ease, transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-portfolio-reveal][data-reveal-pending] {
+      opacity: 0;
+      transform: translate3d(0, 20px, 0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-portfolio-reveal] {
+        transition: none;
+        transform: none;
+      }
+    }
+  </style>
+
+  <script>
+    const revealCards = Array.from(document.querySelectorAll<HTMLElement>('[data-portfolio-reveal]'));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Keep above-the-fold cards visible so this animation never delays first paint.
+    if ('IntersectionObserver' in window && !reducedMotion.matches) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.removeAttribute('data-reveal-pending');
+          observer.unobserve(entry.target);
+        }
+      }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+
+      for (const card of revealCards) {
+        if (card.getBoundingClientRect().top > window.innerHeight) {
+          card.setAttribute('data-reveal-pending', '');
+          observer.observe(card);
+        }
+      }
+
+      // If a visitor enables reduced motion mid-session, reveal everything.
+      reducedMotion.addEventListener('change', () => {
+        if (!reducedMotion.matches) return;
+        observer.disconnect();
+        for (const card of revealCards) card.removeAttribute('data-reveal-pending');
+      });
+    }
+  </script>
 </Base>

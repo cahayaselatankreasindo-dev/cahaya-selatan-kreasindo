@@ -53,7 +53,7 @@ const faqSchema = faq.length ? {
   })),
 } : null;
 
-const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' };
+const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Jakarta' };
 ---
 
 <Base

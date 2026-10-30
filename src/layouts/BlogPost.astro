@@ -94,6 +94,20 @@ const articleSchema = {
       <Content />
     </div>
 
+    {faq.length > 0 && (
+      <section aria-labelledby="blog-faq" class="mx-auto mt-12 max-w-3xl">
+        <h2 id="blog-faq" class="text-2xl font-semibold text-csk-black">Pertanyaan umum</h2>
+        <dl class="mt-6 space-y-4">
+          {faq.map((item) => (
+            <div class="rounded-xl border border-csk-gray/20 bg-white p-5">
+              <dt class="font-semibold text-csk-black">{item.q}</dt>
+              <dd class="mt-2 text-sm leading-relaxed text-slate-600">{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    )}
+
     {service && (
       <aside class="mx-auto mt-14 max-w-3xl rounded-2xl border border-csk-gray/20 bg-csk-gray/10 p-6 sm:p-8">
         <h2 class="text-xl font-semibold text-csk-black">Sedang menyiapkan proyek {service.nav.toLowerCase()}?</h2>

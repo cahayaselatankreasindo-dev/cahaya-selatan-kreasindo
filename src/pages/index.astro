@@ -31,6 +31,8 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
                class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
                <AssetImage
                  src="/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp"
+                 srcset={responsiveSrcset('/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp')}
+                 sizes="(min-width: 768px) 33vw, 100vw"
                  alt="Retail dan visual merchandising — rak display akrilik untuk produk kecantikan di toko ritel"
                  loading="eager"
                  fetchpriority="high"

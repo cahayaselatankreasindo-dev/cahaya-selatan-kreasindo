@@ -122,9 +122,9 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
         <div class="mt-10 space-y-16">
           <div>
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Rak Display</p>
-            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
               {featuredPortfolio.filter((p) => p.cat === 'Rak Display').map((p) => (
-                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
@@ -136,9 +136,9 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
           </div>
           <div>
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Neon Box &amp; Signage</p>
-            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
               {featuredPortfolio.filter((p) => p.cat === 'Neon Box & Signage').map((p) => (
-                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
@@ -150,9 +150,9 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
           </div>
           <div>
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Booth &amp; Pameran</p>
-            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
               {featuredPortfolio.filter((p) => p.cat === 'Booth & Pameran').map((p) => (
-                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
@@ -164,9 +164,9 @@ const featuredPortfolio = portfolio.filter((p) => p.featured);
           </div>
           <div>
             <p class="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-csk-amber-text">Proses Produksi</p>
-            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-px bg-csk-gray/15 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
               {featuredPortfolio.filter((p) => p.cat === 'Proses Produksi').map((p) => (
-                <figure class="group bg-white" data-home-reveal data-lightbox aria-label="Lihat lebih dekat">
+                <figure class="group bg-white" data-home-reveal aria-label="Lihat lebih dekat">
                   <div class="aspect-4/3 overflow-hidden">
                     <Picture name={p.img} alt={p.title}
                        class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />

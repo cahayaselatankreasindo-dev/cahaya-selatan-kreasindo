@@ -7,10 +7,18 @@ import { portfolio, portfolioCats, waLink } from '../site.js';
 
 const slug = (c) => c.replace(/[^a-zA-Z]+/g, '-').toLowerCase();
 const catLink = {
-  'Booth & Pameran': '/layanan',
-  'Rak Display': '/layanan',
-  'Neon Box & Signage': '/layanan',
-  'Proses Produksi': '/tentang',
+  'Booth & Pameran': '/layanan/booth-pameran/',
+  'Rak Display': '/layanan/rak-display-gondola/',
+  'POSM': '/layanan/posm-display/',
+  'Neon Box & Signage': '/layanan/neon-box-signage/',
+  'Proses Produksi': '/tentang/',
+};
+// Guides support the corresponding service. They do not replace commercial service pages.
+const catGuide = {
+  'Booth & Pameran': '/blog/checklist-brief-booth-pameran-custom/',
+  'Rak Display': '/blog/memilih-rak-display-custom-gondola-toko/',
+  'POSM': '/blog/floor-display-vs-counter-display-posm/',
+  'Neon Box & Signage': '/blog/panduan-neon-box-vs-huruf-timbul/',
 };
 import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
@@ -43,13 +51,20 @@ import Lightbox from '../components/Lightbox.astro';
     <section id={slug(cat)} class="mx-auto max-w-6xl scroll-mt-24 px-5 pb-16">
       <div class="flex flex-wrap items-baseline justify-between gap-3">
         <h2 class="text-2xl font-semibold tracking-tight">{cat}</h2>
-        <a href={catLink[cat]} class="text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
-          {cat === 'Proses Produksi' ? 'Cara kerja kami →' : `Layanan ${cat.toLowerCase()} →`}
-        </a>
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <a href={catLink[cat]} class="text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
+            {cat === 'Proses Produksi' ? 'Cara kerja kami →' : `Layanan ${cat.toLowerCase()} →`}
+          </a>
+          {catGuide[cat] && (
+            <a href={catGuide[cat]} class="text-sm font-medium text-csk-gray underline-offset-4 hover:text-csk-amber-text hover:underline">
+              Panduan terkait →
+            </a>
+          )}
+        </div>
       </div>
       <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-lightbox>
         {portfolio.filter((p) => p.cat === cat).map((p) => (
-          <figure class="group overflow-hidden rounded-2xl border border-csk-gray/20 bg-white">
+          <figure id={`proyek-${p.img}`} class="group scroll-mt-28 overflow-hidden rounded-2xl border border-csk-gray/20 bg-white">
             <div class="aspect-4/3 overflow-hidden bg-csk-gray/10">
               <Picture
                 name={p.img}

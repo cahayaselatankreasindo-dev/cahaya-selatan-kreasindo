@@ -3,7 +3,8 @@ import { getCollection, render } from 'astro:content';
 import Base from './Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import WaIcon from '../components/WaIcon.astro';
-import { site, waLink } from '../site.js';
+import Picture from '../components/Picture.astro';
+import { site, waLink, portfolio } from '../site.js';
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
@@ -19,6 +20,42 @@ const related = (await getCollection('blog', ({ data }) => !data.draft))
   .filter((post) => post.id !== slug)
   .sort((a, b) => Number(b.data.category === fm.category) - Number(a.data.category === fm.category))
   .slice(0, 2);
+
+// Link each guide to documented CSK projects, not generic gallery thumbnails.
+// These project keys are verified against the existing portfolio in src/site.js.
+const projectImagesByArticle = {
+  'checklist-brief-booth-pameran-custom': [
+    'booth-pameran-custom-jakarta-jasa-tirta',
+    'booth-pameran-custom-perfetto-jakarta',
+  ],
+  'panduan-neon-box-vs-huruf-timbul': [
+    'neon-box-custom-jnt-cargo-tangerang',
+    'huruf-timbul-akrilik-gorisa',
+  ],
+  'checklist-produksi-posm-banyak-outlet': [
+    'nomor-meja-akrilik-custom-teh-pucuk',
+    'display-light-box-custom-kredivo',
+  ],
+  'floor-display-vs-counter-display-posm': [
+    'floor-display-custom-kilau-nipis',
+    'nomor-meja-akrilik-custom-teh-pucuk',
+  ],
+  'panduan-display-gondola-visual-merchandising': [
+    'dress-up-gondola-supermarket-gentle-gen',
+    'floor-display-custom-kilau-nipis',
+  ],
+  'memilih-rak-display-custom-gondola-toko': [
+    'gondola-supermarket-custom-potens',
+    'dress-up-gondola-supermarket-gentle-gen',
+  ],
+  'rak-display-kecantikan-minimarket': [
+    'rak-display-custom-halowell',
+    'promotional-display-custom-bioxine',
+  ],
+};
+const relatedProjects = (projectImagesByArticle[slug] ?? [])
+  .map((img) => portfolio.find((p) => p.img === img))
+  .filter(Boolean);
 
 const articleUrl = new URL(`/blog/${slug}/`, Astro.site).href;
 const articleSchema = {
@@ -109,6 +146,36 @@ const dateOptions: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long'
       <Content />
     </div>
   </article>
+
+  {relatedProjects.length > 0 && (
+    <section class="mx-auto mt-12 max-w-3xl px-5" aria-labelledby="related-projects-heading">
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-csk-amber-text">Bukti pengerjaan CSK</p>
+      <h2 id="related-projects-heading" class="mt-3 text-2xl font-semibold tracking-tight text-csk-black">
+        Lihat contoh proyek terkait
+      </h2>
+      <p class="mt-2 text-sm leading-relaxed text-csk-gray">
+        Dokumentasi pekerjaan yang relevan dengan topik panduan ini. Pilih foto untuk melihatnya dalam portofolio.
+      </p>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        {relatedProjects.map((project) => (
+          <a href={`/portofolio/#proyek-${project.img}`}
+             class="group overflow-hidden rounded-2xl border border-csk-gray/20 bg-white hover:border-csk-amber">
+            <div class="aspect-[4/3] overflow-hidden bg-csk-gray/10">
+              <Picture name={project.img} alt={project.title}
+                       sizes="(min-width: 640px) 330px, 90vw"
+                       class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-semibold leading-snug text-csk-black group-hover:text-csk-amber-text">{project.title}</h3>
+              <span class="mt-2 inline-block text-xs font-medium text-csk-amber-text">
+                Lihat dokumentasi di portofolio &rarr;
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 
   <section class="mx-auto mt-16 max-w-3xl px-5">
     <div class="rounded-2xl bg-csk-black p-7 text-white sm:p-9">

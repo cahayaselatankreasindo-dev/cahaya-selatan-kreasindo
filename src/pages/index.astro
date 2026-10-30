@@ -384,11 +384,14 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
             }
           }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
 
-          for (const card of homeCards) {
-            if (card.getBoundingClientRect().top > window.innerHeight) {
-              card.setAttribute('data-reveal-pending', '');
-              observer.observe(card);
-            }
+          // Read all card positions first; DOM writes in this loop would force
+          // repeated synchronous layouts on slower mobile devices.
+          const belowFoldCards = homeCards.filter(
+            (card) => card.getBoundingClientRect().top > window.innerHeight,
+          );
+          for (const card of belowFoldCards) {
+            card.setAttribute('data-reveal-pending', '');
+            observer.observe(card);
           }
 
           reducedMotion.addEventListener('change', () => {

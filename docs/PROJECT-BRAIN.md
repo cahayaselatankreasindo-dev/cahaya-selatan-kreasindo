@@ -34,7 +34,7 @@ agencies, exhibition practitioners di Jabodetabek. Bahasa situs: Indonesia infor
 | `booth-pameran` | Jasa Pembuatan Booth Pameran & Stand Event | `assetImage` |
 | `neon-box-signage` | Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama | `assetImage` |
 | `visual-merchandising` | Visual Merchandising & In-Store Branding | `assetImage` |
-| `sewa-peralatan-event` | Sewa Stand Booth, Tenda, Meja & Kursi Event | `assetImage` |
+| `peralatan-event` | Jual Peralatan Event & Pameran Custom | `assetImage` |
 
 Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]`,
 `items.groups[]`, `faq[]`, `cat`, `waMsg`, `images[]` (slug lama `src/img`), `assetImage`

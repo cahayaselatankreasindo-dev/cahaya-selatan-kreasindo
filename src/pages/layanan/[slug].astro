@@ -48,16 +48,16 @@ const serviceSchema = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: s.items.title,
-    itemListElement: s.items.groups.flatMap((g) =>
-      g.list.map((x) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: x,
-          serviceType: g.name,
-        },
-      })),
-    ),
+    itemListElement: s.items.groups
+      .filter((g) => s.slug !== 'peralatan-event' || g.name === 'Produk')
+      .flatMap((g) =>
+        g.list.map((x) => ({
+          '@type': 'Offer',
+          itemOffered: s.slug === 'peralatan-event'
+            ? { '@type': 'Product', name: x }
+            : { '@type': 'Service', name: x, serviceType: g.name },
+        })),
+      ),
   },
 };
 ---

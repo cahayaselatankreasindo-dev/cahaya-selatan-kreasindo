@@ -4,7 +4,7 @@ import { site, areas, products, portfolio, serviceDetails } from '../site.js';
 const pages = [
   ['/', 'Beranda', 'Ringkasan layanan booth pameran, rak display custom, neon box, dan signage.'],
   ['/tentang/', 'Tentang Kami', 'Profil workshop di Serpong, Tangerang Selatan. Satu tim dari desain sampai instalasi.'],
-  ['/layanan/', 'Layanan', 'Rak display custom, gondola supermarket, neon box, huruf timbul, papan nama, booth pameran, sewa peralatan event.'],
+  ['/layanan/', 'Layanan', 'Rak display custom, gondola supermarket, neon box, huruf timbul, papan nama, booth pameran, penjualan peralatan event.'],
   ['/portofolio/', 'Portofolio', 'Dokumentasi pekerjaan booth pameran, rak display ritel, neon box, dan signage.'],
   ['/area-layanan/', 'Area Layanan', 'Cakupan Tangerang Selatan, Tangerang, Jakarta, Depok, Bogor, Bekasi.'],
   ['/kontak/', 'Kontak', `WhatsApp ${site.waDisplay}, email ${site.email}, alamat workshop, dan jam operasional.`],

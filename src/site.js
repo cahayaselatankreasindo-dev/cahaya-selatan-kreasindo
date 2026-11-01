@@ -423,7 +423,7 @@ export const serviceDetails = [
       text: 'CSK menangani kebutuhan produksi dan perlengkapan event untuk brand, perusahaan, serta kegiatan promosi di Jabodetabek.',
     },
     cat: 'Event & Support',
-    waMsg: 'Halo CSK, saya ingin membeli peralatan event.\\n\\nJenis barang: \\nUkuran/spesifikasi: \\nJumlah: \\nLokasi pengiriman: \\nTarget selesai: ',
+    waMsg: 'Halo CSK, saya ingin membeli peralatan event.\n\nJenis barang: \nUkuran/spesifikasi: \nJumlah: \nLokasi pengiriman: \nTarget selesai: ',
     images: ['mini-counter-booth-custom-beco'],
     assetImage: '/assets/tenda-event/a46ab99c-e267-48f4-be63-d2afa860ab72.webp',
   },

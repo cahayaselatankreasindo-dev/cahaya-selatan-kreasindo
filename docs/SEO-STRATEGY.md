@@ -36,7 +36,7 @@ berkonteks, link silang ke layanan lain. Pola ini sudah dipakai `[slug].astro` -
 
 ## Keyword Research Requirements (RESEARCH REQUIRED)
 
-Belum dilakukan. Saat riset: kelompokkan per intent (booth/rak/signage/POSM/VM/sewa),
+Belum dilakukan. Saat riset: kelompokkan per intent (booth/rak/signage/POSM/VM/peralatan-event),
 petakan ke 6 slug yang ada, catat volume+kesulitan, baru putuskan halaman baru.
 Jangan buat halaman baru sebelum data ada.
 
@@ -80,7 +80,7 @@ yang sudah ada (section "Spesifikasi & Material" + meta description), tanpa hala
 | `rak-display-gondola` | display manufacturer jakarta | rak display custom manufacturer |
 | `neon-box-signage` | signage & neon box jakarta | neon box manufacturer jakarta |
 | `visual-merchandising` | fit out contractor jakarta | in-store branding contractor |
-| `sewa-peralatan-event` | vendor produksi event jakarta | sewa booth event jakarta |
+| `peralatan-event` | jual peralatan event jakarta | peralatan event custom tangerang |
 
 Catatan: cluster ini sengaja tidak mengejar volume besar di head term; ia mengisi intent
 "vendor produksi" di ekor. Pertahankan 1-2 kata kunci teknis per halaman, jangan stuffing.

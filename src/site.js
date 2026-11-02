@@ -122,6 +122,63 @@ export const portfolio = [
 
 export const portfolioCats = [...new Set(portfolio.map((p) => p.cat))];
 
+
+export const caseStudies = [
+  {
+    slug: 'booth-jasa-tirta-ii-kip-2025',
+    title: 'Booth Pameran Jasa Tirta II — Pameran KIP 2025',
+    client: 'Jasa Tirta II',
+    category: 'Booth & Pameran',
+    location: 'Hotel Bidakara, Jakarta',
+    description: 'Dokumentasi booth pameran Jasa Tirta II untuk Pameran KIP 2025 di Hotel Bidakara, Jakarta. Galeri menampilkan tampilan booth dan detail pengerjaannya.',
+    deliverables: ['Booth pameran', 'Detail booth pameran'],
+    images: ['booth-pameran-custom-jakarta-jasa-tirta', 'detail-booth-pameran-jasa-tirta'],
+    serviceHref: '/layanan/booth-pameran/',
+    serviceLabel: 'Booth pameran custom',
+    waMessage: 'Halo CSK, saya melihat project booth Jasa Tirta II di portofolio. Saya ingin konsultasi kebutuhan booth pameran.'
+  },
+  {
+    slug: 'gondola-supermarket-potens',
+    title: 'Rak Gondola Supermarket Potens',
+    client: 'Potens',
+    category: 'Rak Display',
+    location: 'Tangerang',
+    description: 'Dokumentasi produksi dan pemasangan rak gondola supermarket Potens di Tangerang.',
+    deliverables: ['Rak gondola supermarket', 'Produksi dan pemasangan'],
+    images: ['gondola-supermarket-custom-potens'],
+    serviceHref: '/layanan/rak-display-gondola/',
+    serviceLabel: 'Rak display dan gondola',
+    waMessage: 'Halo CSK, saya melihat project rak gondola Potens di portofolio. Saya ingin konsultasi kebutuhan rak display.'
+  },
+  {
+    slug: 'display-promosi-bioxsine',
+    title: 'Promotional Display Bioxsine',
+    client: 'Bioxsine',
+    category: 'Retail Display',
+    location: 'Jakarta',
+    description: 'Dokumentasi promotional display Bioxsine untuk kebutuhan retail, termasuk tampilan display, detail finishing, dan mockup yang tercatat dalam galeri proyek.',
+    deliverables: ['Promotional display retail', 'Mockup display', 'Detail finishing'],
+    images: ['rak-display-custom-bioxsine', 'promotional-display-custom-bioxine', 'promotional-display-custom-bioxine-before', 'promotional-display-custom-bioxine-detail', 'mockup-dummy-custom-bioxine'],
+    serviceHref: '/layanan/rak-display-gondola/',
+    serviceLabel: 'Retail display custom',
+    waMessage: 'Halo CSK, saya melihat project promotional display Bioxsine di portofolio. Saya ingin konsultasi kebutuhan retail display.'
+  },
+  {
+    slug: 'huruf-timbul-kavo-house',
+    title: 'Huruf Timbul Kavo House',
+    client: 'Kavo House',
+    category: 'Neon Box & Signage',
+    location: 'Tangerang',
+    description: 'Dokumentasi huruf timbul Kavo House yang menampilkan proses instalasi dan hasil terpasang di lokasi.',
+    deliverables: ['Huruf timbul', 'Instalasi signage'],
+    images: ['huruf-timbul-custom-kavo-house-instalasi', 'huruf-timbul-custom-kavo-house-terpasang'],
+    serviceHref: '/layanan/neon-box-signage/',
+    serviceLabel: 'Neon box dan signage',
+    waMessage: 'Halo CSK, saya melihat project huruf timbul Kavo House di portofolio. Saya ingin konsultasi kebutuhan signage.'
+  }
+];
+
+
 // Halaman anak /layanan/<slug>. Satu entri = satu halaman = satu kata kunci utama.
 export const serviceDetails = [
   {

@@ -13,8 +13,9 @@ import WaIcon from './WaIcon.astro';
 ---
 <header class="sticky top-0 z-50 border-b border-csk-gray/15 bg-white/90 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-    <a href="/" class="flex items-center gap-2.5">
-      <img src="/img/logo-horizontal.svg" alt={site.name} width="302" height="100" class="h-9 w-auto" />
+    <a href="/" class="flex items-center gap-2.5" aria-label={`Beranda ${site.name}`}>
+      <img src="/img/logo-horizontal.svg" alt={site.name} width="302" height="100" class="logo-light h-9 w-auto" />
+      <img src="/img/logo-horizontal-light.svg" alt="" aria-hidden="true" width="302" height="100" class="logo-dark h-9 w-auto" />
     </a>
 
     <nav class="hidden items-center gap-1 lg:flex">
@@ -27,6 +28,7 @@ import WaIcon from './WaIcon.astro';
           ]}
         >{n.label}</a>
       ))}
+      <button type="button" data-theme-toggle class="ml-1 rounded-full border border-csk-gray/20 px-3 py-2 text-xs font-medium text-csk-gray transition-colors hover:text-csk-black" aria-label="Aktifkan mode gelap">Mode gelap</button>
       <a href={waLink()} target="_blank" rel="noopener"
          class="ml-1 inline-flex items-center gap-2 rounded-full bg-csk-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-csk-black/80">
         <WaIcon class="h-3.5 w-3.5" />Hubungi Kami
@@ -34,18 +36,42 @@ import WaIcon from './WaIcon.astro';
     </nav>
 
     <details class="relative lg:hidden">
-      <summary class="cursor-pointer list-none rounded-lg border border-csk-gray/20 p-2 text-csk-black">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <summary class="cursor-pointer list-none rounded-lg border border-csk-gray/20 p-2 text-csk-black" aria-label="Buka menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16" />
         </svg>
       </summary>
-      <div class="absolute right-0 mt-2 w-48 rounded-xl border border-csk-gray/15 bg-white p-2 shadow-lg">
+      <div class="absolute right-0 mt-2 w-52 rounded-xl border border-csk-gray/15 bg-white p-2 shadow-lg">
         {nav.map((n) => (
           <a href={n.href} class="block rounded-lg px-3 py-2 text-sm text-csk-gray hover:bg-csk-white">{n.label}</a>
         ))}
+        <button type="button" data-theme-toggle class="mt-1 w-full rounded-lg border border-csk-gray/20 px-3 py-2 text-left text-sm text-csk-gray" aria-label="Aktifkan mode gelap">Mode gelap</button>
         <a href={waLink()} target="_blank" rel="noopener"
            class="mt-1 flex items-center justify-center gap-2 rounded-lg bg-csk-black px-3 py-2 text-sm font-medium text-white"><WaIcon class="h-3.5 w-3.5" />WhatsApp</a>
       </div>
     </details>
   </div>
 </header>
+<script is:inline>
+  (() => {
+    const buttons = document.querySelectorAll('[data-theme-toggle]');
+    const updateLabels = () => {
+      const dark = document.documentElement.dataset.theme === 'dark';
+      buttons.forEach((button) => {
+        button.textContent = dark ? 'Mode terang' : 'Mode gelap';
+        button.setAttribute('aria-label', dark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      });
+    };
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = nextTheme;
+        try {
+          localStorage.setItem('csk-theme', nextTheme);
+        } catch {}
+        updateLabels();
+      });
+    });
+    updateLabels();
+  })();
+</script>

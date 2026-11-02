@@ -17,19 +17,31 @@ const portfolioHighlights = [
   { category: 'Proses Produksi', href: '/tentang/' },
 ];
 const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
+const homepageInquiryMessage = 'Halo CSK, saya ingin konsultasi kebutuhan project.\n\nNama perusahaan/brand: \nKebutuhan project: \nUkuran atau jumlah: \nLokasi: \nTarget waktu: \nReferensi/foto: ';
 ---
 <Base
-      title="Jasa Booth Pameran & Rak Display"
-      description="Cahaya Selatan Kreasindo, jasa pembuatan booth pameran, rak display custom, neon box, dan signage di Tangerang Selatan. Dikerjakan sendiri dari desain sampai pemasangan."
+      title="Production Partner B2B | Display, POSM, Signage & Booth"
+      description="Cahaya Selatan Kreasindo (CSK) adalah production partner untuk brand dan bisnis: produksi retail display, rak custom, POSM, signage, neon box, booth pameran, dan custom fabrication dari desain hingga instalasi di Jabodetabek."
 >
       <section>
         <div class="mx-auto max-w-6xl px-5 py-12 md:py-16">
           <h1 class="text-3xl font-bold leading-tight text-csk-black sm:text-4xl md:text-5xl">
-            Wujudkan Branding Visual terbaik bersama kami.
+            Production Partner untuk Brand dan Bisnis.
           </h1>
-          <p class="mt-4 max-w-xl text-base leading-relaxed text-csk-gray sm:text-lg">
-            Production partner terpercaya untuk semua kebutuhan display, booth pameran, dan branding bisnis Anda.
+          <p class="mt-4 max-w-2xl text-base leading-relaxed text-csk-gray sm:text-lg">
+            Dari retail display, POSM, signage, hingga booth pameran dan custom fabrication. CSK menangani kebutuhan project mulai dari desain, produksi, sampai instalasi.
           </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href={waLink(homepageInquiryMessage)} target="_blank" rel="noopener"
+               data-cta-location="homepage_hero"
+               class="inline-flex min-h-12 items-center gap-2 rounded-full bg-csk-black px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+              <WaIcon />Konsultasikan Project
+            </a>
+            <a href="/portofolio/"
+               class="inline-flex min-h-12 items-center rounded-full border border-csk-black/25 px-6 py-3 text-sm font-semibold text-csk-black transition-colors hover:border-csk-black hover:bg-csk-black/5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+              Lihat Portofolio <span aria-hidden="true" class="ml-2">→</span>
+            </a>
+          </div>
         </div>
         <div class="border-t border-csk-gray/10">
           <div class="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0 md:divide-csk-gray/10">
@@ -335,9 +347,10 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
           Kirim kebutuhan, ukuran, foto lokasi, atau referensi project Anda.<br/>
           Mari diskusikan kebutuhan produksi dan implementasinya bersama CSK.
         </p>
-        <a href={waLink()} target="_blank" rel="noopener"
-           class="mt-8 inline-flex items-center gap-2 rounded bg-csk-black px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80">
-          <WaIcon />Chat WhatsApp
+        <a href={waLink(homepageInquiryMessage)} target="_blank" rel="noopener"
+           data-cta-location="homepage_final_cta"
+           class="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-csk-black px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+          <WaIcon />Konsultasikan Project
         </a>
       </Section>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <Lightbox />

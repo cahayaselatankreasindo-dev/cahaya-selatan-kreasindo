@@ -3,9 +3,10 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Picture from '../components/Picture.astro';
-import { portfolio, portfolioCats, waLink } from '../site.js';
+import { portfolio, portfolioCats, caseStudies, waLink } from '../site.js';
 
 const slug = (c) => c.replace(/[^a-zA-Z]+/g, '-').toLowerCase();
+const caseStudyByImage = new Map(caseStudies.flatMap((study) => study.images.map((img) => [img, study.slug])));
 const catLink = {
   'Booth & Pameran': '/layanan/booth-pameran/',
   'Rak Display': '/layanan/rak-display-gondola/',
@@ -24,8 +25,8 @@ import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
 ---
 <Base
-  title="Portofolio Booth Pameran & Rak Display"
-  description="Dokumentasi pekerjaan Cahaya Selatan Kreasindo: booth pameran, gondola supermarket, rak display ritel, neon box, dan signage toko di Jabodetabek."
+  title="Portofolio Proyek B2B | Booth, Display, POSM & Signage"
+  description="Lihat dokumentasi proyek Cahaya Selatan Kreasindo: booth pameran, rak gondola, retail display, promotional display, huruf timbul, neon box, dan signage untuk brand serta bisnis."
   image="/og-image.webp"
   breadcrumbs={[{ href: '/portofolio', label: 'Portofolio' }]}
 >
@@ -103,6 +104,12 @@ import Lightbox from '../components/Lightbox.astro';
                 ]}>
                   {p.title}
                 </h3>
+                {caseStudyByImage.has(p.img) && (
+                  <a href={`/portofolio/${caseStudyByImage.get(p.img)}/`}
+                     class="pointer-events-auto mt-3 inline-flex items-center text-sm font-semibold text-white underline decoration-csk-amber decoration-2 underline-offset-4 hover:text-csk-amber">
+                    Lihat studi kasus <span aria-hidden="true" class="ml-2">→</span>
+                  </a>
+                )}
               </figcaption>
             </figure>
           ))}

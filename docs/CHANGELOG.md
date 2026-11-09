@@ -1,5 +1,17 @@
 # CHANGELOG.md - Cahaya Selatan Kreasindo
 
+## 2026-11-10 - Perbaikan metadata homepage berdasarkan audit SEO
+
+Files modified:
+
+- `src/pages/index.astro` — title homepage diubah menjadi `Booth Pameran & Rak Display`. Setelah digabung dengan nama brand dari `Base.astro`, title menjadi 54 karakter.
+- Meta description homepage dipadatkan menjadi 143 karakter, tetap mencakup booth pameran, rak display custom, neon box, signage, Serpong, dan Jabodetabek.
+
+Verification:
+
+- GitHub Actions `Website Build` — Node 22, `npm ci`, dan `npm run build` berhasil.
+- Audit awal Grow My Website pada 2026-11-10: 92/100; hanya panjang title (63 karakter) dan meta description (169 karakter) yang ditandai. Audit ulang setelah production deployment masih diperlukan.
+
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
 ## 2026-09-21 - Ganti email kontak ke domain CSK

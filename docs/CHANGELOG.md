@@ -1,6 +1,27 @@
 # CHANGELOG.md - Cahaya Selatan Kreasindo
 
-> Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
+## 2026-11-10 - SEO on-page refinement from GrowMyWebsite audit
+
+Files modified:
+- \`src/pages/index.astro\`, \`src/pages/layanan.astro\`, \`src/pages/portofolio.astro\`,
+  \`src/pages/apa-itu-posm.astro\`, \`src/pages/kontak.astro\`, and
+  \`src/pages/kebijakan-privasi.astro\` — shorten titles/descriptions to fit the
+  audit's recommended display ranges while preserving page intent and local relevance.
+- \`src/site.js\` — revise meta titles and descriptions for all six service pages.
+- \`src/pages/layanan.astro\`, \`src/pages/tentang.astro\`, \`src/pages/area-layanan.astro\`,
+  and \`src/pages/kontak.astro\` — add useful decision-support content, project requirements,
+  regional logistics, and practical FAQs. No keyword-only filler was added.
+- \`docs/SEO-STRATEGY.md\` and \`docs/DEVELOPMENT-ROADMAP.md\` — update audit status and
+  document remaining validation tasks.
+
+Verification:
+- Metadata character counts checked in source; final title includes the shared
+  \` — Cahaya Selatan Kreasindo\` suffix from \`Base.astro\`.
+- Live baseline scan covered 15 public URLs. Legal-page content depth was not padded
+  solely to satisfy the audit's 600-word heuristic.
+- \`npm run build\` and public re-scan remain pending before merge/deployment.
+
+> Catatan perubahan dan status verifikasi berdasarkan kode, riwayat Git, dan pengujian pada tanggal masing-masing.
 
 ## 2026-09-21 - Ganti email kontak ke domain CSK
 

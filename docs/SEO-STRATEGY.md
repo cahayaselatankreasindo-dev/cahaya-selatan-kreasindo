@@ -10,18 +10,38 @@ Setiap halaman punya title + description sendiri.
 
 ## Existing SEO Implementation (CONFIRMED)
 
-- Canonical per halaman; OG `1200x630` + Twitter `summary_large_image` (`public/og-image.jpg`).
+- Canonical per halaman; OG `1200x630` + Twitter `summary_large_image` (`public/og-image.webp`).
 - `LocalBusiness` JSON-LD: nama, tagline, telepon, email, alamat Serpong lengkap,
-  area 6 kota, jam Mo-Sa. `BreadcrumbList` di halaman ber-crumb. `FAQPage` di tiap `[slug]`.
+  area layanan, jam operasional, dan tautan profil. `BreadcrumbList` di halaman ber-crumb.
+  Halaman layanan memakai `Service` dan `FAQPage` JSON-LD.
 - `@astrojs/sitemap` ? `/sitemap-index.xml`; `/robots.txt` allow-all + pointer sitemap.
 - `/llms.txt` berisi ringkasan situs + layanan + produk + area + portfolio (untuk AI/crawler).
 - `lang="id"`, alt deskriptif, satu H1 per halaman, URL keyword (`/layanan/rak-display-gondola`).
 
-## Missing SEO Implementation
+## Outstanding SEO Work (CONFIRMED)
 
-- Tagline/JSON-LD/footer "Event Booth & Exhibition Specialist" menyempit ke booth.
-- `og-image.jpg` masih palet biru lama (generator `scripts/og-image.mjs` juga).
-- Tanpa `404.astro`; tanpa keyword research; tanpa analytics/Search Console di repo.
+- Riset keyword formal per layanan belum terdokumentasi dengan volume, intent, dan tingkat persaingan.
+- Validasi Rich Results di Google dan evaluasi data Search Console perlu dilakukan setelah perubahan metadata.
+- Pemantauan performa organik dan konversi perlu ditinjau berkala; GA4 sudah terpasang, tetapi data aktual tidak disimpan di repo.
+- Konten legal tidak perlu dipanjangkan hanya untuk memenuhi ambang jumlah kata dari alat audit.
+
+
+## GrowMyWebsite On-Page Audit (2026-11-10)
+
+Audit dilakukan pada 15 URL publik utama. Cakupan alat adalah 12 pemeriksaan on-page (termasuk title, description, heading, viewport, HTTPS, canonical, Open Graph, bahasa, alt, schema, dan kedalaman konten); skor bukan prediksi ranking Google.
+
+Baseline hasil:
+- Homepage 92/100; layanan 88/100; halaman layanan individual 92/100; portofolio 96/100.
+- Kontak 88/100; tentang 92/100; area layanan 96/100; panduan POSM 92/100.
+- Kebijakan privasi 92/100; syarat & ketentuan 100/100.
+
+Tindak lanjut pada branch SEO:
+- Memadatkan title agar panjang total setelah suffix nama perusahaan berada pada rentang 30–60 karakter.
+- Memadatkan meta description ke rentang 70–160 karakter tanpa menghilangkan maksud pencarian dan lokasi layanan.
+- Memperjelas konten halaman layanan, tentang, area layanan, dan kontak dengan informasi yang relevan bagi calon klien.
+- Mempertahankan halaman legal sesuai tujuan informasinya; tidak menambah teks kosong hanya untuk melewati ambang 600 kata yang digunakan alat audit.
+
+Catatan: hasil audit ulang setelah perubahan memerlukan preview build yang dapat diakses publik. Jangan menyatakan skor baru atau peningkatan ranking sebelum halaman hasil perubahan benar-benar terbit dan dipindai ulang.
 
 ## Recommended Site Architecture for SEO
 
@@ -49,11 +69,13 @@ embed). Rekomendasi: samakan NAP dengan profil bisnis, minta review klien, perti
 ## Technical SEO Checklist
 
 - [x] Title/description unik, canonical, sitemap, robots, llms.txt
-- [x] Schema LocalBusiness/Breadcrumb/FAQ
-- [ ] Validasi Rich Results setelah ubah schema/meta
-- [ ] Perbarui `site:` bila domain berubah (feed canonical/sitemap/OG/`@id`)
-- [ ] Kompres 183 file (berat ? LCP/CLS mobile)
-- [ ] 404 kustom + audit link internal mati
+- [x] Schema LocalBusiness/Breadcrumb/Service/FAQ
+- [x] 404 kustom tersedia
+- [x] Kompresi aset gambar besar dan pemindahan video staging dari folder publik (lihat CHANGELOG)
+- [ ] Validasi Rich Results setelah perubahan schema/meta
+- [ ] Riset keyword formal dan pemetaan intent per layanan
+- [ ] Tinjau Search Console, indeksasi, kueri, dan konversi organik
+- [ ] Audit link internal mati dan sisa aset publik
 
 ## Content Strategy
 

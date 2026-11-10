@@ -129,9 +129,9 @@ export const serviceDetails = [
     icon: 'rak',
     nav: 'POSM & Display Promosi',
     title: 'Jasa Pembuatan POSM & Display Promosi',
-    metaTitle: 'Jasa Pembuatan POSM (Point of Sale Material)',
+    metaTitle: 'Jasa POSM & Display Promosi',
     description:
-      'Posm manufacturer di Tangerang Selatan: floor display, counter display, standee, wobbler, shelf talker, dan acrylic stand sebagai display manufacturer Jakarta. Dikerjakan di workshop sendiri, dikirim dan dipasang untuk area Jabodetabek.',
+      'Produksi POSM untuk retail: floor display, counter display, standee, wobbler, dan shelf talker. Custom dari workshop Serpong untuk Jabodetabek.',
     lead:
       'POSM (Point of Sale Material) adalah materi promosi untuk area rak, kasir, dan titik penjualan. Kami membuatnya sesuai ukuran produk, kebutuhan kampanye, dan jumlah outlet.',
     intro: [
@@ -178,9 +178,9 @@ export const serviceDetails = [
     icon: 'rak',
     nav: 'Rak Display & Gondola',
     title: 'Rak Display Custom & Gondola Supermarket',
-    metaTitle: 'Jasa Pembuatan Rak Display Custom & Gondola',
+    metaTitle: 'Rak Display Custom Serpong',
     description:
-      'Display manufacturer Jakarta untuk rak display custom dan gondola supermarket di Tangerang Selatan. Ukuran menyesuaikan lokasi, finishing rapi, dikirim dan dirakit oleh tim sendiri.',
+      'Produksi rak display custom dan gondola supermarket di Serpong. Ukuran, material, finishing, pengiriman, dan perakitan sesuai kebutuhan toko.',
     lead:
       'Kami membuat rak display dan gondola berdasarkan ukuran ruang, jenis produk, serta kebutuhan branding toko atau supermarket.',
     intro: [
@@ -232,9 +232,9 @@ export const serviceDetails = [
     icon: 'papan',
     nav: 'Booth Pameran & Event',
     title: 'Jasa Pembuatan Booth Pameran & Stand Event',
-    metaTitle: 'Jasa Pembuatan Booth Pameran & Stand Event',
+    metaTitle: 'Booth Pameran Custom Jakarta',
     description:
-      'Vendor fabrikasi booth Jakarta untuk JCC, JIExpo, ICE BSD, dan aktivasi mall. Desain, produksi, pemasangan, sampai bongkar setelah acara. Berbasis di Tangerang Selatan.',
+      'Vendor booth pameran untuk JCC, JIExpo, ICE BSD, dan aktivasi mall. Desain, produksi, instalasi, dan bongkar di Jabodetabek.',
     lead:
       'Kami mengerjakan booth pameran dan stand event custom, dari gambar kerja dan produksi sampai pemasangan serta pembongkaran setelah acara.',
     intro: [
@@ -283,9 +283,9 @@ export const serviceDetails = [
     icon: 'neon',
     nav: 'Neon Box & Signage',
     title: 'Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama',
-    metaTitle: 'Jasa Pembuatan Neon Box & Huruf Timbul',
+    metaTitle: 'Neon Box & Signage Serpong',
     description:
-      'Signage & neon box Jakarta: neon box, huruf timbul, papan nama toko, dan signage arah di Tangerang Selatan dan Jabodetabek. Material tahan cuaca, dipasang oleh tim sendiri.',
+      'Pembuatan neon box, huruf timbul, papan nama, dan signage arah di Serpong. Survei, produksi, pengiriman, dan pemasangan di Jabodetabek.',
     lead:
       'Kami membuat neon box, huruf timbul, papan nama, dan signage arah untuk toko, kantor, klinik, gudang, serta area dalam gedung.',
     intro: [
@@ -334,9 +334,9 @@ export const serviceDetails = [
     icon: 'konsultasi',
     nav: 'Visual Merchandising',
     title: 'Visual Merchandising & In-Store Branding',
-    metaTitle: 'Jasa Visual Merchandising & In-Store Branding',
+    metaTitle: 'Visual Merchandising Retail',
     description:
-      'Fit out contractor Jakarta untuk visual merchandising dan in-store branding: penataan display, window display, store build-up, dan branding outlet retail di Jabodetabek.',
+      'Jasa visual merchandising dan in-store branding untuk outlet retail: display, window display, store build-up, dan instalasi di Jabodetabek.',
     lead:
       'Kami menata dan memproduksi elemen visual untuk area retail, termasuk display produk, window display, store build-up, dan branding outlet.',
     intro: [
@@ -383,9 +383,9 @@ export const serviceDetails = [
     icon: 'papan',
     nav: 'Peralatan Event & Pameran',
     title: 'Jual Peralatan Event & Pameran Custom',
-    metaTitle: 'Jual Peralatan Event Custom | Tenda, Meja, Kursi & Stand Booth',
+    metaTitle: 'Peralatan Event Custom',
     description:
-      'Penjualan peralatan event dan pameran: stand booth, tenda, meja, kursi, backdrop, serta mini counter. Pemesanan custom untuk kebutuhan bazar dan perusahaan di Jabodetabek.',
+      'Jual peralatan event custom: stand booth, tenda, meja, kursi, backdrop, dan mini counter untuk bazar serta acara perusahaan di Jabodetabek.',
     lead:
       'Kami menyediakan peralatan event untuk dibeli, meliputi stand booth, tenda, meja, kursi, backdrop, dan mini counter sesuai kebutuhan acara atau promosi.',
     intro: [

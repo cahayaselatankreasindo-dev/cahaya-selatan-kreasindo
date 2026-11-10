@@ -1,6 +1,6 @@
 # DEVELOPMENT-ROADMAP.md - Cahaya Selatan Kreasindo
 
-> Status per 2026-09-13, berbasis bukti repo (bukan asumsi).
+> Snapshot awal per 2026-09-13; tindak lanjut SEO terbaru dicatat 2026-11-10.
 
 ## PHASE 1 - FOUNDATION [COMPLETED]
 
@@ -36,9 +36,12 @@
 
 ## PHASE 6 - SEO [IN PROGRESS]
 
-- [COMPLETED] Title/description/canonical/OG/Twitter per halaman, sitemap, robots, llms.txt, LocalBusiness+Breadcrumb+FAQ schema
-- [IN PROGRESS] Tagline/JSON-LD/footer masih sempit ("Event Booth & Exhibition Specialist")
-- [NOT STARTED] Keyword research formal, 404 kustom, audit Rich Results
+- [COMPLETED] Title/description/canonical/OG/Twitter per halaman, sitemap, robots, llms.txt, LocalBusiness+Breadcrumb+Service+FAQ schema
+- [COMPLETED] Tagline, JSON-LD, footer, logo, dan OG image telah diselaraskan dengan positioning "Production Partner untuk Brand dan Bisnis" (lihat CHANGELOG)
+- [COMPLETED IN SEO BRANCH] Pemadatan title/meta description dan pengayaan konten halaman komersial berdasarkan audit GrowMyWebsite 2026-11-10; menunggu review dan build
+- [COMPLETED] Halaman 404 kustom tersedia
+- [IN PROGRESS] Keyword research formal dan pemetaan intent per layanan
+- [NOT STARTED] Validasi Rich Results serta evaluasi data Google Search Console
 
 ## PHASE 7 - PERFORMANCE [NOT STARTED]
 

@@ -51,14 +51,15 @@ export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
     return json({ status: "error", message: "Maksimal 5 file dengan total ukuran 30 MB per permintaan." }, 413);
   }
 
-  const bytes = new Uint8Array(await file.arrayBuffer());
+  const buffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
   const detected = detectFile(bytes);
   if (!detected) return json({ status: "error", message: "Format file harus PDF, JPG, JPEG, atau PNG." }, 415);
 
   const originalName = file.name.replace(/[\\/\\u0000-\\u001f]/g, "_").slice(0, 180) || "referensi." + detected.ext;
   const key = prefix + crypto.randomUUID() + "." + detected.ext;
   try {
-    await env.DESIGN_BUCKET.put(key, bytes.buffer, {
+    await env.DESIGN_BUCKET.put(key, buffer, {
       httpMetadata: { contentType: detected.contentType, cacheControl: "private, no-store" },
       customMetadata: { submissionId, originalName, uploadedAt: new Date().toISOString() },
     });

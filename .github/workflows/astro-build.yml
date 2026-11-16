@@ -21,5 +21,7 @@ jobs:
           cache: 'npm'
       - name: Install locked dependencies
         run: npm ci
+      - name: Type-check Cloudflare Pages Functions
+        run: npx --yes --package typescript tsc --noEmit --target ES2022 --module ESNext --moduleResolution Bundler --lib ES2022,DOM --skipLibCheck functions/api/leads.ts functions/api/design-upload.ts functions/api/design-download.ts
       - name: Generate static website
         run: npm run build

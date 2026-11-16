@@ -1,5 +1,12 @@
 ## 2026-11-17 — Website lead intake foundation
 
+- Added Cloudflare Pages Function `functions/api/leads.ts` to forward a strict public-field allowlist to Business OS.
+- Added `docs/INTEGRATION-LEAD-INTAKE.md` with required server-side secrets and setup steps.
+- No website form, R2 upload, CRM detail UI, secret configuration, spreadsheet write, or deployment is included yet.
+- Work is isolated on `feature/website-lead-intake-foundation`; production branch remains unchanged.
+
+## 2026-11-17 — Website lead intake foundation
+
 - Added a Cloudflare Pages Function at `functions/api/leads.ts` to forward a strict public-field allowlist to the Business OS Apps Script endpoint.
 - Added integration setup documentation at `docs/INTEGRATION-LEAD-INTAKE.md`.
 - No website form, R2 upload, CRM detail UI, secret configuration, spreadsheet write, or deployment is included yet.

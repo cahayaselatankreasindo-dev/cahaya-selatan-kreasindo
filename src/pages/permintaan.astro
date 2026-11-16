@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Section from '../components/Section.astro';
+---
+
+<Base
+  title="Formulir Permintaan Proyek"
+  description="Kirim kebutuhan pekerjaan kepada Cahaya Selatan Kreasindo. Isi kontak singkat atau brief proyek untuk ditindaklanjuti tim kami."
+  breadcrumbs={[{ href: '/permintaan', label: 'Permintaan Proyek' }]}
+>
+  <Breadcrumbs items={[{ href: '/permintaan', label: 'Permintaan Proyek' }]} />
+  <Section as="h1" eyebrow="Mulai proyek" title="Ceritakan kebutuhan Anda"
+    lead="Isi formulir singkat untuk konsultasi awal, atau lengkapi brief agar tim kami dapat memahami kebutuhan proyek dengan lebih tepat.">
+    <div class="mx-auto mt-8 max-w-3xl rounded-2xl border border-csk-gray/20 bg-white p-6 shadow-sm md:p-8">
+      <form id="lead-intake-form" class="space-y-6">
+        <div class="grid gap-2 sm:grid-cols-2">
+          <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-csk-gray/30 p-4">
+            <input type="radio" name="intakeType" value="quick_contact" checked class="mt-1 accent-csk-amber" />
+            <span><strong class="block text-sm">Kontak singkat</strong><span class="text-xs text-slate-600">Nama, WhatsApp, dan jenis pekerjaan.</span></span>
+          </label>
+          <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-csk-gray/30 p-4">
+            <input type="radio" name="intakeType" value="project_brief" class="mt-1 accent-csk-amber" />
+            <span><strong class="block text-sm">Brief proyek lengkap</strong><span class="text-xs text-slate-600">Tambahkan ukuran, jumlah, lokasi, dan deadline.</span></span>
+          </label>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block text-sm font-medium">Nama / perusahaan <span class="text-red-600">*</span>
+            <input name="name" required minlength="2" maxlength="160" autocomplete="name" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Nama Anda atau nama perusahaan" />
+          </label>
+          <label class="block text-sm font-medium">WhatsApp <span class="text-red-600">*</span>
+            <input name="phone" required maxlength="30" autocomplete="tel" inputmode="tel" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Contoh: 0812xxxxxxxx" />
+          </label>
+          <label class="block text-sm font-medium">Email (opsional)
+            <input name="email" type="email" maxlength="180" autocomplete="email" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="nama@email.com" />
+          </label>
+          <label class="block text-sm font-medium">Jenis pekerjaan <span class="text-red-600">*</span>
+            <select name="projectType" required class="mt-2 w-full rounded-lg border border-slate-300 bg-white px-3 py-3 font-normal">
+              <option value="">Pilih jenis pekerjaan</option>
+              <option>Signage / Neon Box</option>
+              <option>Huruf Timbul</option>
+              <option>Digital Printing</option>
+              <option>Interior / Booth</option>
+              <option>Display / Branding</option>
+              <option>Lainnya</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="brief-fields" class="hidden space-y-4 border-t border-slate-200 pt-5">
+          <h2 class="text-base font-semibold">Detail proyek</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block text-sm font-medium">Ukuran / spesifikasi <span class="text-red-600">*</span>
+              <input name="dimensions" maxlength="300" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Contoh: 300 × 100 cm, bahan acrylic" />
+            </label>
+            <label class="block text-sm font-medium">Jumlah <span class="text-red-600">*</span>
+              <input name="quantity" type="number" min="1" max="1000000" step="1" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Jumlah unit" />
+            </label>
+            <label class="block text-sm font-medium">Lokasi pemasangan / pengiriman <span class="text-red-600">*</span>
+              <input name="location" maxlength="180" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Kota, area, atau alamat proyek" />
+            </label>
+            <label class="block text-sm font-medium">Target deadline <span class="text-red-600">*</span>
+              <input name="deadline" type="date" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" />
+            </label>
+          </div>
+          <label class="block text-sm font-medium">Link desain / referensi (opsional)
+            <input name="designLink" type="url" maxlength="1000" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="https://drive.google.com/..." />
+            <span class="mt-1 block text-xs font-normal text-slate-500">Atur akses link agar dapat dibuka oleh tim CSK. Unggah file langsung akan tersedia pada tahap berikutnya.</span>
+          </label>
+        </div>
+
+        <label class="block text-sm font-medium">Catatan tambahan (opsional)
+          <textarea name="notes" rows="3" maxlength="1500" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="Ceritakan kebutuhan atau pertanyaan tambahan."></textarea>
+        </label>
+
+        <div class="absolute -left-[10000px]" aria-hidden="true">
+          <label>Jangan isi kolom ini<input name="websiteUrl" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div id="form-message" class="hidden rounded-lg p-4 text-sm" role="status" aria-live="polite"></div>
+        <button id="submit-lead" type="submit" class="w-full rounded-xl bg-csk-amber px-5 py-3 font-semibold text-csk-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60">
+          Kirim permintaan
+        </button>
+        <p class="text-xs leading-relaxed text-slate-500">Data digunakan untuk menghubungi Anda terkait permintaan proyek. Dengan mengirim formulir, Anda menyetujui tim CSK menghubungi melalui WhatsApp atau email.</p>
+      </form>
+    </div>
+  </Section>
+</Base>
+
+<script>
+  const form = document.querySelector('#lead-intake-form');
+  const brief = document.querySelector('#brief-fields');
+  const message = document.querySelector('#form-message');
+  const submit = document.querySelector('#submit-lead');
+  const briefNames = ['dimensions', 'quantity', 'location', 'deadline'];
+
+  function updateIntakeMode() {
+    const mode = form.querySelector('input[name="intakeType"]:checked')?.value;
+    const isBrief = mode === 'project_brief';
+    brief.classList.toggle('hidden', !isBrief);
+    briefNames.forEach((name) => {
+      form.elements.namedItem(name).required = isBrief;
+    });
+  }
+
+  form.querySelectorAll('input[name="intakeType"]').forEach((radio) => {
+    radio.addEventListener('change', updateIntakeMode);
+  });
+  updateIntakeMode();
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    message.className = 'hidden rounded-lg p-4 text-sm';
+    submit.disabled = true;
+    submit.textContent = 'Mengirim...';
+
+    const data = new FormData(form);
+    const designLink = String(data.get('designLink') || '').trim();
+    const payload = {
+      submissionId: crypto.randomUUID ? crypto.randomUUID() : `web-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      intakeType: data.get('intakeType'),
+      name: data.get('name'),
+      phone: data.get('phone'),
+      email: data.get('email'),
+      projectType: data.get('projectType'),
+      dimensions: data.get('dimensions'),
+      quantity: data.get('quantity'),
+      location: data.get('location'),
+      deadline: data.get('deadline'),
+      notes: data.get('notes'),
+      designLinks: designLink ? [designLink] : [],
+      websiteUrl: data.get('websiteUrl')
+    };
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+      if (!response.ok || result.status !== 'success') throw new Error(result.message || 'Permintaan belum dapat dikirim.');
+      form.reset();
+      updateIntakeMode();
+      message.textContent = 'Permintaan Anda berhasil dikirim. Tim Cahaya Selatan Kreasindo akan menindaklanjuti melalui kontak yang Anda berikan.';
+      message.className = 'rounded-lg bg-emerald-50 p-4 text-sm text-emerald-800';
+    } catch (error) {
+      message.textContent = error instanceof Error ? error.message : 'Terjadi kendala. Silakan coba kembali atau hubungi CSK melalui WhatsApp.';
+      message.className = 'rounded-lg bg-red-50 p-4 text-sm text-red-800';
+    } finally {
+      submit.disabled = false;
+      submit.textContent = 'Kirim permintaan';
+    }
+  });
+</script>

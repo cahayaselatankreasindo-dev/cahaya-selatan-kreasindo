@@ -24,14 +24,19 @@ Jangan masukkan kedua nilai ke kode browser, Git, atau variabel build publik.
 4. Secret disimpan di Script Properties, bukan di sel spreadsheet.
 5. Uji dengan Lead percobaan sebelum memakai data calon klien.
 
+## Formulir website
+- Halaman `/permintaan` menyediakan dua jalur: kontak singkat dan brief proyek lengkap.
+- Halaman `/kontak` mengarahkan calon klien ke formulir tersebut.
+- Brief dapat menyertakan satu link desain/referensi HTTPS. File upload langsung belum tersedia.
+- Pengiriman memakai `POST /api/leads`; honeypot sederhana dan validasi server-side aktif.
+
 ## Upload desain
 Kontrak Lead telah menyediakan `designFiles` dan `designLinks`. Upload file belum diaktifkan pada commit fondasi ini. Sebelum diaktifkan, siapkan bucket R2 privat, validasi signature file dan ukuran di edge, serta endpoint unduh khusus staf yang terautentikasi. Jangan membuat bucket publik.
 
 ## Belum termasuk
-- Formulir kontak cepat dan halaman brief proyek.
 - Endpoint upload R2 dan unduh privat.
 - Tampilan detail brief pada CRM.
 - Turnstile dan rate limiting produksi.
-- Build dan verifikasi runtime Apps Script.
+- Build Astro/Cloudflare Pages dan uji end-to-end pada environment Preview.
 
 Tidak ada deployment atau penulisan ke spreadsheet live dalam pekerjaan ini.

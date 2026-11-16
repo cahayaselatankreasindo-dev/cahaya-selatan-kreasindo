@@ -1,5 +1,13 @@
 ## 2026-11-17 — Website lead intake foundation
 
+- Added Cloudflare Pages Function `functions/api/leads.ts` with HTTPS Apps Script URL validation, bounded request-body size, honeypot handling, field validation, and server-side secret forwarding.
+- Added hybrid intake page `/permintaan` for quick contact and full project brief; linked it from `/kontak`.
+- Full brief supports an optional HTTPS design/reference link. Direct file upload, CRM brief display, Turnstile/rate limiting, and production deployment are not implemented.
+- Apps Script public create-only endpoint remains isolated from authenticated Business OS actions; source and status are server-controlled and submission IDs are idempotency-checked.
+- Static syntax checks and focused Apps Script handler simulations passed. Full Astro build, repository test suite, and live end-to-end verification remain pending.
+- Work remains isolated on `feature/website-lead-intake-foundation`; no merge, deployment, secret configuration, or live spreadsheet write was performed.
+
+
 - Added Cloudflare Pages Function `functions/api/leads.ts` to forward a strict public-field allowlist to Business OS.
 - Added `docs/INTEGRATION-LEAD-INTAKE.md` with required server-side secrets and setup steps.
 - No website form, R2 upload, CRM detail UI, secret configuration, spreadsheet write, or deployment is included yet.

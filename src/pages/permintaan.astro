@@ -106,7 +106,7 @@ import Section from '../components/Section.astro';
   const MAX_FILES = 5;
   const MAX_TOTAL = 30 * 1024 * 1024;
   const MAX_FILE = 15 * 1024 * 1024;
-  const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+  const allowedExtensions = ['pdf', 'jpg', 'jpeg', 'png'];
   const createSubmissionId = () => crypto.randomUUID ? crypto.randomUUID() : 'web-' + Date.now() + '-' + Math.random().toString(36).slice(2);
   let activeSubmissionId = createSubmissionId();
   let uploadedFiles = [];
@@ -136,7 +136,12 @@ import Section from '../components/Section.astro';
     const designLink = String(data.get('designLink') || '').trim();
     const selectedFiles = Array.from(fileInput.files || []);
     const totalSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
-    if (selectedFiles.length > MAX_FILES || totalSize > MAX_TOTAL || selectedFiles.some(file => file.size > MAX_FILE || !allowedTypes.includes(file.type))) {
+    const selectedFingerprints = new Set(selectedFiles.map(fileFingerprint));
+    uploadedFiles = uploadedFiles.filter(item => selectedFingerprints.has(item.fingerprint));
+    if (selectedFiles.length > MAX_FILES || totalSize > MAX_TOTAL || selectedFiles.some(file => {
+      const extension = file.name.toLowerCase().split('.').pop();
+      return file.size > MAX_FILE || !allowedExtensions.includes(extension);
+    })) {
       message.textContent = 'Periksa file: maksimal 5 file, total 30 MB, 15 MB per file, format PDF/JPG/PNG.';
       message.className = 'rounded-lg bg-red-50 p-4 text-sm text-red-800';
       submit.disabled = false;

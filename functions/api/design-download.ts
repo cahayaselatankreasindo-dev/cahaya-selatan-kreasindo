@@ -43,9 +43,13 @@ export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
     return json({ status: "error", message: "Layanan unduh file belum dikonfigurasi." }, 503, headers);
   }
 
+  const requestLength = Number(request.headers.get("content-length") || 0);
+  if (requestLength > 4096) return json({ status: "error", message: "Permintaan terlalu besar." }, 413, headers);
   let body: Record<string, unknown>;
   try {
-    const parsed: unknown = await request.json();
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).byteLength > 4096) throw new Error("BODY_TOO_LARGE");
+    const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("INVALID_BODY");
     body = parsed as Record<string, unknown>;
   } catch {

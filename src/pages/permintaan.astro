@@ -64,10 +64,17 @@ import Section from '../components/Section.astro';
               <input name="deadline" type="date" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" />
             </label>
           </div>
-          <label class="block text-sm font-medium">Link desain / referensi (opsional)
-            <input name="designLink" type="url" maxlength="1000" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="https://drive.google.com/..." />
-            <span class="mt-1 block text-xs font-normal text-slate-500">Atur akses link agar dapat dibuka oleh tim CSK. Unggah file langsung akan tersedia pada tahap berikutnya.</span>
-          </label>
+          <div class="space-y-3">
+            <label class="block text-sm font-medium">Unggah desain / referensi (opsional)
+              <input id="design-files" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" class="mt-2 block w-full rounded-lg border border-slate-300 px-3 py-3 text-sm font-normal" />
+              <span class="mt-1 block text-xs font-normal text-slate-500">PDF, JPG, JPEG, PNG. Maksimal 5 file, 15 MB per file, total 30 MB.</span>
+            </label>
+            <p id="file-summary" class="text-xs text-slate-600" aria-live="polite">Belum ada file dipilih.</p>
+            <label class="block text-sm font-medium">Atau tambahkan link desain / referensi
+              <input name="designLink" type="url" maxlength="1000" class="mt-2 w-full rounded-lg border border-slate-300 px-3 py-3 font-normal" placeholder="https://drive.google.com/..." />
+              <span class="mt-1 block text-xs font-normal text-slate-500">Link bersifat opsional. Pastikan akses Drive telah diberikan kepada tim CSK.</span>
+            </label>
+          </div>
         </div>
 
         <label class="block text-sm font-medium">Catatan tambahan (opsional)
@@ -94,6 +101,16 @@ import Section from '../components/Section.astro';
   const message = document.querySelector('#form-message');
   const submit = document.querySelector('#submit-lead');
   const briefNames = ['dimensions', 'quantity', 'location', 'deadline'];
+  const fileInput = document.querySelector('#design-files');
+  const fileSummary = document.querySelector('#file-summary');
+  const MAX_FILES = 5;
+  const MAX_TOTAL = 30 * 1024 * 1024;
+  const MAX_FILE = 15 * 1024 * 1024;
+  const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+  const createSubmissionId = () => crypto.randomUUID ? crypto.randomUUID() : 'web-' + Date.now() + '-' + Math.random().toString(36).slice(2);
+  let activeSubmissionId = createSubmissionId();
+  let uploadedFiles = [];
+  const fileFingerprint = (file) => [file.name, file.size, file.lastModified].join('|');
 
   function updateIntakeMode() {
     const mode = form.querySelector('input[name="intakeType"]:checked')?.value;
@@ -117,8 +134,48 @@ import Section from '../components/Section.astro';
 
     const data = new FormData(form);
     const designLink = String(data.get('designLink') || '').trim();
+    const selectedFiles = Array.from(fileInput.files || []);
+    const totalSize = selectedFiles.reduce((sum, file) => sum + file.size, 0);
+    if (selectedFiles.length > MAX_FILES || totalSize > MAX_TOTAL || selectedFiles.some(file => file.size > MAX_FILE || !allowedTypes.includes(file.type))) {
+      message.textContent = 'Periksa file: maksimal 5 file, total 30 MB, 15 MB per file, format PDF/JPG/PNG.';
+      message.className = 'rounded-lg bg-red-50 p-4 text-sm text-red-800';
+      submit.disabled = false;
+      submit.textContent = 'Kirim permintaan';
+      return;
+    }
+    const isBrief = data.get('intakeType') === 'project_brief';
+    if (!isBrief && selectedFiles.length) {
+      message.textContent = 'Unggah file tersedia pada pilihan Brief Proyek Lengkap.';
+      message.className = 'rounded-lg bg-red-50 p-4 text-sm text-red-800';
+      submit.disabled = false;
+      submit.textContent = 'Kirim permintaan';
+      return;
+    }
+    try {
+      for (const file of selectedFiles) {
+        const fingerprint = fileFingerprint(file);
+        if (uploadedFiles.some(item => item.fingerprint === fingerprint)) continue;
+        submit.textContent = 'Mengunggah file...';
+        const uploadData = new FormData();
+        uploadData.append('submissionId', activeSubmissionId);
+        uploadData.append('file', file);
+        const uploadResponse = await fetch('/api/design-upload', { method: 'POST', body: uploadData });
+        const uploadResult = await uploadResponse.json();
+        if (!uploadResponse.ok || uploadResult.status !== 'success' || !uploadResult.file) {
+          throw new Error(uploadResult.message || 'File desain gagal diunggah.');
+        }
+        uploadedFiles.push({ fingerprint, ...uploadResult.file });
+      }
+      fileSummary.textContent = uploadedFiles.length ? uploadedFiles.length + ' file berhasil diunggah dan disimpan secara privat.' : 'Belum ada file dipilih.';
+    } catch (error) {
+      message.textContent = error instanceof Error ? error.message : 'File gagal diunggah. Coba kembali.';
+      message.className = 'rounded-lg bg-red-50 p-4 text-sm text-red-800';
+      submit.disabled = false;
+      submit.textContent = 'Kirim permintaan';
+      return;
+    }
     const payload = {
-      submissionId: crypto.randomUUID ? crypto.randomUUID() : `web-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      submissionId: activeSubmissionId,
       intakeType: data.get('intakeType'),
       name: data.get('name'),
       phone: data.get('phone'),
@@ -129,6 +186,7 @@ import Section from '../components/Section.astro';
       location: data.get('location'),
       deadline: data.get('deadline'),
       notes: data.get('notes'),
+      designFiles: uploadedFiles.map(({ fingerprint, ...file }) => file),
       designLinks: designLink ? [designLink] : [],
       websiteUrl: data.get('websiteUrl')
     };
@@ -142,6 +200,9 @@ import Section from '../components/Section.astro';
       const result = await response.json();
       if (!response.ok || result.status !== 'success') throw new Error(result.message || 'Permintaan belum dapat dikirim.');
       form.reset();
+      activeSubmissionId = createSubmissionId();
+      uploadedFiles = [];
+      fileSummary.textContent = 'Belum ada file dipilih.';
       updateIntakeMode();
       message.textContent = 'Permintaan Anda berhasil dikirim. Tim Cahaya Selatan Kreasindo akan menindaklanjuti melalui kontak yang Anda berikan.';
       message.className = 'rounded-lg bg-emerald-50 p-4 text-sm text-emerald-800';

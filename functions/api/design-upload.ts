@@ -39,6 +39,9 @@ export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
 
   const submissionId = String(form.get("submissionId") || "").trim();
   const file = form.get("file");
+  if (String(form.get("websiteUrl") || "").trim()) {
+    return json({ status: "success", file: { key: "", name: "ignored", contentType: "application/octet-stream", size: 0 } });
+  }
   if (!/^[A-Za-z0-9_-]{16,100}$/.test(submissionId) || !(file instanceof File)) {
     return json({ status: "error", message: "Data unggahan tidak lengkap." }, 400);
   }

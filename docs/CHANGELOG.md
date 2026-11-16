@@ -4,7 +4,8 @@
 - Added hybrid intake page `/permintaan` for quick contact and full project brief; linked it from `/kontak`.
 - Full brief supports an optional HTTPS design/reference link. Direct file upload, CRM brief display, Turnstile/rate limiting, and production deployment are not implemented.
 - Apps Script public create-only endpoint remains isolated from authenticated Business OS actions; source and status are server-controlled and submission IDs are idempotency-checked.
-- Astro build and Business OS regression/security workflows passed before the R2 expansion. Cloudflare Pages Function type-check and latest CRM/auth regression workflows are pending after the R2 expansion.
+- GitHub Actions Astro Build Check passed after the R2 expansion, including TypeScript checks for all three Pages Functions.
+- Business OS regression and security workflows passed, including a unit test that permits a file download only when its object key is attached to the Lead and matches the Lead submission ID.
 - Work remains isolated on `feature/website-lead-intake-foundation`; no merge, deployment, secret configuration, or live spreadsheet write was performed.
 
 

@@ -8,7 +8,9 @@ const json = (body: unknown, status = 200) => new Response(JSON.stringify(body),
 });
 const text = (value: unknown, max: number) => typeof value === "string" ? value.trim().slice(0, max) : "";
 
-export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
+type PagesContext<E> = { request: Request; env: E };
+
+export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
   if (!env.CSK_GAS_WEB_APP_URL || !env.CSK_PUBLIC_INTAKE_SECRET) return json({ status: "error", message: "Layanan formulir belum dikonfigurasi." }, 503);
   const contentLength = Number(request.headers.get("content-length") || 0);
   if (contentLength > 32768) return json({ status: "error", message: "Data formulir terlalu besar." }, 413);

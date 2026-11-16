@@ -13,11 +13,11 @@ interface Env {
 }
 type PagesContext<E> = { request: Request; env: E };
 
-const json = (body: unknown, status: number, headers: HeadersInit = {}) => new Response(JSON.stringify(body), {
+const json = (body: unknown, status: number, headers: Record<string, string> = {}) => new Response(JSON.stringify(body), {
   status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers },
 });
 
-function corsHeaders(origin: string): HeadersInit {
+function corsHeaders(origin: string): Record<string, string> {
   return {
     "access-control-allow-origin": origin,
     "access-control-allow-methods": "POST, OPTIONS",

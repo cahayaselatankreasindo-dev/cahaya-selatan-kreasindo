@@ -1,6 +1,10 @@
+interface R2BucketLike {
+  head(key: string): Promise<{ size: number; httpMetadata?: { contentType?: string }; customMetadata?: Record<string, string> } | null>;
+}
 interface Env {
   CSK_GAS_WEB_APP_URL: string;
   CSK_PUBLIC_INTAKE_SECRET: string;
+  DESIGN_BUCKET?: R2BucketLike;
 }
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), {
@@ -54,7 +58,7 @@ export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
     phone: text(body.phone, 30), email: text(body.email, 180), projectType: text(body.projectType, 120),
     dimensions: text(body.dimensions, 300), quantity,
     location: text(body.location, 180), deadline: text(body.deadline, 10), notes: text(body.notes, 1500),
-    designFiles: Array.isArray(body.designFiles) ? body.designFiles.slice(0, 5) : [],
+    designFiles: Array.isArray(body.designFiles) ? body.designFiles : [],
     designLinks: Array.isArray(body.designLinks) ? body.designLinks.slice(0, 5) : [],
   };
   if (!/^[A-Za-z0-9_-]{16,100}$/.test(lead.submissionId) || lead.name.length < 2 || !lead.phone) {
@@ -64,6 +68,37 @@ export const onRequestPost = async ({ request, env }: PagesContext<Env>) => {
       (!lead.dimensions || quantity === "" || !lead.location || !/^\d{4}-\d{2}-\d{2}$/.test(lead.deadline)))) {
     return json({ status: "error", message: "Lengkapi jenis pekerjaan dan seluruh detail proyek yang wajib diisi." }, 400);
   }
+
+  if (lead.designFiles.length > 5 || lead.designLinks.length > 5) {
+    return json({ status: "error", message: "Maksimal 5 file dan 5 link referensi." }, 400);
+  }
+  if (lead.designFiles.length && !env.DESIGN_BUCKET) {
+    return json({ status: "error", message: "Penyimpanan file belum dikonfigurasi." }, 503);
+  }
+  const verifiedFiles: Array<{ key: string; name: string; contentType: string; size: number }> = [];
+  for (const rawFile of lead.designFiles) {
+    if (!rawFile || typeof rawFile !== "object" || Array.isArray(rawFile)) {
+      return json({ status: "error", message: "Referensi file tidak valid." }, 400);
+    }
+    const file = rawFile as Record<string, unknown>;
+    const key = text(file.key, 220);
+    const name = text(file.name, 180);
+    const contentType = text(file.contentType, 80);
+    const size = Number(file.size);
+    if (!key.startsWith("incoming/" + lead.submissionId + "/") ||
+        !/^incoming\/[A-Za-z0-9_-]{16,100}\/[0-9a-f-]{36}\.(pdf|jpg|png)$/i.test(key) ||
+        !name || !Number.isSafeInteger(size) || size < 1 || size > 15 * 1024 * 1024 ||
+        !["application/pdf", "image/jpeg", "image/png"].includes(contentType)) {
+      return json({ status: "error", message: "Data file tidak sesuai dengan unggahan yang diizinkan." }, 400);
+    }
+    const stored = await env.DESIGN_BUCKET!.head(key);
+    if (!stored || stored.size !== size || stored.customMetadata?.submissionId !== lead.submissionId ||
+        stored.customMetadata?.originalName !== name || stored.httpMetadata?.contentType !== contentType) {
+      return json({ status: "error", message: "File tidak ditemukan atau tidak cocok dengan permintaan ini." }, 400);
+    }
+    verifiedFiles.push({ key, name, contentType, size });
+  }
+  lead.designFiles = verifiedFiles;
 
   try {
     const upstream = await fetch(upstreamUrl.toString(), {

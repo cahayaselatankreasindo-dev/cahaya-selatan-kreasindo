@@ -163,6 +163,7 @@ import Section from '../components/Section.astro';
         submit.textContent = 'Mengunggah file...';
         const uploadData = new FormData();
         uploadData.append('submissionId', activeSubmissionId);
+        uploadData.append('websiteUrl', String(data.get('websiteUrl') || ''));
         uploadData.append('file', file);
         const uploadResponse = await fetch('/api/design-upload', { method: 'POST', body: uploadData });
         const uploadResult = await uploadResponse.json();

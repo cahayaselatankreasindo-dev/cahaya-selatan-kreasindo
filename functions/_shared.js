@@ -94,8 +94,8 @@ export async function verifyTurnstile(token, request, env, expectedAction) {
     const result = await response.json();
     const hostname = new URL(request.url).hostname;
     if (!result.success) return { ok: false, code: 'TURNSTILE_FAILED' };
-    if (result.hostname && result.hostname !== hostname) return { ok: false, code: 'TURNSTILE_HOST_MISMATCH' };
-    if (result.action && result.action !== expectedAction) return { ok: false, code: 'TURNSTILE_ACTION_MISMATCH' };
+    if (result.hostname !== hostname) return { ok: false, code: 'TURNSTILE_HOST_MISMATCH' };
+    if (result.action !== expectedAction) return { ok: false, code: 'TURNSTILE_ACTION_MISMATCH' };
     return { ok: true };
   } catch {
     return { ok: false, code: 'TURNSTILE_UNAVAILABLE' };

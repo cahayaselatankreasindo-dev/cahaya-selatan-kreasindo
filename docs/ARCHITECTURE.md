@@ -14,9 +14,7 @@ Halaman `.ts` memakai `import type { APIRoute }` (endpoint, bukan SSR page).
 
 ## Rendering Strategy
 
-Static-first penuh. `npm run build` ? `dist/` (di-ignore git + Cloudflare).
-Sitemap otomatis (`/sitemap-index.xml`). Lightbox/summary accordion = JS/CSS client minimal,
-tanpa framework client.
+Static-first untuk halaman konten. `npm run build` menghasilkan `dist/`; Cloudflare Pages Functions di root `functions/` menangani API inquiry dan unduhan lampiran privat. Sitemap otomatis (`/sitemap-index.xml`). Lightbox, accordion, dan form inquiry memakai JavaScript client minimal tanpa framework client.
 
 ## Project Structure
 
@@ -25,7 +23,9 @@ src/site.js            konten bisnis tunggal (kontak, hours, areas, products,
                        portfolio[22], portfolioCats, serviceDetails[6])
 src/layouts/Base.astro satu-satunya layout (head, SEO, JSON-LD, header, footer)
 src/components/        9 komponen (lihat bawah)
-src/pages/             11 route statis + 1 dynamic ([slug]) + 2 endpoint + 1 halaman uji
+src/pages/             halaman statis, route layanan/blog, dan endpoint teks
+functions/api/          Cloudflare Pages Functions: lead intake dan private design download
+tests/                  unit dan endpoint regression tests
 src/data/              assets.js (katalog kategori), getAssets.js (helper fs)
 src/img/               23 .webp sumber komponen Picture
 src/styles/            global.css (@theme), fonts.css (@font-face)
@@ -88,8 +88,9 @@ Montserrat 400/600 di `Base`. Tidak ada `tailwind.config.*`, tidak ada CSS modul
 ## JavaScript Usage
 
 - Build/dev: Node (Astro, Tailwind Vite plugin, sitemap, sharp).
-- Runtime: hanya skrip Lightbox (~90 baris) + perilaku native (`<details>`, `<dialog>`).
-  `getAssets.js` + `scripts/og-image.mjs` berjalan di Node, bukan di browser.
+- Browser: Lightbox, form inquiry, first-party session attribution, dan event GA4 setelah persetujuan analitik.
+- Cloudflare runtime: `functions/api/lead-intake.js` memvalidasi Turnstile dan meneruskan inquiry ke Apps Script; `functions/api/design-download.js` memverifikasi sesi CRM sebelum membaca R2 privat.
+- Shared helpers ada di `functions/_shared.js`; regression tests berada di `tests/`.
 
 ## Dependencies
 

@@ -1,0 +1,132 @@
+# CSK Website Lead Intake — Deployment & Verification
+
+Dokumen ini menjelaskan aktivasi form inquiry website ke Leads CRM pada Advertising Business OS. Kode dapat diuji di GitHub, tetapi form **belum siap menerima pelanggan** sampai konfigurasi Cloudflare dan Apps Script di bawah selesai.
+
+## 1. Arsitektur
+
+```text
+Visitor
+  │
+  ▼
+/permintaan-penawaran/
+  │  FormData + Turnstile token + optional attachments
+  ▼
+Cloudflare Pages Function: POST /api/lead-intake
+  ├─ same-origin check
+  ├─ Cloudflare Turnstile verification
+  ├─ field validation and upload signature checks
+  ├─ optional private R2 upload
+  └─ server-side secret only
+       │
+       ▼
+Google Apps Script: public_lead_intake
+  ├─ create-only endpoint
+  ├─ forces source=Website and status=new
+  ├─ submission ID deduplication
+  └─ appends Lead to existing Google Sheets database
+       │
+       ▼
+Advertising Business OS → Leads CRM
+```
+
+Lampiran disimpan di bucket R2 privat. CRM hanya dapat mengunduhnya setelah Apps Script memverifikasi sesi login dan memastikan object key tersebut benar-benar terhubung ke Lead yang diminta.
+
+## 2. Konfigurasi Cloudflare Pages
+
+Set konfigurasi berikut pada **Production** dan **Preview** secara terpisah. Preview sebaiknya menggunakan Apps Script deployment dan Google Sheet staging, bukan database pelanggan aktif.
+
+### Environment variables
+
+| Variable | Type | Isi |
+|---|---|---|
+| `CSK_APPS_SCRIPT_URL` | Secret / variable | URL Web App Apps Script yang berakhiran `/exec` |
+| `CSK_PUBLIC_INTAKE_SECRET` | Secret | Secret acak yang sama dengan Script Property Apps Script |
+| `CSK_TURNSTILE_SECRET_KEY` | Secret | Secret key dari Cloudflare Turnstile |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Public build variable | Site key Turnstile; boleh terlihat di HTML |
+| `CSK_CRM_ALLOWED_ORIGINS` | Plain text | Origin aplikasi CRM, tanpa path |
+
+Contoh origin CRM jika masih menggunakan GitHub Pages:
+
+```text
+https://cahayaselatankreasindo-dev.github.io
+```
+
+Jika aplikasi CRM juga tersedia dari domain lain, tambahkan origin persisnya dipisahkan koma. Jangan memakai wildcard.
+
+### R2 binding (lampiran opsional)
+
+1. Buat bucket R2 khusus, misalnya `csk-lead-design-private`.
+2. Jangan aktifkan public bucket access atau custom public domain.
+3. Di Cloudflare Pages → Settings → Functions → R2 bucket bindings, bind bucket dengan nama:
+   `CSK_DESIGN_FILES`.
+4. Lakukan konfigurasi pada Production dan Preview sesuai bucket masing-masing.
+
+Form teks dapat bekerja tanpa R2. Jika R2 belum dikonfigurasi, pengiriman dengan lampiran akan ditolak secara eksplisit; pengunjung masih dapat mengirim inquiry tanpa lampiran.
+
+### Turnstile
+
+1. Buat widget Turnstile untuk domain produksi `cahayaselatankreasindo.my.id`.
+2. Tambahkan hostname preview yang akan digunakan untuk pengujian.
+3. Set site key ke `PUBLIC_TURNSTILE_SITE_KEY` sebagai build environment variable.
+4. Set secret key ke `CSK_TURNSTILE_SECRET_KEY` sebagai secret.
+5. Pastikan action widget adalah `csk_lead_intake` (sudah diatur di komponen form).
+
+### Rate limiting
+
+Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berbasis IP, agar endpoint publik tidak dapat dibanjiri. Turnstile dan honeypot sudah menjadi lapisan tambahan, bukan pengganti rate limiting.
+
+## 3. Konfigurasi Google Apps Script
+
+1. Buka spreadsheet CSK yang sudah digunakan Business OS. Jangan membuat atau mengganti database produksi.
+2. Buka Extensions → Apps Script.
+3. Perbarui backend menggunakan kode terbaru dari `advertising-business-os/apps-script/Code.gs`.
+4. Simpan dan deploy versi baru pada Web App yang sama. Pertahankan URL `/exec` yang sudah dipakai aplikasi.
+5. Pada Google Spreadsheet, buka menu **CSK Security → Setup Secret Website Intake**.
+6. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih).
+7. Masukkan secret yang sama ke Cloudflare sebagai `CSK_PUBLIC_INTAKE_SECRET`.
+
+Secret tidak boleh dimasukkan ke `src/`, `public/`, HTML, JavaScript browser, GitHub Actions log, atau chat. Secret hanya berada di Apps Script Script Properties dan Cloudflare Pages secret.
+
+Backend menambahkan kolom Lead baru di ujung tabel, tanpa menggeser kolom lama. Kolom atribusi yang ditambahkan meliputi UTM, landing page, referrer host, dan click ID iklan. Backup spreadsheet sebelum pembaruan skema tetap disarankan.
+
+## 4. Private design downloads di CRM
+
+Untuk file desain:
+
+- R2 harus tetap privat.
+- Business OS harus berjalan pada origin yang terdaftar di `CSK_CRM_ALLOWED_ORIGINS`.
+- Apps Script backend harus sudah memiliki action `authorize_design_download`.
+- CRM mengirim session ID aktif, Lead ID, dan object key ke `POST /api/design-download`.
+- Cloudflare baru membaca R2 setelah Apps Script mengembalikan `authorized: true`.
+
+Jangan membuat URL publik atau signed URL jangka panjang untuk lampiran pelanggan.
+
+## 5. Pengujian sebelum produksi
+
+1. Deploy kode website ke Preview.
+2. Gunakan Preview-specific Turnstile hostname/site key.
+3. Gunakan Apps Script staging yang menunjuk ke spreadsheet staging.
+4. Uji inquiry tanpa lampiran.
+5. Uji inquiry dengan PDF/JPG/PNG valid.
+6. Uji file dengan ekstensi/MIME yang tidak cocok; harus ditolak.
+7. Pastikan lead hanya muncul sekali saat submission ID yang sama dikirim ulang.
+8. Uji akses download dengan sesi CRM valid dan sesi tidak valid.
+9. Uji CORS dari origin CRM yang diizinkan dan origin asing.
+10. Periksa event `generate_lead` di GA4 DebugView setelah menyetujui analitik. Pastikan tidak ada nama, email, nomor WhatsApp, atau isi pesan pada payload event.
+11. Setelah semua lolos, baru isi environment Production dan deploy.
+
+Automated checks:
+
+```bash
+node --test tests/_shared.test.mjs tests/lead-intake.test.mjs tests/design-download.test.mjs
+npm ci
+npm run build
+```
+
+## 6. Status dan batasan
+
+- Kode Cloudflare Pages Functions dan halaman inquiry sudah ditambahkan pada branch fitur.
+- Apps Script intake endpoint dan CRM download controls berada pada PR terpisah di repository Business OS.
+- GitHub Actions tests memverifikasi validasi, isolasi endpoint, atribusi, signature file, dan otorisasi download.
+- Tidak ada Apps Script production deployment, Cloudflare secret, R2 bucket, Turnstile widget, atau spreadsheet pelanggan yang diubah oleh perubahan kode ini.
+- Sampai konfigurasi dan Preview verification selesai, gunakan WhatsApp sebagai jalur inquiry utama.

@@ -255,7 +255,8 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
           throw new Error(messages[result.code] || 'Permintaan belum terkirim. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
         }
 
-        if (!result.duplicate && typeof window.gtag === 'function') {
+        if (!result.duplicate && typeof window.gtag === 'function' &&
+            typeof window.cskHasAnalyticsConsent === 'function' && window.cskHasAnalyticsConsent()) {
           window.gtag('event', 'generate_lead', {
             method: 'website_form',
             project_type: String(lead.projectType || '').slice(0, 80),

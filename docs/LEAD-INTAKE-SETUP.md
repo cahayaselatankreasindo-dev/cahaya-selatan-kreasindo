@@ -79,13 +79,14 @@ Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berba
 
 ## 3. Konfigurasi Google Apps Script
 
-1. Buka spreadsheet CSK yang sudah digunakan Business OS. Jangan membuat atau mengganti database produksi.
-2. Buka Extensions → Apps Script.
-3. Perbarui backend menggunakan kode terbaru dari `advertising-business-os/apps-script/Code.gs`.
-4. Simpan dan deploy versi baru pada Web App yang sama. Pertahankan URL `/exec` yang sudah dipakai aplikasi.
-5. Pada Google Spreadsheet, buka menu **CSK Security → Setup Secret Website Intake**.
-6. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
-7. Masukkan secret yang sama ke Cloudflare sebagai `CSK_PUBLIC_INTAKE_SECRET`.
+1. Untuk staging, gunakan salinan spreadsheet yang terpisah dari database pelanggan produksi. Pastikan Apps Script yang dipakai terikat ke spreadsheet staging tersebut.
+2. Buka Extensions → Apps Script pada spreadsheet staging.
+3. Perbarui backend staging menggunakan kode terbaru dari `advertising-business-os/apps-script/Code.gs`.
+4. Jalankan fungsi `setupSheet` satu kali dari editor Apps Script staging. Fungsi ini menambahkan header baru di ujung kolom dan menghentikan migrasi jika menemukan header duplikat; periksa hasilnya sebelum melanjutkan.
+5. Simpan dan deploy versi baru sebagai Web App staging. Pastikan URL berakhiran `/exec` dan gunakan URL ini hanya pada environment Preview.
+6. Pada spreadsheet staging, buka menu **CSK Security → Setup Secret Website Intake**.
+7. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
+8. Masukkan secret tersebut ke Cloudflare environment Preview sebagai `CSK_PUBLIC_INTAKE_SECRET`. Simpan secret berbeda untuk Production.
 
 Secret tidak boleh dimasukkan ke `src/`, `public/`, HTML, JavaScript browser, GitHub Actions log, atau chat. Secret hanya berada di Apps Script Script Properties dan Cloudflare Pages secret.
 

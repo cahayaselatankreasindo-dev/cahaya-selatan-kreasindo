@@ -89,7 +89,7 @@ Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berba
 
 Secret tidak boleh dimasukkan ke `src/`, `public/`, HTML, JavaScript browser, GitHub Actions log, atau chat. Secret hanya berada di Apps Script Script Properties dan Cloudflare Pages secret.
 
-Backend menambahkan kolom Lead baru di ujung tabel, tanpa menggeser kolom lama. Kolom atribusi yang ditambahkan meliputi UTM, landing page, referrer host, dan click ID iklan. Backup spreadsheet sebelum pembaruan skema tetap disarankan.
+Backend menambahkan kolom Lead baru di ujung tabel, tanpa menggeser kolom lama. Kolom tersebut mencakup UTM, landing page, referrer host, click ID iklan, serta bukti persetujuan privasi (`PrivacyConsent`, `PrivacyConsentAt`, `PrivacyPolicyVersion`). Semua kolom ditambahkan di ujung kontrak agar posisi kolom lama tidak bergeser. Backup spreadsheet sebelum pembaruan skema tetap disarankan.
 
 ## 4. Private design downloads di CRM
 
@@ -115,12 +115,13 @@ Jangan membuat URL publik atau signed URL jangka panjang untuk lampiran pelangga
 8. Uji akses download dengan sesi CRM valid dan sesi tidak valid.
 9. Uji CORS dari origin CRM yang diizinkan dan origin asing.
 10. Periksa event `generate_lead` di GA4 DebugView setelah menyetujui analitik. Pastikan tidak ada nama, email, nomor WhatsApp, atau isi pesan pada payload event.
-11. Setelah semua lolos, baru isi environment Production dan deploy.
+11. Tolak atau cabut persetujuan analitik, lalu pastikan event klik dan `generate_lead` tidak lagi dikirim. Jika persetujuan diberikan kembali, event boleh berjalan lagi.
+12. Setelah semua lolos, baru isi environment Production dan deploy.
 
 Automated checks:
 
 ```bash
-node --test tests/_shared.test.mjs tests/lead-intake.test.mjs tests/design-download.test.mjs
+node --test tests/_shared.test.mjs tests/lead-intake.test.mjs tests/design-download.test.mjs tests/analytics-consent.test.mjs
 npm ci
 npm run build
 ```

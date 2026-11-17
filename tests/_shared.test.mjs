@@ -59,7 +59,8 @@ test('normalizeLead rejects unsafe URLs and malformed contact details', () => {
 
 test('normalizeLead requires explicit privacy consent', () => {
   assert.throws(() => normalizeLead({ ...validLead, privacyConsent: false }), /PRIVACY_CONSENT_REQUIRED/);
-  assert.throws(() => normalizeLead(({ privacyConsent, ...withoutConsent }) => withoutConsent)(validLead), /PRIVACY_CONSENT_REQUIRED/);
+  const { privacyConsent, ...withoutConsent } = validLead;
+  assert.throws(() => normalizeLead(withoutConsent), /PRIVACY_CONSENT_REQUIRED/);
 });
 
 test('normalizeLead rejects invalid attribution metadata and click IDs', () => {

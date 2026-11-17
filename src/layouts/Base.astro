@@ -111,65 +111,108 @@ const GA_ID = 'G-YH56PC1XQZ';
     {crumbList && <script type="application/ld+json" set:html={JSON.stringify(crumbList)} />}
 
     {import.meta.env.PROD && (
-      <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-        <script
-          is:inline
-          set:html={`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}');
-
-            // Track WhatsApp links consistently across the whole site.
-            document.addEventListener('click', function (event) {
-              const target = event.target;
-              if (!(target instanceof Element)) return;
-
-              const link = target.closest('a[href]');
-              if (!link) return;
-
-              let destination;
+      <script is:inline set:html={`
+        (function () {
+          var ATTRIBUTION_KEY = 'csk_campaign_attribution';
+          var ATTRIBUTION_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','gbraid','wbraid','fbclid','ttclid','msclkid'];
+          try {
+            var saved = JSON.parse(sessionStorage.getItem(ATTRIBUTION_KEY) || '{}');
+            var params = new URLSearchParams(window.location.search);
+            ATTRIBUTION_PARAMS.forEach(function (key) {
+              var value = params.get(key);
+              if (value) saved[key] = value.slice(0, 200);
+            });
+            if (!saved.landing_page) saved.landing_page = window.location.pathname;
+            if (!saved.referrer_host && document.referrer) {
               try {
-                destination = new URL(link.href, window.location.href);
-              } catch {
-                return;
-              }
+                var referrer = new URL(document.referrer);
+                if (referrer.hostname !== window.location.hostname) saved.referrer_host = referrer.hostname;
+              } catch (e) {}
+            }
+            sessionStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(saved));
+          } catch (e) {}
 
-              if (destination.origin === window.location.origin &&
-                  destination.pathname.startsWith('/layanan/') &&
-                  window.location.pathname.startsWith('/blog/')) {
-                gtag('event', 'klik_layanan', {
-                  page_path: window.location.pathname,
-                  service_path: destination.pathname,
-                  cta_location: link.dataset.ctaLocation || 'article_body'
-                });
-              }
+          var GA_ID = 'G-YH56PC1XQZ';
+          var CONSENT_KEY = 'csk_analytics_consent';
+          function loadAnalytics() {
+            if (window.__cskAnalyticsLoaded) return;
+            window.__cskAnalyticsLoaded = true;
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () { window.dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+            window.gtag('config', GA_ID, {
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false
+            });
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+            document.head.appendChild(script);
+          }
 
-              const whatsappHosts = ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'];
-              if (!whatsappHosts.includes(destination.hostname.toLowerCase())) return;
+          try {
+            if (localStorage.getItem(CONSENT_KEY) === 'accepted') loadAnalytics();
+          } catch (e) {}
 
-              // The floating WhatsApp button is already measured by the GA4
-              // click event + the existing GA4 rule for link_classes "floating-wa".
-              // Skip the manual event here to prevent counting the same click twice.
-              if (link.classList.contains('csk-floating-wa')) return;
+          window.cskAcceptAnalytics = function () {
+            try { localStorage.setItem(CONSENT_KEY, 'accepted'); } catch (e) {}
+            loadAnalytics();
+            var banner = document.getElementById('csk-cookie-banner');
+            if (banner) banner.hidden = true;
+          };
+          window.cskRejectAnalytics = function () {
+            try { localStorage.setItem(CONSENT_KEY, 'rejected'); } catch (e) {}
+            var banner = document.getElementById('csk-cookie-banner');
+            if (banner) banner.hidden = true;
+          };
+          window.cskShowCookieSettings = function () {
+            var banner = document.getElementById('csk-cookie-banner');
+            if (banner) banner.hidden = false;
+          };
+          document.addEventListener('DOMContentLoaded', function () {
+            var banner = document.getElementById('csk-cookie-banner');
+            var choice = '';
+            try { choice = localStorage.getItem(CONSENT_KEY) || ''; } catch (e) {}
+            if (banner && !choice) banner.hidden = false;
+          });
+        })();
 
-              const linkText = (
-                link.getAttribute('aria-label') ||
-                link.textContent ||
-                'WhatsApp'
-              ).trim().slice(0, 100);
+        document.addEventListener('click', function (event) {
+          const target = event.target;
+          if (!(target instanceof Element) || typeof window.gtag !== 'function') return;
+          const link = target.closest('a[href]');
+          if (!link) return;
 
-              gtag('event', 'klik_whatsapp', {
-                link_url: destination.href,
-                link_text: linkText,
-                page_path: window.location.pathname,
-                cta_location: link.dataset.ctaLocation || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : 'content')
-              });
-            }, true);
-          `}
-        />
-      </>
+          let destination;
+          try { destination = new URL(link.href, window.location.href); } catch { return; }
+
+          if (destination.origin === window.location.origin &&
+              destination.pathname.startsWith('/layanan/') &&
+              window.location.pathname.startsWith('/blog/')) {
+            window.gtag('event', 'klik_layanan', {
+              page_path: window.location.pathname,
+              service_path: destination.pathname,
+              cta_location: link.dataset.ctaLocation || 'article_body'
+            });
+          }
+
+          const whatsappHosts = ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'];
+          if (!whatsappHosts.includes(destination.hostname.toLowerCase())) return;
+
+          const linkText = (
+            link.getAttribute('aria-label') ||
+            link.textContent ||
+            'WhatsApp'
+          ).trim().slice(0, 100);
+
+          window.gtag('event', 'klik_whatsapp', {
+            link_url: destination.href,
+            link_text: linkText,
+            page_path: window.location.pathname,
+            cta_location: link.dataset.ctaLocation || (link.closest('footer') ? 'footer' : link.closest('header') ? 'header' : link.classList.contains('csk-floating-wa') ? 'floating' : 'content')
+          });
+        }, true);
+      `} />
     )}
   </head>
   <body class="bg-csk-white text-csk-black antialiased">
@@ -177,5 +220,15 @@ const GA_ID = 'G-YH56PC1XQZ';
     <main><slot /></main>
     <Footer />
     <FloatingWA message={waMessage} />
+    <aside id="csk-cookie-banner" hidden class="fixed inset-x-3 bottom-3 z-[120] mx-auto max-w-3xl rounded-xl border border-csk-gray/20 bg-white p-4 shadow-2xl sm:inset-x-6 sm:bottom-6 sm:flex sm:items-center sm:gap-5 sm:p-5">
+      <div class="min-w-0 flex-1">
+        <p class="text-sm font-semibold text-csk-black">Pengaturan analitik</p>
+        <p class="mt-1 text-xs leading-relaxed text-csk-gray">Kami menggunakan Google Analytics untuk memahami penggunaan website dan memperbaiki layanan. Analitik hanya dimuat jika Anda menyetujuinya. Pilihan ini dapat diubah kapan saja melalui tautan Pengaturan Cookie di footer.</p>
+      </div>
+      <div class="mt-3 flex shrink-0 flex-wrap gap-2 sm:mt-0">
+        <button type="button" onclick="window.cskRejectAnalytics()" class="min-h-10 rounded-lg border border-csk-gray/25 px-4 py-2 text-xs font-semibold text-csk-black">Tolak</button>
+        <button type="button" onclick="window.cskAcceptAnalytics()" class="min-h-10 rounded-lg bg-csk-black px-4 py-2 text-xs font-semibold text-white">Setuju analitik</button>
+      </div>
+    </aside>
   </body>
 </html>

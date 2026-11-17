@@ -101,7 +101,7 @@ Untuk file desain:
 - CRM mengirim session ID aktif, Lead ID, dan object key ke `POST /api/design-download`.
 - Cloudflare baru membaca R2 setelah Apps Script mengembalikan `authorized: true`.
 - Pada layar login CRM tersedia kolom **Endpoint unduhan lampiran (opsional)**. Nilai default tetap endpoint produksi `https://cahayaselatankreasindo.my.id/api/design-download`.
-- Untuk uji staging, isi endpoint Preview, misalnya `https://e58c6056.cahaya-selatan-kreasindo.pages.dev/api/design-download`, lalu tekan **Simpan Endpoint Unduhan** sebelum login.
+- Untuk uji staging, isi endpoint Preview, misalnya `https://feature-website-inquiry-crm.cahaya-selatan-kreasindo.pages.dev/api/design-download`, lalu tekan **Simpan Endpoint Unduhan** sebelum login.
 - Gunakan URL Apps Script staging pada kolom backend CRM saat pengujian. Jangan gabungkan endpoint Preview dengan sesi/database Apps Script produksi.
 - Setelah pengujian selesai, kembalikan endpoint unduhan ke URL produksi sebelum kembali memakai CRM produksi.
 

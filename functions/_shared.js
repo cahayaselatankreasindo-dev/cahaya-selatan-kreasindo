@@ -105,6 +105,7 @@ export async function verifyTurnstile(token, request, env, expectedAction) {
 function cleanText(value, max, field) {
   const text = String(value ?? '').trim();
   if (text.length > max) throw new Error('INVALID_' + field.toUpperCase());
+  if (text.startsWith('=')) throw new Error('UNSAFE_SPREADSHEET_VALUE:' + field);
   return text;
 }
 

@@ -79,14 +79,15 @@ Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berba
 
 ## 3. Konfigurasi Google Apps Script
 
-1. Untuk staging, gunakan salinan spreadsheet yang terpisah dari database pelanggan produksi. Pastikan Apps Script yang dipakai terikat ke spreadsheet staging tersebut.
+1. Buat spreadsheet Google Sheets staging baru yang kosong. Jangan menyalin baris data pelanggan produksi ke staging. Buat Apps Script terpisah yang terikat ke spreadsheet staging tersebut.
 2. Buka Extensions → Apps Script pada spreadsheet staging.
 3. Ambil `apps-script/Code.gs` dari branch `feature/website-lead-intake-foundation` pada [PR #25](https://github.com/cahayaselatankreasindo-dev/advertising-business-os/pull/25), lalu gunakan kode tersebut untuk backend staging. Jangan mengambil versi `main` sebelum PR #25 digabungkan.
-4. Jalankan fungsi `setupSheet` satu kali dari editor Apps Script staging. Fungsi ini menambahkan header baru di ujung kolom dan menghentikan migrasi jika menemukan header duplikat; periksa hasilnya sebelum melanjutkan.
-5. Simpan dan deploy versi baru sebagai Web App staging: **Execute as: akun pemilik spreadsheet (Me)** dan **Who has access: Anyone**. Endpoint publik tetap dilindungi secret intake; aksi CRM lainnya tetap memerlukan sesi login. Pastikan URL berakhiran `/exec` dan gunakan URL ini hanya pada environment Preview.
-6. Pada spreadsheet staging, buka menu **CSK Security → Setup Secret Website Intake**.
-7. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
-8. Masukkan secret tersebut ke Cloudflare environment Preview sebagai `CSK_PUBLIC_INTAKE_SECRET`. Simpan secret berbeda untuk Production.
+4. Jalankan fungsi `setupSheet` satu kali dari editor Apps Script staging. Fungsi ini membuat tab CRM dan menambahkan header kontrak; periksa hasilnya sebelum melanjutkan.
+5. Dari menu spreadsheet **CSK Security → Setup PIN Owner & Tim**, buat kredensial PIN khusus staging. Jangan gunakan PIN produksi untuk pengujian.
+6. Simpan dan deploy sebagai Web App staging: **Execute as: akun pemilik spreadsheet (Me)** dan **Who has access: Anyone**. Endpoint publik tetap dilindungi secret intake; aksi CRM lainnya tetap memerlukan sesi login. Pastikan URL berakhiran `/exec` dan gunakan URL ini hanya pada environment Preview.
+7. Pada spreadsheet staging, buka menu **CSK Security → Setup Secret Website Intake**.
+8. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
+9. Masukkan secret tersebut ke Cloudflare environment Preview sebagai `CSK_PUBLIC_INTAKE_SECRET`. Simpan secret berbeda untuk Production.
 
 Secret tidak boleh dimasukkan ke `src/`, `public/`, HTML, JavaScript browser, GitHub Actions log, atau chat. Secret hanya berada di Apps Script Script Properties dan Cloudflare Pages secret.
 

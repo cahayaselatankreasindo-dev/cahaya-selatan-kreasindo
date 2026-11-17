@@ -59,7 +59,7 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 | Font | Inter + Montserrat self-hosted (`public/fonts/`, 8+8 woff2), preload Montserrat 400/600 |
 | Node | 22 (`.node-version`) |
 | Deploy | Cloudflare Pages (`.gitignore` memuat `.wrangler`) |
-| Script | `npm run dev|build|preview` saja. `scripts/og-image.mjs` = generator `og-image.jpg` manual |
+| Script | `npm run dev|build|preview`; lead-intake endpoint regression tests run with Node test runner |
 
 Yang TIDAK ada: CMS atau database aplikasi terpisah. Form inquiry menggunakan Cloudflare Pages Functions dan Google Sheets/Apps Script yang sudah dipakai Business OS.
 
@@ -80,6 +80,11 @@ src/
   data/                    # assets.js (katalog dipakai test-assets), getAssets.js (helper, 0 pemakai)
   img/                     # 23 webp (sumber komponen Picture)
   styles/                  # global.css, fonts.css
+functions/
+  _shared.js               # validasi, Turnstile, Apps Script proxy helpers
+  api/lead-intake.js       # public same-origin lead intake
+  api/design-download.js  # CRM session-authorized private R2 download
+tests/                     # unit and endpoint regression tests
 public/
   assets/                  # 183 file, 16 folder (sumber komponen AssetImage)
   fonts/                   # 16 woff2 (Inter + Montserrat)

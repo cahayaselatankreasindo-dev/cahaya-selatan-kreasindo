@@ -12,6 +12,7 @@ const env = {
 function makeLead() {
   return {
     submissionId: 'csk-submission-1234567890',
+    privacyConsent: true,
     name: 'PT Contoh Indonesia',
     pic: 'Budi Santoso',
     phone: '081234567890',
@@ -66,6 +67,21 @@ test('lead intake verifies Turnstile and proxies a create-only payload to Apps S
     assert.equal(sentPayload.secret, env.CSK_PUBLIC_INTAKE_SECRET);
     assert.equal(sentPayload.lead.source, undefined);
     assert.equal(sentPayload.lead.status, undefined);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('lead intake rejects submissions without explicit privacy consent', async () => {
+  const originalFetch = globalThis.fetch;
+  let called = false;
+  globalThis.fetch = async () => { called = true; throw new Error('must not be called'); };
+  try {
+    const lead = { ...makeLead(), privacyConsent: false };
+    const response = await onRequestPost({ request: makeRequest({ lead }), env });
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).code, 'PRIVACY_CONSENT_REQUIRED');
+    assert.equal(called, false);
   } finally {
     globalThis.fetch = originalFetch;
   }

@@ -131,6 +131,7 @@ function safeClickId(value, field) {
 
 export function normalizeLead(input) {
   if (!input || typeof input !== 'object' || Array.isArray(input)) throw new Error('INVALID_LEAD');
+  if (input.privacyConsent !== true) throw new Error('PRIVACY_CONSENT_REQUIRED');
 
   const submissionId = cleanText(input.submissionId, 100, 'submissionId');
   if (!/^[A-Za-z0-9_-]{16,100}$/.test(submissionId)) throw new Error('INVALID_SUBMISSION_ID');
@@ -191,6 +192,7 @@ export function normalizeLead(input) {
   const allBriefFields = Boolean(dimensions && quantity !== '' && location && deadline);
   return {
     submissionId,
+    privacyConsent: true,
     name,
     pic,
     picTitle,

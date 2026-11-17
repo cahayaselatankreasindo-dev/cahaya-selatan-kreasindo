@@ -1,0 +1,28 @@
+name: Website Lead Intake Checks
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches:
+      - main
+      - feature/website-inquiry-crm-integration
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Test lead intake validation and endpoints
+        run: node --test functions/_shared.test.mjs functions/api/lead-intake.test.mjs
+      - name: Build static website
+        run: npm run build

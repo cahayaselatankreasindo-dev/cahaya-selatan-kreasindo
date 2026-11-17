@@ -8,7 +8,7 @@ Files created:
 - `src/pages/permintaan-penawaran.astro` — landing page khusus permintaan penawaran.
 - `functions/api/lead-intake.js` — same-origin Cloudflare Pages Function, Turnstile verification, validasi server-side, pemeriksaan signature PDF/JPG/PNG, dan proxy server-side ke Apps Script.
 - `functions/api/design-download.js` — unduhan R2 privat setelah sesi CRM dan hubungan file-to-Lead diverifikasi Apps Script.
-- `functions/_shared.js` — helper validasi payload, URL, click ID, Turnstile, CORS, dan Apps Script.
+- `functions/_shared.js` — helper validasi payload, URL, click ID, Turnstile, CORS, Apps Script, dan persetujuan privasi wajib.
 - `docs/LEAD-INTAKE-SETUP.md` — panduan aktivasi Cloudflare, Turnstile, R2, Apps Script, dan pengujian Preview.
 - `tests/` — regression tests untuk validasi payload, lead intake, dan private download.
 
@@ -29,6 +29,8 @@ Integration dependency:
 Security boundaries:
 
 - Secret intake hanya berada di Cloudflare secret dan Apps Script Script Properties.
+- Persetujuan privasi divalidasi di server; Apps Script mencatat timestamp server dan versi kebijakan.
+- String yang diawali tanda `=` ditolak pada validasi agar tidak menjadi formula saat disimpan ke Google Sheets.
 - Endpoint publik hanya membuat Lead; source `Website` dan status `new` dipaksa backend.
 - R2 tetap privat; unduhan membutuhkan sesi CRM aktif dan pemeriksaan bahwa object key terikat ke Lead.
 - Tidak ada data nama, email, nomor WhatsApp, atau isi pesan yang dikirim ke event GA4.

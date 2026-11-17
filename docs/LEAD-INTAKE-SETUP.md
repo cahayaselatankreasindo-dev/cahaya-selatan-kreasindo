@@ -31,6 +31,8 @@ Advertising Business OS → Leads CRM
 
 Lampiran disimpan di bucket R2 privat. CRM hanya dapat mengunduhnya setelah Apps Script memverifikasi sesi login dan memastikan object key tersebut benar-benar terhubung ke Lead yang diminta.
 
+Persetujuan privasi wajib diperiksa kembali di server. Apps Script mencatat waktu persetujuan dari server dan versi kebijakan (`2026-11-18`) bersama Lead agar tersedia jejak audit.
+
 ## 2. Konfigurasi Cloudflare Pages
 
 Set konfigurasi berikut pada **Production** dan **Preview** secara terpisah. Preview sebaiknya menggunakan Apps Script deployment dan Google Sheet staging, bukan database pelanggan aktif.

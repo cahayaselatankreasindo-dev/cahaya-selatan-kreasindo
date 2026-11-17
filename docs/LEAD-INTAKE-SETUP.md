@@ -83,7 +83,7 @@ Tambahkan Cloudflare WAF/rate-limiting rule untuk `POST /api/lead-intake`, berba
 2. Buka Extensions → Apps Script pada spreadsheet staging.
 3. Ambil `apps-script/Code.gs` dari branch `feature/website-lead-intake-foundation` pada [PR #25](https://github.com/cahayaselatankreasindo-dev/advertising-business-os/pull/25), lalu gunakan kode tersebut untuk backend staging. Jangan mengambil versi `main` sebelum PR #25 digabungkan.
 4. Jalankan fungsi `setupSheet` satu kali dari editor Apps Script staging. Fungsi ini menambahkan header baru di ujung kolom dan menghentikan migrasi jika menemukan header duplikat; periksa hasilnya sebelum melanjutkan.
-5. Simpan dan deploy versi baru sebagai Web App staging. Pastikan URL berakhiran `/exec` dan gunakan URL ini hanya pada environment Preview.
+5. Simpan dan deploy versi baru sebagai Web App staging: **Execute as: akun pemilik spreadsheet (Me)** dan **Who has access: Anyone**. Endpoint publik tetap dilindungi secret intake; aksi CRM lainnya tetap memerlukan sesi login. Pastikan URL berakhiran `/exec` dan gunakan URL ini hanya pada environment Preview.
 6. Pada spreadsheet staging, buka menu **CSK Security → Setup Secret Website Intake**.
 7. Buat secret acak minimal 32 karakter (disarankan 48 karakter atau lebih). Anda dapat membuatnya secara lokal, misalnya dengan `openssl rand -hex 32`; jangan tempelkan secret ke chat atau repository.
 8. Masukkan secret tersebut ke Cloudflare environment Preview sebagai `CSK_PUBLIC_INTAKE_SECRET`. Simpan secret berbeda untuk Production.

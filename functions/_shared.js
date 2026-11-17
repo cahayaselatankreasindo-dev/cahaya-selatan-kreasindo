@@ -183,7 +183,7 @@ export function normalizeLead(input) {
   const landingPage = cleanText(input.landingPage, 300, 'landingPage');
   const referrerHost = cleanText(input.referrerHost, 180, 'referrerHost').toLowerCase();
 
-  if (landingPage && (!landingPage.startsWith('/') || landingPage.includes('?') || landingPage.includes('#'))) {
+  if (landingPage && (!landingPage.startsWith('/') || landingPage.startsWith('//') || landingPage.includes('\\') || landingPage.includes('?') || landingPage.includes('#'))) {
     throw new Error('INVALID_LANDING_PAGE');
   }
   if (referrerHost && !/^[a-z0-9.-]+$/.test(referrerHost)) throw new Error('INVALID_REFERRER_HOST');

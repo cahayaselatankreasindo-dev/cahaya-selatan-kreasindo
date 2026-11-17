@@ -23,6 +23,6 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
       - name: Test lead intake validation and endpoints
-        run: node --test tests/_shared.test.mjs tests/lead-intake.test.mjs
+        run: node --test tests/_shared.test.mjs tests/lead-intake.test.mjs tests/design-download.test.mjs
       - name: Build static website
         run: npm run build

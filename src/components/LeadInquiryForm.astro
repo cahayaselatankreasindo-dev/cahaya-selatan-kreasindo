@@ -130,9 +130,9 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
     let pendingSubmissionId = '';
 
     function makeSubmissionId() {
-      if (crypto && typeof crypto.randomUUID === 'function') return crypto.randomUUID().replace(/-/g, '');
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID().replace(/-/g, '');
       const bytes = new Uint8Array(24);
-      crypto.getRandomValues(bytes);
+      window.crypto.getRandomValues(bytes);
       return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
     }
 
@@ -270,7 +270,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
         try { sessionStorage.removeItem('csk_campaign_attribution'); } catch {}
         if (window.turnstile) {
           const widget = form.querySelector('.cf-turnstile');
-          if (widget) window.turnstile.reset(widget);
+          if (widget) window.turnstile.reset();
         }
       } catch (error) {
         status.textContent = error.message || 'Permintaan belum terkirim. Silakan coba lagi.';

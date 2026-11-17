@@ -162,6 +162,14 @@ const GA_ID = 'G-YH56PC1XQZ';
           };
           window.cskRejectAnalytics = function () {
             try { localStorage.setItem(CONSENT_KEY, 'rejected'); } catch (e) {}
+            if (typeof window.gtag === 'function') {
+              window.gtag('consent', 'update', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+            }
             var banner = document.getElementById('csk-cookie-banner');
             if (banner) banner.hidden = true;
           };

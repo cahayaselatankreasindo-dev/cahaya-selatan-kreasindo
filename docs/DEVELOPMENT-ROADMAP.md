@@ -29,10 +29,11 @@
 - [COMPLETED] Halaman `/portofolio`: chip anchor + grup per kategori + lightbox
 - [IN PROGRESS] Sinkronisasi dua sumber (`featuredPortfolio` vs `portfolio[]`) - judul/kategori bisa divergen
 
-## PHASE 5 - LEAD GENERATION [COMPLETED minimal]
+## PHASE 5 - LEAD GENERATION [IN PROGRESS]
 
 - [COMPLETED] CTA WhatsApp berkonteks (`waLink(msg)` per halaman/layanan/FAQ)
-- [NOT STARTED] Form inquiry / tracking konversi (tidak ada backend - butuh keputusan)
+- [IN PROGRESS] Form inquiry `/permintaan-penawaran/` dan Cloudflare Pages Functions tersedia di branch fitur; aktivasi menunggu konfigurasi secret, Turnstile, Apps Script, dan Preview verification
+- [IN PROGRESS] Atribusi UTM dan click ID diteruskan ke Leads CRM
 
 ## PHASE 6 - SEO [IN PROGRESS]
 
@@ -45,9 +46,10 @@
 - [NOT STARTED] 183 file `public/assets` mentah (tanpa optimasi build) - risiko LCP. Opsi: kompres sumber atau pindah slot penting ke `astro:assets`
 - [NOT STARTED] Audit bobot font (Inter 8 file masih di-serve walau fallback)
 
-## PHASE 8 - ANALYTICS [NOT STARTED]
+## PHASE 8 - ANALYTICS [IN PROGRESS]
 
-- [NOT STARTED] Analytics, monitoring build, error tracking - tidak ada di repo
+- [COMPLETED] Event GA4 untuk klik WhatsApp dan lead form; analitik hanya dimuat setelah persetujuan pengunjung
+- [IN PROGRESS] Validasi event di GA4 DebugView setelah deployment
 
 ## CURRENT PRIORITY
 

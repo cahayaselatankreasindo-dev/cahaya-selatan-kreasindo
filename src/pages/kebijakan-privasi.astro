@@ -5,7 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { site, waLink } from '../site.js';
 
 const crumbs = [{ href: '/kebijakan-privasi', label: 'Kebijakan Privasi' }];
-const updated = '2 September 2026';
+const updated = '18 November 2026';
 ---
 <Base
   title="Kebijakan Privasi"
@@ -18,20 +18,33 @@ const updated = '2 September 2026';
            lead={`Halaman ini menjelaskan bagaimana ${site.name} memperlakukan data pribadi yang Anda kirimkan saat menghubungi kami. Terakhir diperbarui ${updated}.`}>
     <div class="mt-10 max-w-3xl space-y-8 leading-relaxed text-slate-600">
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">1. Situs ini tidak mengumpulkan data sendiri</h2>
+        <h2 class="text-lg font-semibold text-slate-900">1. Data yang dikumpulkan melalui website</h2>
         <p class="mt-2">
-          Website kami adalah halaman statis. Tidak ada formulir pendaftaran, tidak ada akun
-          pengguna, dan kami tidak memasang cookie pelacak maupun pixel iklan. Anda bisa
-          membaca seluruh isi situs tanpa memberikan data apa pun.
+          Anda dapat membaca website tanpa mengisi data. Jika mengirim Form Permintaan Proyek,
+          kami menerima nama perusahaan/brand, nama dan jabatan PIC, nomor WhatsApp, email
+          (jika diberikan), jenis kebutuhan, industri, website perusahaan (jika diberikan),
+          ukuran atau spesifikasi, jumlah, lokasi, target selesai, catatan, serta link atau
+          lampiran referensi desain yang Anda pilih untuk kirimkan.
+        </p>
+        <p class="mt-3">
+          Form juga menyimpan informasi atribusi kampanye seperti UTM, identitas klik iklan
+          (misalnya Google, Meta, TikTok, atau Microsoft), halaman masuk, dan domain perujuk.
+          Informasi ini disimpan sementara pada session storage browser agar sumber kampanye
+          tetap tercatat ketika Anda berpindah halaman, lalu dikirim bersama inquiry ke CRM.
+          Data atribusi tersebut tidak mencakup nama, nomor telepon, atau isi pesan.
+          Saat Anda mengirim formulir, sistem juga mencatat persetujuan pemrosesan data,
+          waktu persetujuan, dan versi kebijakan privasi yang berlaku sebagai bukti administrasi.
         </p>
       </div>
 
       <div>
         <h2 class="text-lg font-semibold text-slate-900">2. Data yang kami terima</h2>
         <p class="mt-2">
-          Data pribadi baru kami terima ketika Anda menghubungi kami lebih dulu, yaitu melalui:
+          Data pribadi kami terima ketika Anda menghubungi kami melalui WhatsApp, email, formulir inquiry,
+          atau selama proses penawaran dan pengerjaan proyek, yaitu:
         </p>
         <ul class="mt-3 list-disc space-y-1.5 pl-5">
+          <li><strong>Form Permintaan Proyek</strong> — nama perusahaan, PIC, nomor WhatsApp, email (jika diberikan), kebutuhan produksi, spesifikasi, lokasi, target waktu, catatan, serta link atau lampiran desain yang Anda pilih untuk kirim.</li>
           <li><strong>WhatsApp</strong> — nomor telepon, nama profil, serta isi pesan, foto lokasi, ukuran, atau file desain yang Anda kirim.</li>
           <li><strong>Email</strong> — alamat email, nama, dan isi surat beserta lampirannya.</li>
           <li><strong>Proses pekerjaan</strong> — nama perusahaan, alamat pengiriman atau lokasi pemasangan, nama dan kontak PIC, serta data penagihan seperti NPWP jika diperlukan untuk faktur.</li>
@@ -59,7 +72,25 @@ const updated = '2 September 2026';
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">4. Pihak ketiga</h2>
+        <h2 class="text-lg font-semibold text-slate-900">4. Analitik dan pilihan cookie</h2>
+        <p class="mt-2">
+          Dengan persetujuan Anda, website memuat Google Analytics 4 untuk memahami kunjungan,
+          penggunaan halaman, klik WhatsApp, dan keberhasilan pengiriman formulir. Kami tidak
+          mengirimkan nama, nomor WhatsApp, alamat email, atau isi pesan ke Google Analytics.
+          Google Analytics dapat menggunakan cookie atau teknologi serupa untuk mengukur
+          penggunaan website. Anda dapat memilih Setuju atau Tolak pada banner analitik, dan
+          mengubah pilihan melalui tautan Pengaturan Cookie di footer. Jika Anda menolak,
+          skrip Google Analytics tidak dimuat.
+        </p>
+        <p class="mt-3">
+          Session storage pihak pertama digunakan secara terpisah untuk mempertahankan
+          atribusi kampanye selama sesi browser. Data ini dibersihkan setelah formulir berhasil
+          dikirim atau ketika sesi browser berakhir.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-lg font-semibold text-slate-900">5. Pihak ketiga</h2>
         <p class="mt-2">
           Sebagian data mau tidak mau melewati layanan pihak ketiga yang kami pakai untuk
           beroperasi, dan tunduk pada kebijakan privasi masing-masing:
@@ -67,13 +98,15 @@ const updated = '2 September 2026';
         <ul class="mt-3 list-disc space-y-1.5 pl-5">
           <li><strong>WhatsApp (Meta)</strong> — sebagai saluran percakapan.</li>
           <li><strong>Google (Gmail)</strong> — sebagai penyedia email kami.</li>
-          <li><strong>Cloudflare</strong> — sebagai penyedia hosting situs ini, yang mencatat log teknis seperti alamat IP untuk keamanan dan pencegahan penyalahgunaan.</li>
+          <li><strong>Cloudflare</strong> — sebagai penyedia hosting, proteksi formulir Turnstile, dan penyimpanan lampiran privat (R2) untuk dokumen referensi yang Anda kirim.</li>
+          <li><strong>Google Apps Script dan Google Sheets</strong> — sebagai pemroses dan penyimpanan data inquiry di sistem CRM internal kami.</li>
+          <li><strong>Google Analytics 4</strong> — hanya jika Anda menyetujui analitik melalui banner atau Pengaturan Cookie.</li>
           <li><strong>Mitra pengiriman dan instalasi</strong> — hanya menerima nama, alamat, dan kontak penerima ketika barang perlu dikirim.</li>
         </ul>
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">5. Dokumentasi hasil pekerjaan</h2>
+        <h2 class="text-lg font-semibold text-slate-900">6. Dokumentasi hasil pekerjaan</h2>
         <p class="mt-2">
           Kami mendokumentasikan hasil produksi untuk portofolio. Foto yang menampilkan merek,
           logo, atau lokasi usaha Anda hanya kami tayangkan atas persetujuan Anda. Jika ada foto
@@ -82,7 +115,7 @@ const updated = '2 September 2026';
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">6. Penyimpanan dan keamanan</h2>
+        <h2 class="text-lg font-semibold text-slate-900">7. Penyimpanan dan keamanan</h2>
         <p class="mt-2">
           Percakapan dan dokumen proyek kami simpan selama hubungan kerja berlangsung dan
           sesudahnya untuk keperluan garansi, pemesanan ulang, serta kewajiban pembukuan dan
@@ -92,7 +125,7 @@ const updated = '2 September 2026';
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">7. Hak Anda</h2>
+        <h2 class="text-lg font-semibold text-slate-900">8. Hak Anda</h2>
         <p class="mt-2">
           Sesuai Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi, Anda berhak
           meminta akses atas data Anda yang kami simpan, meminta perbaikan data yang keliru,
@@ -103,7 +136,7 @@ const updated = '2 September 2026';
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">8. Perubahan kebijakan</h2>
+        <h2 class="text-lg font-semibold text-slate-900">9. Perubahan kebijakan</h2>
         <p class="mt-2">
           Kebijakan ini dapat kami perbarui bila cara kerja atau layanan yang kami pakai berubah.
           Versi terbaru selalu tersedia di halaman ini beserta tanggal pembaruannya.
@@ -111,7 +144,7 @@ const updated = '2 September 2026';
       </div>
 
       <div>
-        <h2 class="text-lg font-semibold text-slate-900">9. Hubungi kami</h2>
+        <h2 class="text-lg font-semibold text-slate-900">10. Hubungi kami</h2>
         <p class="mt-2">
           Pertanyaan soal kebijakan ini bisa disampaikan ke{' '}
           <a class="font-medium text-csk-amber-text hover:text-csk-amber-text/80" href={`mailto:${site.email}`}>{site.email}</a>{' '}

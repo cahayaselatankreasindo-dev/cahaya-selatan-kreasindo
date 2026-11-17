@@ -26,6 +26,7 @@ npm run preview   # preview build
 - [docs/DEVELOPMENT-ROADMAP.md](docs/DEVELOPMENT-ROADMAP.md) - status fase + aksi berikut
 - [docs/SEO-STRATEGY.md](docs/SEO-STRATEGY.md) - implementasi SEO saat ini
 - [docs/CHANGELOG.md](docs/CHANGELOG.md) - riwayat perubahan terverifikasi
+- [docs/LEAD-INTAKE-SETUP.md](docs/LEAD-INTAKE-SETUP.md) - setup Cloudflare Pages, Turnstile, R2, dan integrasi Leads CRM
 
 ## AI Agent Workflow
 

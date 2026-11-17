@@ -1,5 +1,47 @@
 # CHANGELOG.md - Cahaya Selatan Kreasindo
 
+## 2026-11-18 - Website inquiry form, CRM intake, attribution, and analytics consent
+
+Files created:
+
+- `src/components/LeadInquiryForm.astro` — form B2B untuk nama perusahaan/PIC, WhatsApp, email, layanan, brief proyek, link desain, dan lampiran opsional.
+- `src/pages/permintaan-penawaran.astro` — landing page khusus permintaan penawaran.
+- `functions/api/lead-intake.js` — same-origin Cloudflare Pages Function, Turnstile verification, validasi server-side, pemeriksaan signature PDF/JPG/PNG, dan proxy server-side ke Apps Script.
+- `functions/api/design-download.js` — unduhan R2 privat setelah sesi CRM dan hubungan file-to-Lead diverifikasi Apps Script.
+- `functions/_shared.js` — helper validasi payload, URL, click ID, Turnstile, CORS, Apps Script, dan persetujuan privasi wajib.
+- `docs/LEAD-INTAKE-SETUP.md` — panduan aktivasi Cloudflare, Turnstile, R2, Apps Script, dan pengujian Preview.
+- `tests/` — regression tests untuk validasi payload, lead intake, dan private download.
+
+Files modified:
+
+- `src/pages/index.astro` — positioning homepage dan CTA Minta Penawaran.
+- `src/pages/kontak.astro` — CTA menuju form inquiry.
+- `src/layouts/Base.astro` — penyimpanan atribusi kampanye first-party session storage dan GA4 yang hanya dimuat setelah persetujuan analitik.
+- `src/components/Footer.astro` — tautan Pengaturan Cookie.
+- `src/pages/kebijakan-privasi.astro` — penjelasan form inquiry, atribusi, analitik, Turnstile, R2, dan pemrosesan CRM.
+- `docs/PROJECT-BRAIN.md`, `docs/ARCHITECTURE.md`, `docs/DEVELOPMENT-ROADMAP.md` — pembaruan arsitektur dan status.
+
+Integration dependency:
+
+- Advertising Business OS PR #25 menyediakan endpoint Apps Script create-only, skema Lead, dan otorisasi private design download. PR tersebut tetap Draft sampai integrasi Preview selesai.
+- Kolom UTM dan click ID ditambahkan di ujung kontrak Lead pada branch PR #25, tanpa menggeser kolom lama.
+
+Security boundaries:
+
+- Secret intake hanya berada di Cloudflare secret dan Apps Script Script Properties.
+- Persetujuan privasi divalidasi di server; Apps Script mencatat timestamp server dan versi kebijakan.
+- String yang diawali tanda `=` ditolak pada validasi agar tidak menjadi formula saat disimpan ke Google Sheets.
+- Endpoint publik hanya membuat Lead; source `Website` dan status `new` dipaksa backend.
+- R2 tetap privat; unduhan membutuhkan sesi CRM aktif dan pemeriksaan bahwa object key terikat ke Lead.
+- Tidak ada data nama, email, nomor WhatsApp, atau isi pesan yang dikirim ke event GA4.
+- Tidak ada deployment produksi, secret, R2 bucket, atau spreadsheet pelanggan yang diubah.
+
+Verification status:
+
+- Automated checks disiapkan melalui `.github/workflows/lead-intake-checks.yml`.
+- Production activation masih menunggu konfigurasi Cloudflare/Apps Script dan pengujian Preview memakai database staging. Jangan mengiklankan form sebagai aktif sebelum checklist pada `docs/LEAD-INTAKE-SETUP.md` selesai.
+
+
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
 ## 2026-09-21 - Ganti email kontak ke domain CSK

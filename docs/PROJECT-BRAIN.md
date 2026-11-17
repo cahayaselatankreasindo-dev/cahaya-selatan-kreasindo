@@ -44,7 +44,7 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 
 1. Brand positioning (H1 + 3-panel hero arah bisnis).
 2. B2B marketing (6 kartu layanan + halaman detail per layanan).
-3. Lead generation (CTA WhatsApp berkonteks per halaman; tanpa form).
+3. Lead generation (CTA WhatsApp berkonteks + form inquiry proyek di `/permintaan-penawaran/`, diproses Cloudflare Pages Functions dan diteruskan ke Leads CRM).
 4. Sales support (produk per grup, FAQ per layanan + FAQ homepage).
 5. Portfolio & capability proof (grid 4 kategori + halaman `/portofolio` + strip proses produksi).
 
@@ -59,9 +59,9 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 | Font | Inter + Montserrat self-hosted (`public/fonts/`, 8+8 woff2), preload Montserrat 400/600 |
 | Node | 22 (`.node-version`) |
 | Deploy | Cloudflare Pages (`.gitignore` memuat `.wrangler`) |
-| Script | `npm run dev|build|preview` saja. `scripts/og-image.mjs` = generator `og-image.jpg` manual |
+| Script | `npm run dev|build|preview`; lead-intake endpoint regression tests run with Node test runner |
 
-Yang TIDAK ada: CMS, database, API backend, form handler, analytics, test runner, CI config.
+Yang TIDAK ada: CMS atau database aplikasi terpisah. Form inquiry menggunakan Cloudflare Pages Functions dan Google Sheets/Apps Script yang sudah dipakai Business OS.
 
 ## Actual Project Structure (CONFIRMED - scan 2026-09-13)
 
@@ -80,6 +80,11 @@ src/
   data/                    # assets.js (katalog dipakai test-assets), getAssets.js (helper, 0 pemakai)
   img/                     # 23 webp (sumber komponen Picture)
   styles/                  # global.css, fonts.css
+functions/
+  _shared.js               # validasi, Turnstile, Apps Script proxy helpers
+  api/lead-intake.js       # public same-origin lead intake
+  api/design-download.js  # CRM session-authorized private R2 download
+tests/                     # unit and endpoint regression tests
 public/
   assets/                  # 183 file, 16 folder (sumber komponen AssetImage)
   fonts/                   # 16 woff2 (Inter + Montserrat)
@@ -121,7 +126,7 @@ Tidak ada `404.astro` kustom, tidak ada `[...slug].astro`.
    `/portofolio`, sampel `[slug]`, dan `llms.txt`. `featuredPortfolio` (hardcode di
    `index.astro`, 12 item) menggerakkan homepage. Keduanya hidup berdampingan.
 3. **Konten di `site.js`, presentasi di `.astro`.** Halaman me-map array, bukan hardcode copy.
-4. **CTA = WhatsApp/mailto saja.** Tanpa form, tanpa backend.
+4. **CTA utama = WhatsApp + form inquiry.** Form inquiry memakai Cloudflare Pages Functions sebagai proxy server-side ke endpoint create-only Apps Script; secret tidak dikirim ke browser.
 5. Token lama tidak dihapus sampai semua pemakai migrasi (urutan: migrasi dulu, hapus terakhir).
 
 ## Development Principles

@@ -1,0 +1,290 @@
+---
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+---
+<section class="rounded-2xl border border-csk-gray/15 bg-white p-5 shadow-sm sm:p-8">
+  <div class="mb-7">
+    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-csk-amber-text">Form inquiry CSK</p>
+    <h2 class="mt-2 text-2xl font-semibold tracking-tight text-csk-black">Ceritakan kebutuhan proyek Anda</h2>
+    <p class="mt-2 max-w-2xl text-sm leading-relaxed text-csk-gray">
+      Isi informasi dasar terlebih dahulu. Ukuran, jumlah, lokasi, deadline, dan referensi desain akan membantu tim kami menyiapkan estimasi yang lebih tepat.
+    </p>
+  </div>
+
+  <form id="csk-lead-form" class="space-y-6" enctype="multipart/form-data">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Nama perusahaan / brand <span class="text-red-600">*</span></span>
+        <input name="name" required minlength="2" maxlength="160" autocomplete="organization" placeholder="Contoh: PT Contoh Indonesia" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Nama PIC <span class="text-red-600">*</span></span>
+        <input name="pic" required minlength="2" maxlength="160" autocomplete="name" placeholder="Nama yang bisa kami hubungi" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Jabatan PIC</span>
+        <input name="picTitle" maxlength="120" autocomplete="organization-title" placeholder="Marketing / Procurement / Owner" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Nomor WhatsApp <span class="text-red-600">*</span></span>
+        <input name="phone" required inputmode="tel" autocomplete="tel" maxlength="24" placeholder="08xxxxxxxxxx" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Email</span>
+        <input name="email" type="email" maxlength="180" autocomplete="email" placeholder="nama@perusahaan.com" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Jenis kebutuhan <span class="text-red-600">*</span></span>
+        <select name="projectType" required class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20">
+          <option value="">Pilih kebutuhan proyek</option>
+          <option>Booth pameran / stand event</option>
+          <option>Rak display / gondola</option>
+          <option>POSM / promotional display</option>
+          <option>Neon box / signage / huruf timbul</option>
+          <option>Visual merchandising / in-store branding</option>
+          <option>Peralatan event</option>
+          <option>Lainnya</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Industri / bidang usaha</span>
+        <input name="industry" maxlength="120" placeholder="FMCG, retail, F&B, kosmetik, dan lainnya" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Website perusahaan</span>
+        <input name="website" type="url" maxlength="1000" placeholder="https://perusahaan.com" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+      </label>
+    </div>
+
+    <div class="border-t border-csk-gray/10 pt-5">
+      <h3 class="text-base font-semibold text-csk-black">Detail proyek</h3>
+      <p class="mt-1 text-xs text-csk-gray">Bagian ini opsional untuk konsultasi awal, tetapi sangat membantu untuk permintaan penawaran.</p>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2">
+        <label class="block">
+          <span class="mb-1.5 block text-sm font-semibold text-csk-black">Ukuran / spesifikasi</span>
+          <input name="dimensions" maxlength="300" placeholder="Contoh: P 120 × L 60 × T 180 cm" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+        </label>
+        <label class="block">
+          <span class="mb-1.5 block text-sm font-semibold text-csk-black">Jumlah unit</span>
+          <input name="quantity" type="number" min="1" max="1000000" step="1" inputmode="numeric" placeholder="Contoh: 20" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+        </label>
+        <label class="block">
+          <span class="mb-1.5 block text-sm font-semibold text-csk-black">Lokasi pengiriman / pemasangan</span>
+          <input name="location" maxlength="180" placeholder="Contoh: Jakarta Selatan" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+        </label>
+        <label class="block">
+          <span class="mb-1.5 block text-sm font-semibold text-csk-black">Target selesai / deadline</span>
+          <input name="deadline" type="date" class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20" />
+        </label>
+      </div>
+    </div>
+
+    <label class="block">
+      <span class="mb-1.5 block text-sm font-semibold text-csk-black">Ceritakan kebutuhan atau catatan tambahan</span>
+      <textarea name="notes" rows="4" maxlength="1500" placeholder="Ceritakan konsep, material yang diinginkan, kebutuhan beberapa outlet, atau informasi lain yang perlu kami ketahui." class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm leading-relaxed outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20"></textarea>
+    </label>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Link referensi desain (opsional)</span>
+        <textarea name="designLinks" rows="3" maxlength="5000" placeholder="Tempel link Google Drive / Pinterest / referensi lain. Satu link per baris, maksimal 5 link HTTPS." class="w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-sm leading-relaxed outline-none transition focus:border-csk-amber focus:ring-2 focus:ring-csk-amber/20"></textarea>
+      </label>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-semibold text-csk-black">Lampiran desain (opsional)</span>
+        <input name="designFiles" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" multiple class="block w-full rounded-lg border border-csk-gray/25 bg-white px-3 py-3 text-xs text-csk-gray file:mr-3 file:rounded-md file:border-0 file:bg-csk-amber/15 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-csk-black" />
+        <span class="mt-2 block text-xs leading-relaxed text-csk-gray">PDF, JPG, atau PNG. Maksimal 5 file, 15 MB per file, total 30 MB. Penyimpanan lampiran harus diaktifkan oleh admin.</span>
+      </label>
+    </div>
+
+    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+      <label>Jangan isi kolom ini<input name="companyFax" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    <div class="border-t border-csk-gray/10 pt-5">
+      {turnstileSiteKey ? (
+        <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-action="csk_lead_intake" data-theme="light"></div>
+      ) : (
+        <p class="rounded-lg bg-amber-50 p-3 text-xs leading-relaxed text-amber-900">
+          Form sedang menunggu konfigurasi verifikasi keamanan. Silakan hubungi kami melalui WhatsApp untuk sementara.
+        </p>
+      )}
+      <label class="mt-4 flex items-start gap-3 text-xs leading-relaxed text-csk-gray">
+        <input name="privacyConsent" type="checkbox" required class="mt-0.5 h-4 w-4 shrink-0 accent-csk-amber" />
+        <span>Saya menyetujui data yang saya kirim digunakan CSK untuk menanggapi permintaan, menyiapkan penawaran, dan menindaklanjuti kebutuhan proyek sesuai <a href="/kebijakan-privasi/" class="font-semibold text-csk-amber-text underline">Kebijakan Privasi</a>.</span>
+      </label>
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <button id="csk-lead-submit" type="submit" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-csk-black px-7 py-3 text-sm font-semibold text-white transition hover:bg-csk-black/85 disabled:cursor-wait disabled:opacity-60">
+          Kirim permintaan proyek
+        </button>
+        <p id="csk-lead-status" role="status" aria-live="polite" class="text-xs leading-relaxed text-csk-gray"></p>
+      </div>
+    </div>
+  </form>
+</section>
+
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+  const form = document.querySelector('#csk-lead-form');
+  if (form) {
+    const submitButton = document.querySelector('#csk-lead-submit');
+    const status = document.querySelector('#csk-lead-status');
+    let pendingSubmissionId = '';
+
+    function makeSubmissionId() {
+      if (window.crypto && typeof window.crypto.randomUUID === 'function') return window.crypto.randomUUID().replace(/-/g, '');
+      const bytes = new Uint8Array(24);
+      window.crypto.getRandomValues(bytes);
+      return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+    }
+
+    function getAttribution() {
+      const keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'fbclid', 'ttclid', 'msclkid'];
+      const query = new URLSearchParams(window.location.search);
+      let saved = {};
+      try { saved = JSON.parse(sessionStorage.getItem('csk_campaign_attribution') || '{}'); } catch {}
+      const current = {};
+      keys.forEach((key) => {
+        const value = query.get(key);
+        if (value) current[key] = value.slice(0, 200);
+      });
+      const data = { ...saved, ...current };
+      data.landing_page = saved.landing_page || window.location.pathname;
+      data.referrer_host = saved.referrer_host || (() => {
+        try {
+          const host = document.referrer ? new URL(document.referrer).hostname : '';
+          return host && host !== window.location.hostname ? host : '';
+        } catch { return ''; }
+      })();
+      try { sessionStorage.setItem('csk_campaign_attribution', JSON.stringify(data)); } catch {}
+      return {
+        utmSource: data.utm_source || '',
+        utmMedium: data.utm_medium || '',
+        utmCampaign: data.utm_campaign || '',
+        utmTerm: data.utm_term || '',
+        utmContent: data.utm_content || '',
+        gclid: data.gclid || '',
+        gbraid: data.gbraid || '',
+        wbraid: data.wbraid || '',
+        fbclid: data.fbclid || '',
+        ttclid: data.ttclid || '',
+        msclkid: data.msclkid || '',
+        landingPage: data.landing_page || window.location.pathname,
+        referrerHost: data.referrer_host || '',
+      };
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+
+      const challengeResponse = form.querySelector('[name="cf-turnstile-response"]')?.value || '';
+      if (!challengeResponse) {
+        status.textContent = 'Selesaikan verifikasi keamanan terlebih dahulu.';
+        status.className = 'text-xs leading-relaxed text-red-700';
+        return;
+      }
+
+      const fileInput = form.querySelector('input[name="designFiles"]');
+      const files = Array.from(fileInput?.files || []);
+      if (files.length > 5 || files.some((file) => file.size > 15 * 1024 * 1024) ||
+          files.reduce((sum, file) => sum + file.size, 0) > 30 * 1024 * 1024) {
+        status.textContent = 'Lampiran maksimal 5 file, 15 MB per file, dan total 30 MB.';
+        status.className = 'text-xs leading-relaxed text-red-700';
+        return;
+      }
+
+      const links = String(form.elements.designLinks.value || '')
+        .split(/\r?\n/)
+        .map((value) => value.trim())
+        .filter(Boolean);
+      if (links.length > 5) {
+        status.textContent = 'Maksimal 5 link referensi.';
+        status.className = 'text-xs leading-relaxed text-red-700';
+        return;
+      }
+
+      const data = new FormData(form);
+      const lead = {
+        submissionId: pendingSubmissionId || (pendingSubmissionId = makeSubmissionId()),
+        privacyConsent: data.get('privacyConsent') === 'on',
+        name: data.get('name'),
+        pic: data.get('pic'),
+        picTitle: data.get('picTitle'),
+        phone: data.get('phone'),
+        email: data.get('email'),
+        projectType: data.get('projectType'),
+        industry: data.get('industry'),
+        website: data.get('website'),
+        dimensions: data.get('dimensions'),
+        quantity: data.get('quantity'),
+        location: data.get('location'),
+        deadline: data.get('deadline'),
+        notes: data.get('notes'),
+        designLinks: links,
+        ...getAttribution(),
+      };
+
+      const body = new FormData();
+      body.set('lead', JSON.stringify(lead));
+      body.set('cf-turnstile-response', challengeResponse);
+      body.set('companyFax', data.get('companyFax') || '');
+      files.forEach((file) => body.append('designFiles', file, file.name));
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Mengirim permintaan...';
+      status.textContent = 'Mohon tunggu, permintaan Anda sedang dikirim dengan aman.';
+      status.className = 'text-xs leading-relaxed text-csk-gray';
+
+      try {
+        const response = await fetch('/api/lead-intake', {
+          method: 'POST',
+          body,
+          headers: { Accept: 'application/json' },
+          cache: 'no-store',
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          const messages = {
+            FORM_NOT_CONFIGURED: 'Form belum dikonfigurasi. Silakan hubungi kami melalui WhatsApp.',
+            TURNSTILE_NOT_CONFIGURED: 'Verifikasi keamanan belum aktif. Silakan hubungi kami melalui WhatsApp.',
+            TURNSTILE_FAILED: 'Verifikasi gagal. Silakan ulangi.',
+            TURNSTILE_REQUIRED: 'Selesaikan verifikasi keamanan terlebih dahulu.',
+            FILE_STORAGE_NOT_CONFIGURED: 'Penyimpanan lampiran belum aktif. Hapus lampiran atau kirim melalui WhatsApp.',
+            FILES_TOO_LARGE: 'Ukuran total lampiran melebihi batas 30 MB.',
+            REQUEST_TOO_LARGE: 'Ukuran permintaan terlalu besar.',
+          };
+          throw new Error(messages[result.code] || 'Permintaan belum terkirim. Silakan coba lagi atau hubungi kami melalui WhatsApp.');
+        }
+
+        if (!result.duplicate && typeof window.gtag === 'function' &&
+            typeof window.cskHasAnalyticsConsent === 'function' && window.cskHasAnalyticsConsent()) {
+          window.gtag('event', 'generate_lead', {
+            method: 'website_form',
+            project_type: String(lead.projectType || '').slice(0, 80),
+            has_design_files: files.length > 0,
+            has_design_links: links.length > 0,
+          });
+        }
+
+        status.textContent = 'Terima kasih. Permintaan Anda sudah masuk. Tim CSK akan meninjau kebutuhan dan menghubungi Anda.';
+        status.className = 'text-xs leading-relaxed text-emerald-700';
+        form.reset();
+        pendingSubmissionId = '';
+        try { sessionStorage.removeItem('csk_campaign_attribution'); } catch {}
+        if (window.turnstile) {
+          const widget = form.querySelector('.cf-turnstile');
+          if (widget) window.turnstile.reset();
+        }
+      } catch (error) {
+        status.textContent = error.message || 'Permintaan belum terkirim. Silakan coba lagi.';
+        status.className = 'text-xs leading-relaxed text-red-700';
+        if (window.turnstile) {
+          const widget = form.querySelector('.cf-turnstile');
+          if (widget) window.turnstile.reset(widget);
+        }
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Kirim permintaan proyek';
+      }
+    });
+  }
+</script>

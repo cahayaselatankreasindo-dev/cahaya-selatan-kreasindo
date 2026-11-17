@@ -44,7 +44,7 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 
 1. Brand positioning (H1 + 3-panel hero arah bisnis).
 2. B2B marketing (6 kartu layanan + halaman detail per layanan).
-3. Lead generation (CTA WhatsApp berkonteks per halaman; tanpa form).
+3. Lead generation (CTA WhatsApp berkonteks + form inquiry proyek di `/permintaan-penawaran/`, diproses Cloudflare Pages Functions dan diteruskan ke Leads CRM).
 4. Sales support (produk per grup, FAQ per layanan + FAQ homepage).
 5. Portfolio & capability proof (grid 4 kategori + halaman `/portofolio` + strip proses produksi).
 
@@ -61,7 +61,7 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 | Deploy | Cloudflare Pages (`.gitignore` memuat `.wrangler`) |
 | Script | `npm run dev|build|preview` saja. `scripts/og-image.mjs` = generator `og-image.jpg` manual |
 
-Yang TIDAK ada: CMS, database, API backend, form handler, analytics, test runner, CI config.
+Yang TIDAK ada: CMS atau database aplikasi terpisah. Form inquiry menggunakan Cloudflare Pages Functions dan Google Sheets/Apps Script yang sudah dipakai Business OS.
 
 ## Actual Project Structure (CONFIRMED - scan 2026-09-13)
 
@@ -121,7 +121,7 @@ Tidak ada `404.astro` kustom, tidak ada `[...slug].astro`.
    `/portofolio`, sampel `[slug]`, dan `llms.txt`. `featuredPortfolio` (hardcode di
    `index.astro`, 12 item) menggerakkan homepage. Keduanya hidup berdampingan.
 3. **Konten di `site.js`, presentasi di `.astro`.** Halaman me-map array, bukan hardcode copy.
-4. **CTA = WhatsApp/mailto saja.** Tanpa form, tanpa backend.
+4. **CTA utama = WhatsApp + form inquiry.** Form inquiry memakai Cloudflare Pages Functions sebagai proxy server-side ke endpoint create-only Apps Script; secret tidak dikirim ke browser.
 5. Token lama tidak dihapus sampai semua pemakai migrasi (urutan: migrasi dulu, hapus terakhir).
 
 ## Development Principles

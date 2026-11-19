@@ -1,13 +1,13 @@
 ---
 import { site, waLink } from '../site.js';
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\/?$/, '/');
 const nav = [
   { href: '/', label: 'Beranda' },
-  { href: '/tentang', label: 'Tentang' },
-  { href: '/layanan', label: 'Layanan' },
-  { href: '/portofolio', label: 'Portofolio' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/area-layanan', label: 'Area' },
+  { href: '/tentang/', label: 'Tentang' },
+  { href: '/layanan/', label: 'Layanan' },
+  { href: '/portofolio/', label: 'Portofolio' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/area-layanan/', label: 'Area' },
 ];
 import WaIcon from './WaIcon.astro';
 ---

@@ -2,6 +2,10 @@
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
 
+## 2026-11-20 - Navigasi dan URL kanonis
+
+Tautan internal dan breadcrumb menggunakan URL akhir dengan garis miring. Footer menautkan halaman kontak workshop. Build berhasil, dan seluruh 23 URL sitemap dapat dijangkau dari beranda melalui HTML.
+
 ## 2026-09-21 - Ganti email kontak ke domain CSK
 
 Files modified:

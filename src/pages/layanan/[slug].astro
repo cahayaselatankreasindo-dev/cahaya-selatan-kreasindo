@@ -14,8 +14,8 @@ export function getStaticPaths() {
 
 const { s }: { s: (typeof serviceDetails)[number] } = Astro.props;
 const crumbs = [
-  { href: '/layanan', label: 'Layanan' },
-  { href: `/layanan/${s.slug}`, label: s.nav },
+  { href: '/layanan/', label: 'Layanan' },
+  { href: `/layanan/${s.slug}/`, label: s.nav },
 ];
 const samples = (s.images ?? [])
   .map((img) => portfolio.find((p) => p.img === img))
@@ -157,7 +157,7 @@ const serviceSchema = {
           </figure>
         ))}
       </div>
-      <a href="/portofolio" class="mt-8 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
+      <a href="/portofolio/" class="mt-8 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
         Lihat semua portofolio →
       </a>
     </Section>
@@ -239,7 +239,7 @@ const serviceSchema = {
           </figure>
         ))}
       </div>
-      <a href="/portofolio" class="mt-8 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
+      <a href="/portofolio/" class="mt-8 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
         Lihat semua portofolio →
       </a>
     </Section>
@@ -304,7 +304,7 @@ const serviceSchema = {
     <h2 class="text-2xl font-semibold tracking-tight">Layanan lainnya</h2>
     <div class="mt-6 flex flex-wrap gap-2">
       {others.map((o) => (
-        <a href={`/layanan/${o.slug}`}
+        <a href={`/layanan/${o.slug}/`}
             class="rounded-full border border-csk-gray/30 px-4 py-1.5 text-sm text-csk-amber-text transition-colors hover:bg-csk-gray/10">
           {o.nav}
         </a>

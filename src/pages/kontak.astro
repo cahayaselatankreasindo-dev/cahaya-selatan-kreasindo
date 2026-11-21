@@ -8,9 +8,9 @@ const mapQ = encodeURIComponent(site.address);
 <Base
   title="Kontak & Alamat Workshop"
   description={`Hubungi Cahaya Selatan Kreasindo di ${site.waDisplay} atau ${site.email}. Workshop di Serpong, Tangerang Selatan. Buka Senin–Jumat 08.00–17.00 WIB.`}
-  breadcrumbs={[{ href: '/kontak', label: 'Kontak' }]}
+  breadcrumbs={[{ href: '/kontak/', label: 'Kontak' }]}
 >
-  <Breadcrumbs items={[{ href: '/kontak', label: 'Kontak' }]} />
+  <Breadcrumbs items={[{ href: '/kontak/', label: 'Kontak' }]} />
 
   <Section as="h1" eyebrow="Kontak" title="Hubungi kami"
            lead="Balasan tercepat lewat WhatsApp pada jam kerja. Kirim foto lokasi, ukuran, atau referensi desain supaya estimasi bisa langsung kami hitung.">
@@ -70,7 +70,7 @@ const mapQ = encodeURIComponent(site.address);
             <li class="rounded-full border border-csk-gray/30 px-3 py-1 text-xs text-csk-amber-text">{a.name}</li>
           ))}
         </ul>
-        <a href="/area-layanan" class="mt-4 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
+        <a href="/area-layanan/" class="mt-4 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
           Detail area layanan →
         </a>
       </div>

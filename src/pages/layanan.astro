@@ -9,14 +9,14 @@ import WaIcon from '../components/WaIcon.astro';
 <Base
   title="Layanan POSM, Rak Display, Booth Pameran & Signage"
   description="Layanan Cahaya Selatan Kreasindo: produksi POSM, rak display custom dan gondola, booth pameran, neon box dan signage, visual merchandising, serta penjualan peralatan event custom di Jabodetabek."
-  breadcrumbs={[{ href: '/layanan', label: 'Layanan' }]}
+  breadcrumbs={[{ href: '/layanan/', label: 'Layanan' }]}
 >
-  <Breadcrumbs items={[{ href: '/layanan', label: 'Layanan' }]} />
+  <Breadcrumbs items={[{ href: '/layanan/', label: 'Layanan' }]} />
   <Section as="h1" eyebrow="Layanan" title="Solusi display yang tepat untuk bisnis Anda"
            lead="Enam lini pekerjaan, semuanya custom mengikuti ukuran lokasi, karakter produk, dan identitas brand Anda. Pilih yang paling dekat dengan kebutuhan Anda.">
     <div class="mt-10 grid gap-5 md:grid-cols-2">
       {serviceDetails.map((s) => (
-        <a href={`/layanan/${s.slug}`}
+        <a href={`/layanan/${s.slug}/`}
            class="group rounded-2xl border border-csk-gray/20 p-5 transition-shadow hover:shadow-md sm:p-6">
           {s.images?.[0] && (() => {
             const image = portfolio.find((p) => p.img === s.images[0]);

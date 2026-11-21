@@ -72,6 +72,7 @@ export const products = [
 ];
 
 export const portfolio = [
+  { img: 'booth-512-slow-move-bazaar', title: 'Booth Custom 512 untuk Slow Move Bazaar', cat: 'Booth & Pameran', featured: true },
   { img: 'booth-pameran-custom-jakarta-jasa-tirta', title: 'Booth Pameran Jasa Tirta II di Pameran KIP 2025 — Hotel Bidakara, Jakarta', cat: 'Booth & Pameran' },
   { img: 'detail-booth-pameran-jasa-tirta', title: 'Detail Booth Pameran Jasa Tirta II — Pameran KIP 2025, Hotel Bidakara', cat: 'Booth & Pameran' },
   { img: 'mini-counter-booth-custom-beco', title: 'Mini Counter Beco untuk Event Pameran di Jakarta', cat: 'Booth & Pameran', featured: true },

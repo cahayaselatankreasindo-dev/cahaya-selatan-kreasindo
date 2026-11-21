@@ -1,63 +1,139 @@
 ---
 import Base from '../layouts/Base.astro';
-import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import { site } from '../site.js';
+import Picture from '../components/Picture.astro';
+import WaIcon from '../components/WaIcon.astro';
+import { site, waLink } from '../site.js';
 ---
+
 <Base
-  title="Tentang Kami"
-  description="Profil Cahaya Selatan Kreasindo, workshop booth pameran, rak display, dan signage di Serpong, Tangerang Selatan. Satu tim dari desain sampai instalasi."
+  title="Tentang Cahaya Selatan Kreasindo | Production Partner"
+  description="Kenali Cahaya Selatan Kreasindo, mitra kreatif dan produksi untuk kebutuhan retail display, POSM, booth pameran, signage, dan custom fabrication di Jabodetabek."
   breadcrumbs={[{ href: '/tentang/', label: 'Tentang Kami' }]}
 >
   <Breadcrumbs items={[{ href: '/tentang/', label: 'Tentang Kami' }]} />
-  <Section as="h1" eyebrow="Tentang Kami" title="Tim yang mengerjakan display dari konsep sampai terpasang"
-           lead={`${site.name} adalah ${site.tagline.toLowerCase()}. Kami melayani pelaku usaha ritel, brand FMCG, dan penyelenggara event di Jabodetabek.`}>
-    <div class="mt-12 grid gap-10 md:grid-cols-2">
-      <div class="space-y-4 leading-relaxed text-slate-600">
-        <p>
-          Kami mulai dari hal sederhana: display yang bagus bikin produk lebih menjual.
-          Karena itu setiap pesanan dikerjakan custom — mengikuti ukuran lokasi,
-          karakter produk, dan identitas brand Anda.
+
+  <section class="relative isolate overflow-hidden bg-csk-black text-white">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 h-[30rem] w-[30rem] rotate-45 border border-csk-amber/15"></div>
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:px-6 md:grid-cols-[0.95fr_1.05fr] md:py-20 lg:gap-16 lg:px-8 lg:py-24">
+      <div class="relative z-10">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-csk-amber">Tentang CSK</p>
+        <h1 class="mt-6 max-w-2xl text-4xl font-bold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Kami membangun apa yang membuat brand terlihat.
+        </h1>
+        <p class="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+          Cahaya Selatan Kreasindo adalah mitra kreatif dan produksi yang menghadirkan solusi visual dan fisik untuk brand. Dari konsep hingga eksekusi, kami membangun pengalaman ruang, tampilan, dan identitas yang kuat dan berkesan.
         </p>
-        <p>
-          Pengerjaan dilakukan sendiri oleh tim kami, mulai dari desain, produksi di workshop,
-          pengiriman, hingga instalasi di lokasi. Satu pintu, satu penanggung jawab.
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href={waLink('Halo CSK, saya ingin mengenal layanan produksi dan kebutuhan custom yang bisa dikerjakan.')}
+             target="_blank" rel="noopener"
+             data-cta-location="about_hero"
+             class="inline-flex min-h-12 items-center gap-2 rounded-sm bg-csk-amber px-6 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95">
+            <WaIcon />Diskusikan Kebutuhan
+          </a>
+          <a href="/portofolio/"
+             class="inline-flex min-h-12 items-center rounded-sm border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-csk-amber hover:text-csk-amber">
+            Lihat Hasil Produksi <span aria-hidden="true" class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="relative ml-4 overflow-hidden border border-white/10 bg-white/5 sm:ml-8">
+        <div class="aspect-[5/4]">
+          <Picture
+            name="finishing-rak-display-workshop-serpong"
+            alt="Proses finishing rak display di workshop Cahaya Selatan Kreasindo, Serpong"
+            loading="eager"
+            fetchpriority="high"
+            sizes="(min-width: 768px) 52vw, 100vw"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-csk-black/75 via-transparent to-transparent"></div>
+        <figcaption class="absolute inset-x-0 bottom-0 p-5 sm:p-7">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-csk-amber">Proses Produksi</p>
+          <p class="mt-2 text-lg font-bold text-white sm:text-2xl">Dikerjakan di workshop CSK, Serpong.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[1fr_1fr] md:items-center md:py-20">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber-text">Cara Kami Bekerja</p>
+        <h2 class="mt-3 max-w-xl text-3xl font-bold leading-tight tracking-tight text-csk-black sm:text-4xl">
+          Satu alur kerja, dari ide sampai terpasang.
+        </h2>
+        <p class="mt-5 max-w-xl text-sm leading-7 text-csk-gray sm:text-base">
+          Setiap kebutuhan dimulai dengan memahami tujuan brand, ukuran lokasi, karakter produk, dan target waktu. Informasi itu menjadi dasar untuk menyusun konsep, spesifikasi, dan rencana produksi.
+        </p>
+        <p class="mt-4 max-w-xl text-sm leading-7 text-csk-gray sm:text-base">
+          Pengerjaan dilakukan di workshop CSK, kemudian disiapkan untuk pengiriman dan instalasi sesuai ruang lingkup pekerjaan serta jadwal yang disepakati.
         </p>
       </div>
-      <dl class="grid grid-cols-2 gap-5">
-        {[
-          ['Custom', 'Semua ukuran menyesuaikan lokasi'],
-          ['Satu Tim', 'Desain sampai instalasi'],
-          ['Jabodetabek', 'Area layanan utama'],
-          ['On Time', 'Kejar deadline event'],
-        ].map(([t, d]) => (
-          <div class="rounded-2xl border border-csk-gray/20 bg-csk-gray/10 p-6">
-            <dt class="text-lg font-semibold text-csk-amber">{t}</dt>
-            <dd class="mt-1 text-sm text-slate-600">{d}</dd>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <figure class="overflow-hidden bg-csk-white">
+          <div class="aspect-[4/5]">
+            <Picture name="quality-check-rak-display-custom"
+                     alt="Pemeriksaan kualitas rak display sebelum dikirim ke klien"
+                     sizes="(min-width: 640px) 320px, 90vw"
+                     class="h-full w-full object-cover" />
           </div>
-        ))}
-      </dl>
+          <figcaption class="border-b border-csk-gray/20 py-3 text-sm font-semibold text-csk-black">Quality check</figcaption>
+        </figure>
+        <figure class="mt-0 overflow-hidden bg-csk-white sm:mt-12">
+          <div class="aspect-[4/5]">
+            <Picture name="standee-custom-potens-siap-kirim"
+                     alt="Standee custom Potens yang siap dikirim dari workshop"
+                     sizes="(min-width: 640px) 320px, 90vw"
+                     class="h-full w-full object-cover" />
+          </div>
+          <figcaption class="border-b border-csk-gray/20 py-3 text-sm font-semibold text-csk-black">Siap dikirim</figcaption>
+        </figure>
+      </div>
     </div>
-  </Section>
+  </section>
 
-  <Section eyebrow="Cara Kerja" title="Empat langkah, tanpa ribet">
-    <ol class="mt-10 grid gap-5 md:grid-cols-4">
-      {[
-        ['Konsultasi', 'Ceritakan kebutuhan, kirim foto atau ukuran lokasi.'],
-        ['Desain & Estimasi', 'Kami buatkan konsep dan rincian biaya.'],
-        ['Produksi', 'Dikerjakan di workshop dengan material pilihan.'],
-        ['Instalasi', 'Kirim dan pasang di lokasi Anda.'],
-      ].map(([t, d], i) => (
-        <li class="rounded-2xl border border-csk-gray/20 p-6">
-          <span class="text-sm font-semibold text-csk-amber">{String(i + 1).padStart(2, '0')}</span>
-          <h3 class="mt-2 font-semibold">{t}</h3>
-          <p class="mt-1 text-sm leading-relaxed text-slate-600">{d}</p>
-        </li>
-      ))}
-    </ol>
-    <p class="mt-8 text-sm text-slate-600">
-      Lihat <a class="font-medium text-csk-amber-text hover:text-csk-amber-text/80" href="/layanan/">rincian layanan</a> atau
-      <a class="font-medium text-csk-amber-text hover:text-csk-amber-text/80" href="/portofolio/">portofolio pekerjaan</a> kami.
-    </p>
-  </Section>
+  <section class="bg-csk-white">
+    <div class="mx-auto max-w-7xl px-5 py-16 md:py-20">
+      <div class="mb-10 max-w-2xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber-text">Prinsip Produksi</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-csk-black sm:text-4xl">
+          Detail yang mengikuti kebutuhan brand.
+        </h2>
+      </div>
+      <div class="grid gap-8 border-t border-csk-gray/20 pt-7 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { title: 'Custom', detail: 'Ukuran, bentuk, material, dan finishing menyesuaikan fungsi serta lokasi.' },
+          { title: 'Satu Tim', detail: 'Diskusi, pengembangan desain, produksi, dan instalasi dalam satu alur kerja.' },
+          { title: 'Terukur', detail: 'Spesifikasi dan estimasi dibahas sebelum proses produksi dimulai.' },
+          { title: 'Terhubung', detail: 'Workshop di Serpong dengan layanan pengiriman dan instalasi Jabodetabek.' },
+        ].map((item) => (
+          <article class="border-t-2 border-csk-amber pt-5">
+            <h3 class="text-base font-bold text-csk-black">{item.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-csk-gray">{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="relative isolate overflow-hidden bg-csk-black text-white">
+    <div class="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-16 md:flex-row md:items-center md:justify-between md:py-20">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber">Mulai Konsultasi</p>
+        <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">Ada kebutuhan produksi untuk brand Anda?</h2>
+        <p class="mt-4 max-w-xl text-sm leading-relaxed text-white/65 sm:text-base">
+          Ceritakan kebutuhan, ukuran, referensi, atau foto lokasi. Kami bantu membahas langkah produksi yang paling sesuai.
+        </p>
+      </div>
+      <a href={waLink('Halo CSK, saya ingin konsultasi kebutuhan produksi.')}
+         target="_blank" rel="noopener"
+         data-cta-location="about_final_cta"
+         class="inline-flex min-h-12 shrink-0 items-center gap-2 rounded-sm bg-csk-amber px-7 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95">
+        <WaIcon />Konsultasikan Kebutuhan
+      </a>
+    </div>
+  </section>
 </Base>

@@ -1,5 +1,7 @@
 ---
 import { site, waLink } from '../site.js';
+import WaIcon from './WaIcon.astro';
+
 const path = Astro.url.pathname.replace(/\/?$/, '/');
 const nav = [
   { href: '/', label: 'Beranda' },
@@ -9,42 +11,58 @@ const nav = [
   { href: '/blog/', label: 'Blog' },
   { href: '/area-layanan/', label: 'Area' },
 ];
-import WaIcon from './WaIcon.astro';
 ---
-<header class="sticky top-0 z-50 border-b border-csk-gray/15 bg-white/90 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-    <a href="/" class="flex items-center gap-2.5">
-      <img src="/img/logo-horizontal.svg" alt={site.name} width="302" height="100" class="h-9 w-auto" />
+
+<header class="sticky top-0 z-50 border-b border-csk-black/10 bg-csk-white/95 backdrop-blur-xl">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 sm:px-6 lg:px-8">
+    <a href="/" class="flex shrink-0 items-center gap-2.5" aria-label={`Beranda ${site.name}`}>
+      <img src="/img/logo-horizontal.svg" alt={site.name} width="302" height="100" class="h-9 w-auto sm:h-10" />
     </a>
 
-    <nav class="hidden items-center gap-1 lg:flex">
+    <nav aria-label="Navigasi utama" class="hidden items-center gap-1 lg:flex">
       {nav.map((n) => (
         <a
           href={n.href}
+          aria-current={path === n.href ? 'page' : undefined}
           class:list={[
-            'rounded-full px-3 py-2 text-sm transition-colors',
-            path === n.href ? 'bg-csk-white font-medium text-csk-black' : 'text-csk-gray hover:text-csk-black',
+            'rounded-sm px-3 py-2.5 text-[11px] font-bold uppercase tracking-[0.12em] transition-colors',
+            path === n.href
+              ? 'text-csk-black underline decoration-2 decoration-csk-amber underline-offset-[9px]'
+              : 'text-csk-gray hover:text-csk-black',
           ]}
         >{n.label}</a>
       ))}
       <a href={waLink()} target="_blank" rel="noopener"
-         class="ml-1 inline-flex items-center gap-2 rounded-full bg-csk-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-csk-black/80">
+         data-cta-location="header"
+         class="ml-3 inline-flex min-h-11 items-center gap-2 rounded-sm bg-csk-amber px-5 py-2.5 text-xs font-bold uppercase tracking-[0.08em] text-csk-black transition-colors hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
         <WaIcon class="h-3.5 w-3.5" />Hubungi Kami
       </a>
     </nav>
 
     <details class="relative lg:hidden">
-      <summary class="cursor-pointer list-none rounded-lg border border-csk-gray/20 p-2 text-csk-black">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 7h16M4 12h16M4 17h16" />
+      <summary aria-label="Buka navigasi" class="cursor-pointer list-none border border-csk-black/15 p-2.5 text-csk-black transition-colors hover:border-csk-amber">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
         </svg>
       </summary>
-      <div class="absolute right-0 mt-2 w-48 rounded-xl border border-csk-gray/15 bg-white p-2 shadow-lg">
-        {nav.map((n) => (
-          <a href={n.href} class="block rounded-lg px-3 py-2 text-sm text-csk-gray hover:bg-csk-white">{n.label}</a>
-        ))}
+      <div class="absolute right-0 mt-3 w-64 border border-csk-black/10 bg-csk-white p-3 shadow-xl">
+        <nav aria-label="Navigasi mobile" class="grid gap-1">
+          {nav.map((n) => (
+            <a
+              href={n.href}
+              aria-current={path === n.href ? 'page' : undefined}
+              class:list={[
+                'block px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors',
+                path === n.href ? 'bg-csk-black/5 text-csk-black' : 'text-csk-gray hover:bg-csk-black/5 hover:text-csk-black',
+              ]}
+            >{n.label}</a>
+          ))}
+        </nav>
         <a href={waLink()} target="_blank" rel="noopener"
-           class="mt-1 flex items-center justify-center gap-2 rounded-lg bg-csk-black px-3 py-2 text-sm font-medium text-white"><WaIcon class="h-3.5 w-3.5" />WhatsApp</a>
+           data-cta-location="mobile_header"
+           class="mt-3 flex min-h-11 items-center justify-center gap-2 rounded-sm bg-csk-amber px-3 py-2.5 text-xs font-bold uppercase tracking-[0.08em] text-csk-black transition-colors hover:brightness-95">
+          <WaIcon class="h-3.5 w-3.5" />Hubungi Kami
+        </a>
       </div>
     </details>
   </div>

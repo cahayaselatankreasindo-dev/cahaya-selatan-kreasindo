@@ -3,138 +3,156 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import WaIcon from '../components/WaIcon.astro';
 import Lightbox from '../components/Lightbox.astro';
-import AssetImage from '../components/AssetImage.astro';
 import Picture from '../components/Picture.astro';
-import responsiveImages from '../generated/homepage-responsive.json';
 
-import { serviceDetails, waLink, areas, portfolio } from '../site.js';
+import { serviceDetails, waLink, portfolio } from '../site.js';
 
-const featuredPortfolio = portfolio.filter((p) => p.featured);
+const featuredPortfolio = portfolio.filter((p) =>
+  p.featured ||
+  [
+    'booth-pameran-custom-jakarta-jasa-tirta',
+    'booth-pameran-custom-perfetto-jakarta',
+    'booth-pameran-custom-sosrait',
+    'booth-aktivasi-mall-tema-golden-farm-jakarta',
+  ].includes(p.img)
+);
 const portfolioHighlights = [
   { category: 'Rak Display', href: '/layanan/rak-display-gondola/' },
   { category: 'Neon Box & Signage', href: '/layanan/neon-box-signage/' },
   { category: 'Booth & Pameran', href: '/layanan/booth-pameran/' },
   { category: 'Proses Produksi', href: '/tentang/' },
 ];
-const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
+const homepageInquiryMessage = 'Halo CSK, saya ingin konsultasi kebutuhan produksi.\n\nNama perusahaan/brand: \nJenis kebutuhan: \nUkuran atau jumlah: \nLokasi: \nTarget waktu: \nReferensi/foto: ';
 ---
 <Base
-      title="Jasa Booth Pameran & Rak Display"
-      description="Cahaya Selatan Kreasindo, jasa pembuatan booth pameran, rak display custom, neon box, dan signage di Tangerang Selatan. Dikerjakan sendiri dari desain sampai pemasangan."
+      title="Production Partner B2B | Display, POSM, Signage & Booth"
+      description="Cahaya Selatan Kreasindo (CSK), production partner B2B untuk retail display, POSM, signage, neon box, booth pameran, dan custom fabrication. Workshop di Serpong, Tangerang Selatan; instalasi Jabodetabek."
 >
-      <section>
-        <div class="mx-auto max-w-6xl px-5 py-12 md:py-16">
-          <h1 class="text-3xl font-bold leading-tight text-csk-black sm:text-4xl md:text-5xl">
-            Wujudkan Branding Visual terbaik bersama kami.
-          </h1>
-          <p class="mt-4 max-w-xl text-base leading-relaxed text-csk-gray sm:text-lg">
-            Production partner terpercaya untuk semua kebutuhan display, booth pameran, dan branding bisnis Anda.
-          </p>
-        </div>
-        <div class="border-t border-csk-gray/10">
-          <div class="grid grid-cols-1 divide-y md:grid-cols-3 md:divide-x md:divide-y-0 md:divide-csk-gray/10">
-            <a href="/layanan/visual-merchandising/"
-               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-               <AssetImage
-                 src="/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp"
-                 srcset={responsiveSrcset('/assets/rak-display-bioxine/1ebe3b6d-1102-440d-80e9-8af4d444d7f2.webp')}
-                 sizes="(min-width: 768px) 33vw, 100vw"
-                 alt="Retail dan visual merchandising — rak display akrilik untuk produk kecantikan di toko ritel"
-                 loading="eager"
-                 fetchpriority="high"
-                 width="2160"
-                 height="3840"
-                 class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-               />
-              <div class="absolute inset-0 bg-black/50"></div>
-              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white">01</span>
-                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
-                  Retail &amp;<br/>Merchandising
-                </h2>
-              </div>
-            </a>
-            <a href="/layanan/neon-box-signage/"
-               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-                <AssetImage
-                  src="/assets/neon-box/neon-box-sakala.webp"
-                  srcset={responsiveSrcset('/assets/neon-box/neon-box-sakala.webp')}
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  alt="Signage dan branding — neon box SAKALA bercahaya untuk identity brand"
-                  loading="lazy"
-                  width="810"
-                  height="1080"
-                  class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                />
-              <div class="absolute inset-0 bg-black/50"></div>
-              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white">02</span>
-                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
-                  Signage &amp;<br/>Branding
-                </h2>
-              </div>
-            </a>
-            <a href="/layanan/booth-pameran/"
-               class="group relative block min-h-[280px] md:h-[480px] lg:h-[560px] overflow-hidden">
-                <AssetImage
-                  src="/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp"
-                  srcset={responsiveSrcset('/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp')}
-                  sizes="(min-width: 768px) 33vw, 100vw"
-                  alt="Booth pameran dan custom build — aktivasi brand Perfetto di atrium mall"
-                  loading="lazy"
-                  width="1200"
-                  height="1600"
-                  class="absolute inset-0 h-full w-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                />
-              <div class="absolute inset-0 bg-black/50"></div>
-              <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
-                <span class="text-xs font-semibold tracking-[0.2em] uppercase text-white">03</span>
-                <h2 class="mt-2 text-xl font-bold uppercase leading-none text-white sm:text-2xl md:text-3xl lg:text-4xl">
-                  Booth &amp;<br/>Custom Build
-                </h2>
-              </div>
-            </a>
+      <section class="relative isolate overflow-hidden bg-csk-black text-csk-white">
+        <div aria-hidden="true" class="pointer-events-none absolute -right-40 -top-44 h-[34rem] w-[34rem] rotate-45 border border-csk-amber/15"></div>
+        <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-0 h-px w-2/5 bg-gradient-to-r from-csk-amber/70 to-transparent"></div>
+        <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-6 md:grid-cols-[0.94fr_1.06fr] md:gap-10 md:py-20 lg:gap-16 lg:px-8 lg:py-24">
+          <div class="relative z-10">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-csk-amber">Production Partner untuk Brand dan Bisnis</p>
+            <h1 class="mt-6 max-w-2xl text-[clamp(2.75rem,5.4vw,5.25rem)] font-bold leading-[0.98] tracking-[-0.055em] text-white">
+              Kami membangun apa yang membuat <span class="text-csk-amber">brand terlihat.</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+              Retail display, POSM, signage, booth pameran, dan custom fabrication. Satu partner untuk kebutuhan visual brand — dari desain, produksi, hingga instalasi.
+            </p>
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href={waLink(homepageInquiryMessage)} target="_blank" rel="noopener"
+                 data-cta-location="homepage_hero"
+                 class="inline-flex min-h-12 items-center gap-2 rounded-sm bg-csk-amber px-6 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+                <WaIcon />Konsultasikan Kebutuhan
+              </a>
+              <a href="/portofolio/"
+                 class="inline-flex min-h-12 items-center rounded-sm border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-csk-amber hover:text-csk-amber focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+                Lihat Portofolio <span aria-hidden="true" class="ml-2">→</span>
+              </a>
+            </div>
+            <p class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium uppercase tracking-[0.12em] text-white/45">
+              <span>Workshop Serpong, Tangerang Selatan</span>
+              <span aria-hidden="true" class="text-csk-amber">/</span>
+              <span>Melayani Jabodetabek</span>
+            </p>
+          </div>
+
+          <div class="relative mx-auto w-full max-w-[600px] md:ml-auto">
+            <div aria-hidden="true" class="absolute -right-3 -top-3 z-0 h-28 w-28 border-r border-t border-csk-amber/80"></div>
+            <figure class="relative z-10 overflow-hidden border border-white/10 bg-white/5">
+              <Picture
+                name="retail-display-hanasui-installed"
+                alt="Retail display Hanasui yang terpasang di area toko kosmetik"
+                loading="eager"
+                fetchpriority="high"
+                sizes="(min-width: 768px) 50vw, 100vw"
+                class="aspect-[4/5] w-full object-cover object-[center_48%] md:aspect-[5/6]"
+              />
+              <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-csk-black/75 via-transparent to-csk-black/5"></div>
+              <figcaption class="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-5 sm:p-7">
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-csk-amber">Hasil Produksi</p>
+                  <p class="mt-1 text-lg font-bold text-white sm:text-xl">Retail Display</p>
+                </div>
+                <span class="text-xs font-medium uppercase tracking-[0.12em] text-white/70">Hanasui · Terpasang di Toko</span>
+              </figcaption>
+            </figure>
+            <div aria-hidden="true" class="absolute -bottom-5 -left-5 z-0 hidden h-24 w-24 border-b-2 border-l-2 border-csk-amber md:block"></div>
           </div>
         </div>
       </section>
 
-      <Section eyebrow="Layanan" title="Apa yang Kami Kerjakan"
-                 lead="Detail kebutuhan produksi dan implementasi untuk brand, retail, dan project commercial.">
-        <div class="mt-12 grid gap-x-px bg-csk-gray/15 md:grid-cols-2">
+      <Section eyebrow="Layanan" title="Solusi produksi untuk setiap titik brand."
+                 lead="Dari titik penjualan hingga ruang pameran, CSK mengerjakan kebutuhan visual yang dirancang mengikuti fungsi, ukuran, dan identitas brand.">
+        <div class="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {serviceDetails.map((s) => (
             <a href={`/layanan/${s.slug}/`}
                data-home-reveal
-               class="group block bg-white border-b border-csk-gray/15"
+               class="group block"
                aria-label={`Lihat detail layanan ${s.title}`}>
-              <div class="aspect-4/3 overflow-hidden">
-                <AssetImage
-                  src={s.assetImage}
-                  srcset={responsiveSrcset(s.assetImage)}
-                  sizes="(min-width: 1152px) 576px, (min-width: 768px) 50vw, calc(100vw - 40px)"
-                  alt={s.title}
-                  loading="lazy"
-                  {...s.assetImage.includes('A46AB99C') && { width: 1600, height: 1200 }}
-                  class="h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+              <div class="aspect-[5/4] overflow-hidden bg-csk-black">
+                <Picture
+                  name={s.images[0]}
+                  alt={s.nav}
+                  sizes="(min-width: 1152px) 368px, (min-width: 640px) 50vw, calc(100vw - 40px)"
+                  class="h-full w-full object-cover transition-transform duration-700 motion-safe:group-hover:scale-[1.035]"
                 />
-                </div>
-                <div class="px-6 py-5">
-                  <p class="text-xs font-semibold uppercase tracking-[0.15em] text-csk-amber-text">{s.cat}</p>
-                  <h3 class="mt-2 text-base font-bold uppercase leading-tight text-csk-black group-hover:text-csk-amber">
-                    {s.nav}
-                  </h3>
-                  <p class="mt-2 text-sm leading-relaxed text-csk-gray line-clamp-2">{s.lead}</p>
-                  <span class="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-csk-black group-hover:text-csk-amber">
-                    Selengkapnya <span aria-hidden="true">&rarr;</span>
-                  </span>
-                </div>
-              </a>
+              </div>
+              <div class="border-b border-csk-gray/20 pb-6 pt-5">
+                <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-csk-amber-text">{s.cat}</p>
+                <h3 class="mt-2 text-lg font-bold leading-tight text-csk-black transition-colors group-hover:text-csk-amber-text">
+                  {s.nav}
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-csk-gray line-clamp-3">{s.lead}</p>
+                <span class="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-csk-black transition-colors group-hover:text-csk-amber-text">
+                  Lihat detail layanan <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </Section>
 
+      <section class="bg-csk-black text-white">
+        <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.78fr_1.22fr] md:gap-16 md:py-20">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber">Alur Kerja</p>
+            <h2 class="mt-4 max-w-md text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+              Dari kebutuhan awal hingga terpasang.
+            </h2>
+            <p class="mt-5 max-w-md text-sm leading-7 text-white/65">
+              Setiap kebutuhan dimulai dari memahami tujuan brand, lalu diterjemahkan menjadi pekerjaan produksi yang jelas dan terukur.
+            </p>
+          </div>
+          <div class="grid gap-8 sm:grid-cols-3 sm:gap-6">
+            <article class="border-t-2 border-csk-amber pt-5">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber">Design</p>
+              <h3 class="mt-4 text-lg font-bold text-white">Rancang kebutuhan</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">
+                Kebutuhan, ukuran, referensi, dan identitas brand diterjemahkan menjadi konsep serta gambar kerja.
+              </p>
+            </article>
+            <article class="border-t border-white/25 pt-5">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber">Fabrication</p>
+              <h3 class="mt-4 text-lg font-bold text-white">Wujudkan detail</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">
+                Produksi custom dikerjakan di workshop CSK dengan material dan finishing sesuai spesifikasi.
+              </p>
+            </article>
+            <article class="border-t border-white/25 pt-5">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber">Installation</p>
+              <h3 class="mt-4 text-lg font-bold text-white">Siap digunakan</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">
+                Pengiriman dan pemasangan di Jabodetabek mengikuti kondisi lokasi dan jadwal yang disepakati.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      <Section eyebrow="Portofolio" title="Project yang Kami Tangani"
-                 lead="Pilihan pekerjaan nyata CSK, dari retail display dan signage hingga booth dan proses produksi.">
+      <Section eyebrow="Portofolio" title="Pekerjaan nyata. Hasil yang terlihat."
+                 lead="Pilihan hasil produksi dan implementasi CSK untuk kebutuhan retail, signage, booth, dan custom fabrication.">
         <div class="mt-10 space-y-14 md:space-y-20">
           {portfolioHighlights.map(({ category, href }) => {
             const projects = featuredPortfolio.filter((p) => p.cat === category);
@@ -159,7 +177,7 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
                     <figure
                       data-home-reveal
                       class:list={[
-                        'group relative isolate min-h-[290px] overflow-hidden rounded-xl bg-csk-black sm:min-h-[320px] lg:min-h-0',
+                        'group relative isolate min-h-[290px] overflow-hidden bg-csk-black sm:min-h-[320px] lg:min-h-0',
                         hasFeature && index === 0 ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2' : '',
                         projects.length === 2 && index === 0 ? 'lg:col-span-2' : '',
                         projects.length === 1 ? 'sm:col-span-2 lg:col-span-3 lg:row-span-2' : '',
@@ -197,16 +215,16 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
         </a>
       </Section>
 
-      <section class="mx-auto max-w-6xl px-5 py-16 md:py-20">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-csk-gray">FAQ</p>
-        <h2 class="mt-3 text-3xl font-bold uppercase leading-none text-csk-black md:text-4xl">Pertanyaan Umum</h2>
-        <div class="mt-10 space-y-px bg-csk-gray/15">
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+      <section class="mx-auto max-w-5xl px-5 py-16 md:py-24">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber">FAQ</p>
+        <h2 class="mt-3 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-csk-black md:text-4xl">Pertanyaan Umum</h2>
+        <div class="mt-10 divide-y divide-csk-gray/15 border-y border-csk-gray/15">
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
               <span>Di mana lokasi workshop Cahaya Selatan Kreasindo?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
                 Workshop utama kami berlokasi di Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong, Tangerang Selatan, Banten 15310. 
                 Klien dipersilakan berkunjung untuk meninjau proses produksi dan quality check sebelum pengiriman, 
@@ -214,12 +232,12 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
               <span>Apakah CSK melayani pembuatan booth pameran di luar Tangerang Selatan?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
                 Ya. Selain area Serpong dan Tangerang Selatan, kami melayani jasa pembuatan booth pameran, 
                 signage, dan rak display custom untuk seluruh area Jabodetabek — Jakarta, Bogor, Depok, Tangerang, dan Bekasi. 
@@ -227,12 +245,12 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
               <span>Bagaimana cara menghubungi Cahaya Selatan Kreasindo?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
                 Anda bisa menghubungi kami via WhatsApp di nomor 0888-8533-488, 
                 atau email ke halo@cahayaselatankreasindo.my.id. 
@@ -240,56 +258,49 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
-              <span>Apakah project bisa dibuat custom?</span>
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
+              <span>Apakah CSK menerima pesanan custom?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Ya. Sebagian besar project kami dibuat sesuai kebutuhan,<br/>
-                mulai dari ukuran, material, desain, hingga kebutuhan pemasangan.
+                Ya. Sebagian besar produk kami dibuat sesuai kebutuhan, mulai dari ukuran, material, desain, hingga pemasangan.
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
               <span>Apakah CSK membantu dari tahap desain?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Bisa. Anda dapat memulai dari ide atau referensi awal,<br/>
-                atau langsung masuk ke tahap produksi jika desain dan<br/>
-                spesifikasi project sudah tersedia.
+                Bisa. Anda dapat memulai dari ide atau referensi awal, atau langsung masuk ke tahap produksi jika desain dan spesifikasi sudah tersedia.
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
               <span>Apakah CSK menangani produksi dan pemasangan?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Ya. CSK menangani kebutuhan produksi hingga pemasangan<br/>
-                sesuai kebutuhan project dan lokasi pekerjaan.
+                Ya. CSK menangani kebutuhan produksi hingga pemasangan sesuai kebutuhan dan lokasi pekerjaan.
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
-              <span>Berapa lama proses pengerjaan?</span>
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
+              <span>Berapa lama waktu pengerjaan?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Bergantung pada jenis project, jumlah, material,<br/>
-                tingkat kompleksitas, dan lokasi pemasangan.<br/><br/>
-                Setelah kebutuhan project kami terima, CSK dapat<br/>
-                memberikan estimasi waktu pengerjaan yang lebih jelas.
+                Durasi pengerjaan bergantung pada jenis pekerjaan, jumlah, material, tingkat kompleksitas, dan lokasi pemasangan. Setelah kebutuhan diterima, CSK akan memberikan estimasi waktu yang lebih jelas.
               </p>
-              <a href="https://wa.me/628888533488?text=Halo%20CSK%2C%20saya%20ingin%20konsultasi%20dan%20menanyakan%20estimasi%20waktu%20pengerjaan%20project." target="_blank" rel="noopener"
+              <a href="https://wa.me/628888533488?text=Halo%20CSK%2C%20saya%20ingin%20konsultasi%20dan%20menanyakan%20estimasi%20waktu%20pengerjaan." target="_blank" rel="noopener"
                  class="mt-5 inline-flex items-center gap-2 rounded bg-csk-black px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.19 4.23-9.41 9.43-9.41 2.52 0 4.88.98 6.66 2.76a9.34 9.34 0 0 1 2.76 6.66c0 5.19-4.23 9.42-9.42 9.42zM20.5 3.49A11.75 11.75 0 0 0 12.04 0C5.55 0 .27 5.28.26 11.76c0 2.07.54 4.1 1.57 5.88L.16 24l6.5-1.7a11.74 11.74 0 0 0 5.38 1.37h.01c6.49 0 11.77-5.28 11.77-11.76 0-3.14-1.22-6.1-3.44-8.32z"/>
@@ -298,55 +309,55 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
               </a>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
-              <span>Apakah CSK menerima project dalam jumlah banyak?</span>
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
+              <span>Apakah CSK menerima pesanan dalam jumlah besar?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Ya. CSK dapat menangani kebutuhan produksi dalam jumlah<br/>
-                kecil hingga project dengan kebutuhan produksi dan<br/>
-                implementasi yang lebih besar.
+                Ya. CSK menangani produksi dalam jumlah kecil maupun kebutuhan untuk beberapa outlet atau lokasi, sesuai kapasitas dan jadwal yang disepakati.
               </p>
             </div>
           </details>
-          <details class="group bg-white">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-5 text-base font-bold uppercase leading-tight text-csk-black transition-colors hover:text-csk-amber">
-              <span>Bagaimana cara memulai project?</span>
+          <details class="group bg-transparent">
+            <summary class="flex cursor-pointer list-none items-center justify-between py-5 text-sm font-semibold leading-relaxed text-csk-black transition-colors hover:text-csk-amber sm:text-base">
+              <span>Bagaimana cara memulai pemesanan?</span>
               <span class="ml-6 text-xl text-csk-gray transition-transform group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <div class="px-6 pb-6 pt-2">
+            <div class="pb-6 pt-0">
               <p class="text-sm leading-relaxed text-csk-gray">
-                Kirimkan kebutuhan project, ukuran, foto lokasi,<br/>
-                atau referensi yang Anda miliki. Tim CSK akan membantu<br/>
-                membahas kebutuhan dan langkah pengerjaan selanjutnya.
+                Kirimkan jenis kebutuhan, ukuran, foto lokasi, atau referensi yang Anda miliki. Tim CSK akan membantu membahas spesifikasi, estimasi, dan langkah pengerjaan selanjutnya.
               </p>
             </div>
           </details>
         </div>
       </section>
 
-      <Section class="text-center">
-        <h2 class="mx-auto max-w-2xl text-3xl font-bold uppercase leading-none tracking-tight text-csk-black md:text-4xl">
-          Punya Project yang Ingin Dikerjakan?
-        </h2>
-        <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-csk-gray">
-          Kirim kebutuhan, ukuran, foto lokasi, atau referensi project Anda.<br/>
-          Mari diskusikan kebutuhan produksi dan implementasinya bersama CSK.
-        </p>
-        <a href={waLink()} target="_blank" rel="noopener"
-           class="mt-8 inline-flex items-center gap-2 rounded bg-csk-black px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-csk-black/80">
-          <WaIcon />Chat WhatsApp
-        </a>
-      </Section>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           <Lightbox />
+      <section class="relative isolate overflow-hidden bg-csk-black">
+        <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rotate-45 border border-csk-amber/20"></div>
+        <div class="relative mx-auto max-w-6xl px-5 py-20 text-center md:py-24">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber">Konsultasi Produksi</p>
+          <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+            Ada kebutuhan produksi untuk brand Anda?
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/65 sm:text-base">
+            Kirimkan kebutuhan, ukuran, referensi, atau foto lokasi. Mari diskusikan solusi produksi yang paling tepat bersama CSK.
+          </p>
+          <a href={waLink(homepageInquiryMessage)} target="_blank" rel="noopener"
+             data-cta-location="homepage_final_cta"
+             class="mt-8 inline-flex min-h-12 items-center gap-2 rounded-sm bg-csk-amber px-7 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+            <WaIcon />Konsultasikan Kebutuhan
+          </a>
+        </div>
+      </section>
+
+      <Lightbox />
       <style>
         [data-home-reveal] {
           transition:
             opacity 520ms ease,
-            transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
-            box-shadow 240ms ease;
+            transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         [data-home-reveal][data-reveal-pending] {
@@ -358,7 +369,6 @@ const responsiveSrcset = (src) => responsiveImages[src]?.srcset;
           [data-home-reveal]:hover {
             position: relative;
             z-index: 1;
-            box-shadow: 0 16px 32px -24px rgba(11, 11, 11, 0.28);
           }
         }
 

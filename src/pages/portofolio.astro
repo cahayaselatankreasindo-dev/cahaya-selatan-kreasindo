@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Picture from '../components/Picture.astro';
 import { portfolio, portfolioCats, waLink } from '../site.js';
+import WaIcon from '../components/WaIcon.astro';
+import Lightbox from '../components/Lightbox.astro';
 
 const slug = (c) => c.replace(/[^a-zA-Z]+/g, '-').toLowerCase();
 const catLink = {
@@ -13,50 +14,53 @@ const catLink = {
   'Neon Box & Signage': '/layanan/neon-box-signage/',
   'Proses Produksi': '/tentang/',
 };
-// Guides support the corresponding service. They do not replace commercial service pages.
 const catGuide = {
   'Booth & Pameran': '/blog/checklist-brief-booth-pameran-custom/',
   'Rak Display': '/blog/memilih-rak-display-custom-gondola-toko/',
   'POSM': '/blog/floor-display-vs-counter-display-posm/',
   'Neon Box & Signage': '/blog/panduan-neon-box-vs-huruf-timbul/',
 };
-import WaIcon from '../components/WaIcon.astro';
-import Lightbox from '../components/Lightbox.astro';
 ---
+
 <Base
-  title="Portofolio Booth Pameran & Rak Display"
-  description="Dokumentasi pekerjaan Cahaya Selatan Kreasindo: booth pameran, gondola supermarket, rak display ritel, neon box, dan signage toko di Jabodetabek."
+  title="Portofolio CSK | Booth, Retail Display & Signage"
+  description="Dokumentasi hasil produksi Cahaya Selatan Kreasindo: booth pameran, gondola supermarket, rak display ritel, POSM, neon box, dan signage toko di Jabodetabek."
   image="/og-image.webp"
   breadcrumbs={[{ href: '/portofolio/', label: 'Portofolio' }]}
 >
   <Breadcrumbs items={[{ href: '/portofolio/', label: 'Portofolio' }]} />
 
-  <Section
-    as="h1"
-    eyebrow="Portofolio"
-    title="Pekerjaan yang sudah kami kerjakan"
-    lead="Booth pameran, rak display ritel, neon box, sampai signage toko — dikerjakan sendiri oleh tim kami dari desain hingga pemasangan."
-  >
-    <div class="mt-8 flex flex-wrap gap-2">
-      {portfolioCats.map((c) => (
-        <a href={`#${slug(c)}`}
-            class="rounded-full border border-csk-gray/30 px-4 py-1.5 text-sm text-csk-amber-text transition-colors hover:bg-csk-gray/10">
-          {c}
-        </a>
-      ))}
+  <section class="relative isolate overflow-hidden bg-csk-black text-white">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 h-[30rem] w-[30rem] rotate-45 border border-csk-amber/15"></div>
+    <div class="mx-auto max-w-7xl px-5 py-14 sm:px-6 md:py-20 lg:px-8 lg:py-24">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-csk-amber">Portofolio CSK</p>
+      <h1 class="mt-6 max-w-3xl text-4xl font-bold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
+        Hasil produksi yang hadir di ruang nyata.
+      </h1>
+      <p class="mt-6 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
+        Dokumentasi pekerjaan CSK untuk kebutuhan retail, signage, booth pameran, dan custom fabrication. Setiap hasil dibuat mengikuti fungsi, ukuran, dan identitas brand.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-2">
+        {portfolioCats.map((c) => (
+          <a href={'#' + slug(c)}
+             class="inline-flex min-h-10 items-center rounded-sm border border-white/25 px-4 py-2 text-xs font-semibold text-white/80 transition-colors hover:border-csk-amber hover:text-csk-amber">
+            {c}
+          </a>
+        ))}
+      </div>
     </div>
-  </Section>
+  </section>
 
   {portfolioCats.map((cat, catIndex) => {
     const items = portfolio.filter((p) => p.cat === cat);
     const hasFeature = items.length >= 3;
 
     return (
-      <section id={slug(cat)} class="mx-auto max-w-6xl scroll-mt-24 px-5 pb-20" aria-labelledby={'kategori-' + slug(cat)}>
+      <section id={slug(cat)} class="mx-auto max-w-7xl scroll-mt-24 px-5 pb-20" aria-labelledby={'kategori-' + slug(cat)}>
         <div class="flex flex-wrap items-end justify-between gap-5 border-t border-csk-gray/20 pt-8">
           <div>
             <p class="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-csk-amber-text">
-              Dokumentasi proyek
+              Hasil Produksi
             </p>
             <h2 id={'kategori-' + slug(cat)} class="text-2xl font-bold leading-tight tracking-tight text-csk-black sm:text-3xl">{cat}</h2>
           </div>
@@ -75,7 +79,7 @@ import Lightbox from '../components/Lightbox.astro';
         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:auto-rows-[235px] lg:grid-cols-3 lg:grid-flow-row-dense lg:gap-4" data-lightbox>
           {items.map((p, index) => (
             <figure
-              id={'proyek-' + p.img}
+              id={'hasil-' + p.img}
               data-portfolio-reveal
               class:list={[
                 'group relative isolate min-h-[280px] scroll-mt-28 overflow-hidden rounded-xl bg-csk-black sm:min-h-[300px] lg:min-h-0',
@@ -94,9 +98,7 @@ import Lightbox from '../components/Lightbox.astro';
               />
               <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-csk-black/90 via-csk-black/25 to-transparent"></div>
               <figcaption class="pointer-events-none absolute inset-x-0 bottom-0 p-5 text-white sm:p-6 lg:p-7">
-                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
-                  {cat}
-                </p>
+                <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">{cat}</p>
                 <h3 class:list={[
                   'max-w-2xl font-semibold leading-snug text-white',
                   hasFeature && index === 0 ? 'text-xl sm:text-2xl lg:text-3xl' : 'text-base sm:text-lg',
@@ -111,57 +113,43 @@ import Lightbox from '../components/Lightbox.astro';
     );
   })}
 
-  <Section class="text-center">
-    <h2 class="text-3xl font-semibold tracking-tight">Mau hasil serupa untuk brand Anda?</h2>
-    <p class="mx-auto mt-4 max-w-xl text-slate-600">
-      Kirim referensi atau foto lokasi, kami bantu susun konsep dan estimasi biayanya.
-    </p>
-    <a href={waLink('Halo, saya lihat portofolio di website. Saya ingin konsultasi untuk kebutuhan berikut:')}
-       target="_blank" rel="noopener"
-       class="mt-8 inline-flex items-center gap-2 rounded-full bg-csk-amber px-7 py-3 text-sm font-medium text-csk-black transition-colors hover:bg-csk-amber/90">
-      <WaIcon />Konsultasi Sekarang
-    </a>
-  </Section>
+  <section class="relative isolate overflow-hidden bg-csk-black text-white">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rotate-45 border border-csk-amber/20"></div>
+    <div class="relative mx-auto max-w-7xl px-5 py-16 text-center md:py-20">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber">Konsultasi Produksi</p>
+      <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl">
+        Ada kebutuhan produksi untuk brand Anda?
+      </h2>
+      <p class="mx-auto mt-5 max-w-xl text-sm leading-7 text-white/65 sm:text-base">
+        Kirimkan referensi atau foto lokasi. Kami bantu membahas solusi produksi dan estimasi pengerjaan yang sesuai kebutuhan.
+      </p>
+      <a href={waLink('Halo CSK, saya melihat hasil produksi di portofolio dan ingin konsultasi kebutuhan berikut:')}
+         target="_blank" rel="noopener"
+         data-cta-location="portfolio_final_cta"
+         class="mt-8 inline-flex min-h-12 items-center gap-2 rounded-sm bg-csk-amber px-7 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95">
+        <WaIcon />Konsultasikan Kebutuhan
+      </a>
+    </div>
+  </section>
   <Lightbox />
   <style>
     [data-portfolio-reveal] {
-      transition:
-        opacity 550ms ease,
-        transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 240ms ease;
+      transition: opacity 550ms ease, transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
     }
-
-    /* Hover treatments only apply where the device has a precise pointer. */
     @media (hover: hover) and (pointer: fine) {
-      [data-portfolio-reveal]:hover {
-        box-shadow: 0 18px 36px -24px rgba(11, 11, 11, 0.3);
-      }
+      [data-portfolio-reveal]:hover { box-shadow: 0 18px 36px -24px rgba(11, 11, 11, 0.3); }
     }
-
     @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-      [data-portfolio-reveal]:not([data-reveal-pending]):hover {
-        transform: translate3d(0, -4px, 0);
-      }
+      [data-portfolio-reveal]:not([data-reveal-pending]):hover { transform: translate3d(0, -4px, 0); }
     }
-
-    [data-portfolio-reveal][data-reveal-pending] {
-      opacity: 0;
-      transform: translate3d(0, 20px, 0);
-    }
-
+    [data-portfolio-reveal][data-reveal-pending] { opacity: 0; transform: translate3d(0, 20px, 0); }
     @media (prefers-reduced-motion: reduce) {
-      [data-portfolio-reveal] {
-        transition: none;
-        transform: none;
-      }
+      [data-portfolio-reveal] { transition: none; transform: none; }
     }
   </style>
-
   <script>
     const revealCards = Array.from(document.querySelectorAll<HTMLElement>('[data-portfolio-reveal]'));
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-    // Keep above-the-fold cards visible so this animation never delays first paint.
     if ('IntersectionObserver' in window && !reducedMotion.matches) {
       const observer = new IntersectionObserver((entries) => {
         for (const entry of entries) {
@@ -170,15 +158,12 @@ import Lightbox from '../components/Lightbox.astro';
           observer.unobserve(entry.target);
         }
       }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
-
       for (const card of revealCards) {
         if (card.getBoundingClientRect().top > window.innerHeight) {
           card.setAttribute('data-reveal-pending', '');
           observer.observe(card);
         }
       }
-
-      // If a visitor enables reduced motion mid-session, reveal everything.
       reducedMotion.addEventListener('change', () => {
         if (!reducedMotion.matches) return;
         observer.disconnect();

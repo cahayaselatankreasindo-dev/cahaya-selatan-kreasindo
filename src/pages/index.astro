@@ -82,7 +82,7 @@ const homepageInquiryMessage = 'Halo CSK, saya ingin konsultasi kebutuhan projec
                  lead="Dari titik penjualan hingga ruang pameran, CSK mengerjakan kebutuhan visual yang dirancang mengikuti fungsi, ukuran, dan identitas brand.">
         <div class="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {serviceDetails.map((s) => (
-            <a href={`/layanan/${s.slug}`}
+            <a href={`/layanan/${s.slug}/`}
                data-home-reveal
                class="group block"
                aria-label={`Lihat detail layanan ${s.title}`}>

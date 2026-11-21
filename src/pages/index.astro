@@ -202,6 +202,12 @@ const homepageInquiryMessage = 'Halo CSK, saya ingin konsultasi kebutuhan produk
                         ]}>
                           {p.title}
                         </h4>
+                        {p.img === 'booth-512-slow-move-bazaar' && (
+                          <a href="/portofolio/booth-512-slow-move-bazaar/"
+                             class="pointer-events-auto mt-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-csk-amber transition-colors hover:text-white">
+                            Lihat studi kasus <span aria-hidden="true">→</span>
+                          </a>
+                        )}
                       </figcaption>
                     </figure>
                   ))}

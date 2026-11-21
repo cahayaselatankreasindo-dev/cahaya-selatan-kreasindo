@@ -1,89 +1,135 @@
 ---
 import Base from '../layouts/Base.astro';
-import Section from '../components/Section.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Picture from '../components/Picture.astro';
+import WaIcon from '../components/WaIcon.astro';
 import { site, areas, waLink } from '../site.js';
+
 const mapQ = encodeURIComponent(site.address);
+const contactMessage = 'Halo CSK, saya ingin konsultasi kebutuhan produksi.\\n\\nNama perusahaan/brand: \\nJenis kebutuhan: \\nUkuran atau jumlah: \\nLokasi: \\nTarget waktu: \\nReferensi/foto: ';
 ---
+
 <Base
-  title="Kontak & Alamat Workshop"
-  description={`Hubungi Cahaya Selatan Kreasindo di ${site.waDisplay} atau ${site.email}. Workshop di Serpong, Tangerang Selatan. Buka Senin–Jumat 08.00–17.00 WIB.`}
+  title="Kontak CSK | WhatsApp, Email & Alamat Workshop"
+  description={`Hubungi Cahaya Selatan Kreasindo di ${site.waDisplay} atau ${site.email}. Workshop di Serpong, Tangerang Selatan. Konsultasi kebutuhan produksi dan instalasi Jabodetabek.`}
   breadcrumbs={[{ href: '/kontak/', label: 'Kontak' }]}
 >
   <Breadcrumbs items={[{ href: '/kontak/', label: 'Kontak' }]} />
 
-  <Section as="h1" eyebrow="Kontak" title="Hubungi kami"
-           lead="Balasan tercepat lewat WhatsApp pada jam kerja. Kirim foto lokasi, ukuran, atau referensi desain supaya estimasi bisa langsung kami hitung.">
-    <div class="mt-10 grid gap-6 md:grid-cols-3">
-      <a href={waLink()} target="_blank" rel="noopener"
-         class="rounded-2xl border border-csk-gray/20 p-7 transition-colors hover:bg-csk-gray/10">
-        <h2 class="text-sm font-medium text-csk-amber-text">WhatsApp</h2>
-        <p class="mt-2 text-lg font-semibold">{site.waDisplay}</p>
-        <p class="mt-2 text-sm text-slate-600">Chat langsung untuk konsultasi &amp; penawaran.</p>
-      </a>
-      <a href={`mailto:${site.email}`}
-         class="rounded-2xl border border-csk-gray/20 p-7 transition-colors hover:bg-csk-gray/10">
-        <h2 class="text-sm font-medium text-csk-amber-text">Email</h2>
-        <p class="mt-2 break-all text-lg font-semibold">{site.email}</p>
-        <p class="mt-2 text-sm text-slate-600">Untuk kebutuhan dokumen &amp; penawaran resmi.</p>
-      </a>
-      <div class="rounded-2xl border border-csk-gray/20 p-7">
-        <h2 class="text-sm font-medium text-csk-amber-text">Jam operasional</h2>
-        <dl class="mt-2 space-y-1 text-sm">
-          {site.hours.map((h) => (
-            <div class="flex justify-between gap-3">
-              <dt class="text-slate-600">{h.days}</dt>
-              <dd class="font-medium">{h.time}</dd>
+  <section class="relative isolate overflow-hidden bg-csk-black text-white">
+    <div aria-hidden="true" class="pointer-events-none absolute -right-36 -top-40 h-[30rem] w-[30rem] rotate-45 border border-csk-amber/15"></div>
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 sm:px-6 md:grid-cols-[0.95fr_1.05fr] md:py-20 lg:gap-16 lg:px-8 lg:py-24">
+      <div class="relative z-10">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-csk-amber">Hubungi CSK</p>
+        <h1 class="mt-6 max-w-2xl text-4xl font-bold leading-[1.04] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Mari bicarakan kebutuhan produksi Anda.
+        </h1>
+        <p class="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
+          Balasan tercepat melalui WhatsApp pada jam kerja. Kirimkan ukuran, foto lokasi, atau referensi agar kami dapat memahami kebutuhan dan menyiapkan estimasi awal.
+        </p>
+        <a href={waLink(contactMessage)} target="_blank" rel="noopener"
+           data-cta-location="contact_hero"
+           class="mt-8 inline-flex min-h-12 items-center gap-2 rounded-sm bg-csk-amber px-6 py-3 text-sm font-bold text-csk-black transition-colors hover:brightness-95">
+          <WaIcon />Chat WhatsApp CSK
+        </a>
+      </div>
+      <figure class="relative ml-4 overflow-hidden border border-white/10 bg-white/5 sm:ml-8">
+        <div class="aspect-[5/4]">
+          <Picture
+            name="quality-check-rak-display-custom"
+            alt="Pemeriksaan kualitas hasil produksi rak display di workshop CSK"
+            loading="eager"
+            fetchpriority="high"
+            sizes="(min-width: 768px) 52vw, 100vw"
+            class="h-full w-full object-cover"
+          />
+        </div>
+        <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-csk-black/75 via-transparent to-transparent"></div>
+        <figcaption class="absolute inset-x-0 bottom-0 p-5 sm:p-7">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-csk-amber">Workshop & Quality Check</p>
+          <p class="mt-2 text-lg font-bold text-white sm:text-2xl">Diskusi kebutuhan langsung dengan tim produksi.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="bg-white">
+    <div class="mx-auto max-w-7xl px-5 py-16 md:py-20">
+      <div class="mb-10">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber-text">Kontak Langsung</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-csk-black sm:text-4xl">Pilih cara yang paling nyaman.</h2>
+      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        <a href={waLink(contactMessage)} target="_blank" rel="noopener"
+           class="group border-t-2 border-csk-amber pt-5 transition-colors hover:border-csk-black">
+          <h3 class="text-sm font-bold uppercase tracking-[0.12em] text-csk-amber-text">WhatsApp</h3>
+          <p class="mt-3 text-xl font-bold text-csk-black">{site.waDisplay}</p>
+          <p class="mt-2 text-sm leading-relaxed text-csk-gray">Konsultasi kebutuhan, diskusi spesifikasi, dan permintaan penawaran.</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-csk-black">Chat langsung <span aria-hidden="true">↗</span></span>
+        </a>
+        <a href={'mailto:' + site.email}
+           class="group border-t-2 border-csk-gray/25 pt-5 transition-colors hover:border-csk-amber">
+          <h3 class="text-sm font-bold uppercase tracking-[0.12em] text-csk-amber-text">Email</h3>
+          <p class="mt-3 break-all text-xl font-bold text-csk-black">{site.email}</p>
+          <p class="mt-2 text-sm leading-relaxed text-csk-gray">Untuk kebutuhan dokumen, spesifikasi teknis, dan penawaran resmi.</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-csk-black">Kirim email <span aria-hidden="true">↗</span></span>
+        </a>
+        <div class="border-t-2 border-csk-gray/25 pt-5">
+          <h3 class="text-sm font-bold uppercase tracking-[0.12em] text-csk-amber-text">Jam Operasional</h3>
+          <dl class="mt-3 space-y-2 text-sm">
+            {site.hours.map((h) => (
+              <div class="flex justify-between gap-3 border-b border-csk-gray/10 pb-2">
+                <dt class="text-csk-gray">{h.days}</dt>
+                <dd class="font-semibold text-csk-black">{h.time}</dd>
+              </div>
+            ))}
+            <div class="flex justify-between gap-3 pt-1">
+              <dt class="text-csk-gray">Minggu &amp; libur nasional</dt>
+              <dd class="font-semibold text-csk-black">Tutup</dd>
             </div>
-          ))}
-          <div class="flex justify-between gap-3">
-            <dt class="text-slate-600">Minggu &amp; libur nasional</dt>
-            <dd class="font-medium">Tutup</dd>
-          </div>
-        </dl>
+          </dl>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="mt-10 grid gap-6 md:grid-cols-[1fr_1.2fr]">
-      <div class="rounded-2xl border border-csk-gray/20 p-7">
-        <h2 class="text-sm font-medium text-csk-amber-text">Workshop & Kontak</h2>
-        <address class="mt-2 not-italic leading-relaxed text-slate-700">
-          <strong class="font-semibold text-csk-black">Cahaya Selatan Kreasindo</strong><br />
+  <section class="bg-csk-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[0.85fr_1.15fr] md:items-start md:py-20">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-csk-amber-text">Lokasi Workshop</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-csk-black sm:text-4xl">Kunjungi workshop kami di Serpong.</h2>
+        <address class="mt-6 not-italic text-sm leading-7 text-csk-gray">
+          <strong class="text-base font-bold text-csk-black">Cahaya Selatan Kreasindo</strong><br />
           Jl. Doel Silem No. 45, Rawa Mekar Jaya, Serpong<br />
           Tangerang Selatan, Banten 15310<br />
           Indonesia
         </address>
-        <p class="mt-4 text-sm text-slate-600">
-          Kunjungan workshop sebaiknya dijadwalkan dulu lewat WhatsApp agar tim yang menangani proyek Anda ada di tempat.
+        <p class="mt-5 max-w-md text-sm leading-relaxed text-csk-gray">
+          Kunjungan workshop sebaiknya dijadwalkan terlebih dahulu melalui WhatsApp agar tim yang menangani kebutuhan Anda dapat menyambut di lokasi.
         </p>
-        <div class="mt-6 space-y-2">
-          <p class="text-sm">
-            <strong class="text-csk-black">WhatsApp:</strong> 0888-8533-488
-          </p>
-          <p class="text-sm">
-            <strong class="text-csk-black">Email:</strong> <a href={`mailto:${site.email}`} class="text-csk-amber-text hover:underline">{site.email}</a>
-          </p>
+        <div class="mt-6 space-y-2 text-sm">
+          <p><strong class="text-csk-black">WhatsApp:</strong> {site.waDisplay}</p>
+          <p><strong class="text-csk-black">Email:</strong> <a href={'mailto:' + site.email} class="text-csk-amber-text hover:underline">{site.email}</a></p>
         </div>
-        <h3 class="mt-6 text-sm font-medium text-csk-amber-text">Area yang kami layani</h3>
-        <ul class="mt-2 flex flex-wrap gap-2">
+        <h3 class="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-csk-amber-text">Area yang Kami Layani</h3>
+        <ul class="mt-3 flex flex-wrap gap-2">
           {areas.map((a) => (
-            <li class="rounded-full border border-csk-gray/30 px-3 py-1 text-xs text-csk-amber-text">{a.name}</li>
+            <li class="border border-csk-gray/25 px-3 py-1.5 text-xs font-medium text-csk-gray">{a.name}</li>
           ))}
         </ul>
-        <a href="/area-layanan/" class="mt-4 inline-block text-sm font-medium text-csk-amber-text hover:text-csk-amber-text/80">
-          Detail area layanan →
+        <a href="/area-layanan/" class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-csk-black underline decoration-csk-amber decoration-2 underline-offset-4">
+          Lihat detail area layanan <span aria-hidden="true">↗</span>
         </a>
       </div>
-
-      <div class="overflow-hidden rounded-2xl border border-csk-gray/20">
+      <div class="overflow-hidden border border-csk-gray/20 bg-white">
         <iframe
           title="Lokasi workshop Cahaya Selatan Kreasindo di Serpong"
-          class="h-full min-h-80 w-full"
+          class="h-full min-h-[420px] w-full"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           src={`https://maps.google.com/maps?q=${mapQ}&output=embed`}
         ></iframe>
       </div>
     </div>
-  </Section>
+  </section>
 </Base>

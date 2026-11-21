@@ -4,6 +4,14 @@
 
 ## Current SEO Status (CONFIRMED)
 
+## External Homepage SEO Scan — 2026-11-10
+
+- URL: https://cahayaselatankreasindo.my.id/
+- Grow My Website baseline: 92/100 (10 of 12 checks passed).
+- Findings: homepage title 63 characters and meta description 169 characters; the other scanned checks were not flagged.
+- Prepared fix on branch `fix/homepage-seo-metadata-20261110`: rendered title 54 characters; meta description 143 characters.
+- Re-scan the production URL after Cloudflare Pages production deployment. Do not report a new score before that scan.
+
 Halaman: `/`, `/tentang`, `/layanan`, `/layanan/:slug` -6, `/portofolio`,
 `/area-layanan`, `/kontak`, `/apa-itu-posm`, `/kebijakan-privasi`, `/syarat-ketentuan`.
 Setiap halaman punya title + description sendiri.

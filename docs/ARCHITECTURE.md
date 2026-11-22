@@ -14,14 +14,14 @@ Halaman `.ts` memakai `import type { APIRoute }` (endpoint, bukan SSR page).
 
 ## Rendering Strategy
 
-Static-first penuh. `npm run build` ? `dist/` (di-ignore git + Cloudflare).
+Static-first untuk halaman publik. `npm run build` menghasilkan `dist/`; Cloudflare Pages Functions di folder root `functions/` menyediakan API server-side untuk intake dan dashboard leads.
 Sitemap otomatis (`/sitemap-index.xml`). Lightbox/summary accordion = JS/CSS client minimal,
 tanpa framework client.
 
 ## Project Structure
 
 ```text
-src/site.js            konten bisnis tunggal (kontak, hours, areas, products,
+functions/api/           Pages Functions API (quote intake + admin leads)\nfunctions/_lib/          helper JSON dan verifikasi Cloudflare Access JWT\nmigrations/              SQL schema D1 untuk lead intake\nsrc/site.js            konten bisnis tunggal (kontak, hours, areas, products,
                        portfolio, portfolioCats, serviceDetails[7], productDetails[17])
 src/layouts/Base.astro satu-satunya layout (head, SEO, JSON-LD, header, footer)
 src/components/        9 komponen (lihat bawah)
@@ -44,7 +44,7 @@ scripts/og-image.mjs   generator og-image manual (sharp)
 | `/layanan` | `layanan.astro` | `serviceDetails` + `products` + `portfolio.find` (sampel) |
 | `/layanan/:slug` | `layanan/[slug].astro` | `getStaticPaths` dari `serviceDetails` (7 halaman), sampel dari `portfolio` + productDetails |
 | `/produk` | `produk/index.astro` | Katalog 17 jenis produk, dikelompokkan berdasarkan kategori |
-| `/produk/:slug` | `produk/[slug].astro` | Detail produk, fungsi, material, finishing, form penawaran WhatsApp |
+| `/produk/:slug` | `produk/[slug].astro` | Detail produk, fungsi, material, finishing, form penawaran tersimpan ke D1 + WhatsApp |\n| `/admin` | `admin/index.astro` | Dashboard leads; noindex; data API dilindungi Cloudflare Access |\n| `POST /api/quotes` | `functions/api/quotes.js` | Validasi dan simpan permintaan penawaran ke D1 |\n| `GET /api/admin/quotes` | `functions/api/admin/quotes.js` | Daftar leads + ringkasan status, wajib Access JWT valid |\n| `PATCH /api/admin/quotes/:id` | `functions/api/admin/quotes/[id].js` | Perbarui status + catatan riwayat, wajib Access JWT valid |
 | `/portofolio` | `portofolio.astro` | `portfolio` + `portfolioCats` (chip anchor per kategori) |
 | `/tentang`, `/area-layanan`, `/kontak`, `/apa-itu-posm` | masing-masing | `site/areas` + Section |
 | `/kebijakan-privasi`, `/syarat-ketentuan` | masing-masing | konten hardcode + `site/waLink` |
@@ -135,3 +135,13 @@ eksplisit. Default: perubahan terkecil yang koheren.
 - Kompres 183 file atau pindahkan slot penting ke pipeline `astro:assets`.
 - `404.astro` kustom; hapus `test-assets.astro`; putuskan nasib `data/` vs `site.js`.
 - Analytics ringan + monitoring build; form inquiry bila WhatsApp saja kurang.
+
+
+## Cloudflare Pages Functions & D1 (2026-11-23)
+
+- Pages project binding `DB` is configured separately for production and preview D1 databases.
+- `quote_requests` stores contact, product, specification, consent, and reference metadata.
+- `quote_status_history` records status transitions; `quote_rate_limits` tracks daily request counts using an HMAC of the Cloudflare client IP.
+- Public quote intake validates same-origin requests, consent, basic field formats, honeypot, form timing, MIME metadata, and a 10-per-day IP hash threshold.
+- Admin API validates `Cf-Access-Jwt-Assertion` signature against the configured Access team's JWKS, issuer, audience, expiry, and allowlisted email. It returns 503 until Access variables are configured; it must not be opened without an Access application and Allow policy.
+- R2 is not enabled on the account yet. No R2 binding, direct upload, or stored attachment content is active.

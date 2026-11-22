@@ -1,0 +1,194 @@
+---
+import '../../styles/global.css';
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dashboard Permintaan Penawaran — CSK</title>
+    <meta name="description" content="Dashboard internal permintaan penawaran Cahaya Selatan Kreasindo." />
+  </head>
+  <body class="min-h-screen bg-csk-white text-csk-black">
+    <header class="border-b border-csk-gray/20 bg-csk-black text-white">
+      <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5">
+        <div><p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber">CSK / Internal</p><h1 class="mt-1 text-xl font-bold">Dashboard Permintaan Penawaran</h1></div>
+        <a href="/" class="text-sm font-semibold text-white/75 underline underline-offset-4 hover:text-csk-amber">Kembali ke website</a>
+      </div>
+    </header>
+    <main class="mx-auto max-w-7xl px-5 py-8 md:py-12">
+      <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div><p class="text-xs font-bold uppercase tracking-[0.16em] text-csk-amber-text">Sales inbox</p><h2 class="mt-2 text-3xl font-bold tracking-tight">Prospek masuk</h2><p id="admin-identity" class="mt-2 text-sm text-csk-gray">Memeriksa sesi akses…</p></div>
+        <button id="reload" type="button" class="inline-flex min-h-11 items-center justify-center rounded-sm bg-csk-black px-5 py-3 text-sm font-semibold text-white hover:bg-csk-gray">Muat ulang data</button>
+      </div>
+      <div id="notice" role="status" aria-live="polite" class="mt-6 rounded-lg border border-csk-gray/20 bg-white p-4 text-sm text-csk-gray">Memuat data permintaan…</div>
+      <section id="summary" class="mt-6 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6" aria-label="Ringkasan status"></section>
+      <section class="mt-8 rounded-xl border border-csk-gray/20 bg-white p-4 md:p-6">
+        <div class="flex flex-col gap-3 md:flex-row">
+          <label class="flex-1 text-xs font-semibold uppercase tracking-wide text-csk-gray">Cari permintaan
+            <input id="search" type="search" placeholder="Nama, brand, nomor WhatsApp, produk…" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm font-normal normal-case tracking-normal text-csk-black outline-none focus:border-csk-amber" />
+          </label>
+          <label class="w-full text-xs font-semibold uppercase tracking-wide text-csk-gray md:w-56">Filter status
+            <select id="status-filter" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 bg-white px-3 text-sm font-normal normal-case tracking-normal text-csk-black outline-none focus:border-csk-amber">
+              <option value="all">Semua status</option><option value="new">Baru</option><option value="contacted">Sudah dihubungi</option><option value="quoted">Penawaran dikirim</option><option value="won">Deal</option><option value="lost">Tidak lanjut</option><option value="archived">Arsip</option>
+            </select>
+          </label>
+          <button id="search-button" type="button" class="self-end inline-flex min-h-11 items-center justify-center rounded-sm border border-csk-gray/30 px-5 text-sm font-semibold hover:border-csk-amber">Terapkan</button>
+        </div>
+        <div id="lead-list" class="mt-6 space-y-4"></div>
+        <div class="mt-6 flex items-center justify-between gap-3 border-t border-csk-gray/15 pt-5"><p id="pagination" class="text-xs text-csk-gray">—</p><div class="flex gap-2"><button id="prev" type="button" class="min-h-10 rounded border border-csk-gray/30 px-4 text-sm disabled:opacity-40">Sebelumnya</button><button id="next" type="button" class="min-h-10 rounded border border-csk-gray/30 px-4 text-sm disabled:opacity-40">Berikutnya</button></div></div>
+      </section>
+      <p class="mt-6 text-xs leading-relaxed text-csk-gray">Data hanya ditampilkan setelah sesi Cloudflare Access terverifikasi. Status yang tersedia: Baru, Sudah dihubungi, Penawaran dikirim, Deal, Tidak lanjut, dan Arsip.</p>
+    </main>
+    <script is:inline>
+      (() => {
+        const labels = { new:'Baru', contacted:'Sudah dihubungi', quoted:'Penawaran dikirim', won:'Deal', lost:'Tidak lanjut', archived:'Arsip' };
+        const statusOptions = Object.entries(labels);
+        const $ = (selector) => document.querySelector(selector);
+        let page = 1;
+        let pages = 1;
+        let lastLeads = [];
+        const text = (tag, value, className = '') => {
+          const node = document.createElement(tag);
+          if (className) node.className = className;
+          node.textContent = value == null || value === '' ? '—' : String(value);
+          return node;
+        };
+        const dateText = (value) => {
+          if (!value) return '—';
+          const date = new Date(value.includes('T') ? value : value.replace(' ', 'T') + 'Z');
+          return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat('id-ID', { dateStyle:'medium', timeStyle:'short' }).format(date);
+        };
+        const setNotice = (message, error = false) => {
+          const notice = $('#notice');
+          notice.textContent = message;
+          notice.className = 'mt-6 rounded-lg border p-4 text-sm ' + (error ? 'border-red-200 bg-red-50 text-red-800' : 'border-csk-gray/20 bg-white text-csk-gray');
+        };
+        const renderSummary = (counts, total) => {
+          const summary = $('#summary');
+          summary.replaceChildren();
+          const countMap = Object.fromEntries((counts || []).map((item) => [item.status, Number(item.count)]));
+          [['Semua',total], ...statusOptions.map(([key,label]) => [label,countMap[key] || 0])].forEach(([label,count]) => {
+            const card = document.createElement('div');
+            card.className = 'rounded-lg border border-csk-gray/20 bg-white p-4';
+            card.append(text('p', label, 'text-xs text-csk-gray'));
+            card.append(text('p', String(count), 'mt-2 text-2xl font-bold text-csk-black'));
+            summary.append(card);
+          });
+        };
+        const renderLead = (lead) => {
+          const card = document.createElement('article');
+          card.className = 'rounded-lg border border-csk-gray/20 p-4 md:p-5';
+          const top = document.createElement('div');
+          top.className = 'flex flex-col gap-3 md:flex-row md:items-start md:justify-between';
+          const identity = document.createElement('div');
+          identity.append(text('h3', lead.product_name, 'text-base font-bold text-csk-black'));
+          identity.append(text('p', (lead.contact_name || '—') + ' · ' + (lead.company || 'Individu'), 'mt-1 text-sm text-csk-gray'));
+          identity.append(text('p', 'ID ' + lead.id, 'mt-1 break-all font-mono text-[10px] text-csk-gray'));
+          const state = document.createElement('span');
+          state.className = 'inline-flex w-fit rounded-full bg-csk-gray/10 px-3 py-1 text-xs font-semibold text-csk-black';
+          state.textContent = labels[lead.status] || lead.status;
+          top.append(identity, state);
+          card.append(top);
+          const grid = document.createElement('div');
+          grid.className = 'mt-4 grid gap-3 border-t border-csk-gray/15 pt-4 text-sm sm:grid-cols-2 lg:grid-cols-3';
+          [
+            ['Dibuat',dateText(lead.created_at)],['WhatsApp',lead.contact_phone],['Email',lead.contact_email],
+            ['Ukuran',lead.size],['Jumlah',lead.quantity],['Material',lead.material],
+            ['Finishing',lead.finishing],['Lokasi',lead.location],['Target waktu',lead.deadline],
+            ['Referensi',lead.reference_name ? lead.reference_name + ' (belum diunggah ke server)' : 'Tidak ada']
+          ].forEach(([label,value]) => {
+            const cell = document.createElement('div');
+            cell.append(text('p', label, 'text-[10px] font-bold uppercase tracking-wide text-csk-gray'));
+            cell.append(text('p', value || '—', 'mt-1 break-words text-sm text-csk-black'));
+            grid.append(cell);
+          });
+          card.append(grid);
+          if (lead.notes) {
+            card.append(text('p', 'Catatan: ' + lead.notes, 'mt-4 whitespace-pre-wrap rounded bg-csk-gray/5 p-3 text-sm leading-relaxed text-csk-gray'));
+          }
+          if (lead.source_url) {
+            const source = document.createElement('a');
+            source.href = lead.source_url;
+            source.target = '_blank';
+            source.rel = 'noopener noreferrer';
+            source.textContent = 'Buka halaman sumber';
+            source.className = 'mt-3 inline-flex text-xs font-semibold text-csk-amber-text underline underline-offset-4';
+            card.append(source);
+          }
+          const controls = document.createElement('div');
+          controls.className = 'mt-4 flex flex-col gap-3 border-t border-csk-gray/15 pt-4 sm:flex-row sm:items-end';
+          const label = text('label', 'Ubah status', 'flex-1 text-xs font-semibold text-csk-gray');
+          const select = document.createElement('select');
+          select.className = 'mt-2 min-h-10 w-full rounded border border-csk-gray/30 bg-white px-3 text-sm text-csk-black';
+          statusOptions.forEach(([value,name]) => {
+            const option = document.createElement('option');
+            option.value = value; option.textContent = name; option.selected = lead.status === value;
+            select.append(option);
+          });
+          label.append(select);
+          const note = document.createElement('input');
+          note.maxLength = 1000;
+          note.placeholder = 'Catatan internal (opsional)';
+          note.className = 'min-h-10 flex-1 rounded border border-csk-gray/30 px-3 text-sm';
+          const save = text('button', 'Simpan status', 'min-h-10 rounded-sm bg-csk-amber px-4 text-sm font-bold text-csk-black');
+          save.type = 'button';
+          save.addEventListener('click', async () => {
+            save.disabled = true; save.textContent = 'Menyimpan…';
+            try {
+              const response = await fetch('/api/admin/quotes/' + encodeURIComponent(lead.id), {
+                method:'PATCH', credentials:'same-origin', headers:{'Content-Type':'application/json','Accept':'application/json'},
+                body:JSON.stringify({status:select.value,note:note.value})
+              });
+              const result = await response.json();
+              if (!response.ok || !result.ok) throw new Error(result.message || 'Status gagal diperbarui.');
+              await load();
+              setNotice('Status permintaan berhasil diperbarui.');
+            } catch (error) {
+              setNotice(error.message || 'Status gagal diperbarui.', true);
+              save.disabled = false; save.textContent = 'Simpan status';
+            }
+          });
+          controls.append(label,note,save);
+          card.append(controls);
+          return card;
+        };
+        async function load() {
+          setNotice('Memuat data permintaan…');
+          const query = new URLSearchParams({ page:String(page), status:$('#status-filter').value, q:$('#search').value.trim() });
+          try {
+            const response = await fetch('/api/admin/quotes?' + query.toString(), { credentials:'same-origin', headers:{'Accept':'application/json'} });
+            const result = await response.json();
+            if (!response.ok || !result.ok) throw new Error(result.message || 'Data belum dapat dimuat.');
+            pages = result.pages || 1;
+            lastLeads = result.leads || [];
+            $('#admin-identity').textContent = 'Login sebagai ' + result.email;
+            renderSummary(result.counts, result.total);
+            const list = $('#lead-list');
+            list.replaceChildren();
+            if (!lastLeads.length) list.append(text('p', 'Belum ada permintaan yang sesuai filter.', 'rounded-lg border border-dashed border-csk-gray/30 p-8 text-center text-sm text-csk-gray'));
+            else lastLeads.forEach((lead) => list.append(renderLead(lead)));
+            $('#pagination').textContent = 'Halaman ' + page + ' dari ' + pages + ' · ' + result.total + ' permintaan';
+            $('#prev').disabled = page <= 1;
+            $('#next').disabled = page >= pages;
+            setNotice('Data permintaan berhasil dimuat.');
+          } catch (error) {
+            setNotice(error.message || 'Gagal memuat dashboard.', true);
+            $('#admin-identity').textContent = 'Sesi atau konfigurasi akses perlu diperiksa.';
+            $('#lead-list').replaceChildren();
+            $('#summary').replaceChildren();
+            $('#pagination').textContent = '—';
+          }
+        }
+        $('#reload').addEventListener('click', () => load());
+        $('#search-button').addEventListener('click', () => { page = 1; load(); });
+        $('#search').addEventListener('keydown', (event) => { if (event.key === 'Enter') { page = 1; load(); } });
+        $('#status-filter').addEventListener('change', () => { page = 1; load(); });
+        $('#prev').addEventListener('click', () => { if (page > 1) { page -= 1; load(); } });
+        $('#next').addEventListener('click', () => { if (page < pages) { page += 1; load(); } });
+        load();
+      })();
+    </script>
+  </body>
+</html>

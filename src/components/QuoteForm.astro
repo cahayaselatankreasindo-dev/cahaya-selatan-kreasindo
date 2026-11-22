@@ -1,60 +1,162 @@
 ---
 import { site } from '../site.js';
-const { productName, serviceName } = Astro.props;
+const { productName, serviceName, productSlug } = Astro.props;
 ---
 <section id="penawaran" class="border-y border-csk-gray/20 bg-csk-gray/10">
   <div class="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.8fr_1.2fr] md:py-20">
-    <div><p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber-text">Permintaan Penawaran</p><h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-csk-black">Ceritakan kebutuhan produk Anda.</h2><p class="mt-4 text-sm leading-relaxed text-csk-gray">Isi spesifikasi awal agar tim CSK dapat memahami kebutuhan dan menyiapkan diskusi penawaran melalui WhatsApp.</p><ul class="mt-6 space-y-3 text-sm text-csk-gray"><li>— Ukuran dan jumlah unit membantu estimasi lebih akurat.</li><li>— Material serta finishing ditetapkan setelah desain ditinjau.</li><li>— Foto atau PDF referensi dapat dibagikan bersama pesan jika browser mendukung.</li></ul></div>
-    <form data-quote-form data-wa={site.wa} data-product={productName} data-service={serviceName} class="rounded-xl border border-csk-gray/20 bg-white p-5 sm:p-7">
+    <div>
+      <p class="text-xs font-bold uppercase tracking-[0.18em] text-csk-amber-text">Permintaan Penawaran</p>
+      <h2 class="mt-3 text-3xl font-bold leading-tight tracking-tight text-csk-black">Ceritakan kebutuhan produk Anda.</h2>
+      <p class="mt-4 text-sm leading-relaxed text-csk-gray">Rincian akan dicatat ke sistem permintaan penawaran CSK dan disiapkan sebagai pesan WhatsApp agar tim kami dapat menindaklanjutinya.</p>
+      <ul class="mt-6 space-y-3 text-sm text-csk-gray">
+        <li>— Sertakan ukuran dan jumlah agar estimasi lebih terarah.</li>
+        <li>— Material serta finishing final ditetapkan setelah kebutuhan ditinjau.</li>
+        <li>— File referensi dapat dilampirkan manual di WhatsApp setelah pesan terbuka.</li>
+      </ul>
+    </div>
+    <form data-quote-form data-wa={site.wa} data-product={productName} data-product-slug={productSlug} data-service={serviceName} class="rounded-xl border border-csk-gray/20 bg-white p-5 sm:p-7">
       <div class="grid gap-5 sm:grid-cols-2">
-        <label class="block text-sm font-medium text-csk-black">Nama kontak *<input name="name" required autocomplete="name" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Nama Anda" /></label>
-        <label class="block text-sm font-medium text-csk-black">Perusahaan / brand<input name="company" autocomplete="organization" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Nama perusahaan atau brand" /></label>
-        <label class="block text-sm font-medium text-csk-black">Ukuran perkiraan<input name="size" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="P × L × T (cm)" /></label>
-        <label class="block text-sm font-medium text-csk-black">Jumlah unit<input name="quantity" inputmode="numeric" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Contoh: 10 unit" /></label>
-        <label class="block text-sm font-medium text-csk-black">Material pilihan<select name="material" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 bg-white px-3 text-sm outline-none focus:border-csk-amber"><option value="">Belum ditentukan / minta saran</option><option>Akrilik</option><option>PVC board / foamboard</option><option>Karton / corrugated</option><option>MDF / HMR / plywood</option><option>Besi / metal</option><option>Kombinasi material</option></select></label>
-        <label class="block text-sm font-medium text-csk-black">Finishing<select name="finish" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 bg-white px-3 text-sm outline-none focus:border-csk-amber"><option value="">Belum ditentukan / minta saran</option><option>Cat / duco</option><option>HPL</option><option>Stiker / digital print</option><option>Poles akrilik</option><option>LED / backlit</option><option>Kombinasi finishing</option></select></label>
-        <label class="block text-sm font-medium text-csk-black">Lokasi pengiriman / pemasangan<input name="location" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Kota / area outlet" /></label>
-        <label class="block text-sm font-medium text-csk-black">Target waktu<input name="deadline" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Tanggal atau estimasi" /></label>
+        <label class="block text-sm font-medium text-csk-black">Nama kontak *
+          <input name="name" required autocomplete="name" maxlength="120" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Nama Anda" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Nomor WhatsApp *
+          <input name="phone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[+0-9 ()-]{8,20}" maxlength="20" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Contoh: 0812xxxx atau +62812xxxx" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Email (opsional)
+          <input name="email" type="email" autocomplete="email" maxlength="160" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="nama@perusahaan.com" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Perusahaan / brand
+          <input name="company" autocomplete="organization" maxlength="160" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Nama perusahaan atau brand" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Ukuran perkiraan
+          <input name="size" maxlength="120" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="P × L × T (cm)" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Jumlah unit
+          <input name="quantity" maxlength="60" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Contoh: 10 unit" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Material pilihan
+          <select name="material" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 bg-white px-3 text-sm outline-none focus:border-csk-amber">
+            <option value="">Belum ditentukan / minta saran</option><option>Akrilik</option><option>PVC board / foamboard</option><option>Karton / corrugated</option><option>MDF / HMR / plywood</option><option>Besi / metal</option><option>Kombinasi material</option>
+          </select>
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Finishing
+          <select name="finish" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 bg-white px-3 text-sm outline-none focus:border-csk-amber">
+            <option value="">Belum ditentukan / minta saran</option><option>Cat / duco</option><option>HPL</option><option>Stiker / digital print</option><option>Poles akrilik</option><option>LED / backlit</option><option>Kombinasi finishing</option>
+          </select>
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Lokasi pengiriman / pemasangan
+          <input name="location" maxlength="160" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Kota / area outlet" />
+        </label>
+        <label class="block text-sm font-medium text-csk-black">Target waktu
+          <input name="deadline" maxlength="100" class="mt-2 min-h-11 w-full rounded-md border border-csk-gray/30 px-3 text-sm outline-none focus:border-csk-amber" placeholder="Tanggal atau estimasi" />
+        </label>
       </div>
-      <label class="mt-5 block text-sm font-medium text-csk-black">Catatan kebutuhan<textarea name="notes" rows="4" class="mt-2 w-full rounded-md border border-csk-gray/30 px-3 py-3 text-sm outline-none focus:border-csk-amber" placeholder="Fungsi display, ukuran produk, kondisi lokasi, atau detail lain."></textarea></label>
-      <label class="mt-5 block text-sm font-medium text-csk-black">Referensi foto / PDF (opsional)<input name="reference" type="file" accept="image/*,.pdf" class="mt-2 block w-full rounded-md border border-csk-gray/30 p-3 text-sm file:mr-3 file:rounded file:border-0 file:bg-csk-gray/10 file:px-3 file:py-2 file:text-sm file:font-semibold" /></label>
-      <p class="mt-2 text-xs leading-relaxed text-csk-gray">Maksimal 10 MB. Jika perangkat mendukung berbagi file, referensi dapat dikirim bersama pesan. Jika tidak, WhatsApp dibuka dan file perlu dilampirkan manual. File tidak disimpan di server website.</p>
-      <button type="submit" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-csk-amber px-6 py-3 text-sm font-bold text-csk-black hover:brightness-95">Siapkan Permintaan via WhatsApp</button>
+      <label class="mt-5 block text-sm font-medium text-csk-black">Catatan kebutuhan
+        <textarea name="notes" rows="4" maxlength="2000" class="mt-2 w-full rounded-md border border-csk-gray/30 px-3 py-3 text-sm outline-none focus:border-csk-amber" placeholder="Fungsi display, ukuran produk, kondisi lokasi, atau detail lain."></textarea>
+      </label>
+      <label class="mt-5 block text-sm font-medium text-csk-black">Referensi foto / PDF (opsional)
+        <input name="reference" type="file" accept="image/*,.pdf" class="mt-2 block w-full rounded-md border border-csk-gray/30 p-3 text-sm file:mr-3 file:rounded file:border-0 file:bg-csk-gray/10 file:px-3 file:py-2 file:text-sm file:font-semibold" />
+      </label>
+      <p class="mt-2 text-xs leading-relaxed text-csk-gray">Maksimal 10 MB. Untuk saat ini file tidak diunggah ke server; lampirkan file di chat WhatsApp setelah pesan terbuka.</p>
+      <label class="mt-5 flex items-start gap-3 text-xs leading-relaxed text-csk-gray">
+        <input name="consent" type="checkbox" required value="yes" class="mt-0.5 h-4 w-4 shrink-0 accent-csk-amber" />
+        <span>Saya menyetujui data pada formulir ini digunakan CSK untuk menindaklanjuti permintaan penawaran sesuai <a href="/kebijakan-privasi/" target="_blank" rel="noopener" class="font-semibold text-csk-amber-text underline underline-offset-2">Kebijakan Privasi</a>.</span>
+      </label>
+      <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label>Jangan isi kolom ini<input name="website" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <button type="submit" class="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-csk-amber px-6 py-3 text-sm font-bold text-csk-black hover:brightness-95">Kirim Permintaan & Lanjut ke WhatsApp</button>
       <p data-quote-status role="status" aria-live="polite" class="mt-3 min-h-5 text-xs leading-relaxed text-csk-gray"></p>
     </form>
   </div>
 </section>
 <script>
   document.querySelectorAll('[data-quote-form]').forEach((form) => {
+    if (!(form instanceof HTMLFormElement)) return;
+    form.dataset.startedAt = String(Date.now());
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      if (!(form instanceof HTMLFormElement)) return;
-      const data = new FormData(form);
-      const read = (key) => String(data.get(key) || 'Belum diisi').trim();
-      const input = form.querySelector('input[name="reference"]');
-      const file = input instanceof HTMLInputElement ? input.files?.[0] : undefined;
+      const button = form.querySelector('button[type="submit"]');
       const status = form.querySelector('[data-quote-status]');
       const setStatus = (message) => { if (status) status.textContent = message; };
+      const read = (name) => {
+        const field = form.elements.namedItem(name);
+        return field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement ? field.value.trim() : '';
+      };
+      const fileInput = form.querySelector('input[name="reference"]');
+      const file = fileInput instanceof HTMLInputElement ? fileInput.files?.[0] : undefined;
       if (file && file.size > 10 * 1024 * 1024) { setStatus('Ukuran file melebihi 10 MB. Pilih file yang lebih kecil.'); return; }
+      const phone = read('phone').replace(/[\s()-]/g, '');
+      if (!/^\+?\d{8,16}$/.test(phone)) { setStatus('Periksa kembali nomor WhatsApp. Gunakan 8–16 digit, boleh diawali +.'); return; }
+      if (button instanceof HTMLButtonElement) { button.disabled = true; button.textContent = 'Menyimpan permintaan…'; }
+      const payload = {
+        contactName: read('name'),
+        contactPhone: phone,
+        contactEmail: read('email'),
+        company: read('company'),
+        size: read('size'),
+        quantity: read('quantity'),
+        material: read('material'),
+        finishing: read('finish'),
+        location: read('location'),
+        deadline: read('deadline'),
+        notes: read('notes'),
+        productSlug: form.dataset.productSlug || '',
+        productName: form.dataset.product || '',
+        serviceName: form.dataset.service || '',
+        sourceUrl: window.location.href,
+        formStartedAt: Number(form.dataset.startedAt || 0),
+        website: read('website'),
+        consent: form.elements.namedItem('consent') instanceof HTMLInputElement && form.elements.namedItem('consent').checked,
+        reference: file ? { name: file.name, mime: file.type, size: file.size } : null
+      };
+      let savedId = '';
+      try {
+        const response = await fetch('/api/quotes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          credentials: 'same-origin',
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok || !result.ok) throw new Error(result.message || 'Permintaan belum dapat disimpan.');
+        savedId = result.id;
+      } catch (error) {
+        setStatus('Sistem pencatatan sedang tidak tersedia. Rincian tetap akan disiapkan ke WhatsApp, tetapi belum tercatat di dashboard CSK.');
+      }
       const message = [
         'Halo CSK, saya ingin meminta penawaran.', '',
-        'Produk: ' + form.dataset.product, 'Layanan: ' + form.dataset.service,
-        'Nama kontak: ' + read('name'), 'Perusahaan / brand: ' + read('company'),
-        'Ukuran: ' + read('size'), 'Jumlah unit: ' + read('quantity'),
-        'Material: ' + read('material'), 'Finishing: ' + read('finish'),
-        'Lokasi: ' + read('location'), 'Target waktu: ' + read('deadline'),
-        'Catatan: ' + read('notes'), 'Referensi: ' + (file ? file.name : 'Tidak dilampirkan')
+        'ID permintaan: ' + (savedId || 'Belum tercatat otomatis'),
+        'Produk: ' + (form.dataset.product || 'Belum dipilih'),
+        'Layanan: ' + (form.dataset.service || 'Belum dipilih'),
+        'Nama kontak: ' + read('name'),
+        'WhatsApp: ' + phone,
+        'Email: ' + (read('email') || 'Belum diisi'),
+        'Perusahaan / brand: ' + (read('company') || 'Belum diisi'),
+        'Ukuran: ' + (read('size') || 'Belum diisi'),
+        'Jumlah unit: ' + (read('quantity') || 'Belum diisi'),
+        'Material: ' + (read('material') || 'Minta rekomendasi'),
+        'Finishing: ' + (read('finish') || 'Minta rekomendasi'),
+        'Lokasi: ' + (read('location') || 'Belum diisi'),
+        'Target waktu: ' + (read('deadline') || 'Belum ditentukan'),
+        'Catatan: ' + (read('notes') || 'Tidak ada'),
+        'Referensi: ' + (file ? file.name + ' (lampirkan file di chat)' : 'Tidak ada')
       ].join('\n');
+      if (savedId) setStatus('Permintaan tercatat dengan ID ' + savedId + '. WhatsApp akan dibuka untuk tindak lanjut.');
       if (file && typeof navigator.share === 'function' && typeof navigator.canShare === 'function' && navigator.canShare({ files: [file] })) {
         try {
           await navigator.share({ title: 'Permintaan Penawaran CSK', text: message, files: [file] });
-          setStatus('Menu berbagi terbuka. Pilih WhatsApp untuk mengirim pesan dan file referensi.');
+          setStatus(savedId ? 'Permintaan ' + savedId + ' sudah tercatat. Pilih WhatsApp pada menu berbagi untuk mengirim file.' : 'Pilih WhatsApp pada menu berbagi untuk mengirim rincian dan file.');
+          if (button instanceof HTMLButtonElement) { button.disabled = false; button.textContent = 'Kirim Permintaan & Lanjut ke WhatsApp'; }
           return;
         } catch (error) {
-          if (error instanceof DOMException && error.name === 'AbortError') return;
+          if (error instanceof DOMException && error.name === 'AbortError') {
+            setStatus(savedId ? 'Permintaan ' + savedId + ' sudah tercatat. File belum dikirim; Anda dapat melampirkannya manual melalui WhatsApp.' : 'Menu berbagi ditutup. Rincian belum tercatat; silakan coba kembali.');
+            if (button instanceof HTMLButtonElement) { button.disabled = false; button.textContent = 'Kirim Permintaan & Lanjut ke WhatsApp'; }
+            return;
+          }
         }
       }
-      setStatus(file ? 'WhatsApp dibuka dengan spesifikasi. Lampirkan file referensi secara manual di chat.' : 'WhatsApp dibuka dengan rincian permintaan penawaran.');
       window.location.assign('https://wa.me/' + form.dataset.wa + '?text=' + encodeURIComponent(message));
     });
   });

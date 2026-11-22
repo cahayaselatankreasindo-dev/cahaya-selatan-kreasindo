@@ -18,7 +18,7 @@
 
 Menjadi production partner yang mengerjakan kebutuhan visual/fisik brand dari
 desain sampai pemasangan. Alur homepage: Attention ? Understand ? Explore ? Proof ? Contact.
-Corak layanan di `src/site.js` ? `serviceDetails` (7 entri), `products` (10 grup), dan `productDetails` (17 detail produk awal).
+Corak layanan di `src/site.js` ? `serviceDetails` (7 entri), `products` (10 grup), `productDetails` (17 detail produk awal), dan Cloudflare D1 `quote_requests` untuk penyimpanan leads.
 
 ## Target Audience (CONFIRMED dari copy situs)
 
@@ -45,8 +45,8 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 
 1. Brand positioning (H1 + 3-panel hero arah bisnis).
 2. B2B marketing (6 kartu layanan + halaman detail per layanan).
-3. Lead generation (CTA WhatsApp berkonteks + form permintaan penawaran client-side yang menyusun spesifikasi ke WhatsApp).
-4. Sales support (katalog 10 grup + halaman detail 17 jenis produk awal, FAQ per layanan + FAQ homepage).
+3. Lead generation (CTA WhatsApp + form penawaran yang mencatat prospek ke Cloudflare D1 dan menyiapkan pesan WhatsApp).
+4. Sales support (katalog 10 grup + halaman detail 17 jenis produk awal, dashboard internal leads, FAQ per layanan + FAQ homepage).
 5. Portfolio & capability proof (grid 4 kategori + halaman `/portofolio` + strip proses produksi).
 
 ## Actual Technology Stack (CONFIRMED - `package.json`, `.node-version`)
@@ -183,3 +183,17 @@ Tidak ada `404.astro` kustom, tidak ada `[...slug].astro`.
 1. File aktual di workspace ? 2. `BRAND_GUIDELINE.md` (visual) ? 3. `CLAUDE.md`
    (instruksi agen) ? 4. docs ini ? 5. riwayat chat (kedaluwarsa duluan).
    Jika bertentangan: kode yang jalan menang; dokumen diperbarui.
+
+
+## Lead Intake Backend (CONFIRMED - 2026-11-23)
+
+- Cloudflare Pages project: `cahaya-selatan-kreasindo`.
+- D1 production: `csk-quote-leads-prod` (primary location APAC), binding `DB`.
+- D1 preview: `csk-quote-leads-preview` (primary location APAC), binding `DB`.
+- Tables: `quote_requests`, `quote_status_history`, `quote_rate_limits`.
+- Public endpoint: `POST /api/quotes`; validates consent, required contact name/WhatsApp, product, form timing, same-origin request, allowed file metadata, and daily rate limit.
+- Admin endpoints: `GET /api/admin/quotes`, `PATCH /api/admin/quotes/:id`. They fail closed until Cloudflare Access environment values and Access application/policy are configured.
+- Admin UI: `/admin/` (noindex). Do not expose lead records until Access is configured and tested.
+- Reference files are not uploaded yet. Current form stores reference filename/type/size metadata only; visitor must attach the file in WhatsApp.
+- R2 activation is blocked until the account owner enables R2 from Cloudflare Dashboard. Do not claim file upload is live before bucket creation, binding, and end-to-end tests.
+- Required secrets/config before admin launch: `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`, `ACCESS_ALLOWED_EMAILS`. Rate-limit HMAC secret is stored as a Pages secret, not in Git.

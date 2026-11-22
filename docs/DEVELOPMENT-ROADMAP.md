@@ -32,10 +32,10 @@
 ## PHASE 5 - LEAD GENERATION [IN PROGRESS]
 
 - [COMPLETED] CTA WhatsApp berkonteks (`waLink(msg)`) per halaman/layanan/FAQ
-- [COMPLETED] Form penawaran client-side pada 17 halaman detail produk; spesifikasi disusun menjadi pesan WhatsApp
+- [COMPLETED] Form penawaran pada 17 halaman detail produk; nama, nomor WhatsApp, spesifikasi, persetujuan, dan metadata referensi dicatat ke D1 lalu disiapkan ke WhatsApp
 - [COMPLETED] Referensi foto/PDF dapat dibagikan via Web Share API pada browser yang mendukung; fallback lampiran manual di WhatsApp
 - [NOT STARTED] Upload langsung ke penyimpanan website (R2 belum aktif pada akun Cloudflare); tidak ada file yang disimpan di server
-- [NOT STARTED] Penyimpanan lead / dashboard CRM dan validasi konversi end-to-end
+- [COMPLETED] D1 production + preview, tabel lead/status history/rate limit, Pages binding `DB`\n- [IN PROGRESS] API intake `POST /api/quotes` + dashboard `/admin/` + API status leads; perlu deploy dan uji produksi\n- [BLOCKED] Proteksi dashboard melalui Cloudflare Access; perlu hostname, AUD, dan email admin yang disetujui\n- [BLOCKED] Upload lampiran langsung ke R2; akun meminta aktivasi R2 melalui Dashboard
 
 ## PHASE 6 - SEO [IN PROGRESS]
 
@@ -67,3 +67,13 @@ Lanjutkan uji visual pada viewport 360 px dan 390 px serta ukur Core Web Vitals;
 3. Validasi event `klik_whatsapp` dan `klik_layanan` di GA4 DebugView.
 4. Sinkronkan sumber data `featuredPortfolio` dan `portfolio[]` agar homepage serta halaman portofolio konsisten.
 5. Audit sisa kode/aset yang benar-benar tidak digunakan sebelum menghapusnya.
+
+
+## Backend implementation checkpoint (2026-11-23)
+
+- D1 resources created in APAC and bound to the Pages project for production and preview.
+- Database schema created: quote requests, status history, and daily rate-limit records.
+- Rate-limit secret stored as Pages secret in both environments.
+- Public intake and admin endpoints are implemented in Pages Functions. Production behavior must be verified after the next deployment.
+- Admin data access remains fail-closed until Access application and Allow policy are configured.
+- R2 file storage remains blocked until account-level R2 activation.

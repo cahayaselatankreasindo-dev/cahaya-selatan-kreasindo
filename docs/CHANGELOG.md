@@ -1,3 +1,14 @@
+## 2026-11-23 - Lead intake backend dan dashboard internal
+
+- Membuat D1 production dan preview pada lokasi utama APAC, masing-masing diikat ke Pages sebagai binding `DB`.
+- Membuat tabel `quote_requests`, `quote_status_history`, dan `quote_rate_limits`.
+- Form penawaran kini meminta nama dan nomor WhatsApp, email opsional, spesifikasi produk, serta persetujuan kebijakan privasi.
+- Form mengirim data ke `POST /api/quotes`, menyimpan lead ke D1, lalu menyusun pesan WhatsApp dengan ID permintaan.
+- Menambahkan pembatasan pengiriman harian berdasarkan HMAC IP, honeypot, validasi origin, validasi input, dan validasi metadata file.
+- Menambahkan dashboard noindex `/admin/` dan API untuk daftar serta perubahan status lead. API admin memverifikasi Cloudflare Access JWT dan fail-closed sampai konfigurasi Access selesai.
+- Memperbarui kebijakan privasi untuk menjelaskan data formulir, D1 APAC, anti-spam, dan lampiran yang saat ini masih harus dikirim manual melalui WhatsApp.
+- R2 belum aktif; file referensi belum disimpan ke server. Aktivasi R2 tetap memerlukan tindakan dari Dashboard Cloudflare.
+
 ## 2026-11-23 - Visual detail POSM dan product glorifier
 
 - Menambahkan galeri subkategori POSM memakai foto portofolio CSK: floor display, acrylic display, promotional display, light box, gondola branding, standee, mini display, dan retail activation.

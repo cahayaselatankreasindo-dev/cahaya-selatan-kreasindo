@@ -332,7 +332,7 @@ export const serviceDetails = [
     icon: 'neon',
     nav: 'Neon Box & Signage',
     title: 'Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama',
-    metaTitle: 'Jasa Pembuatan Neon Box & Huruf Timbul',
+    metaTitle: 'Jasa Neon Box, Signage & Digital Printing | CSK',
     description:
       'Produksi signage, neon box, digital printing, dan large-format graphics di Tangerang Selatan: huruf timbul, light box, stiker, banner, serta grafis window, wall, dan floor. Material, finishing, dan pemasangan disesuaikan dengan media serta kondisi lokasi.',
     lead:

@@ -19,7 +19,7 @@
 
 ## PHASE 3 - SERVICE PAGES [COMPLETED]
 
-- [COMPLETED] `/layanan` hub: 7 kartu + katalog POSM, glorifier, retail graphics, rak, booth, signage, dan peralatan event + CTA
+- [COMPLETED] `/layanan` hub: 7 kartu + katalog POSM, glorifier, digital printing, retail graphics, rak, booth, signage, dan peralatan event + CTA
 - [COMPLETED] `/layanan/:slug` -7 via `getStaticPaths`: intro, scope, grup item, galeri sampel, FAQ+schema, layanan lain
 - [COMPLETED] `/apa-itu-posm` edukasi + FAQ + CTA
 

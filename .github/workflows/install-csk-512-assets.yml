@@ -1,0 +1,102 @@
+name: Install CSK 512 High-Quality Photos
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'CSK_512_High_Quality_Assets_Replace.zip'
+
+permissions:
+  contents: write
+
+jobs:
+  replace-images:
+    name: Validate and install original 512 photos
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Validate and extract six WebP assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import struct
+
+          archive = Path("CSK_512_High_Quality_Assets_Replace.zip")
+          expected = [
+              "booth-512-slow-move-bazaar.webp",
+              "slow-move-bazaar-signage.webp",
+              "slow-move-bazaar-booth-detail.webp",
+              "slow-move-bazaar-event-activity.webp",
+              "slow-move-bazaar-installation.webp",
+              "slow-move-bazaar-setup.webp",
+          ]
+
+          if not archive.is_file():
+              raise SystemExit("Package ZIP tidak ditemukan di root repository.")
+
+          with ZipFile(archive) as zf:
+              for filename in expected:
+                  member = f"src/img/{filename}"
+                  try:
+                      data = zf.read(member)
+                  except KeyError:
+                      raise SystemExit(f"Aset wajib tidak ditemukan: {member}")
+
+                  if data[:4] != b"RIFF" or data[8:12] != b"WEBP":
+                      raise SystemExit(f"File bukan WebP valid: {filename}")
+                  if len(data) < 30000:
+                      raise SystemExit(f"File terlalu kecil, kemungkinan versi thumbnail: {filename} ({len(data)} bytes)")
+
+                  chunk = data[12:16]
+                  if chunk == b"VP8 ":
+                      width = struct.unpack_from("<H", data, 26)[0] & 0x3FFF
+                      height = struct.unpack_from("<H", data, 28)[0] & 0x3FFF
+                  elif chunk == b"VP8X":
+                      width = 1 + int.from_bytes(data[24:27], "little")
+                      height = 1 + int.from_bytes(data[27:30], "little")
+                  elif chunk == b"VP8L":
+                      b0, b1, b2, b3 = data[21:25]
+                      width = 1 + (((b1 & 0x3F) << 8) | b0)
+                      height = 1 + (((b3 & 0x0F) << 10) | (b2 << 2) | ((b1 & 0xC0) >> 6))
+                  else:
+                      raise SystemExit(f"Tipe chunk WebP tidak dikenal: {filename} ({chunk!r})")
+
+                  if (width, height) != (1200, 800):
+                      raise SystemExit(f"Resolusi salah untuk {filename}: {width}x{height}, seharusnya 1200x800")
+
+                  destination = Path("src/img") / filename
+                  destination.parent.mkdir(parents=True, exist_ok=True)
+                  destination.write_bytes(data)
+                  print(f"OK {filename}: {width}x{height}, {len(data):,} bytes")
+
+          print("Semua enam aset tervalidasi dan diekstrak tanpa re-encode.")
+          PY
+
+      - name: Install dependencies and verify Astro build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit only the six replacement images
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            src/img/booth-512-slow-move-bazaar.webp \
+            src/img/slow-move-bazaar-signage.webp \
+            src/img/slow-move-bazaar-booth-detail.webp \
+            src/img/slow-move-bazaar-event-activity.webp \
+            src/img/slow-move-bazaar-installation.webp \
+            src/img/slow-move-bazaar-setup.webp
+          git rm -f --ignore-unmatch CSK_512_High_Quality_Assets_Replace.zip
+          git commit -m "Replace Channel 512 photos with full-resolution WebP assets"
+          git push origin HEAD:main

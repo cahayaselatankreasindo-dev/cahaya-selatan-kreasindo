@@ -2,17 +2,51 @@
 import { Image } from 'astro:assets';
 
 const images = import.meta.glob('/src/img/*.webp', { eager: true });
+const originalImages = import.meta.glob('/src/img/*.webp', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+}) as Record<string, string>;
+
 const { name, alt, sizes, class: klass = '', loading = 'lazy', fetchpriority } = Astro.props;
 const mod = images[`/src/img/${name}.webp`];
 if (!mod) throw new Error(`Gambar tidak ditemukan: src/img/${name}.webp`);
+
+const preserveOriginal = [
+  'booth-512-slow-move-bazaar',
+  'slow-move-bazaar-signage',
+  'slow-move-bazaar-booth-detail',
+  'slow-move-bazaar-event-activity',
+  'slow-move-bazaar-installation',
+  'slow-move-bazaar-setup',
+].includes(name);
+
+const originalSrc = originalImages[`/src/img/${name}.webp`];
+if (preserveOriginal && !originalSrc) {
+  throw new Error(`File WebP original tidak ditemukan: src/img/${name}.webp`);
+}
 ---
-<Image
-  src={mod.default}
-  alt={alt}
-  widths={[400, 800, 1200]}
-  sizes={sizes}
-  loading={loading}
-  {...fetchpriority && { fetchpriority }}
-  decoding="async"
-  class={klass}
-/>
+
+{preserveOriginal ? (
+  <img
+    src={originalSrc}
+    alt={alt}
+    width="1200"
+    height="800"
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class={klass}
+  />
+) : (
+  <Image
+    src={mod.default}
+    alt={alt}
+    widths={[400, 800, 1200]}
+    sizes={sizes}
+    loading={loading}
+    {...fetchpriority && { fetchpriority }}
+    decoding="async"
+    class={klass}
+  />
+)}

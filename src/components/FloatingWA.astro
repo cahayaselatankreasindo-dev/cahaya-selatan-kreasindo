@@ -18,8 +18,8 @@ const waHref = `https://wa.me/${site.wa}?text=${encodeURIComponent(message)}`;
 <style is:global>
   .csk-floating-wa {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: max(30px, calc(env(safe-area-inset-bottom, 0px) + 16px));
+    right: max(30px, calc(env(safe-area-inset-right, 0px) + 16px));
     z-index: 100;
     display: inline-flex;
     align-items: center;
@@ -34,6 +34,11 @@ const waHref = `https://wa.me/${site.wa}?text=${encodeURIComponent(message)}`;
   .csk-floating-wa:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+  }
+  .csk-floating-wa:focus-visible {
+    outline: 3px solid #0B0B0B;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px #F8F7F4;
   }
   @media (min-width: 768px) {
     .csk-floating-wa {

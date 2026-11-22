@@ -40,7 +40,7 @@ const nav = [
     </nav>
 
     <details class="relative lg:hidden">
-      <summary aria-label="Buka navigasi" class="cursor-pointer list-none border border-csk-black/15 p-2.5 text-csk-black transition-colors hover:border-csk-amber">
+      <summary aria-label="Buka navigasi" class="inline-flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center border border-csk-black/15 text-csk-black transition-colors hover:border-csk-amber focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-csk-black">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <path d="M3.5 7h17M3.5 12h17M3.5 17h17" />
         </svg>
@@ -52,7 +52,7 @@ const nav = [
               href={n.href}
               aria-current={path === n.href ? 'page' : undefined}
               class:list={[
-                'block px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors',
+                'flex min-h-11 items-center px-3 py-3 text-xs font-bold uppercase tracking-[0.1em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-csk-black',
                 path === n.href ? 'bg-csk-black/5 text-csk-black' : 'text-csk-gray hover:bg-csk-black/5 hover:text-csk-black',
               ]}
             >{n.label}</a>

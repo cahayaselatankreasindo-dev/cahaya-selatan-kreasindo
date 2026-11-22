@@ -148,13 +148,20 @@ const inquiryMessage = 'Halo CSK, saya melihat portofolio Booth Channel 512 di S
         {gallery.map((item, index) => (
           <figure class="group overflow-hidden rounded-sm bg-white shadow-sm">
             <div class="overflow-hidden bg-csk-black">
-              <Picture
-                name={item.img}
-                alt={item.alt}
-                sizes="(min-width: 1024px) 370px, (min-width: 640px) 45vw, 95vw"
-                loading={index < 3 ? 'eager' : 'lazy'}
-                class="aspect-[3/2] w-full cursor-zoom-in object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
-              />
+              <button
+                type="button"
+                data-lightbox-trigger
+                aria-label={`Buka foto: ${item.caption}`}
+                class="block w-full focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-csk-amber"
+              >
+                <Picture
+                  name={item.img}
+                  alt={item.alt}
+                  sizes="(min-width: 1024px) 370px, (min-width: 640px) 45vw, 95vw"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                  class="aspect-[3/2] w-full cursor-zoom-in object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
+                />
+              </button>
             </div>
             <figcaption class="border-t border-csk-gray/10 px-4 py-4">
               <h3 class="text-sm font-bold text-csk-black">{item.caption}</h3>

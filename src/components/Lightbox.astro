@@ -1,5 +1,6 @@
 ---
-// Native <dialog> gallery for figures inside a [data-lightbox] container.
+ // Native dialog gallery. Every gallery trigger is a real button so it works
+ // with keyboard, touch, and assistive technology.
 ---
 <dialog id="lightbox" aria-label="Galeri gambar" class="m-auto max-h-[92vh] max-w-[96vw] rounded-2xl bg-transparent p-0 backdrop:bg-csk-black/80">
   <figure class="relative m-0 grid justify-items-center">
@@ -51,7 +52,7 @@
   };
 
   const openAt = (index: number) => {
-    if (!dlg || !sources.length) return;
+    if (!dlg || !sources.length || index < 0) return;
     activeIndex = index;
     render();
     dlg.showModal();
@@ -65,14 +66,20 @@
   };
 
   if (dlg && img && cap && position && previous && next && close) {
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      const source = target.closest('[data-lightbox] figure img') as HTMLImageElement | null;
-      if (source) {
-        sources = Array.from(document.querySelectorAll('[data-lightbox] figure img'));
-        openAt(sources.indexOf(source));
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const trigger = target.closest('[data-lightbox] figure button[data-lightbox-trigger]') as HTMLButtonElement | null;
+      if (trigger) {
+        sources = Array.from(document.querySelectorAll<HTMLImageElement>(
+          '[data-lightbox] figure button[data-lightbox-trigger] img'
+        ));
+        const source = trigger.querySelector('img');
+        openAt(sources.indexOf(source as HTMLImageElement));
         return;
       }
+
       if (dlg.open && target === dlg) closeDialog();
     });
 
@@ -90,21 +97,21 @@
     });
     close.addEventListener('click', closeDialog);
     dlg.addEventListener('close', () => setScrollLock(false));
-    dlg.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft' && activeIndex > 0) {
+    dlg.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft' && activeIndex > 0) {
         activeIndex -= 1;
         render();
       }
-      if (e.key === 'ArrowRight' && activeIndex < sources.length - 1) {
+      if (event.key === 'ArrowRight' && activeIndex < sources.length - 1) {
         activeIndex += 1;
         render();
       }
     });
-    img.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0]?.clientX ?? 0;
+    img.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0]?.clientX ?? 0;
     }, { passive: true });
-    img.addEventListener('touchend', (e) => {
-      const distance = (e.changedTouches[0]?.clientX ?? 0) - touchStartX;
+    img.addEventListener('touchend', (event) => {
+      const distance = (event.changedTouches[0]?.clientX ?? 0) - touchStartX;
       if (Math.abs(distance) < 50) return;
       if (distance < 0 && activeIndex < sources.length - 1) activeIndex += 1;
       if (distance > 0 && activeIndex > 0) activeIndex -= 1;

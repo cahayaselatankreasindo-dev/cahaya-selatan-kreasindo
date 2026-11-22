@@ -86,16 +86,23 @@ const catGuide = {
                 hasFeature && index === 0 ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2' : '',
               ]}
             >
-              <Picture
-                name={p.img}
-                alt={p.title}
-                sizes={hasFeature && index === 0
-                  ? '(min-width: 1024px) 740px, (min-width: 640px) 90vw, 95vw'
-                  : '(min-width: 1024px) 360px, (min-width: 640px) 45vw, 95vw'}
-                loading={catIndex === 0 && index === 0 ? 'eager' : 'lazy'}
-                fetchpriority={catIndex === 0 && index === 0 ? 'high' : undefined}
-                class="absolute inset-0 h-full w-full cursor-zoom-in object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
-              />
+              <button
+                type="button"
+                data-lightbox-trigger
+                aria-label={`Buka foto: ${p.title}`}
+                class="absolute inset-0 block h-full w-full cursor-zoom-in text-left focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-csk-amber"
+              >
+                <Picture
+                  name={p.img}
+                  alt={p.title}
+                  sizes={hasFeature && index === 0
+                    ? '(min-width: 1024px) 740px, (min-width: 640px) 90vw, 95vw'
+                    : '(min-width: 1024px) 360px, (min-width: 640px) 45vw, 95vw'}
+                  loading={catIndex === 0 && index === 0 ? 'eager' : 'lazy'}
+                  fetchpriority={catIndex === 0 && index === 0 ? 'high' : undefined}
+                  class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out motion-safe:group-hover:scale-[1.035]"
+                />
+              </button>
               <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-gradient-to-t from-csk-black/90 via-csk-black/25 to-transparent"></div>
               <figcaption class="pointer-events-none absolute inset-x-0 bottom-0 p-5 text-white sm:p-6 lg:p-7">
                 <p class="mb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">{cat}</p>

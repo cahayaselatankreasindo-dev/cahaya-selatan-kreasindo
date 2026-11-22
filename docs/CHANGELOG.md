@@ -1,3 +1,9 @@
+## 2026-11-22 - Digital printing & large-format graphics ditambahkan ke katalog
+
+- Menambahkan kategori digital printing dan large-format graphics: stiker/vinyl, banner, poster, backlit film, window graphics, wall wrap, floor decal, panel branding, dan cutting sticker.
+- Memperluas halaman Neon Box & Signage dengan kelompok produk cetak skala besar, cakupan pekerjaan, serta FAQ untuk permintaan cetak tanpa pemasangan.
+- Detail media, finishing, jumlah, artwork, dan instalasi tetap ditentukan melalui brief proyek.
+
 ## 2026-11-22 - Katalog POSM diperluas dan halaman Glorifier ditambahkan
 
 - Memperluas katalog produk dengan product glorifier, illuminated/backlit display, tabletop display, pedestal/plinth, product riser, acrylic showcase, mannequin/product stage, sidekick/clip-strip, dump bin, pallet display, materi rak, retail graphics, dan campaign kits.

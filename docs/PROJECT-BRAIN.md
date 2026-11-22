@@ -18,7 +18,7 @@
 
 Menjadi production partner yang mengerjakan kebutuhan visual/fisik brand dari
 desain sampai pemasangan. Alur homepage: Attention ? Understand ? Explore ? Proof ? Contact.
-Corak layanan di `src/site.js` ? `serviceDetails` (7 entri; POSM dan Glorifier memiliki galeri visuals) dan `products` (10 grup dengan foto referensi, alt text, dan tautan layanan).
+Corak layanan di `src/site.js` ? `serviceDetails` (7 entri), `products` (10 grup), dan `productDetails` (17 detail produk awal).
 
 ## Target Audience (CONFIRMED dari copy situs)
 
@@ -45,8 +45,8 @@ Setiap entri punya: `nav`, `title`, `metaTitle`, `description`, `lead`, `intro[]
 
 1. Brand positioning (H1 + 3-panel hero arah bisnis).
 2. B2B marketing (6 kartu layanan + halaman detail per layanan).
-3. Lead generation (CTA WhatsApp berkonteks per halaman; tanpa form).
-4. Sales support (produk per grup, FAQ per layanan + FAQ homepage).
+3. Lead generation (CTA WhatsApp berkonteks + form permintaan penawaran client-side yang menyusun spesifikasi ke WhatsApp).
+4. Sales support (katalog 10 grup + halaman detail 17 jenis produk awal, FAQ per layanan + FAQ homepage).
 5. Portfolio & capability proof (grid 4 kategori + halaman `/portofolio` + strip proses produksi).
 
 ## Actual Technology Stack (CONFIRMED - `package.json`, `.node-version`)

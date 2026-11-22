@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Picture from '../../components/Picture.astro';
 import Lightbox from '../../components/Lightbox.astro';
 import WaIcon from '../../components/WaIcon.astro';
-import { serviceDetails, portfolio, waLink, site } from '../../site.js';
+import { serviceDetails, productDetails, portfolio, waLink, site } from '../../site.js';
 import { getCollection } from 'astro:content';
 
 export function getStaticPaths() {
@@ -21,6 +21,7 @@ const samples = (s.images ?? [])
   .map((img) => portfolio.find((p) => p.img === img))
   .filter((p): p is (typeof portfolio)[number] => Boolean(p));
 const others = serviceDetails.filter((o) => o.slug !== s.slug);
+const relatedProducts = productDetails.filter((p) => p.serviceSlug === s.slug);
 const guides = (await getCollection('blog', ({ data }) => !data.draft))
   .filter((post) => post.data.relatedService === `/layanan/${s.slug}/`)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -197,6 +198,17 @@ const serviceSchema = {
     </Section>
   )}
 
+  {relatedProducts.length > 0 && (
+    <Section eyebrow="Katalog Produk" title={`Pilih jenis produk pada layanan ${s.nav}`}>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {relatedProducts.map((p) => <a href={`/produk/${p.slug}/`} class="group overflow-hidden rounded-xl border border-csk-gray/20 bg-white hover:border-csk-amber">
+          <div class="flex aspect-[4/3] items-center justify-center overflow-hidden bg-csk-gray/10">{p.imageSrc ? <img src={p.imageSrc} alt={p.imageAlt} loading="lazy" decoding="async" class="h-full w-full object-contain" /> : <Picture name={p.image} alt={p.imageAlt} sizes="(min-width: 1280px) 280px, (min-width: 640px) 45vw, 90vw" class="h-full w-full object-contain" />}</div>
+          <div class="p-4"><h3 class="text-sm font-bold leading-snug text-csk-black group-hover:text-csk-amber-text">{p.title}</h3><p class="mt-2 text-xs leading-relaxed text-csk-gray">{p.short}</p><span class="mt-4 inline-flex text-xs font-bold text-csk-amber-text">Lihat detail ↗</span></div>
+        </a>)}
+      </div>
+      <a href="/produk/" class="mt-7 inline-flex text-sm font-semibold text-csk-amber-text underline underline-offset-4">Lihat seluruh katalog produk</a>
+    </Section>
+  )}
   <section class="border-y border-csk-gray/20 bg-csk-gray/10">
     <div class="mx-auto max-w-6xl px-5 py-16">
       <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">{s.items.title}</h2>

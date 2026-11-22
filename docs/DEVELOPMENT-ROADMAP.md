@@ -29,10 +29,13 @@
 - [COMPLETED] Halaman `/portofolio`: chip anchor + grup per kategori + lightbox
 - [IN PROGRESS] Sinkronisasi dua sumber (`featuredPortfolio` vs `portfolio[]`) - judul/kategori bisa divergen
 
-## PHASE 5 - LEAD GENERATION [COMPLETED minimal]
+## PHASE 5 - LEAD GENERATION [IN PROGRESS]
 
-- [COMPLETED] CTA WhatsApp berkonteks (`waLink(msg)` per halaman/layanan/FAQ)
-- [NOT STARTED] Form inquiry / tracking konversi (tidak ada backend - butuh keputusan)
+- [COMPLETED] CTA WhatsApp berkonteks (`waLink(msg)`) per halaman/layanan/FAQ
+- [COMPLETED] Form penawaran client-side pada 17 halaman detail produk; spesifikasi disusun menjadi pesan WhatsApp
+- [COMPLETED] Referensi foto/PDF dapat dibagikan via Web Share API pada browser yang mendukung; fallback lampiran manual di WhatsApp
+- [NOT STARTED] Upload langsung ke penyimpanan website (R2 belum aktif pada akun Cloudflare); tidak ada file yang disimpan di server
+- [NOT STARTED] Penyimpanan lead / dashboard CRM dan validasi konversi end-to-end
 
 ## PHASE 6 - SEO [IN PROGRESS]
 

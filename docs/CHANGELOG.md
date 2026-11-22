@@ -48,6 +48,15 @@
 
 > Perubahan dicatat setelah diverifikasi melalui git, Cloudflare Pages, dan pemeriksaan URL produksi.
 
+## 2026-11-23 - Katalog detail produk dan form penawaran WhatsApp
+
+- Menambahkan katalog produk `/produk/` dan 17 halaman detail awal untuk POSM, product glorifier, serta acrylic display.
+- Setiap detail produk menjelaskan fungsi, penempatan, opsi material, opsi finishing, dan informasi yang perlu disiapkan sebelum produksi.
+- Menautkan halaman layanan POSM dan Glorifier ke detail produk terkait; hub layanan memiliki pintasan ke katalog lengkap.
+- Menambahkan form permintaan penawaran client-side pada tiap detail produk. Form mengumpulkan nama, brand, dimensi, jumlah, material, finishing, lokasi, target waktu, dan catatan lalu menyusun pesan WhatsApp.
+- Menambahkan pilihan file referensi (foto/PDF, maksimal 10 MB). Browser yang mendukung Web Share API dapat membagikan file bersama pesan; browser lain membuka WhatsApp dan meminta file dilampirkan manual.
+- Batasan: file tidak diunggah atau disimpan di server website. Cloudflare API menyatakan R2 perlu diaktifkan melalui dashboard; upload langsung ke website menunggu aktivasi R2 dan konfigurasi backend yang aman.
+
 ## 2026-11-20 - Navigasi dan URL kanonis
 
 Tautan internal dan breadcrumb menggunakan URL akhir dengan garis miring. Footer menautkan halaman kontak workshop. Build berhasil, dan seluruh 23 URL sitemap dapat dijangkau dari beranda melalui HTML.

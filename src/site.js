@@ -73,6 +73,11 @@ export const products = [
 
 export const portfolio = [
   { img: 'booth-512-slow-move-bazaar', title: 'Booth Custom Channel 512 di Slow Move Bazaar', cat: 'Booth & Pameran', featured: true },
+  { img: 'slow-move-bazaar-booth-detail', title: 'Detail Booth Channel 512 & Area Display di Slow Move Bazaar', cat: 'Booth & Pameran' },
+  { img: 'slow-move-bazaar-event-activity', title: 'Aktivitas Pengunjung di Booth Channel 512 — Slow Move Bazaar', cat: 'Booth & Pameran' },
+  { img: 'slow-move-bazaar-installation', title: 'Proses Instalasi Booth Channel 512 di Slow Move Bazaar', cat: 'Booth & Pameran' },
+  { img: 'slow-move-bazaar-setup', title: 'Persiapan Booth Channel 512 Sebelum Slow Move Bazaar', cat: 'Booth & Pameran' },
+  { img: 'slow-move-bazaar-signage', title: 'Detail Signage 512 pada Booth Slow Move Bazaar', cat: 'Booth & Pameran' },
   { img: 'booth-pameran-custom-jakarta-jasa-tirta', title: 'Booth Pameran Jasa Tirta II di Pameran KIP 2025 — Hotel Bidakara, Jakarta', cat: 'Booth & Pameran' },
   { img: 'detail-booth-pameran-jasa-tirta', title: 'Detail Booth Pameran Jasa Tirta II — Pameran KIP 2025, Hotel Bidakara', cat: 'Booth & Pameran' },
   { img: 'mini-counter-booth-custom-beco', title: 'Mini Counter Beco untuk Event Pameran di Jakarta', cat: 'Booth & Pameran', featured: true },
@@ -274,9 +279,12 @@ export const serviceDetails = [
     },
     cat: 'Booth & Custom Build',
     waMsg: 'Halo CSK, saya ingin minta penawaran booth pameran.\n\nJenis booth/kebutuhan: \nUkuran (jika sudah ada): \nLokasi/venue: \nTanggal acara: \n\nSaya ingin konsultasi dan mendapatkan estimasi.',
-    images: ['booth-pameran-custom-jakarta-jasa-tirta',
-      'booth-pameran-custom-perfetto-jakarta', 'booth-pameran-custom-sosrait',
-      'booth-aktivasi-mall-tema-golden-farm-jakarta', 'gate-entrance-custom-le-minerale'],
+    images: ['booth-512-slow-move-bazaar', 'slow-move-bazaar-booth-detail',
+      'slow-move-bazaar-event-activity', 'slow-move-bazaar-installation',
+      'slow-move-bazaar-setup', 'slow-move-bazaar-signage',
+      'booth-pameran-custom-jakarta-jasa-tirta', 'booth-pameran-custom-perfetto-jakarta',
+      'booth-pameran-custom-sosrait', 'booth-aktivasi-mall-tema-golden-farm-jakarta',
+      'gate-entrance-custom-le-minerale'],
     assetImage: '/assets/booth-exhibition/0452bbb6-c756-4e37-9c10-91a6274065b0.webp',
   },
   {

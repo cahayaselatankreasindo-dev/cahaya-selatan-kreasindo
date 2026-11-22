@@ -22,7 +22,7 @@ tanpa framework client.
 
 ```text
 src/site.js            konten bisnis tunggal (kontak, hours, areas, products,
-                       portfolio[22], portfolioCats, serviceDetails[6])
+                       portfolio[22], portfolioCats, serviceDetails[7])
 src/layouts/Base.astro satu-satunya layout (head, SEO, JSON-LD, header, footer)
 src/components/        9 komponen (lihat bawah)
 src/pages/             11 route statis + 1 dynamic ([slug]) + 2 endpoint + 1 halaman uji
@@ -42,7 +42,7 @@ scripts/og-image.mjs   generator og-image manual (sharp)
 |---|---|---|
 | `/` | `index.astro` | `featuredPortfolio` lokal 12 item + `serviceDetails/areas/waLink` |
 | `/layanan` | `layanan.astro` | `serviceDetails` + `products` + `portfolio.find` (sampel) |
-| `/layanan/:slug` | `layanan/[slug].astro` | `getStaticPaths` dari `serviceDetails` (6 halaman), sampel dari `portfolio` |
+| `/layanan/:slug` | `layanan/[slug].astro` | `getStaticPaths` dari `serviceDetails` (7 halaman), sampel dari `portfolio` |
 | `/portofolio` | `portofolio.astro` | `portfolio` + `portfolioCats` (chip anchor per kategori) |
 | `/tentang`, `/area-layanan`, `/kontak`, `/apa-itu-posm` | masing-masing | `site/areas` + Section |
 | `/kebijakan-privasi`, `/syarat-ketentuan` | masing-masing | konten hardcode + `site/waLink` |

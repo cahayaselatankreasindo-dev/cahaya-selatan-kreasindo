@@ -19,8 +19,8 @@
 
 ## PHASE 3 - SERVICE PAGES [COMPLETED]
 
-- [COMPLETED] `/layanan` hub: kartu + daftar produk + CTA
-- [COMPLETED] `/layanan/:slug` -6 via `getStaticPaths`: intro, scope, grup item, galeri sampel, FAQ+schema, layanan lain
+- [COMPLETED] `/layanan` hub: 7 kartu + katalog POSM, glorifier, retail graphics, rak, booth, signage, dan peralatan event + CTA
+- [COMPLETED] `/layanan/:slug` -7 via `getStaticPaths`: intro, scope, grup item, galeri sampel, FAQ+schema, layanan lain
 - [COMPLETED] `/apa-itu-posm` edukasi + FAQ + CTA
 
 ## PHASE 4 - PORTFOLIO [COMPLETED dengan catatan]

@@ -18,18 +18,19 @@
 
 Menjadi production partner yang mengerjakan kebutuhan visual/fisik brand dari
 desain sampai pemasangan. Alur homepage: Attention ? Understand ? Explore ? Proof ? Contact.
-Corak layanan di `src/site.js` ? `serviceDetails` (6 entri) dan `products` (6 grup).
+Corak layanan di `src/site.js` ? `serviceDetails` (7 entri) dan `products` (9 grup).
 
 ## Target Audience (CONFIRMED dari copy situs)
 
 Brand teams, marketing/trade-marketing, event teams, procurement, retail teams,
 agencies, exhibition practitioners di Jabodetabek. Bahasa situs: Indonesia informal-profesional.
 
-## Business Services (CONFIRMED - `serviceDetails`, 6 slug)
+## Business Services (CONFIRMED - `serviceDetails`, 7 slug)
 
 | Slug | Judul | Field gambar homepage |
 |---|---|---|
 | `posm-display` | Jasa Pembuatan POSM & Display Promosi | `assetImage` |
+| `glorifier-product-display` | Jasa Pembuatan Product Glorifier & Display Produk Custom | `assetImage` |
 | `rak-display-gondola` | Rak Display Custom & Gondola Supermarket | `assetImage` |
 | `booth-pameran` | Jasa Pembuatan Booth Pameran & Stand Event | `assetImage` |
 | `neon-box-signage` | Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama | `assetImage` |
@@ -75,7 +76,7 @@ src/
     index.astro            # homepage (hero 3-panel, layanan, portfolio 4-kat, FAQ, CTA)
     tentang|layanan|portofolio|area-layanan|kontak|apa-itu-posm.astro
     kebijakan-privasi|syarat-ketentuan.astro
-    layanan/[slug].astro   # SATU-SATUNYA dynamic route (getStaticPaths, 6 slug)
+    layanan/[slug].astro   # SATU-SATUNYA dynamic route (getStaticPaths, 7 slug)
     llms.txt.ts, robots.txt.ts, test-assets.astro
   data/                    # assets.js (katalog dipakai test-assets), getAssets.js (helper, 0 pemakai)
   img/                     # 23 webp (sumber komponen Picture)
@@ -94,7 +95,7 @@ Tidak ada `404.astro` kustom, tidak ada `[...slug].astro`.
 
 ## Existing Features (CONFIRMED - ada di kode)
 
-- Homepage: hero 3-panel dengan foto asli, 6 kartu layanan bergambar, portfolio 12 item
+- Homepage: hero 3-panel dengan foto asli, 7 kartu layanan bergambar, portfolio 12 item
   dalam 4 kategori, FAQ 6 `<details>` (CTA WhatsApp hanya di item estimasi waktu), CTA final.
 - Halaman layanan per slug: intro, CTA penawaran, ruang lingkup, grup item + FAQ + galeri
   sampel + link layanan lain + schema FAQPage.

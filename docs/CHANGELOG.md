@@ -1,3 +1,11 @@
+## 2026-11-22 - Katalog POSM diperluas dan halaman Glorifier ditambahkan
+
+- Memperluas katalog produk dengan product glorifier, illuminated/backlit display, tabletop display, pedestal/plinth, product riser, acrylic showcase, mannequin/product stage, sidekick/clip-strip, dump bin, pallet display, materi rak, retail graphics, dan campaign kits.
+- Menambah halaman layanan khusus `/layanan/glorifier-product-display/` dan menampilkannya pada homepage serta hub layanan melalui data `serviceDetails`.
+- Memperluas halaman POSM dan panduan `/apa-itu-posm/` dengan fungsi serta contoh format display yang lebih lengkap.
+- Galeri halaman Glorifier menggunakan dokumentasi display akrilik, light box, dan floor display yang memang tersedia. Tidak ada foto yang diberi label sebagai proyek glorifier khusus karena belum ada bukti foto glorifier tersebut di portofolio publik.
+- Kapabilitas LED, material kombinasi, prototipe, packing per lokasi, distribusi, dan instalasi dinyatakan mengikuti spesifikasi serta persetujuan lingkup proyek.
+
 ## 2026-11-22 - Channel 512 project gallery added
 
 - Added all six original Slow Move Bazaar WebP photos to the Booth & Pameran portfolio.

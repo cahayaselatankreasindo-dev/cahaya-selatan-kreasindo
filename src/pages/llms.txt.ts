@@ -2,13 +2,13 @@ import type { APIRoute } from 'astro';
 import { site, areas, products, portfolio, serviceDetails } from '../site.js';
 
 const pages = [
-  ['/', 'Beranda', 'Ringkasan layanan booth pameran, rak display custom, neon box, dan signage.'],
+  ['/', 'Beranda', 'Ringkasan layanan POSM dan POP display, product glorifier, rak display, booth, signage, digital printing, dan large-format graphics.'],
   ['/tentang/', 'Tentang Kami', 'Profil workshop di Serpong, Tangerang Selatan. Satu tim dari desain sampai instalasi.'],
-  ['/layanan/', 'Layanan', 'Rak display custom, gondola supermarket, neon box, huruf timbul, papan nama, booth pameran, penjualan peralatan event.'],
-  ['/portofolio/', 'Portofolio', 'Dokumentasi pekerjaan booth pameran, rak display ritel, neon box, dan signage.'],
+  ['/layanan/', 'Layanan', 'POSM dan POP display, product glorifier, acrylic display, rak gondola, booth, event & venue branding, neon box, signage, digital printing, large-format graphics, visual merchandising, dan peralatan event.'],
+  ['/portofolio/', 'Portofolio', 'Dokumentasi pekerjaan booth pameran, POSM, retail display, akrilik, signage, dan produksi custom.'],
   ['/area-layanan/', 'Area Layanan', 'Cakupan Tangerang Selatan, Tangerang, Jakarta, Depok, Bogor, Bekasi.'],
   ['/kontak/', 'Kontak', `WhatsApp ${site.waDisplay}, email ${site.email}, alamat workshop, dan jam operasional.`],
-  ['/apa-itu-posm/', 'Apa itu POSM', 'Panduan: pengertian POSM, bedanya dengan POP dan visual merchandising, jenis, dan pilihan material.'],
+  ['/apa-itu-posm/', 'Apa itu POSM', 'Panduan POSM: floor display, counter display, product glorifier, illuminated display, materi rak, retail graphics, dan pilihan material.'],
   ['/kebijakan-privasi/', 'Kebijakan Privasi', 'Data yang kami terima lewat WhatsApp dan email, tujuan penggunaan, penyimpanan, dan hak Anda.'],
   ['/syarat-ketentuan/', 'Syarat & Ketentuan', 'Penawaran, pembayaran, revisi desain, jadwal, pengiriman, instalasi, garansi, dan pembatalan.'],
 ];

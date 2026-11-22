@@ -1,3 +1,10 @@
+## 2026-11-22 - Channel 512 project gallery added
+
+- Added all six original Slow Move Bazaar WebP photos to the Booth & Pameran portfolio.
+- Kept the main booth photo as the homepage feature; the five supporting photos are available in the full portfolio.
+- Added all six photos to the Booth Pameran & Event service-page gallery.
+- Preserved the original 1200 × 800 WebP files through the existing `Picture.astro` component path.
+
 # CHANGELOG.md - Cahaya Selatan Kreasindo
 
 > Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.

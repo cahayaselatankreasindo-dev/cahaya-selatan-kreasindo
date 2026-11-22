@@ -44,7 +44,7 @@ scripts/og-image.mjs   generator og-image manual (sharp)
 | `/layanan` | `layanan.astro` | `serviceDetails` + `products` + `portfolio.find` (sampel) |
 | `/layanan/:slug` | `layanan/[slug].astro` | `getStaticPaths` dari `serviceDetails` (7 halaman), sampel dari `portfolio` + productDetails |
 | `/produk` | `produk/index.astro` | Katalog 17 jenis produk, dikelompokkan berdasarkan kategori |
-| `/produk/:slug` | `produk/[slug].astro` | Detail produk, fungsi, material, finishing, form penawaran tersimpan ke D1 + WhatsApp |\n| `/admin` | `admin/index.astro` | Dashboard leads; noindex; data API dilindungi Cloudflare Access |\n| `POST /api/quotes` | `functions/api/quotes.js` | Validasi dan simpan permintaan penawaran ke D1 |\n| `GET /api/admin/quotes` | `functions/api/admin/quotes.js` | Daftar leads + ringkasan status, wajib Access JWT valid |\n| `PATCH /api/admin/quotes/:id` | `functions/api/admin/quotes/[id].js` | Perbarui status + catatan riwayat, wajib Access JWT valid |
+| `/produk/:slug` | `produk/[slug].astro` | Detail produk, fungsi, material, finishing, form penawaran tersimpan ke D1 + WhatsApp |\n| `/admin` | `admin/index.astro` | Dashboard leads; noindex; data API dilindungi Cloudflare Access |\n| `POST /api/quotes` | `functions/api/quotes.js` | Validasi dan simpan permintaan penawaran ke D1 |\n| `GET /api/health` | `functions/api/health.js` | Pemeriksaan kesiapan DB tanpa membuka data pelanggan |\n| `GET /admin/api/quotes` | `functions/admin/api/quotes.js` | Daftar leads + ringkasan status, wajib Access JWT valid |\n| `PATCH /admin/api/quotes/:id` | `functions/admin/api/quotes/[id].js` | Perbarui status + catatan riwayat, wajib Access JWT valid |
 | `/portofolio` | `portofolio.astro` | `portfolio` + `portfolioCats` (chip anchor per kategori) |
 | `/tentang`, `/area-layanan`, `/kontak`, `/apa-itu-posm` | masing-masing | `site/areas` + Section |
 | `/kebijakan-privasi`, `/syarat-ketentuan` | masing-masing | konten hardcode + `site/waLink` |
@@ -143,5 +143,5 @@ eksplisit. Default: perubahan terkecil yang koheren.
 - `quote_requests` stores contact, product, specification, consent, and reference metadata.
 - `quote_status_history` records status transitions; `quote_rate_limits` tracks daily request counts using an HMAC of the Cloudflare client IP.
 - Public quote intake validates same-origin requests, consent, basic field formats, honeypot, form timing, MIME metadata, and a 10-per-day IP hash threshold.
-- Admin API validates `Cf-Access-Jwt-Assertion` signature against the configured Access team's JWKS, issuer, audience, expiry, and allowlisted email. It returns 503 until Access variables are configured; it must not be opened without an Access application and Allow policy.
+- Admin API under `/admin/api/*` validates `Cf-Access-Jwt-Assertion` signature against the configured Access team's JWKS, issuer, audience, expiry, and allowlisted email. It returns 503 until Access variables are configured; it must not be opened without an Access application and Allow policy.
 - R2 is not enabled on the account yet. No R2 binding, direct upload, or stored attachment content is active.

@@ -5,7 +5,7 @@
 - Form penawaran kini meminta nama dan nomor WhatsApp, email opsional, spesifikasi produk, serta persetujuan kebijakan privasi.
 - Form mengirim data ke `POST /api/quotes`, menyimpan lead ke D1, lalu menyusun pesan WhatsApp dengan ID permintaan.
 - Menambahkan pembatasan pengiriman harian berdasarkan HMAC IP, honeypot, validasi origin, validasi input, dan validasi metadata file.
-- Menambahkan dashboard noindex `/admin/` dan API untuk daftar serta perubahan status lead. API admin memverifikasi Cloudflare Access JWT dan fail-closed sampai konfigurasi Access selesai.
+- Menambahkan dashboard noindex `/admin/` dan API `/admin/api/quotes` untuk daftar serta perubahan status lead. Seluruh permukaan admin berada di path `/admin*` agar dapat dilindungi satu aplikasi Cloudflare Access. API admin memverifikasi Cloudflare Access JWT dan fail-closed sampai konfigurasi Access selesai.\n- Menambahkan `/api/health` untuk memeriksa binding D1 tanpa mengekspos data pelanggan.
 - Memperbarui kebijakan privasi untuk menjelaskan data formulir, D1 APAC, anti-spam, dan lampiran yang saat ini masih harus dikirim manual melalui WhatsApp.
 - R2 belum aktif; file referensi belum disimpan ke server. Aktivasi R2 tetap memerlukan tindakan dari Dashboard Cloudflare.
 

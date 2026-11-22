@@ -43,8 +43,8 @@ export async function onRequestPost({ request, env }) {
   const referenceName = reference ? clean(reference.name, 180) : null;
   const referenceMime = reference ? clean(reference.mime, 100) : null;
   const referenceSize = reference ? Number(reference.size) : null;
-  if (reference && (!referenceName || !Number.isFinite(referenceSize) || referenceSize < 0 || referenceSize > 10 * 1024 * 1024 || !/^(image\/(jpeg|png|webp|gif)|application\/pdf)$/i.test(referenceMime))) {
-    return json({ ok: false, message: 'File referensi harus berupa JPG, PNG, WebP, GIF, atau PDF maksimal 10 MB.' }, 400);
+  if (reference && (!referenceName || !Number.isFinite(referenceSize) || referenceSize < 0 || referenceSize > 10 * 1024 * 1024 || !/^(image\/(jpeg|png|webp|gif|heic|heif)|application\/pdf)$/i.test(referenceMime))) {
+    return json({ ok: false, message: 'File referensi harus berupa JPG, PNG, WebP, GIF, HEIC, HEIF, atau PDF maksimal 10 MB.' }, 400);
   }
 
   const ip = request.headers.get('CF-Connecting-IP');

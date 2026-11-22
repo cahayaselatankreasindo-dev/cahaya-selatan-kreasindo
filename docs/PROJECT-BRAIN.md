@@ -191,9 +191,9 @@ Tidak ada `404.astro` kustom, tidak ada `[...slug].astro`.
 - D1 production: `csk-quote-leads-prod` (primary location APAC), binding `DB`.
 - D1 preview: `csk-quote-leads-preview` (primary location APAC), binding `DB`.
 - Tables: `quote_requests`, `quote_status_history`, `quote_rate_limits`.
-- Public endpoint: `POST /api/quotes`; validates consent, required contact name/WhatsApp, product, form timing, same-origin request, allowed file metadata, and daily rate limit.
-- Admin endpoints: `GET /api/admin/quotes`, `PATCH /api/admin/quotes/:id`. They fail closed until Cloudflare Access environment values and Access application/policy are configured.
-- Admin UI: `/admin/` (noindex). Do not expose lead records until Access is configured and tested.
+- Public endpoints: `POST /api/quotes`, `GET /api/health`; validates consent, required contact name/WhatsApp, product, form timing, same-origin request, allowed file metadata, and daily rate limit.
+- Admin endpoints: `GET /admin/api/quotes`, `PATCH /admin/api/quotes/:id`. They fail closed until Cloudflare Access environment values and Access application/policy are configured.
+- Admin UI: `/admin/` (noindex), with all admin APIs under the same `/admin*` Access path. Do not expose lead records until Access is configured and tested.
 - Reference files are not uploaded yet. Current form stores reference filename/type/size metadata only; visitor must attach the file in WhatsApp.
 - R2 activation is blocked until the account owner enables R2 from Cloudflare Dashboard. Do not claim file upload is live before bucket creation, binding, and end-to-end tests.
 - Required secrets/config before admin launch: `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD`, `ACCESS_ALLOWED_EMAILS`. Rate-limit HMAC secret is stored as a Pages secret, not in Git.

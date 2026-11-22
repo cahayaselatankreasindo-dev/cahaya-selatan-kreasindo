@@ -35,7 +35,7 @@
 - [COMPLETED] Form penawaran pada 17 halaman detail produk; nama, nomor WhatsApp, spesifikasi, persetujuan, dan metadata referensi dicatat ke D1 lalu disiapkan ke WhatsApp
 - [COMPLETED] Referensi foto/PDF dapat dibagikan via Web Share API pada browser yang mendukung; fallback lampiran manual di WhatsApp
 - [NOT STARTED] Upload langsung ke penyimpanan website (R2 belum aktif pada akun Cloudflare); tidak ada file yang disimpan di server
-- [COMPLETED] D1 production + preview, tabel lead/status history/rate limit, Pages binding `DB`\n- [IN PROGRESS] API intake `POST /api/quotes` + dashboard `/admin/` + API status leads; perlu deploy dan uji produksi\n- [BLOCKED] Proteksi dashboard melalui Cloudflare Access; perlu hostname, AUD, dan email admin yang disetujui\n- [BLOCKED] Upload lampiran langsung ke R2; akun meminta aktivasi R2 melalui Dashboard
+- [COMPLETED] D1 production + preview, tabel lead/status history/rate limit, Pages binding `DB`\n- [IN PROGRESS] API intake `POST /api/quotes` + dashboard `/admin/` + protected API `/admin/api/quotes`; `GET /api/health` verifies D1 binding; perlu deploy dan uji produksi\n- [BLOCKED] Proteksi dashboard melalui Cloudflare Access; perlu hostname, AUD, dan email admin yang disetujui\n- [BLOCKED] Upload lampiran langsung ke R2; akun meminta aktivasi R2 melalui Dashboard
 
 ## PHASE 6 - SEO [IN PROGRESS]
 

@@ -18,7 +18,7 @@
 
 Menjadi production partner yang mengerjakan kebutuhan visual/fisik brand dari
 desain sampai pemasangan. Alur homepage: Attention ? Understand ? Explore ? Proof ? Contact.
-Corak layanan di `src/site.js` ? `serviceDetails` (7 entri) dan `products` (10 grup dengan foto referensi, alt text, dan tautan layanan).
+Corak layanan di `src/site.js` ? `serviceDetails` (7 entri; POSM dan Glorifier memiliki galeri visuals) dan `products` (10 grup dengan foto referensi, alt text, dan tautan layanan).
 
 ## Target Audience (CONFIRMED dari copy situs)
 

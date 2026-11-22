@@ -8,19 +8,25 @@ import { waLink, site } from '../site.js';
 const crumbs = [{ href: '/apa-itu-posm/', label: 'Apa itu POSM' }];
 
 const jenis = [
-  ['Floor display', 'Display berdiri di lantai, biasa diletakkan di ujung lorong atau area promo. Menampung banyak produk sekaligus dan terlihat dari jauh.'],
-  ['Counter display', 'Display kecil di meja kasir untuk produk berukuran ringkas — permen, sachet, aksesori. Menyasar pembelian mendadak saat mengantre.'],
-  ['Endcap', 'Display di ujung rak gondola. Posisi paling mahal di toko modern karena dilewati hampir semua pengunjung.'],
-  ['Standee', 'Papan berdiri bergambar produk atau maskot brand. Murah, cepat dipasang, mudah dipindah.'],
-  ['Wobbler', 'Papan kecil bertangkai lentur yang bergoyang di tepi rak. Fungsinya menarik mata pada satu produk tertentu.'],
-  ['Shelf talker', 'Strip memanjang yang menempel di bibir rak, biasa memuat harga promo atau klaim produk.'],
-  ['Hanging mobile', 'Materi promosi yang digantung di langit-langit untuk menandai zona produk dari kejauhan.'],
-  ['Tent card', 'Kartu lipat berdiri di meja. Umum dipakai di kafe, restoran, dan area tunggu.'],
+  ['Floor display / FSDU', 'Display berdiri di lantai untuk menampilkan produk dan kampanye di lorong atau area promosi. Ukuran, jumlah tingkat, dan kapasitas mengikuti berat serta jumlah produk.'],
+  ['Countertop / tabletop display', 'Display ringkas untuk meja kasir, meja layanan, atau area produk. Cocok untuk produk kecil, tester, dan materi promosi di dekat titik keputusan pembelian.'],
+  ['Product glorifier', 'Display khusus untuk menonjolkan satu produk unggulan. Dapat berupa pedestal, display meja, showcase, atau unit dengan pencahayaan sesuai desain.'],
+  ['Illuminated & backlit display', 'Display dengan LED atau panel backlit agar produk dan materi visual lebih terlihat. Sistem listrik dan akses kabel perlu direncanakan sejak gambar kerja.'],
+  ['Product pedestal / plinth', 'Dudukan atau podium untuk menempatkan satu produk, perangkat, atau mannequin sebagai focal point di toko maupun showroom.'],
+  ['Endcap & sidekick', 'Endcap ditempatkan di ujung gondola, sedangkan sidekick atau clip-strip memanfaatkan sisi rak untuk menambah titik komunikasi produk.'],
+  ['Standee & character standee', 'Panel berdiri bergambar produk, tokoh, atau maskot. Dapat dibuat sebagai media informasi, penunjuk, atau titik foto.'],
+  ['Wobbler & shelf talker', 'Materi komunikasi kecil di area rak untuk menarik perhatian dan menyampaikan pesan singkat, promo, atau informasi produk.'],
+  ['Shelf stopper & shelf strip', 'Elemen yang dipasang pada bibir atau sisi rak untuk memisahkan area produk, menonjolkan brand, dan menampilkan informasi.'],
+  ['Hanging mobile / dangler', 'Materi promosi yang digantung untuk memberi penanda zona produk dan menarik perhatian dari jarak lebih jauh.'],
+  ['Tent card & acrylic holder', 'Display meja untuk informasi, harga, menu, brosur, atau kartu nama. Bentuk dan ukuran mengikuti materi yang akan ditampilkan.'],
+  ['Window, wall & floor graphics', 'Grafis kampanye pada kaca etalase, dinding, atau lantai untuk memperluas komunikasi visual di dalam area retail.'],
 ];
 const faq = [
   { q: 'Apa kepanjangan POSM?', a: 'POSM adalah singkatan dari Point of Sale Material, yaitu materi promosi yang ditempatkan di titik penjualan — di dalam toko, di rak, atau di area kasir.' },
   { q: 'Apa bedanya POSM dan POP?', a: 'POP adalah singkatan dari Point of Purchase. Keduanya menunjuk hal yang sama dari sudut berbeda: POP menekankan titik pembelian, POSM menekankan materialnya. Di lapangan, kedua istilah dipakai bergantian.' },
   { q: 'Apa bedanya POSM dengan visual merchandising?', a: 'POSM adalah bendanya, visual merchandising adalah cara menatanya. Visual merchandising mengatur alur pengunjung, tata letak rak, dan penempatan produk; POSM adalah salah satu alat yang dipakai di dalam penataan tersebut.' },
+  { q: 'Apa itu product glorifier?', a: 'Product glorifier adalah display yang dirancang untuk menjadikan satu produk atau lini produk unggulan sebagai pusat perhatian. Bentuknya dapat berupa pedestal, tabletop display, showcase, atau display dengan pencahayaan.' },
+  { q: 'Apakah semua POSM harus menggunakan LED?', a: 'Tidak. Banyak display bekerja tanpa lampu. LED atau backlit dipilih jika memang membantu visibilitas produk dan tersedia akses listrik yang sesuai.' },
   { q: 'Berapa lama POSM biasanya dipakai?', a: 'Bergantung materialnya. POSM karton untuk kampanye musiman umumnya dirancang bertahan beberapa minggu sampai beberapa bulan. POSM akrilik, besi, atau kayu dibuat untuk pemakaian bertahun-tahun.' },
   { q: 'Material apa yang paling awet untuk POSM?', a: 'Akrilik dan besi paling tahan lama dan cocok untuk display permanen. Karton corrugated jauh lebih murah dan cepat diproduksi, sehingga tepat untuk kampanye jangka pendek atau roll-out ke banyak cabang sekaligus.' },
 ];
@@ -37,7 +43,7 @@ const faqSchema = {
 ---
 <Base
   title="Apa Itu POSM? Pengertian, Jenis, dan Contohnya"
-  description="Penjelasan lengkap POSM (Point of Sale Material): pengertian, bedanya dengan POP dan visual merchandising, jenis-jenisnya dari floor display sampai wobbler, serta cara memilih material yang tepat."
+  description="Penjelasan POSM (Point of Sale Material): perbedaan POP dan visual merchandising, floor display, counter display, product glorifier, display berlampu, materi rak, grafis retail, serta panduan memilih material."
   breadcrumbs={crumbs}
 >
   <Breadcrumbs items={crumbs} />
@@ -63,7 +69,7 @@ const faqSchema = {
     <div class="mx-auto max-w-6xl px-5 py-16">
       <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Jenis-jenis POSM</h2>
       <p class="mt-3 max-w-2xl text-slate-600">
-        Istilah di lapangan cukup banyak. Ini yang paling sering dipesan.
+        Format POSM dipilih berdasarkan lokasi penempatan, produk yang ditampilkan, jarak pandang, durasi kampanye, dan kebutuhan distribusi.
       </p>
       <dl class="mt-8 grid gap-5 md:grid-cols-2">
         {jenis.map(([nama, ket]) => (
@@ -124,6 +130,10 @@ const faqSchema = {
       <a href="/layanan/posm-display/"
           class="rounded-full border border-csk-gray/30 px-7 py-3 text-sm font-medium text-csk-amber-text transition-colors hover:bg-csk-gray/10">
         Lihat layanan POSM
+      </a>
+      <a href="/layanan/glorifier-product-display/"
+          class="rounded-full border border-csk-gray/30 px-7 py-3 text-sm font-medium text-csk-amber-text transition-colors hover:bg-csk-gray/10">
+        Lihat layanan Glorifier &amp; Product Display
       </a>
     </div>
   </Section>

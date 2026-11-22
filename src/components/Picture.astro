@@ -1,16 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 
-const images = import.meta.glob('/src/img/*.webp', { eager: true });
-const originalImages = import.meta.glob('/src/img/*.webp', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-}) as Record<string, string>;
+const images = import.meta.glob([
+  '/src/img/*.webp',
+  '!/src/img/booth-512-slow-move-bazaar.webp',
+  '!/src/img/slow-move-bazaar-signage.webp',
+  '!/src/img/slow-move-bazaar-booth-detail.webp',
+  '!/src/img/slow-move-bazaar-event-activity.webp',
+  '!/src/img/slow-move-bazaar-installation.webp',
+  '!/src/img/slow-move-bazaar-setup.webp',
+], { eager: true });
 
 const { name, alt, sizes, class: klass = '', loading = 'lazy', fetchpriority } = Astro.props;
-const mod = images[`/src/img/${name}.webp`];
-if (!mod) throw new Error(`Gambar tidak ditemukan: src/img/${name}.webp`);
 
 const preserveOriginal = [
   'booth-512-slow-move-bazaar',
@@ -21,10 +22,12 @@ const preserveOriginal = [
   'slow-move-bazaar-setup',
 ].includes(name);
 
-const originalSrc = originalImages[`/src/img/${name}.webp`];
-if (preserveOriginal && !originalSrc) {
-  throw new Error(`File WebP original tidak ditemukan: src/img/${name}.webp`);
+const mod = images[`/src/img/${name}.webp`];
+if (!preserveOriginal && !mod) {
+  throw new Error(`Gambar tidak ditemukan: src/img/${name}.webp`);
 }
+
+const originalSrc = `/img/${name}.webp`;
 ---
 
 {preserveOriginal ? (

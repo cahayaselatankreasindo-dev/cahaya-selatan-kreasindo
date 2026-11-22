@@ -51,6 +51,7 @@ export const products = [
   { group: 'Acrylic Display & Counter Accessories', items: ['Acrylic product stand / riser', 'Brochure & leaflet holder', 'Menu holder & tent card', 'Name card holder', 'Take-one box / leaflet dispenser', 'Price tag & information holder', 'Acrylic box / cover display', 'Counter organizer & tray'] },
   { group: 'Rak Display & Gondola', items: ['Gondola supermarket single & double', 'Gondola branding & endcap', 'Rak display toko / product bay', 'Dress-up gondola & header panel', 'Shelf divider, pusher & stopper', 'Pegboard / slatwall accessories', 'Sidekick & clip-strip fixture', 'Ambalan akrilik, kaca & kayu'] },
   { group: 'Neon Box, Signage & Graphics', items: ['Neon box & light box', 'Huruf timbul LED', 'Papan nama & totem', 'Wayfinding & directional signage', 'Window graphics / etalase', 'Wall graphics / wall wrap', 'Floor graphics / floor decal', 'Branding panel & backlit graphics'] },
+  { group: 'Digital Printing & Large-Format Graphics', items: ['Stiker dan vinyl printing', 'Banner & poster', 'Backlit film / Duratrans', 'Window graphics / etalase', 'Wall graphics / wall wrap', 'Floor graphics / floor decal', 'Panel branding & event backdrop graphics', 'Cutting sticker / contour cut'] },
   { group: 'In-Store Branding & Campaign Kits', items: ['Window display & retail display zone', 'Store build-up & brand zone', 'Dekorasi promosi dan musiman', 'Campaign kit per outlet', 'Packing dan labeling per lokasi', 'Distribusi serta instalasi sesuai lingkup proyek'] },
   { group: 'Material & Finishing Custom', items: ['Akrilik bening, susu & warna', 'PVC board & foamboard', 'Karton duplex & corrugated', 'Multipleks, MDF & HMR', 'Besi, hollow & metal finishing', 'Kombinasi akrilik, kayu, metal, grafis & LED'] },
   { group: 'Peralatan Event untuk Dijual', items: ['Kursi', 'Meja', 'Tenda', 'Stand booth'] },
@@ -333,9 +334,9 @@ export const serviceDetails = [
     title: 'Jasa Pembuatan Neon Box, Huruf Timbul & Papan Nama',
     metaTitle: 'Jasa Pembuatan Neon Box & Huruf Timbul',
     description:
-      'Signage & neon box Jakarta: neon box, huruf timbul, papan nama toko, dan signage arah di Tangerang Selatan dan Jabodetabek. Material tahan cuaca, dipasang oleh tim sendiri.',
+      'Produksi signage, neon box, digital printing, dan large-format graphics di Tangerang Selatan: huruf timbul, light box, stiker, banner, serta grafis window, wall, dan floor. Material, finishing, dan pemasangan disesuaikan dengan media serta kondisi lokasi.',
     lead:
-      'Kami membuat neon box, huruf timbul, papan nama, dan signage arah untuk toko, kantor, klinik, gudang, serta area dalam gedung.',
+      'Kami mengerjakan neon box, huruf timbul, papan nama, serta grafis cetak skala besar untuk toko, kantor, retail, dan event—mulai dari stiker, banner, backlit graphic, sampai aplikasi pada kaca, dinding, dan lantai.',
     intro: [
       'Kami mengukur bidang dan kondisi lokasi sebelum menentukan ukuran, material, rangka, serta sistem pencahayaan yang diperlukan.',
       'Produksi dilakukan di workshop, kemudian dikirim dan dipasang oleh tim sesuai akses lokasi dan jadwal pekerjaan.',
@@ -345,6 +346,7 @@ export const serviceDetails = [
       groups: [
         { name: 'Bercahaya', list: ['Neon box akrilik', 'Neon box kain frontlite', 'Huruf timbul LED front lit', 'Huruf timbul back lit (halo)', 'Neon flex custom', 'Light box menu & panel'] },
         { name: 'Tanpa cahaya', list: ['Huruf timbul akrilik / stainless', 'Papan nama toko & kantor', 'Signage arah dan penanda ruang', 'Plang berdiri & totem', 'Stiker kaca & branding etalase', 'Papan nama akrilik meja'] },
+        { name: 'Digital Printing & Large-Format Graphics', list: ['Stiker dan vinyl printing', 'Banner & poster', 'Backlit film / Duratrans', 'Window graphics / etalase', 'Wall graphics / wall wrap', 'Floor graphics / floor decal', 'Panel branding & event backdrop', 'Cutting sticker / contour cut'] },
         { name: 'Material', list: ['Akrilik susu & bening', 'Stainless hairline & mirror', 'Galvanil finishing duco', 'Modul LED bergaransi', 'Rangka hollow galvanis', 'Frontlite untuk bidang lebar'] },
       ],
     },
@@ -353,11 +355,13 @@ export const serviceDetails = [
       { q: 'Berapa lama neon box bertahan?', a: 'Rangka dan panel dapat bertahan bertahun-tahun bila materialnya sesuai lokasi. Yang lebih dulu menua adalah komponen elektriknya — modul LED dan power supply — dan itu memang bagian yang dirancang untuk bisa diganti.' },
       { q: 'Apakah bisa memperbaiki neon box yang sudah ada?', a: 'Bisa, sepanjang rangkanya masih layak. Perbaikan umum berupa penggantian modul LED yang mati, power supply, atau panel akrilik yang menguning.' },
       { q: 'Apakah mengurus izin pemasangan reklame?', a: 'Papan nama yang menempel di bangunan usaha sendiri umumnya berbeda perlakuan dengan reklame komersial di ruang publik. Kami siapkan gambar teknis untuk keperluan pengajuan, sedangkan perizinannya diurus oleh pemilik usaha sesuai ketentuan daerah setempat.' },
+      { q: 'Apakah menerima digital printing saja tanpa pemasangan signage?', a: 'Kebutuhan cetak stiker, vinyl, banner, poster, dan grafis bidang besar dapat dibahas terpisah. Penawaran mengikuti jenis media, ukuran, jumlah, finishing, file artwork, serta kebutuhan aplikasi di lokasi.' },
     ],
     scope: [
       'Survei lokasi dan ukur area pemasangan signage.',
       'Desain menyesuaikan brand guideline atau buat dari nol.',
       'Produksi huruf timbul, neon box LED, atau signage sesuai jenis.',
+      'Cetak large-format graphics, finishing, dan aplikasi pada media atau lokasi sesuai brief.',
       'Quality check sebelum kirim — pastikan cahaya merata, huruf rapi.',
       'Instalasi di lokasi dengan tim berpengalaman, termasuk kabel dan kelistrikan.',
     ],

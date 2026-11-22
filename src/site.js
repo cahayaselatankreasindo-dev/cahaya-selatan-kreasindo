@@ -130,6 +130,18 @@ export const serviceDetails = [
       'Lingkup POSM mencakup display meja dan lantai, product glorifier, display berlampu, materi komunikasi rak, standee, serta grafis kampanye. Bentuk dan material dipilih berdasarkan ukuran produk, lokasi penempatan, beban, serta durasi pemakaian.',
       'Untuk kebutuhan beberapa outlet, spesifikasi dan finishing dapat dijadikan satu acuan produksi. Packing per lokasi, distribusi, dan instalasi dibahas sesuai jumlah cabang serta lingkup proyek.',
     ],
+    visualsTitle: 'Contoh jenis POSM dan display promosi',
+    visualsIntro: 'Lihat beberapa bentuk display dan materi promosi yang pernah dikerjakan CSK. Foto pada bagian ini merupakan dokumentasi pekerjaan yang relevan dengan kategori masing-masing.',
+    visuals: [
+      { title: 'Floor-standing display / FSDU', type: 'Dokumentasi proyek CSK', image: 'floor-display-custom-evo-pet-food', alt: 'Floor display EVO Pet Food untuk minimarket', note: 'Display lantai untuk menempatkan produk dan komunikasi brand di area retail.' },
+      { title: 'Countertop & acrylic display', type: 'Dokumentasi proyek CSK', image: 'display-akrilik-custom-line-friends', alt: 'Display akrilik custom Line Friends', note: 'Display akrilik untuk aktivasi dan penataan produk di area penjualan.' },
+      { title: 'Retail promotional display', type: 'Dokumentasi proyek CSK', image: 'promotional-display-custom-bioxine', alt: 'Promotional display custom Bioxsine untuk retail', note: 'Display promosi custom untuk meningkatkan visibilitas produk di toko.' },
+      { title: 'Light box & illuminated display', type: 'Dokumentasi proyek terkait', image: 'display-light-box-custom-kredivo', alt: 'Display light box custom Kredivo', note: 'Contoh display berlampu dari portofolio CSK; foto ini bukan klaim proyek glorifier khusus.' },
+      { title: 'Shelf display & gondola branding', type: 'Dokumentasi proyek CSK', image: 'dress-up-gondola-supermarket-gentle-gen', alt: 'Dress-up gondola supermarket Gentle Gen', note: 'Branding rak dan gondola untuk memperkuat tampilan produk pada area retail.' },
+      { title: 'Standee promosi', type: 'Dokumentasi proyek CSK', image: 'standee-custom-potens-siap-kirim', alt: 'Standee custom Potens siap dikirim', note: 'Standee custom sebagai media komunikasi promosi di titik penjualan atau event.' },
+      { title: 'Mini tabletop retail display', type: 'Dokumentasi proyek CSK', image: 'rak-mini-display-meja-custom-happy-cat', alt: 'Rak mini display meja custom Happy Cat', note: 'Display berukuran ringkas untuk penempatan di meja atau counter.' },
+      { title: 'Retail activation display', type: 'Dokumentasi proyek CSK', image: 'rak-display-activation-custom-healthcare', alt: 'Rak display activation custom healthcare', note: 'Display untuk aktivasi dan kebutuhan promosi produk di area retail atau event.' },
+    ],
     items: {
       title: 'Jenis POSM yang kami produksi',
       groups: [
@@ -181,6 +193,15 @@ export const serviceDetails = [
     intro: [
       'Glorifier dapat dibuat sebagai display meja, podium produk, pedestal, atau showcase dengan elemen akrilik, panel grafis, dan pencahayaan. Bentuk akhirnya mengikuti karakter produk serta cara pelanggan melihatnya di toko atau area promosi.',
       'Sebelum produksi, ukuran dan berat produk, titik penempatan, kebutuhan akses listrik, durasi pemakaian, serta metode pengiriman perlu ditinjau. Integrasi LED, cover, dan konstruksi khusus mengikuti kelayakan teknis dan persetujuan gambar kerja.',
+    ],
+    visualsTitle: 'Pilihan bentuk product glorifier',
+    visualsIntro: 'Empat gambar berikut adalah ilustrasi konsep untuk membantu membayangkan opsi bentuk display. Gambar konsep bukan foto proyek atau bukti bahwa desain tersebut sudah pernah diproduksi CSK. Foto referensi proyek terkait ditampilkan terpisah.',
+    visuals: [
+      { title: 'Tabletop LED Glorifier', type: 'Ilustrasi konsep', imageSrc: '/assets/product-concepts/tabletop-glorifier-led.svg', alt: 'Ilustrasi konsep tabletop LED glorifier dengan panel belakang dan pencahayaan LED', note: 'Display meja dengan pencahayaan untuk menonjolkan satu produk utama.' },
+      { title: 'Acrylic Dome Showcase', type: 'Ilustrasi konsep', imageSrc: '/assets/product-concepts/acrylic-dome-showcase.svg', alt: 'Ilustrasi konsep acrylic dome showcase dengan cover transparan', note: 'Showcase dengan cover transparan untuk melindungi dan menonjolkan produk.' },
+      { title: 'Product Pedestal & Riser', type: 'Ilustrasi konsep', imageSrc: '/assets/product-concepts/product-pedestal-riser.svg', alt: 'Ilustrasi konsep product pedestal dan riser bertingkat', note: 'Pedestal dan riser bertingkat untuk mengatur tinggi serta fokus tampilan produk.' },
+      { title: 'Multi-tier Backlit Display', type: 'Ilustrasi konsep', imageSrc: '/assets/product-concepts/multi-tier-backlit-display.svg', alt: 'Ilustrasi konsep multi-tier backlit display dengan panel bercahaya', note: 'Display bertingkat dengan panel belakang dan pencahayaan sebagai aksen visual.' },
+      { title: 'Light box display', type: 'Dokumentasi proyek terkait', image: 'display-light-box-custom-kredivo', alt: 'Display light box custom Kredivo dari portofolio CSK', note: 'Dokumentasi light box yang pernah dikerjakan CSK; bukan studi kasus glorifier khusus.' },
     ],
     heroAlt: 'Display akrilik custom Line Friends sebagai contoh pekerjaan display produk CSK',
     samplesTitle: 'Contoh display produk terkait',

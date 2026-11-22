@@ -1,3 +1,10 @@
+## 2026-11-22 - Katalog produk dilengkapi referensi visual
+
+- Menambahkan foto referensi pada seluruh 10 kelompok katalog di halaman layanan.
+- Foto berasal dari dokumentasi portofolio dan aset CSK yang sudah ada, bukan mengambil foto proyek Quickprint atau kompetitor.
+- Setiap foto diberi alt text dan catatan konteks; foto display berlampu dan standee diberi keterangan agar tidak diklaim sebagai proyek glorifier atau dokumentasi proses mesin cetak.
+- Setiap kartu kategori ditautkan ke halaman layanan yang relevan.
+
 ## 2026-11-22 - Digital printing & large-format graphics ditambahkan ke katalog
 
 - Menambahkan kategori digital printing dan large-format graphics: stiker/vinyl, banner, poster, backlit film, window graphics, wall wrap, floor decal, panel branding, dan cutting sticker.

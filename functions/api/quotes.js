@@ -16,12 +16,15 @@ export async function onRequestPost({ request, env }) {
   const requestOrigin = new URL(request.url).origin;
   if (origin && origin !== requestOrigin) return json({ ok: false, message: 'Origin tidak diizinkan.' }, 403);
   if (!request.headers.get('content-type')?.toLowerCase().includes('application/json')) return json({ ok: false, message: 'Format permintaan tidak didukung.' }, 415);
-  const contentLength = Number(request.headers.get('content-length') || 0);
-  if (contentLength > 20_000) return json({ ok: false, message: 'Data permintaan terlalu besar.' }, 413);
   if (!env.DB || !env.QUOTE_RATE_LIMIT_SECRET) return json({ ok: false, message: 'Sistem penawaran belum siap.' }, 503);
 
   let body;
-  try { body = await request.json(); } catch { return json({ ok: false, message: 'Data formulir tidak valid.' }, 400); }
+  try {
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).byteLength > 20_000) return json({ ok: false, message: 'Data permintaan terlalu besar.' }, 413);
+    body = JSON.parse(raw);
+  } catch { return json({ ok: false, message: 'Data formulir tidak valid.' }, 400); }
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ ok: false, message: 'Data formulir tidak valid.' }, 400);
   if (clean(body.website, 200)) return new Response(null, { status: 204 });
   const startedAt = Number(body.formStartedAt || 0);
   if (!Number.isFinite(startedAt) || startedAt <= 0 || Date.now() - startedAt < 1200 || Date.now() - startedAt > 86_400_000) {
@@ -48,8 +51,8 @@ export async function onRequestPost({ request, env }) {
   }
 
   const ip = request.headers.get('CF-Connecting-IP');
-  if (ip) {
-    const ipHash = await hashIp(ip, env.QUOTE_RATE_LIMIT_SECRET);
+  const ipHash = ip ? await hashIp(ip, env.QUOTE_RATE_LIMIT_SECRET) : null;
+  if (ipHash) {
     const day = new Date().toISOString().slice(0, 10);
     const rate = await env.DB.prepare(`INSERT INTO quote_rate_limits (ip_hash, window_day, request_count)
       VALUES (?, ?, 1)
@@ -75,7 +78,7 @@ export async function onRequestPost({ request, env }) {
     productSlug || null, productName, serviceName || null, clean(body.size, 120) || null,
     clean(body.quantity, 60) || null, clean(body.material, 100) || null, clean(body.finishing, 100) || null,
     clean(body.location, 160) || null, clean(body.deadline, 100) || null, clean(body.notes, 2000) || null,
-    referenceName, referenceMime, referenceSize, sourceUrl || null, ip ? await hashIp(ip, env.QUOTE_RATE_LIMIT_SECRET) : null, now
+    referenceName, referenceMime, referenceSize, sourceUrl || null, ipHash, now
   );
   const history = env.DB.prepare(`INSERT INTO quote_status_history (id, quote_id, from_status, to_status, changed_by, note)
     VALUES (?, ?, NULL, 'new', 'system', 'Permintaan dibuat melalui formulir website')`).bind(crypto.randomUUID(), id);

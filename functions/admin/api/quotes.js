@@ -24,7 +24,7 @@ export async function onRequestGet({ request, env }) {
   }
   if (query) {
     where.push('(contact_name LIKE ? OR contact_phone LIKE ? OR contact_email LIKE ? OR company LIKE ? OR product_name LIKE ?)');
-    const like = '%' + query.replace(/[\\%_]/g, '\\$&') + '%';
+    const like = '%' + query + '%';
     params.push(like, like, like, like, like);
   }
   const whereSql = where.length ? ' WHERE ' + where.join(' AND ') : '';

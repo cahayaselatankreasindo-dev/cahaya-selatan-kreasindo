@@ -45,30 +45,15 @@ export const waLink = (msg = 'Halo, saya ingin konsultasi kebutuhan display & bo
   `https://wa.me/${site.wa}?text=${encodeURIComponent(msg)}`;
 
 export const products = [
-  {
-    group: 'Event & Pameran',
-    items: ['Stand booth', 'Booth pameran custom', 'Backdrop & photo booth', 'Mini counter kasir', 'Panggung & podium'],
-  },
-  {
-    group: 'POSM & Display Promosi',
-    items: ['Floor display', 'Endcap display', 'Counter display', 'Standee & standing character', 'Wobbler', 'Shelf talker', 'Hanging mobile', 'Tent card', 'Acrylic stand'],
-  },
-  {
-    group: 'Rak Display & Gondola',
-    items: ['Rak display toko', 'Gondola supermarket', 'Gondola branding', 'Ambalan kaca & akrilik', 'Header logo rak', 'Divider & pusher'],
-  },
-  {
-    group: 'Neon Box & Signage',
-    items: ['Neon box akrilik', 'Neon box frontlite', 'Huruf timbul LED', 'Papan nama toko', 'Signage arah', 'Plang & totem', 'Stiker etalase'],
-  },
-  {
-    group: 'In-Store Branding',
-    items: ['Store build-up', 'Window display', 'Branding dinding & partisi', 'Dekorasi musiman', 'Penyeragaman tampilan cabang'],
-  },
-  {
-    group: 'Peralatan Event untuk Dijual',
-    items: ['Kursi', 'Meja', 'Tenda', 'Stand booth'],
-  },
+  { group: 'Event & Pameran', items: ['Booth pameran custom & modular', 'Booth aktivasi brand dan mall', 'Registration counter & mini counter', 'Backdrop & photo booth', 'Interactive photo point', 'Gate entrance / arch', 'Panggung display & podium', 'Display produk di dalam booth', 'Branding area dan venue graphics'] },
+  { group: 'POSM & Display Promosi', items: ['Floor-standing display / FSDU', 'Countertop & tabletop display', 'Endcap display', 'Sidekick / clip-strip display', 'Dump bin & pallet display', 'Standee & character standee', 'Wobbler, shelf talker & shelf stopper', 'Shelf strip / price rail', 'Hanging mobile / dangler', 'Tent card & header panel'] },
+  { group: 'Glorifier & Product Showcase', items: ['Product glorifier (LED / non-LED)', 'Illuminated tabletop display', 'Backlit & multi-sided display', 'Product pedestal / plinth', 'Product riser & tiered riser', 'Launch podium / product launch display', 'Acrylic dome / protective showcase', 'Mannequin & product stage', 'Mini product showcase cabinet'] },
+  { group: 'Acrylic Display & Counter Accessories', items: ['Acrylic product stand / riser', 'Brochure & leaflet holder', 'Menu holder & tent card', 'Name card holder', 'Take-one box / leaflet dispenser', 'Price tag & information holder', 'Acrylic box / cover display', 'Counter organizer & tray'] },
+  { group: 'Rak Display & Gondola', items: ['Gondola supermarket single & double', 'Gondola branding & endcap', 'Rak display toko / product bay', 'Dress-up gondola & header panel', 'Shelf divider, pusher & stopper', 'Pegboard / slatwall accessories', 'Sidekick & clip-strip fixture', 'Ambalan akrilik, kaca & kayu'] },
+  { group: 'Neon Box, Signage & Graphics', items: ['Neon box & light box', 'Huruf timbul LED', 'Papan nama & totem', 'Wayfinding & directional signage', 'Window graphics / etalase', 'Wall graphics / wall wrap', 'Floor graphics / floor decal', 'Branding panel & backlit graphics'] },
+  { group: 'In-Store Branding & Campaign Kits', items: ['Window display & retail display zone', 'Store build-up & brand zone', 'Dekorasi promosi dan musiman', 'Campaign kit per outlet', 'Packing dan labeling per lokasi', 'Distribusi serta instalasi sesuai lingkup proyek'] },
+  { group: 'Material & Finishing Custom', items: ['Akrilik bening, susu & warna', 'PVC board & foamboard', 'Karton duplex & corrugated', 'Multipleks, MDF & HMR', 'Besi, hollow & metal finishing', 'Kombinasi akrilik, kayu, metal, grafis & LED'] },
+  { group: 'Peralatan Event untuk Dijual', items: ['Kursi', 'Meja', 'Tenda', 'Stand booth'] },
 ];
 
 export const portfolio = [
@@ -137,19 +122,22 @@ export const serviceDetails = [
     title: 'Jasa Pembuatan POSM & Display Promosi',
     metaTitle: 'Jasa Pembuatan POSM (Point of Sale Material)',
     description:
-      'Posm manufacturer di Tangerang Selatan: floor display, counter display, standee, wobbler, shelf talker, dan acrylic stand sebagai display manufacturer Jakarta. Dikerjakan di workshop sendiri, dikirim dan dipasang untuk area Jabodetabek.',
+      'Produksi POSM dan POP display custom di Tangerang Selatan: floor display, counter display, product glorifier, display LED, standee, materi rak, dan acrylic display. Desain serta fabrikasi mengikuti spesifikasi produk dan kebutuhan outlet; pengiriman dan instalasi dibahas per proyek.',
     lead:
-      'POSM (Point of Sale Material) adalah materi promosi untuk area rak, kasir, dan titik penjualan. Kami membuatnya sesuai ukuran produk, kebutuhan kampanye, dan jumlah outlet.',
+      'CSK mengembangkan POSM dan POP display untuk area rak, meja kasir, zona promosi, serta peluncuran produk—mulai dari counter display dan floor display sampai product glorifier, display berlampu, dan materi komunikasi rak.',
     intro: [
-      'Kami memproduksi POSM untuk produk FMCG, perawatan diri, pet care, dan retail modern. Alurnya dimulai dari gambar kerja, dilanjutkan produksi di workshop Serpong, lalu pengiriman atau pemasangan di outlet.',
-      'Untuk kebutuhan banyak cabang, produksi dapat dilakukan dalam batch dengan acuan ukuran dan finishing yang sama.',
+      'Lingkup POSM mencakup display meja dan lantai, product glorifier, display berlampu, materi komunikasi rak, standee, serta grafis kampanye. Bentuk dan material dipilih berdasarkan ukuran produk, lokasi penempatan, beban, serta durasi pemakaian.',
+      'Untuk kebutuhan beberapa outlet, spesifikasi dan finishing dapat dijadikan satu acuan produksi. Packing per lokasi, distribusi, dan instalasi dibahas sesuai jumlah cabang serta lingkup proyek.',
     ],
     items: {
       title: 'Jenis POSM yang kami produksi',
       groups: [
-        { name: 'Floor Display & Rak', list: ['Floor display', 'Endcap display', 'Counter display', 'Mini counter', 'Standee & standing character', 'Tier display bertingkat'] },
-        { name: 'Materi rak', list: ['Wobbler', 'Shelf talker', 'Hanging mobile', 'Tent card', 'Header banner rak', 'Divider & pusher rak'] },
-        { name: 'Material yang dipakai', list: ['Akrilik bening & warna', 'Karton duplex & corrugated', 'PVC board', 'Multipleks finishing HPL / duco', 'Besi & hollow', 'Stiker cetak & laminasi'] },
+        { name: 'Counter, Floor & Retail Display', list: ['Countertop / tabletop display', 'Floor-standing display / FSDU', 'Endcap display', 'Mini counter', 'Sidekick / clip-strip display', 'Dump bin & pallet display', 'Tier display bertingkat'] },
+        { name: 'Product Glorifier & Launch Display', list: ['Product glorifier LED atau non-LED', 'Illuminated tabletop display', 'Backlit display', 'Product pedestal / plinth', 'Product riser bertingkat', 'Launch podium', 'Acrylic dome / cover showcase', 'Display multi-sisi'] },
+        { name: 'Materi Komunikasi Rak', list: ['Wobbler', 'Shelf talker', 'Shelf stopper', 'Shelf strip / price rail', 'Hanging mobile / dangler', 'Header panel rak', 'Divider & pusher rak'] },
+        { name: 'Acrylic Display & Sales Accessories', list: ['Acrylic product stand / riser', 'Brochure & leaflet holder', 'Take-one box', 'Menu holder & tent card', 'Name card holder', 'Price tag holder', 'Acrylic box / cover display'] },
+        { name: 'Graphics & Campaign Kit', list: ['Standee & character standee', 'Window graphics', 'Wall graphics', 'Floor graphics / decal', 'Panel branding promosi', 'Campaign kit dan packing per outlet'] },
+        { name: 'Material & Finishing', list: ['Akrilik bening, susu & warna', 'Karton duplex & corrugated', 'PVC board & foamboard', 'Multipleks, MDF / HMR', 'Besi & hollow', 'Grafis cetak, LED & kombinasi material'] },
       ],
     },
     faq: [
@@ -161,9 +149,9 @@ export const serviceDetails = [
     scope: [
       'Diskusi kebutuhan POSM dan channel placement (supermarket, minimarket, toko).',
       'Desain menyesuaikan brand guideline atau buat dari nol.',
-      'Produksi standee, display akrilik, wobbler, dan material promosi lain.',
-      'Quality check sebelum kirim.',
-      'Pengiriman ke toko, gudang, atau distributor Anda.',
+      'Produksi display meja/lantai, glorifier, acrylic display, materi rak, dan grafis kampanye sesuai spesifikasi yang disetujui.',
+      'Pemeriksaan ukuran, konstruksi, finishing, fungsi pencahayaan bila ada, dan kelengkapan unit.',
+      'Packing, pelabelan per lokasi, pengiriman, serta instalasi sesuai ruang lingkup penawaran.',
     ],
     areas: [
       { name: 'Jakarta', detail: 'Distribusi POSM ke supermarket, minimarket, dan toko retail wilayah Jakarta.' },
@@ -175,8 +163,59 @@ export const serviceDetails = [
       text: 'Produksi POSM custom untuk brand FMCG, kosmetik, dan retail di Indonesia. Klien kami termasuk Nutricell, Hanasui, dan lainnya.',
     },
     cat: 'POSM',
-    waMsg: 'Halo CSK, saya ingin minta penawaran produksi POSM.\n\nBrand: \nJenis display: \nUkuran: \nJumlah unit/outlet: \nLokasi pengiriman/instalasi: \nTarget waktu: ',
+    waMsg: 'Halo CSK, saya ingin minta penawaran POSM / POP display.\n\nBrand: \nJenis display (counter / floor / glorifier / graphics): \nUkuran produk dan display: \nJumlah unit / outlet: \nKebutuhan LED atau cover: \nLokasi pengiriman / instalasi: \nTarget waktu: ',
     images: ['display-akrilik-custom-line-friends', 'nomor-meja-akrilik-custom-teh-pucuk', 'display-light-box-custom-kredivo'],
+    assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
+  },
+  {
+    slug: 'glorifier-product-display',
+    icon: 'rak',
+    nav: 'Glorifier & Product Display',
+    title: 'Jasa Pembuatan Product Glorifier & Display Produk Custom',
+    metaTitle: 'Jasa Product Glorifier & Display Produk Custom | CSK',
+    description:
+      'Jasa pembuatan product glorifier dan display produk custom di Tangerang Selatan. Pilihan tabletop display, product pedestal, acrylic showcase, display LED atau non-LED, dan backlit display sesuai spesifikasi produk serta kebutuhan retail.',
+    lead:
+      'Product glorifier menempatkan satu produk unggulan sebagai pusat perhatian. CSK mengembangkan display meja, pedestal, showcase, dan display berlampu berdasarkan ukuran produk, identitas brand, serta lokasi penempatannya.',
+    intro: [
+      'Glorifier dapat dibuat sebagai display meja, podium produk, pedestal, atau showcase dengan elemen akrilik, panel grafis, dan pencahayaan. Bentuk akhirnya mengikuti karakter produk serta cara pelanggan melihatnya di toko atau area promosi.',
+      'Sebelum produksi, ukuran dan berat produk, titik penempatan, kebutuhan akses listrik, durasi pemakaian, serta metode pengiriman perlu ditinjau. Integrasi LED, cover, dan konstruksi khusus mengikuti kelayakan teknis dan persetujuan gambar kerja.',
+    ],
+    heroAlt: 'Display akrilik custom Line Friends sebagai contoh pekerjaan display produk CSK',
+    samplesTitle: 'Contoh display produk terkait',
+    sampleNote:
+      'Foto berikut adalah dokumentasi display akrilik, light box, dan floor display yang pernah dikerjakan CSK. Foto-foto ini merupakan contoh pekerjaan display terkait, bukan studi kasus product glorifier khusus.',
+    items: {
+      title: 'Jenis Glorifier & Product Display',
+      groups: [
+        { name: 'Product Glorifier & Launch Display', list: ['Product glorifier LED atau non-LED', 'Tabletop glorifier', 'Illuminated product display', 'Backlit display', 'Product launch podium', 'Display multi-sisi'] },
+        { name: 'Pedestal & Product Showcase', list: ['Product pedestal / plinth', 'Acrylic product riser', 'Tiered product riser', 'Acrylic dome / cover showcase', 'Mini product showcase cabinet', 'Mannequin & product stage'] },
+        { name: 'Countertop Display', list: ['Countertop / tabletop display', 'Display meja kasir', 'Acrylic product stand', 'Display box dan tray produk', 'Product information holder', 'Display kombinasi material'] },
+        { name: 'Material & Detail', list: ['Akrilik bening, susu & warna', 'MDF / HMR dan plywood', 'Besi, hollow & metal finishing', 'Panel grafis dan branding', 'LED dan backlit sesuai desain', 'Kombinasi akrilik, kayu, metal & grafis'] },
+      ],
+    },
+    faq: [
+      { q: 'Apa itu product glorifier?', a: 'Product glorifier adalah display yang dirancang untuk menonjolkan satu produk atau lini produk unggulan. Bentuknya dapat berupa pedestal, display meja, showcase, atau unit dengan pencahayaan dan panel branding.' },
+      { q: 'Apakah glorifier bisa menggunakan LED?', a: 'Bisa dirancang dengan LED atau tanpa pencahayaan. Penempatan lampu, power supply, jalur kabel, ventilasi, dan akses listrik perlu disesuaikan dengan bentuk display serta kondisi lokasi.' },
+      { q: 'Apakah display dapat dibuat dari akrilik, kayu, dan metal sekaligus?', a: 'Kombinasi material dapat dipertimbangkan jika mendukung fungsi dan tampilan. Pemilihan material akhir mengikuti ukuran, berat produk, bentang konstruksi, finishing, dan durasi pemakaian.' },
+      { q: 'Apa yang perlu disiapkan untuk meminta penawaran?', a: 'Siapkan foto dan dimensi produk, berat produk, ukuran area penempatan, referensi bentuk, jumlah unit, lokasi, kebutuhan LED atau cover, serta target waktu. Artwork atau brand guideline akan membantu proses desain.' },
+      { q: 'Apakah CSK menerima pesanan satu unit atau banyak outlet?', a: 'Jumlah dan metode produksi ditinjau berdasarkan desain, material, kebutuhan prototipe, serta biaya setup. Untuk beberapa outlet, packing dan distribusi per lokasi dapat dibahas dalam satu lingkup proyek.' },
+    ],
+    scope: [
+      'Diskusi fungsi display, ukuran dan berat produk, serta titik penempatan.',
+      'Pengembangan konsep, gambar kerja, dan sampel/prototipe bila disepakati.',
+      'Pemilihan material, finishing, grafis, dan sistem LED bila diperlukan.',
+      'Fabrikasi serta pemeriksaan dimensi, stabilitas, finishing, dan fungsi.',
+      'Packing, pengiriman, dan instalasi sesuai lokasi serta ruang lingkup penawaran.',
+    ],
+    areas: [
+      { name: 'Jakarta', detail: 'Konsultasi produksi dan kebutuhan display produk untuk toko, showroom, mall, serta area promosi di Jakarta.' },
+      { name: 'Tangerang Selatan', detail: 'Workshop CSK berada di Serpong, Tangerang Selatan; pembahasan spesifikasi dan jadwal produksi dilakukan melalui tim CSK.' },
+      { name: 'Jabodetabek', detail: 'Pengiriman dan instalasi dapat direncanakan untuk Bogor, Depok, Bekasi, dan Tangerang sesuai lingkup proyek.' },
+    ],
+    cat: 'POSM & Product Display',
+    waMsg: 'Halo CSK, saya ingin konsultasi product glorifier / display produk.\n\nBrand dan jenis produk: \nDimensi serta berat produk: \nJenis display (glorifier / pedestal / tabletop / LED): \nUkuran area penempatan: \nJumlah unit / outlet: \nLokasi pengiriman / instalasi: \nTarget waktu: \nReferensi desain: ',
+    images: ['display-akrilik-custom-line-friends', 'display-light-box-custom-kredivo', 'floor-display-custom-evo-pet-food', 'promotional-display-custom-bioxine', 'mini-counter-booth-custom-beco'],
     assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
   },
   {

@@ -1,3 +1,10 @@
+## 2026-11-23 - Visual detail POSM dan product glorifier
+
+- Menambahkan galeri subkategori POSM memakai foto portofolio CSK: floor display, acrylic display, promotional display, light box, gondola branding, standee, mini display, dan retail activation.
+- Menambahkan empat ilustrasi SVG konsep untuk tabletop LED glorifier, acrylic dome showcase, product pedestal/riser, dan multi-tier backlit display.
+- Menandai ilustrasi sebagai konsep dan membedakan foto proyek aktual dari referensi display terkait agar tidak menimbulkan klaim portofolio yang keliru.
+- Menampilkan galeri hanya pada halaman layanan yang memiliki visuals.
+
 ## 2026-11-22 - Katalog produk dilengkapi referensi visual
 
 - Menambahkan foto referensi pada seluruh 10 kelompok katalog di halaman layanan.

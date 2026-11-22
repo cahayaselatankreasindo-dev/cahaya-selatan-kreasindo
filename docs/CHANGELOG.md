@@ -5,9 +5,20 @@
 - Added all six photos to the Booth Pameran & Event service-page gallery.
 - Preserved the original 1200 × 800 WebP files through the existing `Picture.astro` component path.
 
+
+## 2026-11-22 - Mobile usability, reduced motion, dan build cleanup
+
+- Header mobile: tombol menu dan tautan navigasi memiliki target sentuh minimal 44 px serta indikator fokus keyboard.
+- Navigasi kategori portofolio memiliki target sentuh minimal 44 px dan indikator fokus.
+- Tombol WhatsApp melayang mempertahankan jarak minimum dari tepi layar, memperhitungkan safe area perangkat, dan menampilkan indikator fokus keyboard.
+- `global.css` menghormati `prefers-reduced-motion` dengan menonaktifkan smooth scrolling untuk pengguna yang memilih pengurangan gerakan.
+- Menghapus `scripts/generate-homepage-images.mjs` dan hook `predev`/`prebuild` setelah pencarian repo memastikan manifest dan folder `/_responsive/` yang dihasilkannya tidak dipakai oleh halaman.
+- Verifikasi Cloudflare Pages: build dan deploy sukses pada commit `cd2c41ce294cb9e435702a5c653641ed7b987fd1`.
+- Crawl produksi: 24 URL sitemap berhasil dibuka tanpa perubahan URL/redirect; 40 tautan internal mengarah ke 24 path yang seluruhnya terdaftar di sitemap.
+- Batas verifikasi: simulasi viewport perangkat dan pengukuran Lighthouse/Core Web Vitals belum dijalankan; perbaikan mobile di atas berdasarkan audit kode dan verifikasi deployment.
 # CHANGELOG.md - Cahaya Selatan Kreasindo
 
-> Hanya perubahan terverifikasi dari git log dan inspeksi 2026-09-13.
+> Perubahan dicatat setelah diverifikasi melalui git, Cloudflare Pages, dan pemeriksaan URL produksi.
 
 ## 2026-11-20 - Navigasi dan URL kanonis
 

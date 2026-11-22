@@ -1,6 +1,6 @@
 # DEVELOPMENT-ROADMAP.md - Cahaya Selatan Kreasindo
 
-> Status per 2026-09-13, berbasis bukti repo (bukan asumsi).
+> Status per 2026-11-22, berdasarkan inspeksi repo, deployment Cloudflare Pages, dan crawl URL produksi.
 
 ## PHASE 1 - FOUNDATION [COMPLETED]
 
@@ -13,7 +13,7 @@
 ## PHASE 2 - CORE WEBSITE [COMPLETED]
 
 - [COMPLETED] Homepage: hero 3-panel, layanan 6 kartu bergambar, portfolio 4 kategori (12 item), FAQ 6, CTA final
-- [COMPLETED] Header sticky + menu mobile, Footer kontak/workshop/legal
+- [COMPLETED] Header sticky + menu mobile; target sentuh 44 px, Footer kontak/workshop/legal
 - [COMPLETED] Lightbox native di 3 permukaan galeri
 - [COMPLETED] Palet `csk-*` + Montserrat-first di seluruh UI (grep 0 `brand-` di luar definisi token)
 
@@ -37,28 +37,30 @@
 ## PHASE 6 - SEO [IN PROGRESS]
 
 - [COMPLETED] Title/description/canonical/OG/Twitter per halaman, sitemap, robots, llms.txt, LocalBusiness+Breadcrumb+FAQ schema
-- [IN PROGRESS] Tagline/JSON-LD/footer masih sempit ("Event Booth & Exhibition Specialist")
-- [NOT STARTED] Keyword research formal, 404 kustom, audit Rich Results
+- [COMPLETED] Crawl 24 URL sitemap dan 40 tautan internal: seluruh 24 path internal terdaftar di sitemap, tanpa redirect mismatch pada URL yang diuji
+- [IN PROGRESS] Tagline/JSON-LD/footer masih perlu audit konsistensi copy
+- [NOT STARTED] Keyword research formal dan audit Rich Results
 
-## PHASE 7 - PERFORMANCE [NOT STARTED]
+## PHASE 7 - PERFORMANCE [IN PROGRESS]
 
-- [NOT STARTED] 183 file `public/assets` mentah (tanpa optimasi build) - risiko LCP. Opsi: kompres sumber atau pindah slot penting ke `astro:assets`
-- [NOT STARTED] Audit bobot font (Inter 8 file masih di-serve walau fallback)
+- [COMPLETED] Gambar utama dan galeri berbasis `Picture.astro` menggunakan `astro:assets` dengan varian responsif 400/800/1200 px; gambar hero memakai eager loading + fetch priority tinggi, gambar bawah lipatan lazy-loaded
+- [COMPLETED] Menghapus generator gambar responsif yang tidak memiliki consumer dan hook build/dev terkait
+- [IN PROGRESS] Audit visual mobile dan pengukuran Lighthouse/Core Web Vitals; belum ada hasil lab/field metric yang tervalidasi
 
-## PHASE 8 - ANALYTICS [NOT STARTED]
+## PHASE 8 - ANALYTICS [IN PROGRESS]
 
-- [NOT STARTED] Analytics, monitoring build, error tracking - tidak ada di repo
+- [COMPLETED] GA4 dipasang di `Base.astro`; event klik WhatsApp dan klik layanan dari artikel sudah memiliki handler
+- [IN PROGRESS] Validasi event di GA4 DebugView dan pemeriksaan duplikasi konversi
+- [NOT STARTED] Monitoring error frontend
 
 ## CURRENT PRIORITY
 
-Amankan working tree (2 commit belum di-push - keputusan user), lalu: hapus token
-`brand-*`, konsolidasikan 6 pemakaian `ink`, verifikasi logo/favicon, buang halaman
-uji + kode mati.
+Lanjutkan uji visual pada viewport 360 px dan 390 px serta ukur Core Web Vitals; setelah itu validasi event WhatsApp di GA4 DebugView dan sinkronisasi sumber data homepage/portofolio.
 
 ## NEXT 5 RECOMMENDED ACTIONS
 
-1. `npm run build` pasca-migrasi + cek visual tiap viewport (dampak: cegah regresi; mudah).
-2. Hapus `--color-brand-*` + migrasikan `ink`?`csk-black`; build ulang (dampak: tutup kebocoran palet).
-3. Hapus `test-assets.astro`, `ServiceIcon.astro`, `src/img/logo.webp` tak terpakai; putuskan nasib `data/` (dampak: repo bersih, build jujur).
-4. Verifikasi/ganti `logo.webp` (byte JFIF) + regenerasi `og-image.jpg` palet baru (dampak: favicon/OG/share benar).
-5. Update tagline `site.js` + footer copyright (butuh keputusan copy; berdampak SEO + positioning).
+1. Uji visual viewport 360 px dan 390 px pada perangkat/browser nyata; catat overflow, overlap, dan target sentuh.
+2. Jalankan Lighthouse/PageSpeed untuk mobile dan desktop; simpan skor LCP, INP, CLS, dan temuan aksesibilitas.
+3. Validasi event `klik_whatsapp` dan `klik_layanan` di GA4 DebugView.
+4. Sinkronkan sumber data `featuredPortfolio` dan `portfolio[]` agar homepage serta halaman portofolio konsisten.
+5. Audit sisa kode/aset yang benar-benar tidak digunakan sebelum menghapusnya.

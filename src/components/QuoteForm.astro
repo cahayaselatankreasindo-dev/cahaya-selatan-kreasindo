@@ -121,6 +121,15 @@ const { productName, serviceName, productSlug } = Astro.props;
         const result = await response.json();
         if (!response.ok || !result.ok) throw new Error(result.message || 'Permintaan belum dapat disimpan.');
         savedId = result.id;
+        const analytics = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+        if (typeof analytics === 'function') {
+          analytics('event', 'generate_lead', {
+            form_name: 'product_quote',
+            product_name: form.dataset.product || 'Belum dipilih',
+            service_name: form.dataset.service || 'Belum dipilih',
+            page_path: window.location.pathname
+          });
+        }
       } catch (error) {
         setStatus('Sistem pencatatan sedang tidak tersedia. Rincian tetap akan disiapkan ke WhatsApp, tetapi belum tercatat di dashboard CSK.');
       }
@@ -157,7 +166,27 @@ const { productName, serviceName, productSlug } = Astro.props;
           }
         }
       }
-      window.location.assign('https://wa.me/' + form.dataset.wa + '?text=' + encodeURIComponent(message));
+      const destination = 'https://wa.me/' + form.dataset.wa + '?text=' + encodeURIComponent(message);
+      const analytics = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+      if (typeof analytics === 'function') {
+        let navigated = false;
+        const navigate = () => {
+          if (navigated) return;
+          navigated = true;
+          window.location.assign(destination);
+        };
+        analytics('event', 'klik_whatsapp', {
+          link_url: destination,
+          link_text: 'Kirim Permintaan Penawaran',
+          page_path: window.location.pathname,
+          cta_location: 'quote_form',
+          event_callback: navigate,
+          event_timeout: 1000
+        });
+        window.setTimeout(navigate, 1200);
+      } else {
+        window.location.assign(destination);
+      }
     });
   });
 </script>

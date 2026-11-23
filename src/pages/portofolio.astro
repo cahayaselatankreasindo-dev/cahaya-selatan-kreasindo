@@ -20,6 +20,13 @@ const catGuide = {
   'POSM': '/blog/floor-display-vs-counter-display-posm/',
   'Neon Box & Signage': '/blog/panduan-neon-box-vs-huruf-timbul/',
 };
+const categoryMessages = {
+  'Booth & Pameran': 'Halo CSK, saya melihat portofolio booth dan pameran. Saya ingin konsultasi proyek serupa.',
+  'Rak Display': 'Halo CSK, saya melihat portofolio rak display. Saya ingin konsultasi kebutuhan rak atau gondola custom.',
+  'POSM': 'Halo CSK, saya melihat portofolio POSM. Saya ingin konsultasi display promosi untuk brand saya.',
+  'Neon Box & Signage': 'Halo CSK, saya melihat portofolio signage. Saya ingin konsultasi neon box atau huruf timbul.',
+  'Proses Produksi': 'Halo CSK, saya ingin konsultasi proses produksi dan custom fabrication.'
+};
 ---
 
 <Base
@@ -73,6 +80,11 @@ const catGuide = {
                 Panduan terkait →
               </a>
             )}
+            <a href={waLink(categoryMessages[cat] ?? 'Halo CSK, saya ingin konsultasi kebutuhan produksi.')}
+               target="_blank" rel="noopener" data-cta-location="portfolio_category"
+               class="inline-flex min-h-11 items-center text-sm font-semibold text-csk-amber-text underline-offset-4 hover:underline focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-csk-amber">
+              Diskusikan proyek serupa →
+            </a>
           </div>
         </div>
 

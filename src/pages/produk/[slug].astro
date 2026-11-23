@@ -4,12 +4,13 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Picture from '../../components/Picture.astro';
 import QuoteForm from '../../components/QuoteForm.astro';
 import WaIcon from '../../components/WaIcon.astro';
-import { productDetails, serviceDetails, waLink } from '../../site.js';
+import { productDetails, serviceDetails, portfolio, waLink } from '../../site.js';
 export function getStaticPaths() {
   return productDetails.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 const { p } = Astro.props;
 const service = serviceDetails.find((s) => s.slug === p.serviceSlug);
+const relatedPortfolio = p.image ? portfolio.filter((item) => item.img === p.image) : [];
 const crumbs = [{ href: '/produk/', label: 'Katalog Produk' }, { href: `/produk/${p.slug}/`, label: p.title }];
 const quoteMessage = `Halo CSK, saya ingin konsultasi ${p.title}.\\n\\nNama perusahaan/brand: \\nUkuran: \\nJumlah unit: \\nMaterial: \\nLokasi: \\nTarget waktu: `;
 const schema = { '@context':'https://schema.org', '@type':'Service', name:p.title, description:p.description, provider:{'@type':'LocalBusiness','@id':new URL('/#business',Astro.site).href}, areaServed:['Tangerang Selatan','Tangerang','Jakarta','Depok','Bogor','Bekasi'], url:new URL(`/produk/${p.slug}/`,Astro.site).href };
@@ -29,5 +30,5 @@ const schema = { '@context':'https://schema.org', '@type':'Service', name:p.titl
   </section>
   <section class="border-y border-csk-gray/20 bg-csk-gray/10"><div class="mx-auto max-w-6xl px-5 py-14"><h2 class="text-2xl font-bold tracking-tight text-csk-black">Hal yang perlu disiapkan sebelum produksi</h2><div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">{[['Dimensi','Ukuran produk dan ruang penempatan.'],['Beban','Berat produk dan jumlah yang akan dipajang.'],['Jumlah','Kebutuhan unit dan jumlah outlet.'],['Waktu & lokasi','Target selesai, pengiriman, dan instalasi.']].map(([title,text]) => <div class="border-t border-csk-amber pt-4"><h3 class="text-sm font-bold text-csk-black">{title}</h3><p class="mt-2 text-sm leading-relaxed text-csk-gray">{text}</p></div>)}</div><p class="mt-7 max-w-3xl text-xs leading-relaxed text-csk-gray">Daftar material dan finishing merupakan opsi awal pembahasan. Spesifikasi akhir, metode produksi, ketersediaan bahan, serta estimasi biaya ditetapkan setelah kebutuhan dan gambar kerja ditinjau tim CSK.</p></div></section>
   <QuoteForm productName={p.title} productSlug={p.slug} serviceName={service?.nav ?? p.category} />
-  <section class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-12 sm:flex-row sm:items-center sm:justify-between"><div><p class="text-xs font-bold uppercase tracking-[0.16em] text-csk-amber-text">Kategori Terkait</p><h2 class="mt-2 text-xl font-bold text-csk-black">{service?.nav ?? p.category}</h2></div><div class="flex flex-wrap gap-3">{service && <a href={`/layanan/${service.slug}/`} class="text-sm font-semibold text-csk-amber-text underline underline-offset-4">Lihat layanan terkait</a>}<a href="/produk/" class="text-sm font-semibold text-csk-amber-text underline underline-offset-4">Kembali ke katalog produk</a></div></section>
+  <section class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-12 sm:flex-row sm:items-center sm:justify-between"><div><p class="text-xs font-bold uppercase tracking-[0.16em] text-csk-amber-text">Kategori Terkait</p><h2 class="mt-2 text-xl font-bold text-csk-black">{service?.nav ?? p.category}</h2>{relatedPortfolio[0] && <a href={`/portofolio/#hasil-${relatedPortfolio[0].img}`} class="mt-3 inline-flex text-sm font-semibold text-csk-amber-text underline underline-offset-4">Lihat dokumentasi terkait: {relatedPortfolio[0].title}</a>}</div><div class="flex flex-wrap gap-3">{service && <a href={`/layanan/${service.slug}/`} class="text-sm font-semibold text-csk-amber-text underline underline-offset-4">Lihat layanan terkait</a>}<a href="/produk/" class="text-sm font-semibold text-csk-amber-text underline underline-offset-4">Kembali ke katalog produk</a></div></section>
 </Base>

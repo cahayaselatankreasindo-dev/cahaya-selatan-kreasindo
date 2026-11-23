@@ -1,3 +1,10 @@
+## 2026-11-24 - Correct service card imagery
+
+- Memisahkan foto kartu layanan POSM dan Glorifier agar tidak lagi memakai foto display BT21 yang sama.
+- Kartu POSM memakai dokumentasi POSM Hanasui; kartu Glorifier & Product Display memakai dokumentasi display akrilik Systane.
+- Memperbarui foto hero dan metadata gambar pada halaman detail kedua layanan agar konsisten.
+- Menghapus foto BT21 dari galeri referensi halaman Glorifier; galeri tetap menjelaskan bahwa foto proyek terkait bukan studi kasus glorifier khusus.
+
 ## 2026-11-24 - SEO metadata and sitemap cleanup
 
 - Memperjelas title dan meta description homepage agar menyebut layanan utama CSK dengan bahasa pencarian yang lebih natural.

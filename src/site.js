@@ -198,8 +198,12 @@ export const serviceDetails = [
     },
     cat: 'POSM',
     waMsg: 'Halo CSK, saya ingin minta penawaran POSM / POP display.\n\nBrand: \nJenis display (counter / floor / glorifier / graphics): \nUkuran produk dan display: \nJumlah unit / outlet: \nKebutuhan LED atau cover: \nLokasi pengiriman / instalasi: \nTarget waktu: ',
-    images: ['display-akrilik-custom-line-friends', 'nomor-meja-akrilik-custom-teh-pucuk', 'display-light-box-custom-kredivo'],
-    assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
+    images: ['floor-display-custom-kilau-nipis', 'display-akrilik-custom-line-friends', 'nomor-meja-akrilik-custom-teh-pucuk', 'display-light-box-custom-kredivo'],
+    cardImageSrc: '/assets/posm-hanasui/whatsapp-image-2023-10-01-at-6.24.43-pm.webp',
+    cardImageAlt: 'POSM display Hanasui yang terpasang di area retail',
+    heroImageSrc: '/assets/posm-hanasui/whatsapp-image-2023-10-01-at-6.24.43-pm.webp',
+    heroAlt: 'POSM display Hanasui yang terpasang di area retail',
+    assetImage: '/assets/posm-hanasui/whatsapp-image-2023-10-01-at-6.24.43-pm.webp',
   },
   {
     slug: 'glorifier-product-display',
@@ -224,10 +228,10 @@ export const serviceDetails = [
       { title: 'Multi-tier Backlit Display', type: 'Ilustrasi konsep', imageSrc: '/assets/product-concepts/multi-tier-backlit-display.svg', alt: 'Ilustrasi konsep multi-tier backlit display dengan panel bercahaya', note: 'Display bertingkat dengan panel belakang dan pencahayaan sebagai aksen visual.' },
       { title: 'Light box display', type: 'Dokumentasi proyek terkait', image: 'display-light-box-custom-kredivo', alt: 'Display light box custom Kredivo dari portofolio CSK', note: 'Dokumentasi light box yang pernah dikerjakan CSK; bukan studi kasus glorifier khusus.' },
     ],
-    heroAlt: 'Display akrilik custom Line Friends sebagai contoh pekerjaan display produk CSK',
+    heroAlt: 'Display produk akrilik Systane sebagai contoh pekerjaan product display CSK',
     samplesTitle: 'Contoh display produk terkait',
     sampleNote:
-      'Foto berikut adalah dokumentasi display akrilik, light box, dan floor display yang pernah dikerjakan CSK. Foto-foto ini merupakan contoh pekerjaan display terkait, bukan studi kasus product glorifier khusus.',
+      'Foto berikut adalah dokumentasi light box, floor display, promotional display, dan mini counter yang pernah dikerjakan CSK. Foto-foto ini merupakan contoh pekerjaan display terkait, bukan studi kasus product glorifier khusus.',
     items: {
       title: 'Jenis Glorifier & Product Display',
       groups: [
@@ -258,8 +262,11 @@ export const serviceDetails = [
     ],
     cat: 'POSM & Product Display',
     waMsg: 'Halo CSK, saya ingin konsultasi product glorifier / display produk.\n\nBrand dan jenis produk: \nDimensi serta berat produk: \nJenis display (glorifier / pedestal / tabletop / LED): \nUkuran area penempatan: \nJumlah unit / outlet: \nLokasi pengiriman / instalasi: \nTarget waktu: \nReferensi desain: ',
-    images: ['display-akrilik-custom-line-friends', 'display-light-box-custom-kredivo', 'floor-display-custom-evo-pet-food', 'promotional-display-custom-bioxine', 'mini-counter-booth-custom-beco'],
-    assetImage: '/assets/display-akrilik-custom/akrilik-kosmetik-produk-kecantikan-golden.webp',
+    images: ['display-light-box-custom-kredivo', 'floor-display-custom-evo-pet-food', 'promotional-display-custom-bioxine', 'mini-counter-booth-custom-beco'],
+    cardImageSrc: '/assets/display-akrilik-custom/rak-display-produk-cosmetic-akrilik.webp',
+    cardImageAlt: 'Display produk akrilik Systane untuk area retail',
+    heroImageSrc: '/assets/display-akrilik-custom/rak-display-produk-cosmetic-akrilik.webp',
+    assetImage: '/assets/display-akrilik-custom/rak-display-produk-cosmetic-akrilik.webp',
   },
   {
     slug: 'rak-display-gondola',

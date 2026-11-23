@@ -81,15 +81,20 @@ const serviceSchema = {
         </a>
       </div>
       <figure class="relative ml-4 overflow-hidden border border-white/10 bg-white/5 sm:ml-8">
-        <div class="aspect-[5/4]">
-          <Picture
-            name={s.images[0]}
-            alt={s.heroAlt ?? s.title}
-            loading="eager"
-            fetchpriority="high"
-            sizes="(min-width: 768px) 52vw, 100vw"
-            class="h-full w-full object-cover"
-          />
+        <div class="aspect-[5/4] bg-white">
+          {s.heroImageSrc ? (
+            <img src={s.heroImageSrc} alt={s.heroAlt ?? s.title} loading="eager" fetchpriority="high"
+                 decoding="async" class="h-full w-full object-contain" />
+          ) : (
+            <Picture
+              name={s.images[0]}
+              alt={s.heroAlt ?? s.title}
+              loading="eager"
+              fetchpriority="high"
+              sizes="(min-width: 768px) 52vw, 100vw"
+              class="h-full w-full object-cover"
+            />
+          )}
         </div>
         <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-csk-black/75 via-transparent to-transparent"></div>
         <figcaption class="absolute inset-x-0 bottom-0 p-5 sm:p-7">

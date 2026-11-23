@@ -1,3 +1,11 @@
+## 2026-11-24 - SEO metadata and sitemap cleanup
+
+- Memperjelas title dan meta description homepage agar menyebut layanan utama CSK dengan bahasa pencarian yang lebih natural.
+- Memperjelas title dan deskripsi katalog produk untuk POSM, product glorifier, dan acrylic display custom.
+- Memperkuat metadata unik halaman detail produk menggunakan deskripsi produk dan konteks layanan Jabodetabek.
+- Mengecualikan halaman internal `/admin/` dari sitemap publik. Halaman admin tetap memakai noindex.
+- Foto produk tidak diubah; pembaruan visual menunggu dokumentasi asli resolusi tinggi dari pemilik CSK.
+
 ## 2026-11-23 - Lead intake backend dan dashboard internal
 
 - Membuat D1 production dan preview pada lokasi utama APAC, masing-masing diikat ke Pages sebagai binding `DB`.

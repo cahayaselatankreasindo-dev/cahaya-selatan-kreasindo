@@ -15,7 +15,7 @@ const crumbs = [{ href: '/produk/', label: 'Katalog Produk' }, { href: `/produk/
 const quoteMessage = `Halo CSK, saya ingin konsultasi ${p.title}.\\n\\nNama perusahaan/brand: \\nUkuran: \\nJumlah unit: \\nMaterial: \\nLokasi: \\nTarget waktu: `;
 const schema = { '@context':'https://schema.org', '@type':'Service', name:p.title, description:p.description, provider:{'@type':'LocalBusiness','@id':new URL('/#business',Astro.site).href}, areaServed:['Tangerang Selatan','Tangerang','Jakarta','Depok','Bogor','Bekasi'], url:new URL(`/produk/${p.slug}/`,Astro.site).href };
 ---
-<Base title={p.title + ' Custom | Katalog Produk CSK'} description={p.short} breadcrumbs={crumbs}>
+<Base title={p.title + ' Custom | CSK'} description={`${p.description} Konsultasi desain, material, finishing, dan produksi custom untuk kebutuhan brand serta retail di Jabodetabek.`} breadcrumbs={crumbs}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Breadcrumbs items={crumbs} />
   <section class="relative isolate overflow-hidden bg-csk-black text-white">

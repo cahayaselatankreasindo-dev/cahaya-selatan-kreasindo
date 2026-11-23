@@ -77,3 +77,13 @@ Lanjutkan uji visual pada viewport 360 px dan 390 px serta ukur Core Web Vitals;
 - Public intake and admin endpoints are implemented in Pages Functions. Production behavior must be verified after the next deployment.
 - Admin data access remains fail-closed until Access application and Allow policy are configured.
 - R2 file storage remains blocked until account-level R2 activation.
+
+
+## SEO and conversion optimization (2026-11-24)
+
+- [COMPLETED] Add category-specific WhatsApp consultation paths on portfolio and product catalog pages.
+- [COMPLETED] Add related portfolio references from product detail pages where matching project documentation exists.
+- [COMPLETED] Track successful quote submissions as GA4 `generate_lead` and quote-form WhatsApp handoff as `klik_whatsapp`, without sending contact PII.
+- [COMPLETED] Refine homepage, catalog, and product detail metadata.
+- [COMPLETED] Exclude the internal admin route from the public sitemap.
+- [WAITING FOR OWNER] Replace product concept placeholders with original high-resolution CSK product photographs supplied by the owner.

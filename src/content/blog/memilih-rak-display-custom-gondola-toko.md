@@ -1,5 +1,5 @@
 ---
-title: "Rak Display Custom atau Gondola: Mana yang Tepat untuk Toko?"
+title: "Rak Display Custom vs Gondola: Pilih yang Tepat"
 description: "Panduan memilih rak display custom, gondola supermarket, dan endcap berdasarkan jenis produk, ukuran area, kapasitas, branding, dan rencana pemasangan."
 pubDate: 2026-10-30
 author: "Cahaya Selatan Kreasindo"

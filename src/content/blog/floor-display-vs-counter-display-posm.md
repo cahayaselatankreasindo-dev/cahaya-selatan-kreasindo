@@ -1,5 +1,5 @@
 ---
-title: "Floor Display vs Counter Display: Memilih POSM untuk Produk"
+title: "Floor vs Counter Display: Pilih POSM yang Tepat"
 description: "Panduan membedakan floor display, counter display, dan materi POSM lainnya berdasarkan ukuran produk, titik penempatan, durasi kampanye, serta jumlah outlet."
 pubDate: 2026-10-30
 author: "Cahaya Selatan Kreasindo"

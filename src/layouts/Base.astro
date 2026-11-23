@@ -16,7 +16,8 @@ const {
   waMessage,
 } = Astro.props;
 
-const full = title ? `${title} — ${site.name}` : site.name;
+const cleanTitle = title?.replace(/\s*(?:[|—]\s*(?:Cahaya Selatan Kreasindo|CSK))$/i, '');
+const full = title ? `${cleanTitle} | CSK` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
 

@@ -1,5 +1,5 @@
 ---
-title: "Rak Display Kecantikan di Minimarket: 5 Hal yang Perlu Dicek"
+title: "Rak Display Kosmetik Minimarket: 5 Hal Penting"
 description: "Panduan memilih rak display kosmetik dan skincare untuk area retail: ukuran produk, penempatan, material, branding, dan kesiapan produksi."
 pubDate: 2026-09-19
 updatedDate: 2026-10-30

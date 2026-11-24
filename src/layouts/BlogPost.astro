@@ -25,6 +25,7 @@ const related = (await getCollection('blog', ({ data }) => !data.draft))
 // Link each guide to documented CSK projects, not generic gallery thumbnails.
 // These project keys are verified against the existing portfolio in src/site.js.
 const projectImagesByArticle = {
+  'mini-counter-untuk-bazar': ['mini-counter-booth-custom-beco'],
   'checklist-brief-booth-pameran-custom': [
     'booth-pameran-custom-jakarta-jasa-tirta',
     'booth-pameran-custom-perfetto-jakarta',
